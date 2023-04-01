@@ -1548,7 +1548,11 @@ class Sand_Dollar extends Symbols{
     }
     getEffects(index,symbolsToShow){
         let gets = this.receiveEffectFromAdjacent(["Diver"],"+10",index,symbolsToShow);
-        return [gets[0]];
+        if(gets.length > 0){
+            return [gets[0]];
+        }else{
+            return [];
+        }
     }
 }
 class Sapphire extends Symbols{

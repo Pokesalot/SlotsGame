@@ -117,7 +117,6 @@ function spin() {
     }
   }
 
-  console.log(spinEffects);
   //spinEffects.sort((a,b) => a.to - b.to);
 
 // ************************************************ Get payouts, all items and board symbols affected and given pertinent effects
@@ -194,7 +193,7 @@ function FillShop(boardState){
       ind = Math.floor(Math.random() * AllSymbols.length)
       randItem = new AllSymbols[ind]
     }
-
+    offered.push(ind);
     GameState.ShopItems[i] = new randItem.constructor()
   }
 
