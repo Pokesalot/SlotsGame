@@ -1,6 +1,6 @@
 function GetClearProgress(){
   return {
-    PlayerSymbols : [new Present, new Present],
+    PlayerSymbols : [new Coin, new Cherry, new Pearl, new Flower, new Cat],
     PlayerItems : [],
     PlayerCoins : 5,
     Spins : 0,
