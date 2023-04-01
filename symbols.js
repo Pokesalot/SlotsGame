@@ -345,10 +345,6 @@ class Bounty_Hunter extends Symbols{ //Core
         return [...gives,...gets];
     }
 }
-//TODO
-class Bronze_Arrow extends Symbols{
-    
-}
 class Bubble extends Symbols{ //Core
     constructor(){
         super("Bubble","images/bubble.png",2,0,"Destroys itself after giving coins 3 times.");
