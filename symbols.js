@@ -977,7 +977,7 @@ class Honey extends Symbols{ //Core
 }
 class Hooligan extends Symbols{
     constructor(){
-        super("Hooligan","items/hooligan.png",2,1,"Destroys adjacent Urn Big Urn and Tomb. Gives Coin 6 for each Urn Big Urn and Tomb destroyed.")
+        super("Hooligan","images/hooligan.png",2,1,"Destroys adjacent Urn Big Urn and Tomb. Gives Coin 6 for each Urn Big Urn and Tomb destroyed.")
     }
     getEffects(index,symbolsToShow){
         let gives = this.giveEffectToAdjacent(["Urn","Big Urn","Tomb"],"destroy",index,symbolsToShow);

@@ -177,6 +177,7 @@ function ShowShop(){
 
 // Slight TODO, check for certain items that will aren't allowed given a player's items
 function FillShop(boardState){
+  let offered = [];
   for (let i=0; i<3; i++){
     let hasHighlander = false;
     for (let symbol=0; symbol < GameState.PlayerSymbols.length; symbol++){
@@ -187,9 +188,11 @@ function FillShop(boardState){
     shopButtons[i].disabled = false;
     itemRarity = GetRarity(boardState)
     
-    let randItem = new AllSymbols[Math.floor(Math.random() * AllSymbols.length)]
-    while(randItem.rarity != itemRarity || (hasHighlander && randItem.name == "Highlander")){
-      randItem = new AllSymbols[Math.floor(Math.random() * AllSymbols.length)]
+    let ind = Math.floor(Math.random() * AllSymbols.length)
+    let randItem = new AllSymbols[ind]
+    while(randItem.rarity != itemRarity || (hasHighlander && randItem.name == "Highlander") || offered.indexOf(ind) > -1){
+      ind = Math.floor(Math.random() * AllSymbols.length)
+      randItem = new AllSymbols[ind]
     }
 
     GameState.ShopItems[i] = new randItem.constructor()
