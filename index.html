@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Slot Machine Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
+  </head>
+  <body>
+    <header>
+      <h1>My Slot Machine Game</h1>
+      <div id="items-div"></div>
+      <div id="symbols-div"></div>
+      <h2 id="money-display"></h2>
+      <h2 id="rent-display"></h2>
+      <h2 id="spins-display"></h2>
+      <p>Instructions and other important information goes here</p>
+    </header>
+    <main>
+      <div id="tooltip" class="tooltip"></div>
+      <div class="reel-container">
+        <div class="reel">
+          <div class="symbol"><img id="symbol-0-0"></div>
+          <div class="symbol"><img id="symbol-0-1"></div>
+          <div class="symbol"><img id="symbol-0-2"></div>
+        </div>
+
+        <div class="reel">
+          <div class="symbol"><img id="symbol-1-0"></div>
+          <div class="symbol"><img id="symbol-1-1"></div>
+          <div class="symbol"><img id="symbol-1-2"></div>
+        </div>
+
+        <div class="reel">
+          <div class="symbol"><img id="symbol-2-0"></div>
+          <div class="symbol"><img id="symbol-2-1"></div>
+          <div class="symbol"><img id="symbol-2-2"></div>
+        </div>
+
+        <div class="reel">
+          <div class="symbol"><img id="symbol-3-0"></div>
+          <div class="symbol"><img id="symbol-3-1"></div>
+          <div class="symbol"><img id="symbol-3-2"></div>
+        </div>
+
+        <div class="reel">
+          <div class="symbol"><img id="symbol-4-0"></div>
+          <div class="symbol"><img id="symbol-4-1"></div>
+          <div class="symbol"><img id="symbol-4-2"></div>
+        </div>
+
+      </div>
+
+      <button class="spin-button" id="spin-button" onclick="spin()">Spin</button>
+      <button class="spin-button" id="restart-button" onclick="GameState = GetClearProgress();StartGame();" style="visibility: hidden;" disabled="true">Restart Game 😢</button>
+
+      <div id="shop">
+        <div class="panel" id="item1">
+          <img id="shopImage0" src="images/dog.png">
+          <h3 id="shopHeader0" >Item 1</h3>
+          <p id="shopPara0" >Description of Item 1.</p>
+          <button id="shopButton0" onclick="BuyItem(0)">Buy Item 1</button>
+        </div>
+        <div class="panel" id="item2">
+          <img id="shopImage1" src="images/dog.png">
+          <h3 id="shopHeader1" >Item 1</h3>
+          <p id="shopPara1" >Description of Item 1.</p>
+          <button id="shopButton1" onclick="BuyItem(1)">Buy Item 2</button>
+        </div>
+        <div class="panel" id="item3">
+          <img id="shopImage2" src="images/dog.png">
+          <h3 id="shopHeader2" >Item 1</h3>
+          <p id="shopPara2" >Description of Item 1.</p>
+          <button id="shopButton2" onclick="BuyItem(2)">Buy Item 3</button>
+        </div>
+      </div>
+
+    </main>
+  </body>
+  <script src="symbols.js"></script>
+  <script src="items.js"></script>
+  <script src="holdItemsSymbols.js"></script>
+  <script src="slots.js"></script>
+</html>
