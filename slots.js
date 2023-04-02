@@ -211,7 +211,7 @@ function FillShop(boardState){
 
 /////////////////////////////////////////////                 TODO
 function GetRarity(boardState){
-  return 0//[0,0,0,0,0,1,1,1,2,2,3][Math.floor(Math.random()*11)];
+  return [0,0,0,0,0,1,1,1,2,2,3][Math.floor(Math.random()*11)];
 }
 
 function BuyItem(index){
