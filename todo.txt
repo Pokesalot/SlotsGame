@@ -1,0 +1,22 @@
+Add Symbols
+- Frozen Fossil
+- Essence Capsule
+- Dove
+- Diver
+- Crab
+- Comedian
+- Chef
+- All Hexes
+- All Arrows
+
+Remake images
+- Milk
+- Cow ?
+
+Add Items
+- All Items
+
+Add visual elements
+- Shop pop up
+- Collection for effects
+- Symbols/Item stacking

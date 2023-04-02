@@ -33,37 +33,41 @@ button.spin-button {
   margin-top: 0;
 }
 
-.reel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 300px;
-  background-color: #ccc;
-  padding: 10px;
-}
-
 .reel-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  display: table;
+  margin: 0 auto;
+  border:1px solid #000;
+  width: 80%;
+  height: 100px;
+  max-height: 40%;
+}
+
+.reel {
+  display: inline-block;
+  margin: 0 auto;
+  background-color: #ccc;
+  width: 20%;
+  height: 100%;
+}
+
+.reel img {
+  display: block;
+  margin: 0 auto;
+  max-height: 100px;
+  height: 25%;
+  width: auto;
 }
 
 
-.symbol {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.symbol img {
-  max-width: 100%;
-  max-height: 100%;
-}
 
+
+.inline-image {
+  display: inline-block;
+  vertical-align: middle;
+  height: 1.75em; 
+  width: 1.75em;
+}
 
 
 #shop {
@@ -76,16 +80,11 @@ button.spin-button {
 
 .panel {
   display: inline-block;
-  width: 30%;
-  margin-right: 3%;
+  width: 33%;
   vertical-align: top;
 }
 
-.panel:last-child {
-  margin-right: 0;
-}
-
-.panel img {
+.panelimg {
   width: 100px;
   height: 100px;
   display: block;
@@ -96,15 +95,17 @@ button.spin-button {
 }
 
 .panel h3 {
-  margin-top: 10px;
   font-size: 1.2em;
   text-align: center;
 }
 
 .panel p {
-  margin-top: 10px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
   font-size: 1em;
   text-align: center;
+  display: inline-block;
 }
 
 .panel button {
@@ -127,22 +128,22 @@ button.spin-button {
 }
 
 /* Tooltip text */
-.tooltip .tooltiptext {
-  visibility: hidden;
+.tooltip span {
+  display:none;
   width: 120px;
   background-color: black;
   color: #fff;
   text-align: center;
   padding: 5px 0;
   border-radius: 6px;
-  display: inline-block;
  
   /* Position the tooltip text - see examples below! */
-  position: absolute;
   z-index: 1;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
-  visibility: visible;
+.tooltip:hover span {
+  display:block;
+  position:fixed;
+  overflow:hidden;
 }

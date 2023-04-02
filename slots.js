@@ -10,6 +10,8 @@ function GetClearProgress(){
     ForcedRarities: [],
     ShopItems : [new Empty, new Empty, new Empty],
     Destroyed : {},
+    canBuy: false,
+    canSpin: true,
     hasTester: false
   }
 }
@@ -53,11 +55,6 @@ const shopParas = [
   document.getElementById('shopPara1'),
   document.getElementById('shopPara2')
 ];
-const shopButtons = [
-  document.getElementById('shopButton0'),
-  document.getElementById('shopButton1'),
-  document.getElementById('shopButton2')
-];
 
 
 
@@ -67,7 +64,10 @@ StartGame();
 function spin() {
   if(GameState.hasTester){console.log("\n","---------------------------------------------------------------------------");}
   // Disable spin button during spin
-  spinButton.disabled = true;
+  if(!GameState.canSpin){
+    return 0;
+  }
+  GameState.canSpin = false;
   //Charge the player a coin to spin the wheel
   GameState.PlayerCoins -= GameState.CostToSpin; GameState.Spins++;
 
@@ -88,7 +88,7 @@ function spin() {
   let spinEffects = [];
 
   // Ensure there are 15 symbols in the player's hands, adding Empties as needed
-  for(let i=0; GameState.PlayerSymbols.length < 15;i++){
+  for(let i=0; GameState.PlayerSymbols.length < 20;i++){
     if(GameState.hasTester){console.log("Adding Empty");}
     GameState.PlayerSymbols.push(new Empty);
   }
@@ -103,7 +103,7 @@ function spin() {
   }
   //If the player has <15 symbols, we pad it with Empties.
   //If the player has more than 15 symbols, we only show the first 15 of them on the board.
-  symbolsToShow = symbolsToShow.slice(0,15);
+  symbolsToShow = symbolsToShow.slice(0,20);
   if(GameState.hasTester){console.log(`Symbols to show: ${symbolsToShow}`);}
 
 // **************************************************************************** Get effects, all items and board symbols affected
@@ -111,11 +111,13 @@ function spin() {
   //i is a location, 0 is top left and 14 is bottom right
   //Symbols to show is a shuffled array of indices pointing to where the symbol is in GameState.PlayerSymbols
   for (let i = 0; i < symbolsToShow.length; i++) {
-    const reel = Math.floor(i / 3);
-    const symbolIndex = i % 3;
+    const reel = Math.floor(i / 4);
+    const symbolIndex = i % 4;
     const image = document.getElementById(`symbol-${reel}-${symbolIndex}`);
     image.src = GameState.PlayerSymbols[symbolsToShow[i]].src;
+
     if(GameState.hasTester){console.log(`Getting effects for: ${GameState.PlayerSymbols[symbolsToShow[i]].name}`);}
+    
     let curEffects = GameState.PlayerSymbols[symbolsToShow[i]].getEffects(i,symbolsToShow);
     for (let i=0; i<curEffects.length; i++){
       spinEffects.push(curEffects[i])
@@ -141,6 +143,9 @@ function spin() {
     GameState.PlayerCoins += GameState.PlayerSymbols[symbolsToShow[i]].finalize(i, symbolsToShow);
   }
 
+  ShowSymbols(symbolsToShow);
+  ShowItems();
+
 // ******************************************************* Check effects for destroying/saving of symbols
   //Check all symbols for destruction or saving. Also triggers end-of-spin effects
   for (let sym = GameState.PlayerSymbols.length-1; sym >= 0; sym--){
@@ -157,24 +162,25 @@ function spin() {
     GameState.PlayerSymbols[sym].Destroy(destroy, save);
   }
 
-  ShowSymbols();
-  ShowItems();
+  
   moneyShow.innerText = `Coins: ${GameState.PlayerCoins}`;
   rentShow.innerText = `Rent Due: ${RentPayChecks[GameState.RentsPaid]}`
   spinsShow.innerText = `Spins to get it: ${RentSpinsChecks[GameState.RentsPaid]-GameState.Spins}`
+  FillShop(symbolsToShow);
+  GameState.canBuy = true;
+
+  
 
   if(!CheckForRent()){return;}
-
-  FillShop(symbolsToShow);
-  spinButton.disabled = false;
+  
+  GameState.canSpin = true;
 }
 
 function ShowShop(){
   for (let i=0; i<3; i++){
     shopImages[i].src = GameState.ShopItems[i].src;
-    shopHeaders[i].innerText = `Buy ${GameState.ShopItems[i].name}`;
-    shopParas[i].innerText = `Payout: ${GameState.ShopItems[i].payout}\n${GameState.ShopItems[i].description}`;
-    shopButtons[i].innerText = `Buy ${GameState.ShopItems[i].name}`;
+    shopHeaders[i].innerHTML = `Buy ${GameState.ShopItems[i].name}`;
+    shopParas[i].innerHTML = `<p>Pays ${GameState.ShopItems[i].payout} <br /> ${GameState.ShopItems[i].description}</p>`;
   }
 }
 
@@ -188,7 +194,6 @@ function FillShop(boardState){
         hasHighlander = true
       }
     }
-    shopButtons[i].disabled = false;
     itemRarity = GetRarity(boardState)
     
     let ind = Math.floor(Math.random() * AllSymbols.length)
@@ -206,11 +211,14 @@ function FillShop(boardState){
 
 /////////////////////////////////////////////                 TODO
 function GetRarity(boardState){
-  return [0,0,0,0,0,1,1,1,2,2,3][Math.floor(Math.random()*11)];
+  return 0//[0,0,0,0,0,1,1,1,2,2,3][Math.floor(Math.random()*11)];
 }
 
 function BuyItem(index){
-  for (let i=0; i<3; i++){shopButtons[i].disabled = true;}
+  if(!(GameState.canBuy)){
+    return 0;
+  }
+  GameState.canBuy = false;
   GameState.PlayerSymbols.push(new GameState.ShopItems[index].constructor());
   ShowItems();
   ShowSymbols();
@@ -248,26 +256,71 @@ function ShowItems(){
     symbolsDiv.innerHTML += `<img style="width: 50px;height: 50px;" src="${GameState.PlayerItems[i].src}"></img>`
   }
 }
-function ShowSymbols(){
+function ShowSymbols(symbolsToShow = []){
   symbolsDiv.innerHTML = "<h2>Symbols:</h2>"
+  //Get symbols that were spun
   let symbolHolds = [];
-  for (let i=0; i<GameState.PlayerSymbols.length; i++){
+  for (let i=0; i<symbolsToShow.length; i++){
     symbolHolds.push({
-      "payout":GameState.PlayerSymbols[i].payout,
-      "description":GameState.PlayerSymbols[i].description,
-      "src":GameState.PlayerSymbols[i].src,
-      "lastPayout":GameState.PlayerSymbols[i].lastPayout
+      "payout":GameState.PlayerSymbols[symbolsToShow[i]].payout,
+      "description":GameState.PlayerSymbols[symbolsToShow[i]].description,
+      "src":GameState.PlayerSymbols[symbolsToShow[i]].src,
+      "lastPayout":GameState.PlayerSymbols[symbolsToShow[i]].lastPayout
     })
   }
+
+  //Get symbols that were not spun but that are in the deck, potentially with stacking
+  let shownNames = [];
+  let stackedSymbols = [];
+  for (let i=0; i<GameState.PlayerSymbols.length; i++){
+    if (symbolsToShow.indexOf(i) > -1){
+      //We've added SymbolsToShow above
+      continue;
+    }
+
+    if(shownNames.indexOf(GameState.PlayerSymbols[i].name) > -1 && GameState.PlayerSymbols[i].canStack){
+      //If the symbol is already being shown from having been spun, or if it is already listed in shownNames and can stack into that
+      stackedSymbols[shownNames.indexOf(GameState.PlayerSymbols[i].name)].stack++;
+      continue;
+    }else{
+      stackedSymbols.push({
+        "payout":GameState.PlayerSymbols[i].payout,
+        "description":GameState.PlayerSymbols[i].description,
+        "src":GameState.PlayerSymbols[i].src,
+        "stack":1
+      })
+      shownNames.push(GameState.PlayerSymbols[i].name);
+    }
+  }
+
+
   symbolHolds.sort((a,b) => b.lastPayout - a.lastPayout);
-  for(let i=0; i<GameState.PlayerSymbols.length; i++){
+  for(let i=0; i<symbolHolds.length; i++){
     symbolsDiv.innerHTML += `
       <div class="tooltip">
-        <span class="tooltiptext">Pays ${symbolHolds[i].payout} <br /> ${symbolHolds[i].description}</span>
+        <span>${symbolHolds[i].payout} ${image("coin")} <br />${symbolHolds[i].description}</span>
         <img style="width: 50px;height: 50px;" src="${symbolHolds[i].src}"></img>
         <p style="display:inline">${symbolHolds[i].lastPayout}</p>
       </div>`
   }
+  symbolsDiv.innerHTML += "<br />";
+  for (let i=0; i<stackedSymbols.length; i++){
+    symbolsDiv.innerHTML += `
+      <div class="tooltip">
+        <span>${stackedSymbols[i].payout} ${image("coin")} <br />${stackedSymbols[i].description}</span>
+        <img style="width: 50px;height: 50px;" src="${stackedSymbols[i].src}"></img>
+        <p style="display:inline">${stackedSymbols[i].stack}</p>
+      </div>`
+  }
+  var tooltips = document.querySelectorAll('.tooltip span');
+  window.onmousemove = function (e) {
+      var x = (e.clientX + 25) + 'px',
+          y = (e.clientY - 25) + 'px';
+      for (var i = 0; i < tooltips.length; i++) {
+          tooltips[i].style.top = y;
+          tooltips[i].style.left = x;
+      }
+  };
 }
 
 function CreateEffect(to, from, effect){
@@ -280,26 +333,37 @@ function CreateEffect(to, from, effect){
 
 function GetAdjacentIndices(index){
   //It's like a switch but I don't care that much :P
+  /*
+  0 4  8 12 16
+  1 5  9 13 17
+  2 6 10 14 18
+  3 7 11 15 19
+  */
   return [
-    [1,3,4],//Top Left Corner
-    [0,2,3,4,5],
-    [1,4,5],//Bottom left corner
+    [1,4,5],//Top Left Corner
+    [0,2,4,5,6],
+    [1,3,5,6,7],
+    [2,6,7],//Bottom left corner
 
-    [0,1,4,6,7],
-    [0,1,2,3,5,6,7,8],
-    [1,2,4,7,8],
+    [0,1,5,8,9],
+    [0,1,2,4,6,8,9,10],
+    [1,2,3,5,7,9,10,11],
+    [2,3,6,10,11],
 
-    [3,4,7,9,10],
-    [3,4,5,6,8,9,10,11],
-    [4,5,7,10,11],
+    [4,5,9,12,13],
+    [4,5,6,8,10,12,13,14],
+    [5,6,7,9,11,13,14,15],
+    [6,7,10,14,15],
 
-    [6,7,10,12,13],
-    [6,7,8,9,11,12,13,14],
-    [7,8,10,13,14],
+    [8,9,13,16,17],
+    [8,9,10,12,14,16,17,18],
+    [9,10,11,13,15,17,18,19],
+    [10,11,14,18,19],
 
-    [9,10,13],
-    [9,10,11,12,14],
-    [10,11,13]
+    [12,13,17],
+    [12,13,14,16,18],
+    [13,14,15,17,19],
+    [14,15,18]
   ][index]
 }
 
@@ -326,3 +390,4 @@ function test(){
   GameState.PlayerSymbols.push(new Tester);
   GameState.hasTester = true;
 }
+

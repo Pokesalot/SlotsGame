@@ -1,3 +1,4 @@
+function image(name){return `<img class="inline-image" alt="${name}" style src="images/${name}.png"></img>`;}
 class Symbols {
     constructor(name, src, payout, rarity, description = ""){
         this.name = name;
@@ -6,6 +7,11 @@ class Symbols {
         this.rarity = rarity; //Common = 0; Uncommon = 1; Rare = 2; Very Rare = 3; Special = 4;
         this.state = 0;
         this.description = description;
+        if (description != ""){
+            this.description = "----------<br />" + this.description
+        }
+        
+        this.canStack = true;
 
         this.lastPayout = 0;
         
@@ -126,7 +132,7 @@ class Symbols {
 
 class Amethyst extends Symbols{ //Core
     constructor(){
-        super("Amethyst","images/amethyst.png",1,2,"When another Symbol makes this symbol give more gold, permanently gives 1 more gold.")
+        super("Amethyst","images/amethyst.png",1,2,`When another Symbol makes this symbol give more ${image("coin")}, permanently gives 1 more ${image("coin")}.`)
     }
     getPayout(effects){
         let gainedPerm = false;
@@ -141,7 +147,7 @@ class Amethyst extends Symbols{ //Core
 }
 class Anchor extends Symbols{ //Core
     constructor(){
-        super("Anchor","images/anchor.png",1,0,"Gives 4 more coins when in a corner.");
+        super("Anchor","images/anchor.png",1,0,`Gives 4 more ${image("coin")} when in a corner.`);
     }
     getEffects(index, symbolsToShow){
         if([0,2,12,14].indexOf(index)!=-1){
@@ -388,7 +394,7 @@ class Candy extends Symbols{ //Core
 }
 class Cat extends Symbols{ //Core
     constructor(){
-        super("Cat","images/cat.png",1,0,"Destroys adjacent Milk. Gives 9 Coins for each Milk destroyed.")
+        super("Cat","images/cat.png",1,0,`Destroys adjacent ${image("milk")}. Gives 9 ${image("coin")} for each ${image("milk")} destroyed.`)
         this.state = false; //Can be wildcard-like, this signifies it.
     }
     getEffects(index,symbolsToShow){
@@ -755,7 +761,7 @@ class Emerald extends Symbols{
 }
 class Empty extends Symbols{ //Core
     constructor(){
-        super("Empty","images/empty.png",0,4)
+        super("Empty","images/empty.png",0,4,`Gives 0 ${image("coin")}`)
     }
     getEffects(index,symbolsToShow){
         return this.getSelfDestructEffect();
