@@ -365,7 +365,7 @@ class Buffing_Capsule extends Symbols{ //Core
     }
     getEffects(index,symbolsToShow){
         let gives = this.giveEffectToAdjacent("*","*2",index,symbolsToShow);
-        return [...gives,this.getSelfDestructEffect()];
+        return [...gives,...this.getSelfDestructEffect()];
     }
 }
 class Card_Shark extends Symbols{ //Core
