@@ -9,7 +9,8 @@ function GetClearProgress(){
     RarityMulti: 1,
     ForcedRarities: [],
     ShopItems : [new Empty, new Empty, new Empty],
-    Destroyed : {}
+    Destroyed : {},
+    hasTester: false
   }
 }
 
@@ -64,6 +65,7 @@ let GameState = GetClearProgress();
 StartGame();
 
 function spin() {
+  if(GameState.hasTester){console.log("\n","---------------------------------------------------------------------------");}
   // Disable spin button during spin
   spinButton.disabled = true;
   //Charge the player a coin to spin the wheel
@@ -87,6 +89,7 @@ function spin() {
 
   // Ensure there are 15 symbols in the player's hands, adding Empties as needed
   for(let i=0; GameState.PlayerSymbols.length < 15;i++){
+    if(GameState.hasTester){console.log("Adding Empty");}
     GameState.PlayerSymbols.push(new Empty);
   }
 
@@ -101,6 +104,7 @@ function spin() {
   //If the player has <15 symbols, we pad it with Empties.
   //If the player has more than 15 symbols, we only show the first 15 of them on the board.
   symbolsToShow = symbolsToShow.slice(0,15);
+  if(GameState.hasTester){console.log(`Symbols to show: ${symbolsToShow}`);}
 
 // **************************************************************************** Get effects, all items and board symbols affected
   // Set the images on the reels based on the symbols
@@ -111,12 +115,13 @@ function spin() {
     const symbolIndex = i % 3;
     const image = document.getElementById(`symbol-${reel}-${symbolIndex}`);
     image.src = GameState.PlayerSymbols[symbolsToShow[i]].src;
+    if(GameState.hasTester){console.log(`Getting effects for: ${GameState.PlayerSymbols[symbolsToShow[i]].name}`);}
     let curEffects = GameState.PlayerSymbols[symbolsToShow[i]].getEffects(i,symbolsToShow);
     for (let i=0; i<curEffects.length; i++){
       spinEffects.push(curEffects[i])
     }
   }
-
+  if(GameState.hasTester){for(let i=0; i<spinEffects.length; i++){let to = GameState.PlayerSymbols[spinEffects[i].to].name;let from = GameState.PlayerSymbols[spinEffects[i].from].name; let eff = spinEffects[i].effect; console.log(`Spin Effects: ${from} => ${to} : ${eff}`)};}
   //spinEffects.sort((a,b) => a.to - b.to);
 
 // ************************************************ Get payouts, all items and board symbols affected and given pertinent effects
@@ -127,10 +132,12 @@ function spin() {
         myEffects.push(spinEffects[eff]);
       }
     }
+    if(GameState.hasTester){console.log(`Getting payout for: ${GameState.PlayerSymbols[symbolsToShow[i]].name}`);}
     GameState.PlayerCoins += GameState.PlayerSymbols[symbolsToShow[i]].getPayout(myEffects);
   }
 
   for (let i = 0; i<symbolsToShow.length; i++){//i is the location on the board, for positional math
+    if(GameState.hasTester){console.log(`Finalizing: ${GameState.PlayerSymbols[symbolsToShow[i]].name}`);}
     GameState.PlayerCoins += GameState.PlayerSymbols[symbolsToShow[i]].finalize(i, symbolsToShow);
   }
 
@@ -146,13 +153,10 @@ function spin() {
         save = true;
       }
     }
+    if(GameState.hasTester){console.log(`Destroying\t\t${GameState.PlayerSymbols[sym].name}, sending\t${destroy},\t${save}`);}
     GameState.PlayerSymbols[sym].Destroy(destroy, save);
   }
-  
-  if(GameState.HasTester){
-    GameState.PlayerSymbols.push(new AllSymbols[Math.floor(Math.random() * AllSymbols.length)]);
-    console.log(GameState.PlayerSymbols[GameState.PlayerSymbols.length -1]);
-  }
+
   ShowSymbols();
   ShowItems();
   moneyShow.innerText = `Coins: ${GameState.PlayerCoins}`;
@@ -196,7 +200,7 @@ function FillShop(boardState){
     offered.push(ind);
     GameState.ShopItems[i] = new randItem.constructor()
   }
-
+  
   ShowShop();
 }
 
@@ -316,4 +320,9 @@ function getThreshold(name){
     "Turtle":3
   };
   return thresholds[name];
+}
+
+function test(){
+  GameState.PlayerSymbols.push(new Tester);
+  GameState.hasTester = true;
 }
