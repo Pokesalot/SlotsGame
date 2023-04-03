@@ -931,6 +931,8 @@ class Frozen_Fossil extends Symbols{
         }
         if (this.state + totalRemoved > getThreshold("Frozen Fossil")){
             return this.getSelfDestructEffect();
+        }else{
+            return [];
         }
     }
     onDestroy(){
