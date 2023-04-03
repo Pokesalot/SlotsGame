@@ -1130,7 +1130,7 @@ class Martini extends Symbols{ //Core
 }
 class Matryoshka_Doll extends Symbols{
     constructor(){
-        super("Matryoshka Doll","images/matryoshka_1.png",0,1,`Destroys itself after 3 spins. Adds ${image("matryoshka_doll_2")} when destroyed.`);
+        super("Matryoshka Doll","images/matryoshka_1.png",0,1,`Destroys itself after 3 spins. Adds ${image("matryoshka_2")} when destroyed.`);
         this.state = 0;
     }
     getEffects(index,symbolsToShow){
@@ -1150,7 +1150,7 @@ class Matryoshka_Doll extends Symbols{
 }
 class Matryoshka_Doll_2 extends Symbols{
     constructor(){
-        super("Matryoshka Doll 2","images/matryoshka_2.png",1,4,`Destroys itself after 5 spins. Adds ${image("matryoshka_doll_3")} when destroyed.`);
+        super("Matryoshka Doll 2","images/matryoshka_2.png",1,4,`Destroys itself after 5 spins. Adds ${image("matryoshka_3")} when destroyed.`);
         this.state = 0;
     }
     getEffects(index,symbolsToShow){
@@ -1170,7 +1170,7 @@ class Matryoshka_Doll_2 extends Symbols{
 }
 class Matryoshka_Doll_3 extends Symbols{
     constructor(){
-        super("Matryoshka Doll 3","images/matryoshka_3.png",2,4,`Destroys itself after 7 spins. Adds ${image("matryoshka_doll_4")} when destroyed.`);
+        super("Matryoshka Doll 3","images/matryoshka_3.png",2,4,`Destroys itself after 7 spins. Adds ${image("matryoshka_4")} when destroyed.`);
         this.state = 0;
     }
     getEffects(index,symbolsToShow){
@@ -1190,7 +1190,7 @@ class Matryoshka_Doll_3 extends Symbols{
 }
 class Matryoshka_Doll_4 extends Symbols{
     constructor(){
-        super("Matryoshka Doll 4","images/matryoshka_4.png",3,4,`Destroys itself after 9 spins. Adds ${image("matryoshka_doll_5")} when destroyed.`);
+        super("Matryoshka Doll 4","images/matryoshka_4.png",3,4,`Destroys itself after 9 spins. Adds ${image("matryoshka_5")} when destroyed.`);
         this.state = 0;
     }
     getEffects(index,symbolsToShow){
