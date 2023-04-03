@@ -1165,8 +1165,8 @@ class Hex_of_Emptiness extends Symbols{
     getEffects(index,symbolsToShow){
         if (Math.random() < 0.3 && GameState.canSkip){ //If there's a fallback, turn off buying
             GameState.canBuy = false;
-            return [];
         }
+        return [];
     }
 }
 class Hex_of_Hoarding extends Symbols{
@@ -1176,8 +1176,8 @@ class Hex_of_Hoarding extends Symbols{
     getEffects(index,symbolsToShow){
         if (Math.random() < 0.3 && GameState.canBuy){ //If there's a fallback, turn off skipping
             GameState.canSkip = false;
-            return [];
         }
+        return [];
     }
 }
 class Hex_of_Midas extends Symbols{
