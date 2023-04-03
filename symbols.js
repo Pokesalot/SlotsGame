@@ -168,7 +168,7 @@ class Apple extends Symbols{ //Core
 }
 class Banana extends Symbols{ //Core
     constructor(){
-        super("Banana","images/banana.png",1,0,"Adds a Banana Peel when destroyed.");
+        super("Banana","images/banana.png",1,0,`Adds a ${image("banana_peel")} when destroyed.`);
     }
     onDestroy(){
         GameState.PlayerSymbols.push(new Banana_Peel);
@@ -176,7 +176,7 @@ class Banana extends Symbols{ //Core
 }
 class Banana_Peel extends Symbols{ //Core
     constructor(){
-        super("Banana Peel","images/banana_peel.png",1,0,"Destroys adjacent Thief. Destroys itself after.")
+        super("Banana Peel","images/banana_peel.png",1,0,`Destroys adjacent ${image("thief")}. Destroys itself after.`)
     }
     getEffects(index,symbolsToShow){
         let gives = this.giveEffectToAdjacent(["Thief"],"destroy",index,symbolsToShow);
@@ -188,7 +188,7 @@ class Banana_Peel extends Symbols{ //Core
 }
 class Bar_of_Soap extends Symbols{ //Core
     constructor(){
-        super("Bar of Soap","images/bar_of_soap.png",1,1,"Gives Bubble each spin. Destroys itself after giving coins 3 times.");
+        super("Bar of Soap","images/bar_of_soap.png",1,1,`Gives ${image("bubble")} each spin. Destroys itself after giving coins 3 times.`);
         this.state = 3
     }
     Destroy(destroy,save){
@@ -206,7 +206,7 @@ class Bar_of_Soap extends Symbols{ //Core
 }
 class Bartender extends Symbols{ //Core
     constructor(){
-        super("Bartender","images/bartender.png",3,2,"Has a 10% chance to add Beer, Wine, Martini, or Chemical Seven");
+        super("Bartender","images/bartender.png",3,2,`Has a 10% chance to add ${image("beer")}, ${image("wine")}, ${image("martini")}, or ${image("chemical_seven")}`);
     }
     getEffects(index,symbolsToShow){
         if(Math.random() < 0.1){
@@ -222,7 +222,7 @@ class Bartender extends Symbols{ //Core
 }
 class Bear extends Symbols{ //Core
     constructor(){
-        super("Bear","images/bear.png",2,1,"Destroys adjacent Honey, gives 40 coins for each Honey destroyed.")
+        super("Bear","images/bear.png",2,1,`Destroys adjacent ${image("honey")}, gives 40 ${image("coin")} for each ${image("honey")} destroyed.`)
     }
     getEffects(index, symbolsToShow){
         let gives = this.giveEffectToAdjacent(["Honey"], "destroy", index, symbolsToShow);
@@ -232,7 +232,7 @@ class Bear extends Symbols{ //Core
 }
 class Beastmaster extends Symbols{ //Core
     constructor(){
-        super("Beastmaster","images/beastmaster.png",2,2,"Adjacent Magpie Void_Creature Turtle Snail Sloth Oyster Owl Mouse Monkey Rabbit Goose Goldfish Dog Crab Chick Cat Bee Sand_Dollar Wolf Pufferfish Jellyfish Dove Crow Chicken Bear Cow and Eldritch_Creature give 2x more Coin.")
+        super("Beastmaster","images/beastmaster.png",2,2,`"Adjacent ${image("magpie")} ${image("void_creature")} ${image("turtle")} ${image("snail")} ${image("sloth")} ${image("oyster")} ${image("owl")} ${image("mouse")} ${image("monkey")} ${image("rabbit")} ${image("goose")} ${image("goldfish")} ${image("dog")} ${image("crab")} ${image("chick")} ${image("cat")} ${image("bee")} ${image("sand_dollar")} ${image("wolf")} ${image("pufferfish")} ${image("jellyfish")} ${image("dove")} ${image("crow")} ${image("chicken")} ${image("bear")} ${image("cow")} and ${image("eldritch_creature")} give 2x more ${image("coin")}`)
     }
     getEffects(index,symbolsToShow){
         return this.giveEffectToAdjacent(
@@ -270,7 +270,7 @@ class Beastmaster extends Symbols{ //Core
 }
 class Bee extends Symbols{ //Core
     constructor(){
-        super("Bee","images/bee.png",1,0,"Adjacent Flower and Beehive give 2x coin. Gives 1 more coin for each adjacent Flower, Beehive, or Honey.");
+        super("Bee","images/bee.png",1,0,`Adjacent ${image("flower")} and ${image("beehive")} give 2x ${image("coin")}. Gives 1 more ${image("coin")} for each adjacent ${image("flower")}, ${image("beehive")}, or ${image("honey")}.`);
     }
     getEffects(index,symbolsToShow){
         let gives = this.giveEffectToAdjacent(["Flower","Beehive"],"*2",index,symbolsToShow);
@@ -280,7 +280,7 @@ class Bee extends Symbols{ //Core
 }
 class Beehive extends Symbols{ //Core
     constructor(){
-        super("Beehive","images/beehive.png",3,2,"Has a 10% chance of adding Honey each spin.");
+        super("Beehive","images/beehive.png",3,2,`Has a 10% chance of adding ${image("honey")} each spin.`);
     }
     Destroy(destroy, save){
         if(Math.random() < 0.1){
@@ -294,9 +294,9 @@ class Beer extends Symbols{ //Core
         super("Beer","images/beer.png",1,0)
     }
 }
-class Big_Ore extends Symbols{ //Core
+class Big_Ore extends Symbols{ //Core   
     constructor(){
-        super("Big Ore","images/big_ore.png",1,0,"Adds 2 Void_Stone, Amethyst, Pearl, Shiny_Pebble, Sapphire, Emerald, Ruby, or Diamond when destroyed.")
+        super("Big Ore","images/big_ore.png",1,0,`Adds 2 ${image("void_stone")}, ${image("amethyst")}, ${image("pearl")}, ${image("shiny_pebble")}, ${image("sapphire")}, ${image("emerald")}, ${image("ruby")}, or ${image("diamond")} when destroyed.`)
     }
     onDestroy(){
         let rarity = GetRarity();
@@ -319,7 +319,7 @@ class Big_Ore extends Symbols{ //Core
 }
 class Big_Urn extends Symbols{ //Core
     constructor(){
-        super("Big Urn","images/big_urn.png",2,1,"Adds 2 Spirit when destroyed.");
+        super("Big Urn","images/big_urn.png",2,1,`Adds 2 ${image("spirit")} when destroyed.`);
     }
     onDestroy(){
         GameState.PlayerSymbols.push(new Spirit);
@@ -328,7 +328,7 @@ class Big_Urn extends Symbols{ //Core
 }
 class Billionaire extends Symbols{ //Core
     constructor(){
-        super("Billionaire","images/billionaire.png",0,1,"Adjacent Cheese and Wine give 2x more. Gives 39 Coins when destroyed.");
+        super("Billionaire","images/billionaire.png",0,1,`Adjacent ${image("cheese")} and ${image("wine")} give 2x more ${image("coin")}. Gives 39 ${image("coin")} when destroyed.`);
         this.state = 39;
     }
     getEffects(index,symbolsToShow){
@@ -343,7 +343,7 @@ class Billionaire extends Symbols{ //Core
 }
 class Bounty_Hunter extends Symbols{ //Core
     constructor(){
-        super("Bounty Hunter","images/bounty_hunter.png",1,0,"Destroys adjacent Thief. Gives 20 Coins for each Thief destroyed.");
+        super("Bounty Hunter","images/bounty_hunter.png",1,0,`Destroys adjacent ${image("thief")}. Gives 20 ${image("coin")} for each ${image("thief")} destroyed.`);
     }
     getEffects(index,symbolsToShow){
         let gives = this.giveEffectToAdjacent(["Thief"],"destroy",index,symbolsToShow);
@@ -353,7 +353,7 @@ class Bounty_Hunter extends Symbols{ //Core
 }
 class Bubble extends Symbols{ //Core
     constructor(){
-        super("Bubble","images/bubble.png",2,0,"Destroys itself after giving coins 3 times.");
+        super("Bubble","images/bubble.png",2,0,`Destroys itself after giving ${image("coin")} 3 times.`);
         this.state = 3;
     }
     getEffects(indx,symbolsToShow){
@@ -367,7 +367,7 @@ class Bubble extends Symbols{ //Core
 }
 class Buffing_Capsule extends Symbols{ //Core
     constructor(){
-        super("Buffing Capsule","images/buffing_capsule.png",0,1,"Destroys itself. Adjacent symbols give 2x more Coins.");
+        super("Buffing Capsule","images/buffing_capsule.png",0,1,`Destroys itself. Adjacent symbols give 2x more ${image("coin")}.`);
     }
     getEffects(index,symbolsToShow){
         let gives = this.giveEffectToAdjacent("*","*2",index,symbolsToShow);
@@ -377,7 +377,7 @@ class Buffing_Capsule extends Symbols{ //Core
 class Card_Shark extends Symbols{ //Core
     //Adjacent Clubs Diamonds Hearts and Spades are Wildcard
     constructor(){
-        super("Card Shark","images/card_shark.png",2,2,"Adjacecent Clubs, Diamonds, Hearts, Spades are Wildcard.");
+        super("Card Shark","images/card_shark.png",2,2,`Adjacecent ${image("clubs")}, ${image("diamonds")}, ${image("hearts")}, ${image("spades")} are ${image("wildcard")}.`);
     }
     getEffects(index,symbolsToShow){
         let gives = this.giveEffectToAdjacent(["Clubs","Diamonds","Hearts","Spades"],"+0",index,symbolsToShow);
@@ -411,7 +411,7 @@ class Cheese extends Symbols{ //Core
 //TODO add Lucky_Seven Item
 class Chemical_Seven extends Symbols{
     constructor(){
-        super("Chemical Seven","images/chemical_seven.png",0,1,"Destroys itself. Gives 7 Coins and Lucky_Seven when destroyed.");
+        super("Chemical Seven","images/chemical_seven.png",0,1,`Destroys itself. Gives 7 ${image("coin")} and ${image("lucky_seven")} when destroyed.`);
     }
     getEffects(index,symbolsToShow){
         return [...this.getSelfDestructEffect(),{
@@ -430,7 +430,7 @@ class Cherry extends Symbols{ //Core
 }
 class Chick extends Symbols{ //Core
     constructor(){
-        super("Chick","images/chick.png",1,1,"Has a 10% chance of growing into Chicken.");
+        super("Chick","images/chick.png",1,1,`Has a 10% chance of growing into ${image("chicken")}.`);
     }
     getEffects(index,symbolsToShow){
         if(Math.random() < .1){
@@ -443,7 +443,7 @@ class Chick extends Symbols{ //Core
 }
 class Chicken extends Symbols{ //Core
     constructor(){
-        super("Chicken","images/chicken.png",2,2,"Has a 5% chance of adding Egg. Has a 1% chance of adding Golden_Egg");
+        super("Chicken","images/chicken.png",2,2,`Has a 5% chance of adding ${image("egg")}. Has a 1% chance of adding ${image("golden_egg")}`);
     }
     getEffects(index,symbolsToShow){
         if(Math.random() < .05){
@@ -457,7 +457,7 @@ class Chicken extends Symbols{ //Core
 }
 class Clubs extends Symbols{ //Core
     constructor(){
-        super("Clubs","images/clubs.png",1,1,"Adjacent Clubs and Spades give 1 more Coin. Gives 1 more Coin if there are at least 3 Clubs Hearts Diamonds or Spades.");
+        super("Clubs","images/clubs.png",1,1,`Adjacent ${image("clubs")} and ${image("spades")} give 1 more ${image("coin")}. Gives 1 more ${image("coin")} if there are at least 3 ${image("clubs")} ${image("diamonds")} ${image("hearts")} or ${image("spades")}.`);
     }
     getEffects(index,symbolsToShow){
         let gives = this.giveEffectToAdjacent(["Clubs","Spades"],"+1",index,symbolsToShow);
@@ -510,7 +510,7 @@ class Clubs extends Symbols{ //Core
 }
 class Coal extends Symbols{ //Core
     constructor(){
-        super("Coal","images/coal.png",0,0,"Transforms into Diamond after 20 spins.")
+        super("Coal","images/coal.png",0,0,`Transforms into ${image("diamond")} after 20 spins.`)
         this.state = 20;
     }
     getEffects(index,symbolsToShow){
@@ -527,7 +527,7 @@ class Coal extends Symbols{ //Core
 }
 class Coconut extends Symbols{ //Core
     constructor(){
-        super("Coconut","images/coconut.png",1,2,"Adds two Coconut_Half when destroyed.");
+        super("Coconut","images/coconut.png",1,2,`Adds two ${image("coconut_half")} when destroyed.`);
     }
     onDestroy(){
         GameState.PlayerSymbols.push(new Coconut_Half);
@@ -546,7 +546,7 @@ class Coin extends Symbols{ //Core
 }
 class Cow extends Symbols{ //Core
     constructor(){
-        super("Cow","images/cow.png",3,2,"Has a 15% chance to add Milk.");
+        super("Cow","images/cow.png",3,2,`Has a 15% chance to add ${image("milk")}`);
     }
     getEffects(index,symbolsToShow){
         if (Math.random() < 0.15){
@@ -557,7 +557,7 @@ class Cow extends Symbols{ //Core
 }
 class Crow extends Symbols{ //Core
     constructor(){
-        super("Crow","images/crow.png",2,0,"Gives -3 Coins every 4 spins.");
+        super("Crow","images/crow.png",2,0,`Gives -3 ${image("coin")} every 4 spins`);
         this.state = 0;
     }
     getEffects(index,symbolsToShow){
@@ -576,7 +576,7 @@ class Crow extends Symbols{ //Core
 }
 class Cultist extends Symbols{
     constructor(){
-        super("Cultist","images/cultist.png",0,0,"Gives 1 Coin more for each other Cultist. Gives 1 more if there are at least three Cultist.");
+        super("Cultist","images/cultist.png",0,0,`Gives 1 ${image("coin")} more for each other ${image("cultist")}. Gives 1 more ${image("coin")} if there are at least 3 ${image("cultist")}.`);
     }
     getEffects(index,symbolsToShow){
         let gets = this.receiveEffectFromAllSpun(["Cultist"],"+1",index,symbolsToShow);
@@ -592,7 +592,7 @@ class Cultist extends Symbols{
 }
 class Dame extends Symbols{
     constructor(){
-        super("Dame","images/dame.png",2,2,"Adjacent Void_Stone, Amethyst, Pearl, Shiny_Pebble, Sapphire, Emerald, Ruby, and Diamond give 2x more Coins. Destroys adjacent Martini. Gives 40 Coins for each Martini destroyed.");
+        super("Dame","images/dame.png",2,2,`Adjacent ${image("void_stone")}, ${image("amethyst")}, ${image("pearl")}, ${image("shiny_pebble")}, ${image("sapphire")}, ${image("emerald")}, ${image("ruby")}, and ${image("diamond")} give 2x more ${image("coin")}. Destroys adjacent ${image("martini")}. Gives 40 ${image("coin")} for each ${image("martini")} destroyed.`);
     }
     getEffects(index,symbolsToShow){
         let gives = this.giveEffectToAdjacent(["Void Stone","Amethyst","Pearl","Shiny Pebble","Sapphire","Emerald","Ruby","Diamond"],"*2",index,symbolsToShow);
@@ -603,7 +603,7 @@ class Dame extends Symbols{
 }
 class Diamond extends Symbols{ //Core
     constructor(){
-        super("Diamond","images/diamond.png",5,3,"Gives 1 coin more for each other Diamond.");
+        super("Diamond","images/diamond.png",5,3,`Gives 1 ${image("coin")} more for each other ${image("diamond")}.`);
     }
     getEffects(index,symbolsToShow){
         return this.receiveEffectFromAllSpun(["Diamond"],"+1",index,symbolsToShow);
@@ -611,7 +611,7 @@ class Diamond extends Symbols{ //Core
 }
 class Diamonds extends Symbols{
     constructor(){
-        super("Diamonds","images/diamonds.png",1,1,"Adjacent Hearts and Diamonds give 1 more Coin. Gives 1 more Coin if there are at least 3 Clubs Hearts Diamonds or Spades.");
+        super("Diamonds","images/diamonds.png",1,1,`Adjacent ${image("hearts")} and ${image("diamonds")} give 1 more ${image("coin")}. Gives 1 more ${image("coin")} if there are at least 3 ${image("clubs")} ${image("diamonds")} ${image("hearts")} or ${image("spades")}`);
     }
     getEffects(index,symbolsToShow){
         let gives = this.giveEffectToAdjacent(["Hearts","Diamonds"],"+1",index,symbolsToShow);
@@ -663,7 +663,7 @@ class Diamonds extends Symbols{
 }
 class Dog extends Symbols{
     constructor(){
-        super("Dog","images/dog.png",1,0,"Gives Coin 1 more if adjacent to Robin Hood Thief Cultist Toddler Bounty Hunter Miner Dwarf King Midas Gambler General Zaroff Witch Pirate Ninja Mrs. Fruit Hooligan Farmer Diver Dame Chef Card Shark Beastmaster Geologist Joker Comedian or Bartender")
+        super("Dog","images/dog.png",1,0,`Gives 1 ${image("coin")} more if adjacent to ${image("robin_hood")} ${image("thief")} ${image("cultist")} ${image("toddler")} ${image("bounty_hunter")} ${image("miner")} ${image("dwarf")} ${image("king_midas")} ${image("gambler")} ${image("general_zaroff")} ${image("witch")} ${image("pirate")} ${image("ninja")} ${image("mrs_fruit")} ${image("hooligan")} ${image("farmer")} ${image("diver")} ${image("dame")} ${image("chef")} ${image("card_shark")} ${image("beastmaster")} ${image("geologist")} ${image("joker")} ${image("comedian")} or ${image("bartender")}`)
     }
     getEffects(index, symbolsToShow){
         let gets = this.receiveEffectFromAdjacent(["Robin Hood","Thief","Cultist","Toddler","Bounty Hunter","Miner","Dwarf","King Midas","Gambler","General Zaroff","Witch","Pirate","Ninja","Mrs Fruit","Hooligan","Farmer","Diver","Dame","Chef","Card Shark","Beastmaster","Geologist","Joker","Comedian","Bartender"],"+1",index,symbolsToShow);
