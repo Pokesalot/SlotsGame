@@ -8,6 +8,16 @@ Add Symbols
 - Chef
 - All Hexes
 - All Arrows
+- getThreshold for seed given neighbors
+- finalize chemical seven
+- finalize hustling capsule
+- finalize item capsule
+- finalize jellyfish
+- finalize mine
+- finalize pufferfish
+- finalize reroll Capsule
+- finalize removal capsule
+- make three- and five-sided dice show pips when rolled
 
 Remake images
 - Milk
