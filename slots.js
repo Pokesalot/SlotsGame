@@ -1,6 +1,6 @@
 function GetClearProgress(){
   return {
-    PlayerSymbols : [new Coin, new Cherry, new Pearl, new Flower, new Cat],
+    PlayerSymbols : [new Crab, new Crab, new Crab, new Bronze_Arrow, new Silver_Arrow, new Golden_Arrow], //[new Coin, new Cherry, new Pearl, new Flower, new Cat],
     PlayerItems : [],
     PlayerCoins : 5,
     Spins : 0,
@@ -12,6 +12,7 @@ function GetClearProgress(){
     Destroyed : {},
     canBuy: false,
     canSpin: true,
+    canSkip: false,
     hasTester: false
   }
 }
@@ -68,6 +69,8 @@ function spin() {
     return 0;
   }
   GameState.canSpin = false;
+  GameState.canBuy = true;
+  GameState.canSkip = true;
   //Charge the player a coin to spin the wheel
   GameState.PlayerCoins -= GameState.CostToSpin; GameState.Spins++;
 
@@ -111,17 +114,19 @@ function spin() {
   //i is a location, 0 is top left and 14 is bottom right
   //Symbols to show is a shuffled array of indices pointing to where the symbol is in GameState.PlayerSymbols
   for (let i = 0; i < symbolsToShow.length; i++) {
-    const reel = Math.floor(i / 4);
-    const symbolIndex = i % 4;
-    const image = document.getElementById(`symbol-${reel}-${symbolIndex}`);
-    image.src = GameState.PlayerSymbols[symbolsToShow[i]].src;
-
+    //Get effects first, so any visual change takes place before the symbol is drawn
     if(GameState.hasTester){console.log(`Getting effects for: ${GameState.PlayerSymbols[symbolsToShow[i]].name}`);}
     
     let curEffects = GameState.PlayerSymbols[symbolsToShow[i]].getEffects(i,symbolsToShow);
     for (let i=0; i<curEffects.length; i++){
       spinEffects.push(curEffects[i])
     }
+
+    const reel = Math.floor(i / 4);
+    const symbolIndex = i % 4;
+    const image = document.getElementById(`symbol-${reel}-${symbolIndex}`);
+    image.src = GameState.PlayerSymbols[symbolsToShow[i]].src;
+    image.style.transform = `rotate(${GameState.PlayerSymbols[symbolsToShow[i]].imageRotation})`;
   }
   if(GameState.hasTester){for(let i=0; i<spinEffects.length; i++){let to = GameState.PlayerSymbols[spinEffects[i].to].name;let from = GameState.PlayerSymbols[spinEffects[i].from].name; let eff = spinEffects[i].effect; console.log(`Spin Effects: ${from} => ${to} : ${eff}`)};}
   //spinEffects.sort((a,b) => a.to - b.to);
@@ -149,13 +154,22 @@ function spin() {
 // ******************************************************* Check effects for destroying/saving of symbols
   //Check all symbols for destruction or saving. Also triggers end-of-spin effects
   for (let sym = GameState.PlayerSymbols.length-1; sym >= 0; sym--){
-    let destroy = false; let save = false;
+    let destroy = false; let save = false; let selfDestructing = true; let saviors = [];
     for (let i = 0; i<spinEffects.length; i++){
       if(spinEffects[i].to == sym && spinEffects[i].effect == "destroy"){
         destroy = true;
+        if(spinEffects[i].to != spinEffects[i].from){
+          selfDestructing = false;
+        }
       }
       if(spinEffects[i].to == sym && spinEffects[i].effect == "save"){
         save = true;
+        saviors.push(spinEffects[i].from);
+      }
+    }
+    if (destroy && save && !selfDestructing){ //
+      for (let i=0; i<saviors.length; i++){
+        GameState.PlayerSymbols[saviors[i]].payout++;
       }
     }
     if(GameState.hasTester){console.log(`Destroying\t\t${GameState.PlayerSymbols[sym].name}, sending\t${destroy},\t${save}`);}
@@ -167,7 +181,6 @@ function spin() {
   rentShow.innerText = `Rent Due: ${RentPayChecks[GameState.RentsPaid]}`
   spinsShow.innerText = `Spins to get it: ${RentSpinsChecks[GameState.RentsPaid]-GameState.Spins}`
   FillShop(symbolsToShow);
-  GameState.canBuy = true;
 
   
 
@@ -219,6 +232,7 @@ function BuyItem(index){
     return 0;
   }
   GameState.canBuy = false;
+  GameState.canSkip = false;
   GameState.PlayerSymbols.push(new GameState.ShopItems[index].constructor());
   ShowItems();
   ShowSymbols();
@@ -366,11 +380,24 @@ function GetAdjacentIndices(index){
     [14,15,18]
   ][index]
 }
-
+function getNextPoint(index, direction){
+  //Returns the index pointed to from the give index and direction, or false if it points off the spinners.
+  return [
+    [false,0,1,2,   false,4,5,6,   false,8,9,10,   false,12,13,14,   false,16,17,18],//Up
+    [false,4,5,6,   false,8,9,10,   false,12,13,14,   false,16,17,18,   false,false,false,false],//Up right
+    [4,5,6,7,   8,9,10,11,   12,13,14,15,   16,17,18,19,   false,false,false,false],//Right
+    [5,6,7,false,   9,10,11,false,   13,14,15,false,   17,18,19,false,   false,false,false,false],//Down right
+    [1,2,3,false,   5,6,7,false,   9,10,11,false,   13,14,15,false,   17,18,19,false],//Down
+    [false,false,false,false,   1,2,3,false,   5,6,7,false,   9,10,11,false,   13,14,15,false],//Down left
+    [false,false,false,false,   0,1,2,3,   4,5,6,7,   8,9,10,11,   12,13,14,15],//Left
+    [false,false,false,false,   false,0,1,2,   false,4,5,6,   false,8,9,10,   false,12,13,14],//Up left
+  ][direction][index];
+}
 function getThreshold(name){
   let thresholds = {
     "Crow":4,
     "Golem":5,
+    "Frozen Fossil": 20,
     "Magpie":4,
     "Matryoshka Doll":3,
     "Matryoshka Doll 2":5,

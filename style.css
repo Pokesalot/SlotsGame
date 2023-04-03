@@ -38,7 +38,7 @@ button.spin-button {
   margin: 0 auto;
   border:1px solid #000;
   width: 80%;
-  height: 100px;
+  height: 800px;
   max-height: 40%;
 }
 
@@ -53,7 +53,7 @@ button.spin-button {
 .reel img {
   display: block;
   margin: 0 auto;
-  max-height: 100px;
+  max-height: 175px;
   height: 25%;
   width: auto;
 }

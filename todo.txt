@@ -1,22 +1,16 @@
 Add Symbols
-- Frozen Fossil
 - Essence Capsule
-- Dove
-- Diver
-- Crab
-- Comedian
-- Chef
 - All Hexes
 - All Arrows
 - getThreshold for seed given neighbors
-- finalize chemical seven
-- finalize hustling capsule
-- finalize item capsule
-- finalize jellyfish
-- finalize mine
-- finalize pufferfish
-- finalize reroll Capsule
-- finalize removal capsule
+- finalize chemical seven (add item)
+- finalize hustling capsule (add item)
+- finalize item capsule (add item)
+- finalize jellyfish (add item)
+- finalize mine (add item)
+- finalize pufferfish (add item)
+- finalize reroll Capsule (add item)
+- finalize removal capsule (add item)
 - make three- and five-sided dice show pips when rolled
 
 Remake images
