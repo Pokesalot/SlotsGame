@@ -3,7 +3,7 @@ function GetClearProgress(){
     PlayerSymbols : [new Coin, new Cherry, new Pearl, new Flower, new Cat],
     PlayerItems : [],
     PlayerCoins : 5,
-    Spins : 0,
+    Spins : RentSpinsChecks[0],
     RentsPaid : 0,
     CostToSpin : 1,
     RarityMulti: 1,
@@ -20,7 +20,7 @@ function GetClearProgress(){
 function StartGame(){
   moneyShow.innerText = `Coins: ${GameState.PlayerCoins}`
   rentShow.innerText = `Rent Due: ${RentPayChecks[GameState.RentsPaid]}`
-  spinsShow.innerText = `Spins to get it: ${RentSpinsChecks[GameState.RentsPaid]-GameState.Spins}`
+  spinsShow.innerText = `Spins to get it: ${GameState.Spins}`
   ShowShop();
   ShowItems();
   ShowSymbols();
@@ -72,7 +72,7 @@ function spin() {
   GameState.canBuy = true;
   GameState.canSkip = true;
   //Charge the player a coin to spin the wheel
-  GameState.PlayerCoins -= GameState.CostToSpin; GameState.Spins++;
+  GameState.PlayerCoins -= GameState.CostToSpin; GameState.Spins--;
 
   //Create a place to put all effects we'll see this spin, for all items and symbols, on the board or not
   /*Expected form is an object of the following form
@@ -179,7 +179,7 @@ function spin() {
   
   moneyShow.innerText = `Coins: ${GameState.PlayerCoins}`;
   rentShow.innerText = `Rent Due: ${RentPayChecks[GameState.RentsPaid]}`
-  spinsShow.innerText = `Spins to get it: ${RentSpinsChecks[GameState.RentsPaid]-GameState.Spins}`
+  spinsShow.innerText = `Spins to get it: ${GameState.Spins}`
   FillShop(symbolsToShow);
 
   
@@ -239,25 +239,31 @@ function BuyItem(index){
 }
 
 function CheckForRent(){
-  if(GameState.Spins == RentSpinsChecks[GameState.RentsPaid]){
+  if(GameState.Spins == 0){
     //Time to pay that rent!
     if(GameState.PlayerCoins > RentPayChecks[GameState.RentsPaid]){
-      GameState.Spins = 0;
       GameState.PlayerCoins -= RentPayChecks[GameState.RentsPaid]
-      GameState.RentsPaid++
+
+      if (GameState.RentsPaid == RentPayChecks.length-1){//If this was the last known rent hit, add another then play it out
+        RentSpinsChecks.push(10);
+        RentPayChecks.push(RentPayChecks[GameState.RentsPaid] + 500);
+      }
+
+      GameState.RentsPaid++;
+      GameState.Spins = RentSpinsChecks[GameState.RentsPaid];
+      moneyShow.innerText = `Coins: ${GameState.PlayerCoins}`;
+      rentShow.innerText = `Rent Due: ${RentPayChecks[GameState.RentsPaid]}`
+      spinsShow.innerText = `Spins to get it: ${GameState.Spins}`
       setTimeout(function() {
         //alert(`Congratulations, you've paid your rent! Next rent is ${RentPayChecks[GameState.RentsPaid]}, due in ${RentSpinsChecks[GameState.RentsPaid]} spins.`);
-        moneyShow.innerText = `Coins: ${GameState.PlayerCoins}`;
-        rentShow.innerText = `Rent Due: ${RentPayChecks[GameState.RentsPaid]}`
-        spinsShow.innerText = `Spins to get it: ${RentSpinsChecks[GameState.RentsPaid]-GameState.Spins}`
       }, 300);
     }else{
-      setTimeout(function() {
-        //alert("You can't pay the rent. Either find more money, or get out!");
-      }, 300);
       spinButton.style.visibility = "hidden";
       resetButton.style.visibility = "visible";
       resetButton.disabled = false;
+      setTimeout(function() {
+        //alert("You can't pay the rent. Either find more money, or get out!");
+      }, 300);
       return false; //Keeps the spin button disabled until the game is reset
     }
   }

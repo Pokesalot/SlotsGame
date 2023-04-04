@@ -926,7 +926,7 @@ class Frozen_Fossil extends Symbols{
         for (let i=0; i<checks.length; i++){
             if ( Object.keys(GameState.Destroyed).indexOf(checks[i])>-1){
                 //Have seen these and destroyed them
-                totalRemoved += GameState.Destroyed[checks[i]];
+                totalRemoved += (5 * GameState.Destroyed[checks[i]]);
             }
         }
         if (this.state + totalRemoved > getThreshold("Frozen Fossil")){
