@@ -924,7 +924,7 @@ class Frozen_Fossil extends Symbols{
         ];
         let totalRemoved = 0;
         for (let i=0; i<checks.length; i++){
-            if ( Object.keys(GameState.Destroyed).indexOf([checks[i]])>-1){
+            if ( Object.keys(GameState.Destroyed).indexOf(checks[i])>-1){
                 //Have seen these and destroyed them
                 totalRemoved += GameState.Destroyed[checks[i]];
             }
@@ -1491,10 +1491,12 @@ class Midas_Bomb extends Symbols{
         super("Midas Bomb","images/midas_bomb.png",0,3,`Destroys itself and adjacent symbols. Symbols destroyed this way give ${image("coin")} equal to 7x their value.`);
     }
     getEffects(index,symbolsToShow){
-        let gives = this.giveEffectToAdjacent("*","destroy",index,symbolsToShow);
-        for (let i=gives.length; i>= 0; i--){
-            let giveVal = GameState.PlayerSymbols[gives[i].to].payout * 7;
-            gives.push(CreateEffect(gives[i].to, gives[i].from, `+${7*giveVal}`));
+        let gives1 = this.giveEffectToAdjacent("*","destroy",index,symbolsToShow);
+        let gives = this.getSelfDestructEffect();
+        for (let i=0; i<gives1.length; i++){
+            let giveVal = GameState.PlayerSymbols[gives1[i].to].payout * 7;
+            gives.push(gives1[i]);
+            gives.push(CreateEffect(gives1[i].to, gives1[i].from, `+${giveVal}`));
         }
         return gives;
     }
