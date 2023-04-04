@@ -367,9 +367,9 @@ class Bronze_Arrow extends Symbols{
             curInd = getNextPoint(curInd,direction);
             let sym = symbolsToShow[curInd];
             if (GameState.PlayerSymbols[sym].name == "Target"){
-                gives.push(CreateEffect(sym,index,"destroy"));
+                gives.push(CreateEffect(sym,symbolsToShow[index],"destroy"));
             }
-            gives.push(CreateEffect(sym,index,"*2"));
+            gives.push(CreateEffect(sym,symbolsToShow[index],"*2"));
         }
         return gives;
     }
@@ -827,7 +827,7 @@ class Eldritch_Creature extends Symbols{
         let gets = this.receiveEffectFromAdjacent(checks, "+1",index,symbolsToShow);
         let totalRemoved = 0;
         for (let i=0; i<checks.length; i++){
-            if ( Object.keys(GameState.Destroyed).indexOf([checks[i]])>-1){
+            if ( Object.keys(GameState.Destroyed).indexOf(checks[i])>-1){
                 //Have seen these and destroyed them
                 totalRemoved += GameState.Destroyed[checks[i]];
             }
@@ -1059,9 +1059,9 @@ class Golden_Arrow extends Symbols{
             curInd = getNextPoint(curInd,direction);
             let sym = symbolsToShow[curInd];
             if (GameState.PlayerSymbols[sym].name == "Target"){
-                gives.push(CreateEffect(sym,index,"destroy"));
+                gives.push(CreateEffect(sym,symbolsToShow[index],"destroy"));
             }
-            gives.push(CreateEffect(sym,index,"*4"));
+            gives.push(CreateEffect(sym,symbolsToShow[index],"*4"));
         }
         return gives;
     }
@@ -1914,9 +1914,9 @@ class Silver_Arrow extends Symbols{
             curInd = getNextPoint(curInd,direction);
             let sym = symbolsToShow[curInd];
             if (GameState.PlayerSymbols[sym].name == "Target"){
-                gives.push(CreateEffect(sym,index,"destroy"));
+                gives.push(CreateEffect(sym,symbolsToShow[index],"destroy"));
             }
-            gives.push(CreateEffect(sym,index,"*3"));
+            gives.push(CreateEffect(sym,symbolsToShow[index],"*3"));
         }
         return gives;
     }
@@ -2284,6 +2284,18 @@ class Wildcard extends Symbols{
     getEffects(index,symbolsToShow){
         this.lastPayout = 0; //Shouldn't matter, but do it anyway
         return [];
+    }
+    getPayout(effects){
+        for (let i=0; i<effects.length; i++){
+            if(effects[i].effect.indexOf("forever") > -1){
+                this.payout += parseInt(effects[i].effect);
+            }else if(effects[i].effect.indexOf("+") > -1 || effects[i].effect.indexOf("-") == 0){ //Only looking for '-n' not '*-n'
+                this.tempPayout += parseInt(effects[i].effect);
+            }else if(effects[i].effect.indexOf("*") > -1){ //temp multi
+                this.tempMulti *= parseInt(effects[i].effect.split("*")[1]);
+            }//else it's a "save" or "destroy"
+        }
+        return 0; //Return nothing at first, then return a real value when finalized.
     }
     finalize(index,symbolsToShow){
         let neighbors = GetAdjacentIndices(index);
