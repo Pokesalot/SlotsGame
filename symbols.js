@@ -112,7 +112,7 @@ class Symbols {
     }
     giveEffectToAllSpun(nameArr,effect,index,symbolsToShow){
         let effects = [];
-        for (let i = 0; i<15; i++){
+        for (let i = 0; i<20; i++){
             if(index != i && (nameArr.indexOf( GameState.PlayerSymbols[symbolsToShow[i]].name) > -1 || nameArr == "*")){
                 effects.push( CreateEffect( symbolsToShow[i], GameState.PlayerSymbols.indexOf(this), effect ) );
             }
@@ -121,7 +121,7 @@ class Symbols {
     }
     receiveEffectFromAllSpun(nameArr,effect,index,symbolsToShow){
         let effects = [];
-        for (let i = 0; i<15; i++){
+        for (let i = 0; i<20; i++){
             if(index != i && (nameArr.indexOf( GameState.PlayerSymbols[symbolsToShow[i]].name) > -1 || nameArr == "*")){
                 effects.push( CreateEffect( GameState.PlayerSymbols.indexOf(this), symbolsToShow[i], effect ) );
             }
@@ -238,7 +238,7 @@ class Beastmaster extends Symbols{ //Core
         return this.giveEffectToAdjacent(
             [
                 "Magpie",
-                "Void_Creature",
+                "Void Creature",
                 "Turtle",
                 "Snail",
                 "Sloth",
@@ -254,7 +254,7 @@ class Beastmaster extends Symbols{ //Core
                 "Chick",
                 "Cat",
                 "Bee",
-                "Sand_Dollar",
+                "Sand Dollar",
                 "Wolf",
                 "Pufferfish",
                 "Jellyfish",
@@ -263,9 +263,8 @@ class Beastmaster extends Symbols{ //Core
                 "Chicken",
                 "Bear",
                 "Cow",
-                "Eldritch_Creature"
-            ], "*2",index,symbolsToShow
-        );
+                "Eldritch Creature"
+            ], "*2",index,symbolsToShow);
     }
 }
 class Bee extends Symbols{ //Core
