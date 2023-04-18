@@ -214,7 +214,7 @@ class Bartender extends Symbols{ //Core
                 [Beer],
                 [Chemical_Seven,Wine],
                 [Martini]
-            ][GetRarity()];
+            ][Math.min(GetRarity(),2)];
             GameState.PlayerSymbols.push(new drinks[Math.floor(Math.random() * drinks.length)]);
         }
         return [];
