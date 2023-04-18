@@ -1,7 +1,5 @@
 Add Symbols
 - Essence Capsule
-- All Hexes
-- All Arrows
 - getThreshold for seed given neighbors
 - finalize chemical seven (add item)
 - finalize hustling capsule (add item)
