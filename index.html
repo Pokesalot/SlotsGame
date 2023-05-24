@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Slot Machine Game</title>
+    <title>Roguelite Slots Adventure!</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
@@ -62,21 +62,24 @@
       <button class="spin-button" id="spin-button" onclick="spin()">Spin</button>
       <button class="spin-button" id="restart-button" onclick="GameState = GetClearProgress();StartGame();" style="visibility: hidden;" disabled="true">Restart Game 😢</button>
 
-      <div id="shop">
-        <div class="panel" id="item1" onclick="BuyItem(0)">
-          <img id="shopImage0" src="images/dog.png" class="panelimg">
-          <h3 id="shopHeader0" >Item 1</h3>
-          <p id="shopPara0" >Description of Item 1.</p>
-        </div>
-        <div class="panel" id="item2" onclick="BuyItem(1)">
-          <img id="shopImage1" src="images/dog.png" class="panelimg">
-          <h3 id="shopHeader1" >Item 1</h3>
-          <p id="shopPara1" >Description of Item 1.</p>
-        </div>
-        <div class="panel" id="item3" onclick="BuyItem(2)">
-          <img id="shopImage2" src="images/dog.png" class="panelimg">
-          <h3 id="shopHeader2" >Item 1</h3>
-          <p id="shopPara2" >Description of Item 1.</p>
+      <div id="shop" class="overlay">
+        <div class="overlay-content">
+          <div class="panel" id="item1" onclick="BuyItem(0)">
+            <img id="shopImage0" src="images/dog.png" class="panelimg">
+            <h3 id="shopHeader0" >Item 1</h3>
+            <p id="shopPara0" >Description of Item 1.</p>
+          </div>
+          <div class="panel" id="item2" onclick="BuyItem(1)">
+            <img id="shopImage1" src="images/dog.png" class="panelimg">
+            <h3 id="shopHeader1" >Item 1</h3>
+            <p id="shopPara1" >Description of Item 1.</p>
+          </div>
+          <div class="panel" id="item3" onclick="BuyItem(2)">
+            <img id="shopImage2" src="images/dog.png" class="panelimg">
+            <h3 id="shopHeader2" >Item 1</h3>
+            <p id="shopPara2" >Description of Item 1.</p>
+          </div>
+          <button class="spin-button" id="skipShop" onclick="document.getElementById(`shop`).style.display = `none`;">SKIP</button>
         </div>
       </div>
 

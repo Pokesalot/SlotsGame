@@ -195,6 +195,15 @@ function ShowShop(){
     shopHeaders[i].innerHTML = `Buy ${GameState.ShopItems[i].name}`;
     shopParas[i].innerHTML = `<p>Pays ${GameState.ShopItems[i].payout} <br /> ${GameState.ShopItems[i].description}</p>`;
   }
+  if(GameState.canBuy){
+    document.getElementById("shop").style.display = "block";
+    if(GameState.canSkip){
+      document.getElementById("skipShop").style.display = "block";
+    }else{
+      document.getElementById("skipShop").style.display = "none";
+    }
+  }
+  
 }
 
 // Slight TODO, check for certain items that will aren't allowed given a player's items
@@ -236,6 +245,7 @@ function BuyItem(index){
   GameState.PlayerSymbols.push(new GameState.ShopItems[index].constructor());
   ShowItems();
   ShowSymbols();
+  document.getElementById("shop").style.display = "none";
 }
 
 function CheckForRent(){
