@@ -132,14 +132,9 @@ function spin() {
   for (let i = 0; i<symbolsToShow.length; i++){//i is the location on the board, for positional math
     let myEffects = [];
     for (let eff = 0; eff<spinEffects.length; eff++){
-      try {
         if(spinEffects[eff].to == symbolsToShow[i]){
           myEffects.push(spinEffects[eff]);
         }
-      } catch (error) {
-        console.log(spinEffects, eff, spinEffects[eff])
-      }
-      
     }
     if(GameState.hasTester){console.log(`Getting payout for: ${GameState.PlayerSymbols[symbolsToShow[i]].name}`);}
     GameState.PlayerCoins += GameState.PlayerSymbols[symbolsToShow[i]].getPayout(myEffects);
@@ -432,6 +427,7 @@ function getThreshold(name){
 }
 
 function test(){
+  alert("Testing started. If you didn't mean to do this, you've encountered a bug! Congratulations!")
   GameState.PlayerSymbols.push(new Tester);
   GameState.hasTester = true;
 }

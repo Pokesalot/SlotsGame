@@ -1359,7 +1359,7 @@ class Magic_Key extends Symbols{
     getEffects(index,symbolsToShow){
         let gives1 = this.giveEffectToAdjacent(["Lockbox","Safe","Treasure Chest","Mega Chest"],"*3",index,symbolsToShow);
         let gives2 = this.giveEffectToAdjacent(["Lockbox","Safe","Treasure Chest","Mega Chest"],"destroy",index,symbolsToShow);
-        let gets = this.getSelfDestructEffect();
+        let gets = this.receiveEffectFromAdjacent(["Lockbox","Safe","Treasure Chest","Mega Chest"],"destroy",index,symbolsToShow);
         return [...gives1,...gives2,...gets];
     }
 }
