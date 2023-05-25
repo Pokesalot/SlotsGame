@@ -11,6 +11,10 @@ Add Symbols
 - finalize removal capsule (add item)
 - make three- and five-sided dice show pips when rolled
 
+UI Update
+- Make symbols show last payout, potentially with any modifiers
+- Not from where, that shounds like shit, but a list of adds, multis, and a total at bottom
+
 Remake images
 - Milk
 - Cow ?

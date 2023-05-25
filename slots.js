@@ -177,7 +177,9 @@ function spin() {
   moneyShow.innerText = `Coins: ${GameState.PlayerCoins}`;
   rentShow.innerText = `Rent Due: ${RentPayChecks[GameState.RentsPaid]}`
   spinsShow.innerText = `Spins to get it: ${GameState.Spins}`
-  FillShop(symbolsToShow);
+  setTimeout(() => {
+    FillShop(symbolsToShow);
+  }, 600); 
 
   
 
