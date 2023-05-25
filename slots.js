@@ -2,7 +2,7 @@ function GetClearProgress(){
   return {
     PlayerSymbols : [new Coin, new Cherry, new Pearl, new Flower, new Cat],
     PlayerItems : [],
-    PlayerCoins : 5,
+    PlayerCoins : 1,
     Spins : RentSpinsChecks[0],
     RentsPaid : 0,
     CostToSpin : 1,
@@ -21,9 +21,6 @@ function StartGame(){
   moneyShow.innerText = `Coins: ${GameState.PlayerCoins}`
   rentShow.innerText = `Rent Due: ${RentPayChecks[GameState.RentsPaid]}`
   spinsShow.innerText = `Spins to get it: ${GameState.Spins}`
-  ShowShop();
-  ShowItems();
-  ShowSymbols();
   spinButton.style.visibility = "visible";
   spinButton.disabled = false;
   resetButton.style.visibility = "hidden";
