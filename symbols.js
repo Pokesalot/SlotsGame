@@ -754,7 +754,11 @@ class Dog extends Symbols{
     }
     getEffects(index, symbolsToShow){
         let gets = this.receiveEffectFromAdjacent(["Robin Hood","Thief","Cultist","Toddler","Bounty Hunter","Miner","Dwarf","King Midas","Gambler","General Zaroff","Witch","Pirate","Ninja","Mrs Fruit","Hooligan","Farmer","Diver","Dame","Chef","Card Shark","Beastmaster","Geologist","Joker","Comedian","Bartender"],"+1",index,symbolsToShow);
-        return [gets[0]];
+        if(gets.length > 0){
+            return [gets[0]];
+        }else{
+            return [];
+        }
     }
 }
 class Dove extends Symbols{
@@ -788,7 +792,7 @@ class Dwarf extends Symbols{
     getEffects(index,symbolsToShow){
         let gives = this.giveEffectToAdjacent(["Beer","Wine"],"destroy",index,symbolsToShow);
         let gets1 = this.receiveEffectFromAdjacent(["Beer"],"+10",index,symbolsToShow);
-        let gets2 = this.receiveEffectFromAdjacent(["Wine"],"+20",index.symbolsToShow);
+        let gets2 = this.receiveEffectFromAdjacent(["Wine"],"+20",index,symbolsToShow);
         return [...gives,...gets1,...gets2];
     }
 }

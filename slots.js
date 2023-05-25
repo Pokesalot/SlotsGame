@@ -101,14 +101,14 @@ function spin() {
     const j = Math.floor(Math.random() * (i + 1));
     [symbolsToShow[i], symbolsToShow[j]] = [symbolsToShow[j], symbolsToShow[i]];
   }
-  //If the player has <15 symbols, we pad it with Empties.
-  //If the player has more than 15 symbols, we only show the first 15 of them on the board.
+  //If the player has <20 symbols, we pad it with Empties.
+  //If the player has more than 20 symbols, we only show the first 20 of them on the board.
   symbolsToShow = symbolsToShow.slice(0,20);
   if(GameState.hasTester){console.log(`Symbols to show: ${symbolsToShow}`);}
 
 // **************************************************************************** Get effects, all items and board symbols affected
   // Set the images on the reels based on the symbols
-  //i is a location, 0 is top left and 14 is bottom right
+  //i is a location, 0 is top left and 19 is bottom right
   //Symbols to show is a shuffled array of indices pointing to where the symbol is in GameState.PlayerSymbols
   for (let i = 0; i < symbolsToShow.length; i++) {
     //Get effects first, so any visual change takes place before the symbol is drawn
@@ -132,9 +132,14 @@ function spin() {
   for (let i = 0; i<symbolsToShow.length; i++){//i is the location on the board, for positional math
     let myEffects = [];
     for (let eff = 0; eff<spinEffects.length; eff++){
-      if(spinEffects[eff].to == symbolsToShow[i]){
-        myEffects.push(spinEffects[eff]);
+      try {
+        if(spinEffects[eff].to == symbolsToShow[i]){
+          myEffects.push(spinEffects[eff]);
+        }
+      } catch (error) {
+        console.log(spinEffects, eff, spinEffects[eff])
       }
+      
     }
     if(GameState.hasTester){console.log(`Getting payout for: ${GameState.PlayerSymbols[symbolsToShow[i]].name}`);}
     GameState.PlayerCoins += GameState.PlayerSymbols[symbolsToShow[i]].getPayout(myEffects);
@@ -248,7 +253,7 @@ function BuyItem(index){
 function CheckForRent(){
   if(GameState.Spins == 0){
     //Time to pay that rent!
-    if(GameState.PlayerCoins > RentPayChecks[GameState.RentsPaid]){
+    if(GameState.PlayerCoins >= RentPayChecks[GameState.RentsPaid]){
       GameState.PlayerCoins -= RentPayChecks[GameState.RentsPaid]
 
       if (GameState.RentsPaid == RentPayChecks.length-1){//If this was the last known rent hit, add another then play it out
