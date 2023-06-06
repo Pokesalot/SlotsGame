@@ -11,6 +11,34 @@ Add Symbols
 - finalize removal capsule (add item)
 - make three- and five-sided dice show pips when rolled
 
+Rewrite top-level functions that symbols can use. Each return booleans to limit symbol logic
+- Get Random(Symbol): 
+    Does a seed grow, or a chicken lay an egg
+- Get Spin Threshold(Symbol): 
+    All symbols count up when spun, and check if enough spins have elapsed for something to happen. 
+    Impacted by some items and synergies
+- Get Pertinence(Symbol1, Symbol2, Pos1, Pos2): 
+    Will these symbols interact? 
+    Only runs if the symbols have applicable tags and is mainly used to check adjacency. 
+    In some cases, a symbol's adjacency does not matter, or symbols are counted as "adjacent" to all other symbols.
+
+Lexer Parser for symbol and item effects:
+    Symbols and Items will be saved in a json with effects listed as query strings.
+    e.g. "Gives qWildcard To adj #Suits"
+    e.g. "Gets +1 From adj #humanoids Limit 1"
+    Depending on effect given, can be applied to a Gamestate.Permanents stack, or simply apply temporarily.
+    THIS WILL TAKE A LOT OF WORK BUT WHEN IT WORKS WILL MAKE ADDING OR MODIFYING BEHAVIOR WAY EASIER!!!!
+    Qualities to check for:
+        <number> will refer to a space
+        me will refer to the space the symbol is in, and can be permuted e.g. me+4 or me-4 in the case of a crab
+        q<quality> will refer to both temporary and permanent qualities/tags, which may include "deleting" or wildcard given to suits next to a cardshark
+        #<quality> will refer to only permanent qualities in the json file
+        '<name> will refer to a symbol by name
+
+        Any of these can be preceded by a ! to signify that the symbol not match the following quality
+        Where one or more qualities are matched, the list will be interpreted as an AND list, all qualities must be true for the effect to be given/received
+    
+
 UI Update
 - Make symbols show last payout, potentially with any modifiers
 - Not from where, that shounds like shit, but a list of adds, multis, and a total at bottom
