@@ -24,9 +24,16 @@ Rewrite top-level functions that symbols can use. Each return booleans to limit 
 
 Lexer Parser for symbol and item effects:
     Symbols and Items will be saved in a json with effects listed as query strings.
-    e.g. "Gives qWildcard To adj #Suits"
-    e.g. "Gets +1 From adj #humanoids Limit 1"
+    e.g. "20 Gives qWildcard To adj #Suits"
+    e.g. "20 Gets +1 From adj #humanoids Limit 1"
     Depending on effect given, can be applied to a Gamestate.Permanents stack, or simply apply temporarily.
+        The number at the front of the effect will be used to sort the effect into a stack.
+        A similar note will be added to a list of {to,from} objects
+        Typically destruction events will happen at 100, allowing lots of room for effects to be moved around in debugging
+        If an effect changes the board (adds a symbol or transforms a symbol) then recalculate all effects for the new board, ignoring duplicates
+            Duplicates will be detected by checking against the {to,from} list
+    Debugging will probably be handled iteratively, and in all likelyhood edge cases won't be handled correctly. Hopefully nobody notices and it doesn't make or break a run for it to be handled properly.
+    If it does, git gud :^)
     THIS WILL TAKE A LOT OF WORK BUT WHEN IT WORKS WILL MAKE ADDING OR MODIFYING BEHAVIOR WAY EASIER!!!!
     Qualities to check for:
         <number> will refer to a space
