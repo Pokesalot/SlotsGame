@@ -328,7 +328,6 @@ class Big_Urn extends Symbols{ //Core
 class Billionaire extends Symbols{ //Core
     constructor(){
         super("Billionaire","images/billionaire.png",0,1,`Adjacent ${image("cheese")} and ${image("wine")} give 2x more ${image("coin")}. Gives 39 ${image("coin")} when destroyed.`);
-        this.state = 39;
     }
     getEffects(index,symbolsToShow){
         return this.giveEffectToAdjacent(["Cheese","Wine"],"*2",index,symbolsToShow);

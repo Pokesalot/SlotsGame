@@ -22,10 +22,38 @@ Rewrite top-level functions that symbols can use. Each return booleans to limit 
     Only runs if the symbols have applicable tags and is mainly used to check adjacency. 
     In some cases, a symbol's adjacency does not matter, or symbols are counted as "adjacent" to all other symbols.
 
+
+Keep a list of permanent effects, empty at game start.
+On spin, 20x select a random symbol from reserves and add it randomly to the board.
+    Also enqueue that symbol for effect checking.
+Once all symbols have been added, iterate through the symbols and enqueue any effects found.
+Once all symbols have been checked, also enqueue effects from Items.
+Sort the list of effects by precedence, then begin iterating the list of effects and apply them.
+    If an effect causes a symbol to Transform, requeue that symbol for effect checks.
+    If an effect causes a symbol to be Added, first try to add it to the board. 
+        If that is successful, re-check for effects and afterward recheck Items for effects.
+Symbols store their own payouts by default, and only move that value to the space they inhabit if they will be Transformed, Removed, or Destroyed. This will be denoted by the keyword STORE
+
+
 Lexer Parser for symbol and item effects:
     Symbols and Items will be saved in a json with effects listed as query strings.
-    e.g. "20 Gives qWildcard To adj #Suits"
-    e.g. "20 Gets +1 From adj #humanoids Limit 1"
+    These strings will be generally of the form: [Precedence] [Qualifiers] [Effects] <TO/FROM> [Qualifiers]
+    Precedence is an int, typically from 1-100. This is used so symbol and item effects can always be given the proper context, should they need it.
+        To add an effect on removal or destruction, the ON keywork is used. This is how effects will be triggered when removed by removal tokens.
+        e.g. "ON REMOVE ADD Spirit ADD Spirit" would be the Big Urn effect of adding 2 Spirits on destruction.
+        You can also add an effect for when a Symbol is removed while on the board, e.g. "15 REMOVE GIVES +1"
+    Qualifiers is an AND concatenated list of statements which must all be true OF THE SYMBOL BEING CHECKED for the effect to trigger. 
+        These can be RANDOM and a number, just a number to denote position on board, qualities, tags, names, etc.
+    Effect is a statment started typically by either GIVES or GETS, and followed by things like MULTI 2, PAY 1, PAYOUT 1, or effects like ADJ and a quality
+    Effect can also be ADD followed by the name of an Item or a Symbol.
+        ADD can also be given a #tag, which will use random symbol creation rules after finding all symbols which use that tag. BIG FUCKING TODO on this one.
+    After the effect, a TO or FROM is added, to match GIVES or GETS, to qualify other symbols that will get or give the effect, including the keyword ADJ to signify adjacency. 
+        Some symbols don't require adjacency, so they will not use the keyword and effects will be applied board-wide.
+    This is also where LIMIT will be added, in case there are several.
+        e.g. Dog, GETS PAY 1 FROM #humanoids LIMIT 1
+
+    e.g. "20 GIVES qWildcard To ADJ #Suits"
+    e.g. "20 GETS PAY 1 LIMIT 1 FROM ADJ #humanoids "
     Depending on effect given, can be applied to a Gamestate.Permanents stack, or simply apply temporarily.
         The number at the front of the effect will be used to sort the effect into a stack.
         A similar note will be added to a list of {to,from} objects
@@ -44,7 +72,19 @@ Lexer Parser for symbol and item effects:
 
         Any of these can be preceded by a ! to signify that the symbol not match the following quality
         Where one or more qualities are matched, the list will be interpreted as an AND list, all qualities must be true for the effect to be given/received
-    
+    Other keywords:
+    - RANDOM : Followed by a parameter [0,1) for a random roll to be made. If the roll succeeds, perform the rest of the effect.
+    - STORE : Store your payout on the space you inhabit since something is about to happen to you that will require that change.
+    - TRANSFORM : Followed by the name of the symbol it will be transforming into.
+        This can allow multi-tiered evolution, by adding two effects, e.g. "15 RANDOM 0.4 TRANSFORM Symbol1; 16 RANDOM 0.1 TRANSFORM Symbol2;"
+            40% of the time, the symbol will transform into Symbol1. 10% of the time it will transform into Symbol2. Symbol2 takes precedent if both occur.
+    - PAYOUT : Used as a standin for this.payout where applicable. Either to change it, use its value where necessary.
+    - PAY : Modify the tempPayout of the symbol, allowing a one-time payout
+    - MULTI : Modify the tempMulti of the symbol, numbers will 
+    - STATE :  Used as a standin for this.state where applicable. Either to change it, or use it as a payout value/similar. Use for threshold is handled by the THRESHOLD keyword as a first qualifier.
+    - THRESHOLD : Used as a check whether this.state is greater than GetThreshold(this.name), and if so, continue checking qualifiers or perform an effect.
+    - LIMIT : Modifies an effect such that multiple instances of the second qualifier being met only become one instance of the effect.
+        LIMIT only affects the most recent effect, so "10 GETS PAY 1 LIMIT 1 STATE 1 FROM ADJ #humanoids" will only give one temp payout, but each adjacent humanoid will increment the state.
 
 UI Update
 - Make symbols show last payout, potentially with any modifiers

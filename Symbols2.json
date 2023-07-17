@@ -1,0 +1,1826 @@
+{
+	"Amethyst": {
+		"Payout": "1",
+		"Name": "Amethyst",
+		"Tags": [
+			""
+		],
+		"Description": "Whenever another symbol makes this symbol give additional /coin, this symbol permanently gives 1 more /coin.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Anchor": {
+		"Payout": "1",
+		"Name": "Anchor",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 4 more /coin when in a corner.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Apple": {
+		"Payout": "3",
+		"Name": "Apple",
+		"Tags": [
+			""
+		],
+		"Description": "",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Banana Peel": {
+		"Payout": "1",
+		"Name": "Banana Peel",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys adjacent . Destroys itself afterwards.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Banana": {
+		"Payout": "1",
+		"Name": "Banana",
+		"Tags": [
+			""
+		],
+		"Description": "Adds  when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Bar of Soap": {
+		"Payout": "1",
+		"Name": "Bar of Soap",
+		"Tags": [
+			""
+		],
+		"Description": "Adds  each spin. Destroys itself after giving  3 times.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Bartender": {
+		"Payout": "3",
+		"Name": "Bartender",
+		"Tags": [
+			""
+		],
+		"Description": "Has a 10% chance of adding    or .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Bear": {
+		"Payout": "2",
+		"Name": "Bear",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys adjacent . Gives 40 for each  destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Beastmaster": {
+		"Payout": "2",
+		"Name": "Beastmaster",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent                           and  give 2x more .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Bee": {
+		"Payout": "1",
+		"Name": "Bee",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent   and  give 2x more . Gives 1 more for each adjacent   or .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Beehive": {
+		"Payout": "3",
+		"Name": "Beehive",
+		"Tags": [
+			""
+		],
+		"Description": "Has a 10% chance of adding .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Beer": {
+		"Payout": "1",
+		"Name": "Beer",
+		"Tags": [
+			""
+		],
+		"Description": "",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Big Ore": {
+		"Payout": "2",
+		"Name": "Big Ore",
+		"Tags": [
+			""
+		],
+		"Description": "Adds 2        or  when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Big Urn": {
+		"Payout": "2",
+		"Name": "Big Urn",
+		"Tags": [
+			""
+		],
+		"Description": "Adds 2 when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Billionaire": {
+		"Payout": "0",
+		"Name": "Billionaire",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent  and  give 2x more . Gives 39 when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Bounty Hunter": {
+		"Payout": "1",
+		"Name": "Bounty Hunter",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys adjacent . Gives 20 for each  destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Bronze Arrow": {
+		"Payout": "0",
+		"Name": "Bronze Arrow",
+		"Tags": [
+			""
+		],
+		"Description": "Points a random direction. Symbols that are pointed to give 2x more . Destroys  that are pointed to.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Bubble": {
+		"Payout": "2",
+		"Name": "Bubble",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself after giving  3 times.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Buffing Capsule": {
+		"Payout": "0",
+		"Name": "Buffing Capsule",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself. Adjacent symbols give 2x more .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Candy": {
+		"Payout": "1",
+		"Name": "Candy",
+		"Tags": [
+			""
+		],
+		"Description": "",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Card Shark": {
+		"Payout": "2",
+		"Name": "Card Shark",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent    and  are .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Cat": {
+		"Payout": "1",
+		"Name": "Cat",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys adjacent . Gives 9 for each  destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Cheese": {
+		"Payout": "1",
+		"Name": "Cheese",
+		"Tags": [
+			""
+		],
+		"Description": "",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Chef": {
+		"Payout": "2",
+		"Name": "Chef",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent                     and  give 2x more .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Chemical Seven": {
+		"Payout": "0",
+		"Name": "Chemical Seven",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself. Gives 7 and adds 1 item when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Cherry": {
+		"Payout": "1",
+		"Name": "Cherry",
+		"Tags": [
+			""
+		],
+		"Description": "",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Chick": {
+		"Payout": "1",
+		"Name": "Chick",
+		"Tags": [
+			""
+		],
+		"Description": "Has a 10% chance to grow into .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Chicken": {
+		"Payout": "2",
+		"Name": "Chicken",
+		"Tags": [
+			""
+		],
+		"Description": "Has a 5% chance of adding . Has a 1% chance of adding .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Clubs": {
+		"Payout": "1",
+		"Name": "Clubs",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent  and  give 1 more. Gives 1 more if there are at least 3    or .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Coal": {
+		"Payout": "0",
+		"Name": "Coal",
+		"Tags": [
+			""
+		],
+		"Description": "Transforms into  after 20 spins.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Coconut Half": {
+		"Payout": "2",
+		"Name": "Coconut Half",
+		"Tags": [
+			""
+		],
+		"Description": "",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Coconut": {
+		"Payout": "1",
+		"Name": "Coconut",
+		"Tags": [
+			""
+		],
+		"Description": "Adds 2 when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Coin": {
+		"Payout": "1",
+		"Name": "Coin",
+		"Tags": [
+			""
+		],
+		"Description": "",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Comedian": {
+		"Payout": "3",
+		"Name": "Comedian",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent      and  give 3x more .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Cow": {
+		"Payout": "3",
+		"Name": "Cow",
+		"Tags": [
+			""
+		],
+		"Description": "Has a 15% chance of adding .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Crab": {
+		"Payout": "1",
+		"Name": "Crab",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 3 more for each other  in the same row.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Crow": {
+		"Payout": "2",
+		"Name": "Crow",
+		"Tags": [
+			""
+		],
+		"Description": "Gives -3 every 4 spins.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Cultist": {
+		"Payout": "0",
+		"Name": "Cultist",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 1 more for each other . Gives 1 more if there are at least 3.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Dame": {
+		"Payout": "2",
+		"Name": "Dame",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent        and  give 2x more . Destroys adjacent . Gives 40 for each  destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Diamond": {
+		"Payout": "5",
+		"Name": "Diamond",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 1 more for each other .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Very Rare"
+	},
+	"Diamonds": {
+		"Payout": "1",
+		"Name": "Diamonds",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent  and  give 1 more. Gives 1 more if there are at least 3    or .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Diver": {
+		"Payout": "2",
+		"Name": "Diver",
+		"Tags": [
+			""
+		],
+		"Description": "Removes adjacent          and . Permanently gives 1 for each symbol removed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Dog": {
+		"Payout": "1",
+		"Name": "Dog",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 1 more if adjacent to                         or .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Dove": {
+		"Payout": "2",
+		"Name": "Dove",
+		"Tags": [
+			""
+		],
+		"Description": "If an adjacent symbol would be destroyed, instead it isn't, and this symbol permanently gives 1 more.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Dud": {
+		"Payout": "0",
+		"Name": "Dud",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself after 33 spins. Cannot be removed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Special"
+	},
+	"Dwarf": {
+		"Payout": "1",
+		"Name": "Dwarf",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys adjacent  and . Gives  equal to 10x the value of symbols destroyed this way.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Egg": {
+		"Payout": "1",
+		"Name": "Egg",
+		"Tags": [
+			""
+		],
+		"Description": "Has a 10% chance to transform into .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Eldritch Creature": {
+		"Payout": "4",
+		"Name": "Eldritch Creature",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys         and . Gives 1 for each         and  destroyed or removed this game.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Very Rare"
+	},
+	"Emerald": {
+		"Payout": "3",
+		"Name": "Emerald",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 1 more if there are at least 2.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Empty": {
+		"Payout": "0",
+		"Name": "Empty",
+		"Tags": [
+			""
+		],
+		"Description": "",
+		"Effects": [
+			""
+		],
+		"Rarity": "Special"
+	},
+	"Essence Capsule": {
+		"Payout": "-12",
+		"Name": "Essence Capsule",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself. Gives 1 when destroyed",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Farmer": {
+		"Payout": "2",
+		"Name": "Farmer",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent                   and  give 2x more . Adjacent  are 50% more likely to grow.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Five-Sided Die": {
+		"Payout": "?",
+		"Name": "Five-Sided Die",
+		"Tags": [
+			""
+		],
+		"Description": "Gives between 1 and 5 randomly.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Flower": {
+		"Payout": "1",
+		"Name": "Flower",
+		"Tags": [
+			""
+		],
+		"Description": "",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Frozen Fossil": {
+		"Payout": "0",
+		"Name": "Frozen Fossil",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself after 20 spins. The amount of spins needed is reduced by 5 for each         and  destroyed or removed this game. Adds  when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Gambler": {
+		"Payout": "1",
+		"Name": "Gambler",
+		"Tags": [
+			""
+		],
+		"Description": "Gives ? when destroyed. \" ? \" increases by 2 each spin. Destroys itself when  or  rolls  or .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"General Zaroff": {
+		"Payout": "1",
+		"Name": "General Zaroff",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys adjacent                          and . Gives 20 for each symbol destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Geologist": {
+		"Payout": "2",
+		"Name": "Geologist",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys adjacent     and . Permanently gives 1 for each symbol destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Golden Arrow": {
+		"Payout": "0",
+		"Name": "Golden Arrow",
+		"Tags": [
+			""
+		],
+		"Description": "Points a random direction. Symbols that are pointed to give 4x more . Destroys  that are pointed to.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Very Rare"
+	},
+	"Golden Egg": {
+		"Payout": "4",
+		"Name": "Golden Egg",
+		"Tags": [
+			""
+		],
+		"Description": "",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Goldfish": {
+		"Payout": "1",
+		"Name": "Goldfish",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys adjacent . Gives 15 for each  destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Golem": {
+		"Payout": "0",
+		"Name": "Golem",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself after 5 spins. Adds 5 when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Goose": {
+		"Payout": "1",
+		"Name": "Goose",
+		"Tags": [
+			""
+		],
+		"Description": "Has a 1% chance of adding .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Hearts": {
+		"Payout": "1",
+		"Name": "Hearts",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent  and  give 1 more. Gives 1 more if there are at least 3    or .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Hex of Destruction": {
+		"Payout": "3",
+		"Name": "Hex of Destruction",
+		"Tags": [
+			""
+		],
+		"Description": "Has a 30% chance to Destroy an adjacent symbol.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Hex of Draining": {
+		"Payout": "3",
+		"Name": "Hex of Draining",
+		"Tags": [
+			""
+		],
+		"Description": "Has a 30% chance to make an adjacent symbol give 0.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Hex of Emptiness": {
+		"Payout": "3",
+		"Name": "Hex of Emptiness",
+		"Tags": [
+			""
+		],
+		"Description": "Has a 30% chance of forcing you to skip the symbols you can add after a spin.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Hex of Hoarding": {
+		"Payout": "3",
+		"Name": "Hex of Hoarding",
+		"Tags": [
+			""
+		],
+		"Description": "Has a 30% chance of forcing you to add a symbol after this spin.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Hex of Midas": {
+		"Payout": "3",
+		"Name": "Hex of Midas",
+		"Tags": [
+			""
+		],
+		"Description": "Has a 30% chance of adding .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Hex of Tedium": {
+		"Payout": "3",
+		"Name": "Hex of Tedium",
+		"Tags": [
+			""
+		],
+		"Description": "You are 1.2x less likely to find Uncommon, Rare, and Very Rare symbols.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Hex of Thievery": {
+		"Payout": "3",
+		"Name": "Hex of Thievery",
+		"Tags": [
+			""
+		],
+		"Description": "Has a 30% chance to take 6.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Highlander": {
+		"Payout": "6",
+		"Name": "Highlander",
+		"Tags": [
+			""
+		],
+		"Description": "There can be only 1.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Very Rare"
+	},
+	"Honey": {
+		"Payout": "3",
+		"Name": "Honey",
+		"Tags": [
+			""
+		],
+		"Description": "",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Hooligan": {
+		"Payout": "2",
+		"Name": "Hooligan",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys adjacent   and . Gives 6 for each   and  destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Hustling Capsule": {
+		"Payout": "-7",
+		"Name": "Hustling Capsule",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself. Adds 1 item when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Item Capsule": {
+		"Payout": "0",
+		"Name": "Item Capsule",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself. Adds 1 Common item when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Jellyfish": {
+		"Payout": "2",
+		"Name": "Jellyfish",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 1 when removed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Joker": {
+		"Payout": "3",
+		"Name": "Joker",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent    and  give 2x more .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Key": {
+		"Payout": "1",
+		"Name": "Key",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys adjacent    and . Destroys itself afterwards.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"King Midas": {
+		"Payout": "1",
+		"Name": "King Midas",
+		"Tags": [
+			""
+		],
+		"Description": "Adds  each spin. Adjacent  give 3x more .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Light Bulb": {
+		"Payout": "1",
+		"Name": "Light Bulb",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent        and  give 2x more . Destroys itself after making other symbols give additional  5 times.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Lockbox": {
+		"Payout": "1",
+		"Name": "Lockbox",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 15 when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Lucky Capsule": {
+		"Payout": "0",
+		"Name": "Lucky Capsule",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself. At least 1 of the symbols to add after this spin will be Rare or better.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Magic Key": {
+		"Payout": "2",
+		"Name": "Magic Key",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys adjacent    and . Symbols destroyed this way give 3x more . Destroys itself afterward.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Magpie": {
+		"Payout": "-1",
+		"Name": "Magpie",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 9 every 4 spins.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Martini": {
+		"Payout": "3",
+		"Name": "Martini",
+		"Tags": [
+			""
+		],
+		"Description": "",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Matryoshka Doll 2": {
+		"Payout": "1",
+		"Name": "Matryoshka Doll 2",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself after 5 spins. Adds  when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Special"
+	},
+	"Matryoshka Doll 3": {
+		"Payout": "2",
+		"Name": "Matryoshka Doll 3",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself after 7 spins. Adds  when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Special"
+	},
+	"Matryoshka Doll 4": {
+		"Payout": "3",
+		"Name": "Matryoshka Doll 4",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself after 9 spins. Adds  when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Special"
+	},
+	"Matryoshka Doll 5": {
+		"Payout": "4",
+		"Name": "Matryoshka Doll 5",
+		"Tags": [
+			""
+		],
+		"Description": "",
+		"Effects": [
+			""
+		],
+		"Rarity": "Special"
+	},
+	"Matryoshka Doll": {
+		"Payout": "0",
+		"Name": "Matryoshka Doll",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself after 3 spins. Adds  when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Mega Chest": {
+		"Payout": "3",
+		"Name": "Mega Chest",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 100 when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Very Rare"
+	},
+	"Midas Bomb": {
+		"Payout": "0",
+		"Name": "Midas Bomb",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself and all adjacent symbols. Symbols destroyed this way give  equal to 7x their value.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Very Rare"
+	},
+	"Milk": {
+		"Payout": "1",
+		"Name": "Milk",
+		"Tags": [
+			""
+		],
+		"Description": "",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Mine": {
+		"Payout": "4",
+		"Name": "Mine",
+		"Tags": [
+			""
+		],
+		"Description": "Adds  each spin. Destroys itself after giving  4 times. Adds 1 item when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Miner": {
+		"Payout": "1",
+		"Name": "Miner",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys adjacent  and . Gives 20 for each  and  destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Missing": {
+		"Payout": "0",
+		"Name": "Missing",
+		"Tags": [
+			""
+		],
+		"Description": "",
+		"Effects": [
+			""
+		],
+		"Rarity": "Special"
+	},
+	"Monkey": {
+		"Payout": "1",
+		"Name": "Monkey",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys adjacent   and . Gives  equal to 6x the value of symbols destroyed this way.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Moon": {
+		"Payout": "3",
+		"Name": "Moon",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent   and  give 3x more . Adds 3 when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Mouse": {
+		"Payout": "1",
+		"Name": "Mouse",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys adjacent . Gives 15 for each  destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Mrs. Fruit": {
+		"Payout": "2",
+		"Name": "Mrs. Fruit",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys adjacent      and . Permanently gives 1 for each symbol destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Ninja": {
+		"Payout": "2",
+		"Name": "Ninja",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 1 less for each other .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Omelette": {
+		"Payout": "3",
+		"Name": "Omelette",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 2 more if adjacent to     or . This effect only applies once per spin.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Orange": {
+		"Payout": "2",
+		"Name": "Orange",
+		"Tags": [
+			""
+		],
+		"Description": "",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Ore": {
+		"Payout": "1",
+		"Name": "Ore",
+		"Tags": [
+			""
+		],
+		"Description": "Adds        or  when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Owl": {
+		"Payout": "1",
+		"Name": "Owl",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 1 every 3 spins.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Oyster": {
+		"Payout": "1",
+		"Name": "Oyster",
+		"Tags": [
+			""
+		],
+		"Description": "Has a 20% chance of adding . Adds  when removed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Peach": {
+		"Payout": "2",
+		"Name": "Peach",
+		"Tags": [
+			""
+		],
+		"Description": "Adds  when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Pear": {
+		"Payout": "1",
+		"Name": "Pear",
+		"Tags": [
+			""
+		],
+		"Description": "Whenever another symbol makes this symbol give additional , this symbol permanently gives 1 more.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Pearl": {
+		"Payout": "1",
+		"Name": "Pearl",
+		"Tags": [
+			""
+		],
+		"Description": "",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Pirate": {
+		"Payout": "2",
+		"Name": "Pirate",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys adjacent        and . Permanently gives 1 for each symbol destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Very Rare"
+	},
+	"PiÃ±ata": {
+		"Payout": "1",
+		"Name": "PiÃ±ata",
+		"Tags": [
+			""
+		],
+		"Description": "Adds 7 when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Present": {
+		"Payout": "0",
+		"Name": "Present",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself after 12 spins. Gives 10 when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Pufferfish": {
+		"Payout": "2",
+		"Name": "Pufferfish",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 1 when removed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Rabbit Fluff": {
+		"Payout": "2",
+		"Name": "Rabbit Fluff",
+		"Tags": [
+			""
+		],
+		"Description": "You are 1.2x more likely to find Uncommon, Rare, and Very Rare symbols.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Rabbit": {
+		"Payout": "1",
+		"Name": "Rabbit",
+		"Tags": [
+			""
+		],
+		"Description": "Permanently gives 2 more after giving  10 times.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Rain": {
+		"Payout": "2",
+		"Name": "Rain",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent  give 2x more . Adjacent  are 50% more likely to grow.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Removal Capsule": {
+		"Payout": "0",
+		"Name": "Removal Capsule",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself. Gives 1 when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Reroll Capsule": {
+		"Payout": "0",
+		"Name": "Reroll Capsule",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself. Gives 1 when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Robin Hood": {
+		"Payout": "-4",
+		"Name": "Robin Hood",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 25 every 4 spins. Adjacent    and  give 3 more. Destroys adjacent   and . Gives 15 for each   and  destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Ruby": {
+		"Payout": "3",
+		"Name": "Ruby",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 1 more if there are at least 2.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Safe": {
+		"Payout": "1",
+		"Name": "Safe",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 30 when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Sand Dollar": {
+		"Payout": "2",
+		"Name": "Sand Dollar",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 10 when removed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Sapphire": {
+		"Payout": "2",
+		"Name": "Sapphire",
+		"Tags": [
+			""
+		],
+		"Description": "",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Seed": {
+		"Payout": "1",
+		"Name": "Seed",
+		"Tags": [
+			""
+		],
+		"Description": "Has a 25% chance to grow into           or .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Shiny Pebble": {
+		"Payout": "1",
+		"Name": "Shiny Pebble",
+		"Tags": [
+			""
+		],
+		"Description": "You are 1.1x more likely to find Uncommon, Rare, and Very Rare symbols.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Silver Arrow": {
+		"Payout": "0",
+		"Name": "Silver Arrow",
+		"Tags": [
+			""
+		],
+		"Description": "Points a random direction. Symbols that are pointed to give 3x more . Destroys  that are pointed to.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Sloth": {
+		"Payout": "0",
+		"Name": "Sloth",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 4 every 2 spins.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Snail": {
+		"Payout": "0",
+		"Name": "Snail",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 5 every 4 spins.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Spades": {
+		"Payout": "1",
+		"Name": "Spades",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent  and  give 1 more. Gives 1 more if there are at least 3    or .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Spirit": {
+		"Payout": "6",
+		"Name": "Spirit",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself after giving  4 times.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Strawberry": {
+		"Payout": "3",
+		"Name": "Strawberry",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 1 more if there are at least 2.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Sun": {
+		"Payout": "3",
+		"Name": "Sun",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent  give 5x more . Adjacent  are 50% more likely to grow.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Target": {
+		"Payout": "2",
+		"Name": "Target",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 10 when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Tedium Capsule": {
+		"Payout": "0",
+		"Name": "Tedium Capsule",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself. Gives 5 when destroyed. At least 1 of the symbols to add after this spin will be Common.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Thief": {
+		"Payout": "-1",
+		"Name": "Thief",
+		"Tags": [
+			""
+		],
+		"Description": "Gives ? when destroyed. \" ? \" increases by 4 each spin.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Three-Sided Die": {
+		"Payout": "?",
+		"Name": "Three-Sided Die",
+		"Tags": [
+			""
+		],
+		"Description": "Gives between 1 and 3 randomly.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Time Capsule": {
+		"Payout": "0",
+		"Name": "Time Capsule",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself. Adds 1 symbol that was destroyed this game when destroyed. Cannot add .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Toddler": {
+		"Payout": "1",
+		"Name": "Toddler",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys adjacent    and . Gives 6 for each    and  destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Tomb": {
+		"Payout": "3",
+		"Name": "Tomb",
+		"Tags": [
+			""
+		],
+		"Description": "Has a 6% chance of adding . Adds 4 when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Treasure Chest": {
+		"Payout": "2",
+		"Name": "Treasure Chest",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 50 when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Turtle": {
+		"Payout": "0",
+		"Name": "Turtle",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 4 every 3 spins.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Urn": {
+		"Payout": "1",
+		"Name": "Urn",
+		"Tags": [
+			""
+		],
+		"Description": "Adds  when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Common"
+	},
+	"Void Creature": {
+		"Payout": "0",
+		"Name": "Void Creature",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent  give 1 more. Destroys itself if adjacent to 0. Gives 8 when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Void Fruit": {
+		"Payout": "0",
+		"Name": "Void Fruit",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent  give 1 more. Destroys itself if adjacent to 0. Gives 8 when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Void Stone": {
+		"Payout": "0",
+		"Name": "Void Stone",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent  give 1 more. Destroys itself if adjacent to 0. Gives 8 when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Watermelon": {
+		"Payout": "4",
+		"Name": "Watermelon",
+		"Tags": [
+			""
+		],
+		"Description": "Gives 1 more for each other .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Very Rare"
+	},
+	"Wealthy Capsule": {
+		"Payout": "0",
+		"Name": "Wealthy Capsule",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself. Gives 10 when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Wildcard": {
+		"Payout": "?",
+		"Name": "Wildcard",
+		"Tags": [
+			""
+		],
+		"Description": "Gives  equal to the highest value among adjacent symbols.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Very Rare"
+	},
+	"Wine": {
+		"Payout": "2",
+		"Name": "Wine",
+		"Tags": [
+			""
+		],
+		"Description": "Permanently gives 1 more after giving  8 times.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
+	"Witch": {
+		"Payout": "2",
+		"Name": "Witch",
+		"Tags": [
+			""
+		],
+		"Description": "Adjacent             and  give 2x more .",
+		"Effects": [
+			""
+		],
+		"Rarity": "Rare"
+	},
+	"Wolf": {
+		"Payout": "2",
+		"Name": "Wolf",
+		"Tags": [
+			""
+		],
+		"Description": "",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	}
+}
