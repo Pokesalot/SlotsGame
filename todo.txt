@@ -24,7 +24,8 @@ Rewrite top-level functions that symbols can use. Each return booleans to limit 
 
 
 Keep a list of permanent effects, empty at game start.
-On spin, 20x select a random symbol from reserves and add it randomly to the board.
+On spin, dump the board symbols which are not empty into the player symbols array. 
+    20x select a random symbol from reserves and add it randomly to the board.
     Also enqueue that symbol for effect checking.
 Once all symbols have been added, iterate through the symbols and enqueue any effects found.
 Once all symbols have been checked, also enqueue effects from Items.
@@ -85,6 +86,7 @@ Lexer Parser for symbol and item effects:
     - THRESHOLD : Used as a check whether this.state is greater than GetThreshold(this.name), and if so, continue checking qualifiers or perform an effect.
     - LIMIT : Modifies an effect such that multiple instances of the second qualifier being met only become one instance of the effect.
         LIMIT only affects the most recent effect, so "10 GETS PAY 1 LIMIT 1 STATE 1 FROM ADJ #humanoids" will only give one temp payout, but each adjacent humanoid will increment the state.
+    - PERM : The rest of the effect is to be added as a permanent effect, as it is written. This can result in permanent effects that add more permanent effects, so be careful.
 
 UI Update
 - Make symbols show last payout, potentially with any modifiers

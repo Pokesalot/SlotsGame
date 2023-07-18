@@ -1,8 +1,10 @@
+let GameState = {};
 function GetClearProgress(){
   return {
-    PlayerSymbols : [new Coin, new Cherry, new Pearl, new Flower, new Cat],
+    PlayerSymbols : [new Coin, new Flower, new Cat, new Pearl, new Cherry],
     PlayerItems : [],
     PlayerCoins : 1,
+    Board : GetStartingBoard(1),
     Spins : RentSpinsChecks[0],
     RentsPaid : 0,
     CostToSpin : 1,
@@ -53,11 +55,6 @@ const shopParas = [
   document.getElementById('shopPara1'),
   document.getElementById('shopPara2')
 ];
-
-
-
-let GameState = GetClearProgress();
-StartGame();
 
 function spin() {
   if(GameState.hasTester){console.log("\n","---------------------------------------------------------------------------");}
