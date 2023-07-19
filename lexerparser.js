@@ -49,6 +49,25 @@ class newSymbol{
     }
 }
 
+function GetSymbolEffects(){
+    //Eventually there will have to be logic added to make sure that effects have paper trails to ensure things only happen once
+    //Maybe an array of actions taken. Something to think about
+    // #TODO
+    for(let i=0;i<20;i++){
+        if(GameState.Board[i].status.indexOf("checked") != -1){continue};
+        GameState.SpinEffects = [...GameState.SpinEffects,...GameState.Board[i].effects];
+        GameState.Board[i].status = [...GameState.Board[i].status,"checked"];
+    }
+}
+function GetItemEffects(){
+    //Standin
+}
+
+function ResolveEffects(){
+    //This function will count to 100, performing actions on the board symbols, as well as items, as it goes.
+    //This is a standin for now
+}
+
 function MakeSymbol(SymbolName){
     console.log(SymbolName)
     let ns = AllSymbolsJson[SymbolName]

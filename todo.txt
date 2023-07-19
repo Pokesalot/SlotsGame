@@ -88,6 +88,7 @@ Lexer Parser for symbol and item effects:
         LIMIT only affects the most recent effect, so "10 GETS PAY 1 LIMIT 1 STATE 1 FROM ADJ #humanoids" will only give one temp payout, but each adjacent humanoid will increment the state.
     - PERM : The rest of the effect is to be added as a permanent effect, as it is written. This can result in permanent effects that add more permanent effects, so be careful.
 
+    - ARROW : ? Potentially need to code in custom arrow code, yet to be seen, but likely. Maybe break it up to "15 POINT","16 GIVE x2 TO POINTED" or similar. Then a second POINT command can be added if needed.
 UI Update
 - Make symbols show last payout, potentially with any modifiers
 - Not from where, that shounds like shit, but a list of adds, multis, and a total at bottom

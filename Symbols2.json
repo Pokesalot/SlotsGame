@@ -303,12 +303,10 @@
 		"Payout": "1",
 		"Name": "Cherry",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Common"
 	},
 	"Chick": {
@@ -387,12 +385,10 @@
 		"Payout": "1",
 		"Name": "Coin",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Common"
 	},
 	"Comedian": {
@@ -591,12 +587,10 @@
 		"Payout": "0",
 		"Name": "Empty",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Special"
 	},
 	"Essence Capsule": {

@@ -2,6 +2,8 @@ let GameState = {};
 function GetClearProgress(){
   return {
     PlayerSymbols : [new Coin, new Flower, new Cat, new Pearl, new Cherry],
+    NewPlayerSymbols : [],
+    SpinEffects : [],
     PlayerItems : [],
     PlayerCoins : 1,
     Board : GetStartingBoard(1),
@@ -68,64 +70,33 @@ function spin() {
   //Charge the player a coin to spin the wheel
   GameState.PlayerCoins -= GameState.CostToSpin; GameState.Spins--;
 
-  //Create a place to put all effects we'll see this spin, for all items and symbols, on the board or not
-  /*Expected form is an object of the following form
-    {
-      "from":index (Symbol index is location in PlayerSymbols, Item index location in PlayerItems *-1)
-      "to":index (Symbol index is location in PlayerSymbols, Item index location in PlayerItems *-1)
-      "effect":"effect" (Valid effects are:
-           '+n', 
-           '+n forever', 
-           '*n',
-           'destroy', 
-           'save', 
-            and are evaluated in that order)
-    }
-  */
-
-    
-
-
-
+  //OLD ---------------/*
   let spinEffects = [];
-
   // Ensure there are 15 symbols in the player's hands, adding Empties as needed
   for(let i=0; GameState.PlayerSymbols.length < 20;i++){
     if(GameState.hasTester){console.log("Adding Empty");}
     GameState.PlayerSymbols.push(new Empty);
   }
+  //OLD ---------------*/
 
-  /*  Now that we know there are at least 20 symbols to pick from, we can create a spun board
-      Order of events:
-      Randomly select a symbol we have and put it into a cell
-        - repeat 20 times
-      Every symbol places their payout in the space
-      Left to right, top to bottom, resolve symbol effects. 
-        This will be done in multiple passes with higher and higher precedence.
-        When a new symbol is added to the board, it will be given the same passes of rising precedence
+  //Load all symbols from the board into the symbol collection
+  while(GameState.Board.length > 0){ 
+      GameState.NewPlayerSymbols.push(GameState.Board.pop());
+  }
 
-        for every symbol, check against every other symbol if it has a pertinent tag or is a pertinent symbol, then if it is adjacent (or applicable)
-          That is, diamonds look for other diamonds anywhere, but monkeys look for <monkeylike>s adjacent to itself.
-          This involves a function overwrite for adjacency/pertinency, since symbols can apply board-wide under certain circumstances and not others
-          
+  //Fill the board randomly with symbols just added to the pool. This should mitigate not having enough symbols to shuffle in.
+  for(let i=0;i<20;i++){
+    let ind = Math.floor(Math.random() * GameState.NewPlayerSymbols.length);
+    GameState.Board.push(GameState.NewPlayerSymbols[ind]);
+    GameState.NewPlayerSymbols.splice(ind,1);
+  }
 
-        //Unit tests
-        //An egg can grow in place to a chick, chick can grow in place to a chicken, chicken can lay an egg, all one spin
-        //A monkey can eat a coconut, the coconut adds two coconut halves, the monkey can eat the half, all one spin
+  //Get effects from symbols on the board and items in hand, then resolve them.
+  GetSymbolEffects();
+  GetItemEffects();
+  ResolveEffects();
 
-        0: Store your payout in the space you're on
-        1: Resolve self effects. Chickens may lay eggs, seeds may grow, anything that happens in place occurs here
-        2: Generate effects. Store destruction, saving, multipliers, added payouts, everything a symbol can do is stored on all shown SYMBOLS
-        3: Resolve effects. Mainly this will be destruction. If destruction creates new symbols, check for effects applied to or from those symbols
-        Store extra payouts and multipliers in the space
-
-        Destroy symbols if they are to be destroyed, replacing them immediately with empties
-
-        If adding a new symbol, first try to put them in the board in place of any empties found, otherwise set them in reserves
-
-      Pay out all symbols (if animating, sort payouts from spaces and items and play a rising note on each unique value)
-      Check for rent and all the ansulary game mechanics
-    */
+  
 
   //Items may be checked here before symbols are placed on the reel. Just in case.
 
