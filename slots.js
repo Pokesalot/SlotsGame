@@ -1,26 +1,3 @@
-let GameState = {};
-function GetClearProgress(){
-  return {
-    PlayerSymbols : [new Coin, new Flower, new Cat, new Pearl, new Cherry],
-    NewPlayerSymbols : [],
-    SpinEffects : [],
-    PlayerItems : [],
-    PlayerCoins : 1,
-    Board : GetStartingBoard(1),
-    Spins : RentSpinsChecks[0],
-    RentsPaid : 0,
-    CostToSpin : 1,
-    RarityMulti: 1,
-    ForcedRarities: [],
-    ShopItems : [new Empty, new Empty, new Empty],
-    Destroyed : {},
-    canBuy: false,
-    canSpin: true,
-    canSkip: false,
-    hasTester: false
-  }
-}
-
 function StartGame(){
   moneyShow.innerText = `Coins: ${GameState.PlayerCoins}`
   rentShow.innerText = `Rent Due: ${RentPayChecks[GameState.RentsPaid]}`
@@ -95,7 +72,7 @@ function spin() {
   GetSymbolEffects();
   GetItemEffects();
   ResolveEffects();
-
+  //This is the bulk of a spin, after that it's mainly rendering symbols and receiving coins
   
 
   //Items may be checked here before symbols are placed on the reel. Just in case.

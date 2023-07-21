@@ -53,7 +53,7 @@ Lexer Parser for symbol and item effects:
     This is also where LIMIT will be added, in case there are several.
         e.g. Dog, GETS PAY 1 FROM #humanoids LIMIT 1
 
-    e.g. "20 GIVES qWildcard To ADJ #Suits"
+    e.g. "20 GIVES qWildcard TO ADJ #Suits"
     e.g. "20 GETS PAY 1 LIMIT 1 FROM ADJ #humanoids "
     Depending on effect given, can be applied to a Gamestate.Permanents stack, or simply apply temporarily.
         The number at the front of the effect will be used to sort the effect into a stack.

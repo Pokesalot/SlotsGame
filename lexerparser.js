@@ -1,3 +1,27 @@
+let GameState = {};
+function GetClearProgress(){
+  return {
+    PlayerSymbols : [new Coin, new Flower, new Cat, new Pearl, new Cherry],
+    NewPlayerSymbols : [],
+    SpinEffects : [],
+    SpinActions : [],
+    PlayerItems : [],
+    PlayerCoins : 1,
+    Board : GetStartingBoard(1),
+    Spins : RentSpinsChecks[0],
+    RentsPaid : 0,
+    CostToSpin : 1,
+    RarityMulti: 1,
+    ForcedRarities: [],
+    ShopItems : [new Empty, new Empty, new Empty],
+    Destroyed : {},
+    canBuy: false,
+    canSpin: true,
+    canSkip: false,
+    hasTester: false
+  }
+}
+
 async function fetchData() {
     let response = await fetch("./Symbols2.json");
     let data = await response.json();
@@ -32,6 +56,14 @@ class newSymbol{
         this.effects = effects;
         this.tags = tags;
 
+        let pool = "ABCDEFGHIJKLMNOP12345678901234567890";
+        let id = "";
+        for(let i=0;i<8;i++){
+            if(i%5 == 4){id += "-"}
+            id += pool[Math.floor(Math.random() * pool.length)],1;
+        }
+        this.id = id;
+
         this.state = 0; //States always start at 0 and count up as required from effects internally.
         this.status = []; //Temporary statuses applied to a Symbol when spun.
         this.adjacencies = []; //This should be kept as a list of BOARD LOCATIONS that the Symbol is considered to be adjacent to.
@@ -54,13 +86,19 @@ function GetSymbolEffects(){
     //Maybe an array of actions taken. Something to think about
     // #TODO
     for(let i=0;i<20;i++){
-        if(GameState.Board[i].status.indexOf("checked") != -1){continue};
-        GameState.SpinEffects = [...GameState.SpinEffects,...GameState.Board[i].effects];
-        GameState.Board[i].status = [...GameState.Board[i].status,"checked"];
+        //Construct this symbol's effects
+        for(let j=0;j<GameState.Board[i].effects.length;j++){
+            let check = `${GameState.Board[i].effects[j]}|${GameState.Board[i].id}|${i}`
+            if(GameState.SpinEffects.indexOf(check) == -1){
+                GameState.SpinEffects.push(check)
+            }
+        }
+        //Sort the list of effects by their precedence
+        GameState.SpinEffects.sort((a,b) => a.split(" ")[0] - b.split(" ")[0] )
     }
 }
 function GetItemEffects(){
-    //Standin
+    //Standin, will be added when symbols actually exist
 }
 
 function ResolveEffects(){

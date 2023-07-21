@@ -255,11 +255,12 @@
 		"Payout": "1",
 		"Name": "Cat",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Destroys adjacent . Gives 9 for each  destroyed.",
+		"Description": "Destroys adjacent 'Milk. Gives 9 'Coin for each 'Milk destroyed.",
 		"Effects": [
-			""
+			"15 GETS PAY 9 FROM ADJ 'Milk",
+			"16 GIVES DESTROY TO ADJ 'Milk"
 		],
 		"Rarity": "Common"
 	},
@@ -633,12 +634,10 @@
 		"Payout": "1",
 		"Name": "Flower",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Common"
 	},
 	"Frozen Fossil": {
@@ -1305,12 +1304,10 @@
 		"Payout": "1",
 		"Name": "Pearl",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Common"
 	},
 	"Pirate": {
@@ -1325,9 +1322,9 @@
 		],
 		"Rarity": "Very Rare"
 	},
-	"PiÃ±ata": {
+	"Pinata": {
 		"Payout": "1",
-		"Name": "PiÃ±ata",
+		"Name": "Pinata",
 		"Tags": [
 			""
 		],
