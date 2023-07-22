@@ -74,21 +74,28 @@ Lexer Parser for symbol and item effects:
         Any of these can be preceded by a ! to signify that the symbol not match the following quality
         Where one or more qualities are matched, the list will be interpreted as an AND list, all qualities must be true for the effect to be given/received
     Other keywords:
-    - RANDOM : Followed by a parameter [0,1) for a random roll to be made. If the roll succeeds, perform the rest of the effect.
+    - RANDOM [Decimal]: Followed by a parameter [0,1) for a random roll to be made. If the roll succeeds, perform the rest of the effect.
     - STORE : Store your payout on the space you inhabit since something is about to happen to you that will require that change.
-    - TRANSFORM : Followed by the name of the symbol it will be transforming into.
+    - TRANSFORM '[Name]: Followed by the name of the symbol it will be transforming into.
         This can allow multi-tiered evolution, by adding two effects, e.g. "15 RANDOM 0.4 TRANSFORM Symbol1; 16 RANDOM 0.1 TRANSFORM Symbol2;"
             40% of the time, the symbol will transform into Symbol1. 10% of the time it will transform into Symbol2. Symbol2 takes precedent if both occur.
-    - PAYOUT : Used as a standin for this.payout where applicable. Either to change it, use its value where necessary.
-    - PAY : Modify the tempPayout of the symbol, allowing a one-time payout
-    - MULTI : Modify the tempMulti of the symbol, numbers will 
-    - STATE :  Used as a standin for this.state where applicable. Either to change it, or use it as a payout value/similar. Use for threshold is handled by the THRESHOLD keyword as a first qualifier.
+    - PAYOUT [Num]: Used as a standin for this.payout where applicable. Either to change it, use its value where necessary.
+    - PAY [Num]: Modify the tempPayout of the symbol, allowing a one-time payout
+    - MULTI [Multiplier]: Modify the tempMulti of the symbol, numbers will 
+    - STATE [Change]:  Used as a standin for this.state where applicable. Either to change it, or use it as a payout value/similar. Use for threshold is handled by the THRESHOLD keyword as a first qualifier.
     - THRESHOLD : Used as a check whether this.state is greater than GetThreshold(this.name), and if so, continue checking qualifiers or perform an effect.
-    - LIMIT : Modifies an effect such that multiple instances of the second qualifier being met only become one instance of the effect.
+    - LIMIT [Num]: Modifies an effect such that multiple instances of the second qualifier being met only become one instance of the effect.
         LIMIT only affects the most recent effect, so "10 GETS PAY 1 LIMIT 1 STATE 1 FROM ADJ #humanoids" will only give one temp payout, but each adjacent humanoid will increment the state.
-    - PERM : The rest of the effect is to be added as a permanent effect, as it is written. This can result in permanent effects that add more permanent effects, so be careful.
+    - PERM [Effect]: The rest of the effect is to be added as a permanent effect, as it is written. This can result in permanent effects that add more permanent effects, so be careful.
+    - POINT : Spin the symbol to face a random direction. By itself this doesn't do anything, it is paired with the RANGE keyword
+    - RANGE [Num]: How far from the symbol, in the direction it's facing (up by default, POINT to change), to give the effect to symbols.
+    - TOTAL [Num] '[Name]: Triggers off of a total number the named symbol being on the board.
+    - ADD '[Name] : An effect that adds a symbol. If there is an open space on the board, randomly place it in one of them, otherwise just put it in reserves
 
-    - ARROW : ? Potentially need to code in custom arrow code, yet to be seen, but likely. Maybe break it up to "15 POINT","16 GIVE x2 TO POINTED" or similar. Then a second POINT command can be added if needed.
+Other notes:
+    Resolve effects will re-run every time the board state changes. If a symbol shouldn't run an effect again, tag it to get a one-time status and then make the rest of its effects require !that_status
+    This will allow for a lot more finetuned logic per symbol, at the cost of more verbose effects sometimes.
+
 UI Update
 - Make symbols show last payout, potentially with any modifiers
 - Not from where, that shounds like shit, but a list of adds, multis, and a total at bottom

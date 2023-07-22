@@ -1724,9 +1724,13 @@
 		"Tags": [
 			""
 		],
-		"Description": "Adjacent  give 1 more. Destroys itself if adjacent to 0. Gives 8 when destroyed.",
+		"Description": "Adjacent 'Empty give 1 'Coin more. Destroys itself if adjacent to 0 'Empty. Gives 8 'Coin when destroyed.",
 		"Effects": [
-			""
+			"10 GETS qNoEmpties",
+			"15 GIVEs PAY 1 TO ADJ 'Empty",
+			"20 GETS q!NoEmpties FROM ADJ 'Empty",
+			"30 qNoEmpties GETS qDESTROY",
+			"50 qDESTROY GETS PAY 8"
 		],
 		"Rarity": "Uncommon"
 	},

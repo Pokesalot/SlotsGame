@@ -3,8 +3,8 @@ function GetClearProgress(){
   return {
     PlayerSymbols : [new Coin, new Flower, new Cat, new Pearl, new Cherry],
     NewPlayerSymbols : [],
-    SpinEffects : [],
-    SpinActions : [],
+    SpinEffects : [], //All effects for all symbols and items, taken or not
+    SpinActions : [], //Effects that actually triggered, including origin and target where applicable
     PlayerItems : [],
     PlayerCoins : 1,
     Board : GetStartingBoard(1),
@@ -35,16 +35,16 @@ fetchData();
 
 function GetStartingBoard(Difficulty){
     if(Difficulty <= 5){
-      //No duds
-      return [
-        MakeSymbol("Empty"),MakeSymbol("Coin"),MakeSymbol("Empty"),MakeSymbol("Empty"),
-        MakeSymbol("Empty"),MakeSymbol("Empty"),MakeSymbol("Cherry"),MakeSymbol("Empty"),
-        MakeSymbol("Empty"),MakeSymbol("Pearl"),MakeSymbol("Empty"),MakeSymbol("Empty"),
-        MakeSymbol("Empty"),MakeSymbol("Empty"),MakeSymbol("Flower"),MakeSymbol("Empty"),
-        MakeSymbol("Empty"),MakeSymbol("Cat"),MakeSymbol("Empty"),MakeSymbol("Empty"),
-      ]
+        //No duds
+        return [
+            MakeSymbol("Void Fruit"),MakeSymbol("Coin"),MakeSymbol("Empty"),MakeSymbol("Empty"),
+            MakeSymbol("Empty"),MakeSymbol("Empty"),MakeSymbol("Cherry"),MakeSymbol("Empty"),
+            MakeSymbol("Empty"),MakeSymbol("Pearl"),MakeSymbol("Empty"),MakeSymbol("Empty"),
+            MakeSymbol("Empty"),MakeSymbol("Empty"),MakeSymbol("Flower"),MakeSymbol("Empty"),
+            MakeSymbol("Empty"),MakeSymbol("Cat"),MakeSymbol("Empty"),MakeSymbol("Empty"),
+        ]
     }
-  }
+}
 
 class newSymbol{
     constructor(name, payout, rarity, description, effects, tags){
@@ -82,9 +82,8 @@ class newSymbol{
 }
 
 function GetSymbolEffects(){
-    //Eventually there will have to be logic added to make sure that effects have paper trails to ensure things only happen once
-    //Maybe an array of actions taken. Something to think about
-    // #TODO
+    //Adds all possible effects for all symbols on the board to the SpinEffects array, then sorts it by precedence
+    //This will be run any time we change the state of the board, since it also removes duplicates, so nothing should fire twice
     for(let i=0;i<20;i++){
         //Construct this symbol's effects
         for(let j=0;j<GameState.Board[i].effects.length;j++){
@@ -102,12 +101,39 @@ function GetItemEffects(){
 }
 
 function ResolveEffects(){
-    //This function will count to 100, performing actions on the board symbols, as well as items, as it goes.
-    //This is a standin for now
+    //This function will step through and evaluate all effects in order for Gamestate.SpinEffects
+    //Actions that do trigger will be noted in the GameState.SpinActions 
+
+    //Utilizes GetAdjacentIndices to check for adjacency
+    //Check effects to 100, check for destroy, transform, or add. If any of those trigger, get effects again and check effects again.
+    //If no symbols destroy, transform, or add, then just continue to the end of effects, just in case.
+    //This allows symbols to change the game after a spin is "over"
+
+
+    /*Problem somewhere in here
+    let restartAt100 = false;
+    for(let i=0;i<GameState.SpinEffects.length;i++){
+        let vocab = 0; 
+            // 0 - Self qualities check
+            // 1 - Effect check
+            // 2 - Other symbols check
+        let words = GameState.SpinEffects[i].split("|")[0].split(" ")
+        for (let word = 1; word < words.length; word++ ){
+            switch(vocab){
+                case 0:
+                    //Self qualifiers only
+                    if(words[word][0] == "q"){//Self checking a quality
+                        let qual = words[word][0].splice(0,1);
+                        console.log(qual);
+                    }
+                    break;
+            }
+        }
+    }
+    */
 }
 
 function MakeSymbol(SymbolName){
-    console.log(SymbolName)
     let ns = AllSymbolsJson[SymbolName]
     return new newSymbol(ns["Name"],ns["Payout"],ns["Rarity"],ns["Description"],ns["Effects"],ns["Tags"])
 }

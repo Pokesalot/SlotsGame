@@ -66,16 +66,27 @@ function spin() {
     let ind = Math.floor(Math.random() * GameState.NewPlayerSymbols.length);
     GameState.Board.push(GameState.NewPlayerSymbols[ind]);
     GameState.NewPlayerSymbols.splice(ind,1);
+    
+    //Reset symbols being put onto the board, then tag them to be location aware without a lot of extra help.
+    //Location aware symbols will have a lot of effects to count for all locations, tough shit.
+    GameState.Board[i].Reset();
+    GameState.Board[i].status.push(`col${Math.floor(i/4)}`)
+    GameState.Board[i].status.push(`row${i%4}`)
   }
+
+  //Effects that change symbol positions on the board go here
+
+  //TODO Tag each symbol with its row and column to more easily allow for positional checks
 
   //Get effects from symbols on the board and items in hand, then resolve them.
   GetSymbolEffects();
   GetItemEffects();
+  console.log("Just before resolve")
   ResolveEffects();
   //This is the bulk of a spin, after that it's mainly rendering symbols and receiving coins
   
 
-  //Items may be checked here before symbols are placed on the reel. Just in case.
+  //Old code from here down, delete when ready
 
   // Create an array of indices, 0 to playersymbols.length -1 
   let symbolsToShow = Array.from(Array(GameState.PlayerSymbols.length).keys())
@@ -411,6 +422,7 @@ function getThreshold(name){
 }
 
 function test(){
+  console.log("Error found")
   alert("Testing started. If you didn't mean to do this, you've encountered a bug! Congratulations!")
   GameState.PlayerSymbols.push(new Tester);
   GameState.hasTester = true;
