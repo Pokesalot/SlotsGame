@@ -109,8 +109,6 @@ function ResolveEffects(){
     //If no symbols destroy, transform, or add, then just continue to the end of effects, just in case.
     //This allows symbols to change the game after a spin is "over"
 
-
-    /*Problem somewhere in here
     let restartAt100 = false;
     for(let i=0;i<GameState.SpinEffects.length;i++){
         let vocab = 0; 
@@ -122,15 +120,14 @@ function ResolveEffects(){
             switch(vocab){
                 case 0:
                     //Self qualifiers only
-                    if(words[word][0] == "q"){//Self checking a quality
-                        let qual = words[word][0].splice(0,1);
+                    if(words[word][0] == "'"){//Self checking a quality
+                        let qual = words[word].slice(1);
                         console.log(qual);
                     }
                     break;
             }
         }
     }
-    */
 }
 
 function MakeSymbol(SymbolName){
