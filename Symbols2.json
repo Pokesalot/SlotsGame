@@ -1727,10 +1727,11 @@
 		"Description": "Adjacent 'Empty give 1 'Coin more. Destroys itself if adjacent to 0 'Empty. Gives 8 'Coin when destroyed.",
 		"Effects": [
 			"10 GETS qNoEmpties",
-			"15 GIVEs PAY 1 TO ADJ 'Empty",
+			"15 GIVES PAY 1 TO ADJ 'Empty",
 			"20 GETS q!NoEmpties FROM ADJ 'Empty",
 			"30 qNoEmpties GETS qDESTROY",
-			"50 qDESTROY GETS PAY 8"
+			"50 qDESTROY GETS PAY 8",
+			"ON DESTROY ADD 'Coin"
 		],
 		"Rarity": "Uncommon"
 	},

@@ -76,6 +76,23 @@ class newSymbol{
         this.tempPayout = 0;
         this.tempMulti = 1;
     }
+    Transform(SymbolName){//Make sure to store the old symbol's payout before transforming!
+        newStats = AllSymbolsJson[SymbolName];
+        this.name = newStats.name;
+        this.src = `images/${newStats.name.toLowerCase().replaceAll(" ","_")}.png`
+        this.payout = newStats.payout
+        this.rarity = newStats.rarity
+        this.description = newStats.description
+        this.effects = newStats.effects
+        this.tags = newStats.tags
+        
+        //After a transformation, the board reruns all checks
+        this.state = 0;
+        this.status = [];
+        this.adjacencies = [];
+        this.tempPayout = 0;
+        this.tempMulti = 1;
+    }
     GetPayout(){
         return (this.payout + this.tempPayout) * this.tempMulti
     }
@@ -87,8 +104,8 @@ function GetSymbolEffects(){
     for(let i=0;i<20;i++){
         //Construct this symbol's effects
         for(let j=0;j<GameState.Board[i].effects.length;j++){
-            let check = `${GameState.Board[i].effects[j]}|${GameState.Board[i].id}|${i}`
-            if(GameState.SpinEffects.indexOf(check) == -1){
+            let check = `${GameState.Board[i].effects[j]}|${GameState.Board[i].id}|${i}`;
+            if(GameState.SpinEffects.indexOf(check) == -1 && check.split(" ")[0] != "ON"){
                 GameState.SpinEffects.push(check)
             }
         }
@@ -105,29 +122,117 @@ function ResolveEffects(){
     //Actions that do trigger will be noted in the GameState.SpinActions 
 
     //Utilizes GetAdjacentIndices to check for adjacency
-    //Check effects to 100, check for destroy, transform, or add. If any of those trigger, get effects again and check effects again.
+    //Check effects to 100, check for destroy, remove, transform, or add. If any of those trigger, get effects again and check effects again.
     //If no symbols destroy, transform, or add, then just continue to the end of effects, just in case.
     //This allows symbols to change the game after a spin is "over"
 
     let restartAt100 = false;
     for(let i=0;i<GameState.SpinEffects.length;i++){
-        let vocab = 0; 
+        let vocab = 0; let validity = true; let effects = []; let verb = 0; let pred = 0; let not = false;
             // 0 - Self qualities check
-            // 1 - Effect check
-            // 2 - Other symbols check
+            // 1 - Find Receivers
+            // 2 - Find Givers
         let words = GameState.SpinEffects[i].split("|")[0].split(" ")
+        //TODO make MyPosition somewhere else if the effect comes from an Item and it triggers on a tag or name
+        //TODO after items are added lol
+        let MyPosition = GameState.SpinEffects[i].split("|")[2]
+        console.log(`Checking effect: ${GameState.SpinEffects[i]}`)
         for (let word = 1; word < words.length; word++ ){
+            if(!validity){break} //If the effect cannot run, for whatever reason, don't do anything and move on to the next one
             switch(vocab){
                 case 0:
                     //Self qualifiers only
-                    if(words[word][0] == "'"){//Self checking a quality
+                    console.log(`Checking word ${words[word]}`);
+                    if(words[word][0] == "!"){
+                        not = true;
+                        words[word] = words[word].slice(1);
+                    }
+                    if(words[word][0] == "q"){//Self checking a quality, either in tags or status
                         let qual = words[word].slice(1);
-                        console.log(qual);
+                        let MyPosition = GameState.SpinEffects[i].split("|")[2]
+                        if((GameState.Board[MyPosition].status.indexOf(qual) == -1 && 
+                            GameState.Board[MyPosition].tags.indexOf(qual) == -1) ||
+                            GameState.Board[MyPosition].status.indexOf(`!${qual}`) != -1 || 
+                            GameState.Board[MyPosition].tags.indexOf(`!${qual}`) != -1){ //If neither list has the tag, or if either tag has the explicit opposite of it
+                            validity = false;
+                        }
+                    }else if(words[word][0] == "#"){
+                        let qual = words[word].slice(1);
+                        if(GameState.Board[MyPosition].tags.indexOf(qual) == -1 || GameState.Board[MyPosition].tags.indexOf(`!${qual}`) != -1){
+                            validity = false;
+                        }
+                    }else if(words[word] == "RANDOM"){
+                        if(Math.random() > parseFloat(words[word+1])){
+                            validity = false
+                        }
+                        word++; //Skip the random cutoff word to go straight to the next qualifier or to the GIVES/GETS
+                    }else if(words[word] == "THRESHOLD"){
+                        if(GameState.Board[MyPosition].state < getThreshold(GameState.Board[MyPosition].name)){
+                            validity = false
+                        }
+                    }else if(words[word] == "TOTAL"){
+                        let totalCounted = 0;
+                        for(let checkPos = 0; checkPos < 20; checkPos++){
+                            if(GameState.Board[checkPos].name == words[word+2].slice(1)){
+                                checkPos++;
+                            }
+                        }
+                        if(totalCounted < parseInt(words[word+1])){
+                            validity = false;
+                        }
+                    }else if(["POINT","STATE"].indexOf(words[word]) != -1){//If the effect is a simple, one verb effect
+                        switch(words[word]){
+                            case "POINT":
+                                GameState.Board[MyPosition].rotation = Math.floor(Math.random()*8);
+                                break;
+                            case "STATE":
+                                word++;
+
+                                break;
+                        }
+                    }else if(words[word].toUpperCase() == "GIVES" || (words[word].toUpperCase() == "GETS" && words.indexOf("FROM") != -1)){
+                        //Go to vocab 1 iff the effect gives something to other symbols, or if the symbol gets something from other symbols
+                        //Symbols that give things to themselves are handled in vocab 3, so we just straight there
+                        verb = word;
+                        vocab = 1;
+                    }else if(words[word].toUpperCase() == "GETS"){
+                        //The symbol just gets something, no FROM word
+                        verb = word;
+                        vocab = 3;
+                    }
+                    break;
+                case 1:
+                    //Effects!
+                    if(words[word][0] == "q"){
+                        effects.push(words[word].slice(1));
+                    }else if(words[word] == "PAY"){
+                        effects.push(`PAY ${words[word+1]}`);
+                        word++;
+                    }else if(words[word].toUpperCase() == "TO" || words[word].toUpperCase() == "FROM"){
+                        pred = word;
+                        vocab = 2;
                     }
                     break;
             }
+            if(not){ //If we want a thing to not be true, we can check if it is true, then invert our output.
+                not = false;
+                validity = !validity;
+            }
         }
     }
+}
+
+function AddSymbol(SymbolName){
+    //Checks for an Empty and removes it from the pool if one is found, random board empties taking precedent.
+    //Can also add code to check for items that have effects trigger on symbols being added
+}
+function DestroySymbol(Symbol){
+    AddSymbol("Empty");
+    //Check for items that trigger on symbols being removed, and run any effects of a symbol that has "ON DESTROY"
+}
+function RemoveSymbol(Symbol){
+    AddSymbol("Empty");
+    //Check for items that trigger on symbols being removed, and run any effects of a symbol that has "ON REMOVE"
 }
 
 function MakeSymbol(SymbolName){

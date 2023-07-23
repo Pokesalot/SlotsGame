@@ -70,8 +70,8 @@ function spin() {
     //Reset symbols being put onto the board, then tag them to be location aware without a lot of extra help.
     //Location aware symbols will have a lot of effects to count for all locations, tough shit.
     GameState.Board[i].Reset();
-    GameState.Board[i].status.push(`col${Math.floor(i/4)}`)
-    GameState.Board[i].status.push(`row${i%4}`)
+    GameState.Board[i].status.push(`qCol${Math.floor(i/4)}`)
+    GameState.Board[i].status.push(`qRow${i%4}`)
   }
 
   //Effects that change symbol positions on the board go here
@@ -81,7 +81,6 @@ function spin() {
   //Get effects from symbols on the board and items in hand, then resolve them.
   GetSymbolEffects();
   GetItemEffects();
-  console.log("Just before resolve")
   ResolveEffects();
   //This is the bulk of a spin, after that it's mainly rendering symbols and receiving coins
   
