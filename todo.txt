@@ -38,7 +38,27 @@ Symbols store their own payouts by default, and only move that value to the spac
 
 Lexer Parser for symbol and item effects:
     Symbols and Items will be saved in a json with effects listed as query strings.
-    These strings will be generally of the form: [Precedence] [Qualifiers] [Effects] <TO/FROM> [Qualifiers]
+
+    [Precedence] [Target] [Target Qualifiers] <GIVES/GETS> [Effects] <TO/FROM> [External Qualifiers]
+    Precedence: 
+        - An int 0-100, give or take, that orders effects to be taken on a spin. Includes permanents, and effects from symbols and items
+        - The keyword ON followed by DESTROY or REMOVE to signify what happens when they are destroyed or removed.
+    Target:
+        - ID will be replaced with the ID of the symbol or item
+        - '[Name] will signify all symbols or items with that name
+        - #[Tag] will signify all symbols or items tagged with the tag, permanent tags only
+        - q[Tag] will signify all symbols or items tagged with the tag, permanent or temporary
+
+    Target Qualifiers:
+        As above, but with added keywords
+        - THRESHOLD checks the symbol's state against a getThreshold function
+        - RANDOM [decimal] checks if a random number is less than the decimal
+        - TOTAL '[Name] [Number] checks if there is at least Number of a given Name of Symbol on the board
+
+
+
+
+
     Precedence is an int, typically from 1-100. This is used so symbol and item effects can always be given the proper context, should they need it.
         To add an effect on removal or destruction, the ON keywork is used. This is how effects will be triggered when removed by removal tokens.
         e.g. "ON REMOVE ADD Spirit ADD Spirit" would be the Big Urn effect of adding 2 Spirits on destruction.
