@@ -259,8 +259,8 @@
 		],
 		"Description": "Destroys adjacent 'Milk. Gives 9 'Coin for each 'Milk destroyed.",
 		"Effects": [
-			"15 GETS PAY 9 FROM ADJ 'Milk",
-			"16 GIVES DESTROY TO ADJ 'Milk"
+			"15 Cat GETS PAY 9 FROM ADJ Milk",
+			"16 Cat GIVES DESTROY TO ADJ Milk"
 		],
 		"Rarity": "Common"
 	},
@@ -374,11 +374,11 @@
 		"Payout": "1",
 		"Name": "Coconut",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adds 2 when destroyed.",
+		"Description": "Adds 2 /Coconut_Half /Flower when destroyed.",
 		"Effects": [
-			""
+			"ON DESTROY ADD Coconut_Half ADD Coconut_Half"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -408,11 +408,11 @@
 		"Payout": "3",
 		"Name": "Cow",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Has a 15% chance of adding .",
+		"Description": "Has a 15% chance of adding /Milk.",
 		"Effects": [
-			""
+			"15 RANDOM 0.15 ADD Milk"
 		],
 		"Rarity": "Rare"
 	},
@@ -468,11 +468,11 @@
 		"Payout": "5",
 		"Name": "Diamond",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "Gives 1 more for each other .",
 		"Effects": [
-			""
+			"10 ID GETS Pay 1 FROM DIAMOND !ID"
 		],
 		"Rarity": "Very Rare"
 	},
@@ -1024,6 +1024,18 @@
 		],
 		"Rarity": "Rare"
 	},
+	"Matryoshka Doll": {
+		"Payout": "0",
+		"Name": "Matryoshka Doll",
+		"Tags": [
+			""
+		],
+		"Description": "Destroys itself after 3 spins. Adds  when destroyed.",
+		"Effects": [
+			""
+		],
+		"Rarity": "Uncommon"
+	},
 	"Matryoshka Doll 2": {
 		"Payout": "1",
 		"Name": "Matryoshka Doll 2",
@@ -1071,18 +1083,6 @@
 			""
 		],
 		"Rarity": "Special"
-	},
-	"Matryoshka Doll": {
-		"Payout": "0",
-		"Name": "Matryoshka Doll",
-		"Tags": [
-			""
-		],
-		"Description": "Destroys itself after 3 spins. Adds  when destroyed.",
-		"Effects": [
-			""
-		],
-		"Rarity": "Uncommon"
 	},
 	"Mega Chest": {
 		"Payout": "3",
@@ -1726,12 +1726,12 @@
 		],
 		"Description": "Adjacent 'Empty give 1 'Coin more. Destroys itself if adjacent to 0 'Empty. Gives 8 'Coin when destroyed.",
 		"Effects": [
-			"10 GETS qNoEmpties",
-			"15 GIVES PAY 1 TO ADJ 'Empty",
-			"20 GETS q!NoEmpties FROM ADJ 'Empty",
-			"30 qNoEmpties GETS qDESTROY",
-			"50 qDESTROY GETS PAY 8",
-			"ON DESTROY ADD 'Coin"
+			"10 Void_Fruit GETS NoEmpties",
+			"15 Void_Fruit GIVES PAY 1 TO ADJ Empty",
+			"20 Void_Fruit GETS !NoEmpties FROM ADJ Empty",
+			"30 NoEmpties GETS DESTROY",
+			"50 DESTROY GETS PAY 8",
+			"ON DESTROY ADD Coin"
 		],
 		"Rarity": "Uncommon"
 	},

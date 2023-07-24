@@ -47,130 +47,60 @@ function spin() {
   //Charge the player a coin to spin the wheel
   GameState.PlayerCoins -= GameState.CostToSpin; GameState.Spins--;
 
-  //OLD ---------------/*
-  let spinEffects = [];
-  // Ensure there are 15 symbols in the player's hands, adding Empties as needed
-  for(let i=0; GameState.PlayerSymbols.length < 20;i++){
-    if(GameState.hasTester){console.log("Adding Empty");}
-    GameState.PlayerSymbols.push(new Empty);
-  }
-  //OLD ---------------*/
-
   //Load all symbols from the board into the symbol collection
   while(GameState.Board.length > 0){ 
-      GameState.NewPlayerSymbols.push(GameState.Board.pop());
+      GameState.PlayerSymbols.push(GameState.Board.pop());
   }
 
   //Fill the board randomly with symbols just added to the pool. This should mitigate not having enough symbols to shuffle in.
   for(let i=0;i<20;i++){
-    let ind = Math.floor(Math.random() * GameState.NewPlayerSymbols.length);
-    GameState.Board.push(GameState.NewPlayerSymbols[ind]);
-    GameState.NewPlayerSymbols.splice(ind,1);
+    let ind = Math.floor(Math.random() * GameState.PlayerSymbols.length);
+    GameState.Board.push(GameState.PlayerSymbols[ind]);
+    GameState.PlayerSymbols.splice(ind,1);
     
     //Reset symbols being put onto the board, then tag them to be location aware without a lot of extra help.
     //Location aware symbols will have a lot of effects to count for all locations, tough shit.
     GameState.Board[i].Reset();
-    GameState.Board[i].status.push(`qCol${Math.floor(i/4)}`)
-    GameState.Board[i].status.push(`qRow${i%4}`)
   }
 
-  //Effects that change symbol positions on the board go here
+  // \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/
+  //Effects from items that change symbol positions on the board go here
+  // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-  //TODO Tag each symbol with its row and column to more easily allow for positional checks
+  for(let i=0;i<20;i++){
+    GameState.Board[i].status.push(`Col${Math.floor(i/4)}`);
+    GameState.Board[i].status.push(`Row${i%4}`);
+    GameState.Board[i].status.push(`Ind${i}`)
+  }
+
 
   //Get effects from symbols on the board and items in hand, then resolve them.
+  GameState.SpinEffects = GameState.PermanentSpinEffects;
+  GameState.SpinActions = [];
   GetSymbolEffects();
   GetItemEffects();
   ResolveEffects();
   //This is the bulk of a spin, after that it's mainly rendering symbols and receiving coins
+  DrawBoard();
   
 
-  //Old code from here down, delete when ready
-
-  // Create an array of indices, 0 to playersymbols.length -1 
-  let symbolsToShow = Array.from(Array(GameState.PlayerSymbols.length).keys())
-  for (let i = symbolsToShow.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [symbolsToShow[i], symbolsToShow[j]] = [symbolsToShow[j], symbolsToShow[i]];
+  // Get payouts
+  for (let i = 0; i<GameState.Board.length; i++){//i is the location on the board, for positional math
+    GameState.PlayerCoins += GameState.Board[i].GetPayout();
   }
-  //If the player has <20 symbols, we pad it with Empties.
-  //If the player has more than 20 symbols, we only show the first 20 of them on the board.
-  symbolsToShow = symbolsToShow.slice(0,20);
-  if(GameState.hasTester){console.log(`Symbols to show: ${symbolsToShow}`);}
-
-// **************************************************************************** Get effects, all items and board symbols affected
-  // Set the images on the reels based on the symbols
-  //i is a location, 0 is top left and 19 is bottom right
-  //Symbols to show is a shuffled array of indices pointing to where the symbol is in GameState.PlayerSymbols
-  for (let i = 0; i < symbolsToShow.length; i++) {
-    //Get effects first, so any visual change takes place before the symbol is drawn
-    if(GameState.hasTester){console.log(`Getting effects for: ${GameState.PlayerSymbols[symbolsToShow[i]].name}`);}
-    
-    let curEffects = GameState.PlayerSymbols[symbolsToShow[i]].getEffects(i,symbolsToShow);
-    for (let i=0; i<curEffects.length; i++){
-      spinEffects.push(curEffects[i])
-    }
-
-    const reel = Math.floor(i / 4);
-    const symbolIndex = i % 4;
-    const image = document.getElementById(`symbol-${reel}-${symbolIndex}`);
-    image.src = GameState.PlayerSymbols[symbolsToShow[i]].src;
-    image.style.transform = `rotate(${GameState.PlayerSymbols[symbolsToShow[i]].imageRotation})`;
-  }
-  if(GameState.hasTester){for(let i=0; i<spinEffects.length; i++){let to = GameState.PlayerSymbols[spinEffects[i].to].name;let from = GameState.PlayerSymbols[spinEffects[i].from].name; let eff = spinEffects[i].effect; console.log(`Spin Effects: ${from} => ${to} : ${eff}`)};}
-  //spinEffects.sort((a,b) => a.to - b.to);
-
-// ************************************************ Get payouts, all items and board symbols affected and given pertinent effects
-  for (let i = 0; i<symbolsToShow.length; i++){//i is the location on the board, for positional math
-    let myEffects = [];
-    for (let eff = 0; eff<spinEffects.length; eff++){
-        if(spinEffects[eff].to == symbolsToShow[i]){
-          myEffects.push(spinEffects[eff]);
-        }
-    }
-    if(GameState.hasTester){console.log(`Getting payout for: ${GameState.PlayerSymbols[symbolsToShow[i]].name}`);}
-    GameState.PlayerCoins += GameState.PlayerSymbols[symbolsToShow[i]].getPayout(myEffects);
+  for (let i = 0; i<GameState.PlayerItems; i++){
+    GameState.PlayerCoins += GameState.PlayerItems[i].GetPayout();
   }
 
-  for (let i = 0; i<symbolsToShow.length; i++){//i is the location on the board, for positional math
-    if(GameState.hasTester){console.log(`Finalizing: ${GameState.PlayerSymbols[symbolsToShow[i]].name}`);}
-    GameState.PlayerCoins += GameState.PlayerSymbols[symbolsToShow[i]].finalize(i, symbolsToShow);
-  }
-
-  ShowSymbols(symbolsToShow);
-  ShowItems();
-
-// ******************************************************* Check effects for destroying/saving of symbols
-  //Check all symbols for destruction or saving. Also triggers end-of-spin effects
-  for (let sym = GameState.PlayerSymbols.length-1; sym >= 0; sym--){
-    let destroy = false; let save = false; let selfDestructing = true; let saviors = [];
-    for (let i = 0; i<spinEffects.length; i++){
-      if(spinEffects[i].to == sym && spinEffects[i].effect == "destroy"){
-        destroy = true;
-        if(spinEffects[i].to != spinEffects[i].from){
-          selfDestructing = false;
-        }
-      }
-      if(spinEffects[i].to == sym && spinEffects[i].effect == "save"){
-        save = true;
-        saviors.push(spinEffects[i].from);
-      }
-    }
-    if (destroy && save && !selfDestructing){ //
-      for (let i=0; i<saviors.length; i++){
-        GameState.PlayerSymbols[saviors[i]].payout++;
-      }
-    }
-    if(GameState.hasTester){console.log(`Destroying\t\t${GameState.PlayerSymbols[sym].name}, sending\t${destroy},\t${save}`);}
-    GameState.PlayerSymbols[sym].Destroy(destroy, save);
-  }
+  //ShowSymbols();
+  //ShowItems();
 
   
   moneyShow.innerText = `Coins: ${GameState.PlayerCoins}`;
   rentShow.innerText = `Rent Due: ${RentPayChecks[GameState.RentsPaid]}`
   spinsShow.innerText = `Spins to get it: ${GameState.Spins}`
   setTimeout(() => {
-    FillShop(symbolsToShow);
+    FillShop();
   }, 600); 
 
   
@@ -180,11 +110,23 @@ function spin() {
   GameState.canSpin = true;
 }
 
+function DrawBoard(){
+  // Set the images on the reels based on the symbols in Gamestate.Board
+  for (let i = 0; i < GameState.Board.length; i++) {
+    const reel = Math.floor(i / 4);
+    const symbolIndex = i % 4;
+    const image = document.getElementById(`symbol-${reel}-${symbolIndex}`);
+    image.src = GameState.Board[i].src;
+    image.style.transform = `rotate(${GameState.Board[i].imageRotation})`;
+  }
+}
+
 function ShowShop(){
   for (let i=0; i<3; i++){
-    shopImages[i].src = GameState.ShopItems[i].src;
-    shopHeaders[i].innerHTML = `Buy ${GameState.ShopItems[i].name}`;
-    shopParas[i].innerHTML = `<p>Pays ${GameState.ShopItems[i].payout} <br /> ${GameState.ShopItems[i].description}</p>`;
+    let temp = MakeSymbol(GameState.ShopItems[i].name)
+    shopImages[i].src = temp.src;
+    shopHeaders[i].innerHTML = `Buy ${temp.name}`;
+    shopParas[i].innerHTML = `<p>Pays ${temp.payout} <br /> ${temp.description}</p>`;
   }
   if(GameState.canBuy){
     document.getElementById("shop").style.display = "block";
@@ -199,24 +141,40 @@ function ShowShop(){
 
 // Slight TODO, check for certain items that will aren't allowed given a player's items
 function FillShop(boardState){
-  let offered = [];
+  let hasHighlander = false;
+  GameState.ShopItems = [];
+  for (let symbol=0; symbol < GameState.PlayerSymbols.length; symbol++){
+    if (GameState.PlayerSymbols[symbol].name == "Highlander"){
+      hasHighlander = true
+    }
+  }
+  for (let symbol=0; symbol < GameState.Board.length; symbol++){
+    if (GameState.Board[symbol].name == "Highlander"){
+      hasHighlander = true
+    }
+  }
   for (let i=0; i<3; i++){
-    let hasHighlander = false;
-    for (let symbol=0; symbol < GameState.PlayerSymbols.length; symbol++){
-      if (GameState.PlayerSymbols[symbol].name == "Highlander"){
-        hasHighlander = true
+    itemRarity = GetRarity()
+    let keys = Object.keys(AllSymbolsJson)
+    let offerable = [];
+    for(let find=0;find<keys.length;find++){
+      let foundAcceptableTag = false
+      for(let tag=0;tag<GameState.AllowedTags.length;tag++){
+        if(AllSymbolsJson[keys[find]].Tags.indexOf(GameState.AllowedTags[tag]) != -1){
+          foundAcceptableTag = true;
+        }
+      }
+      if(foundAcceptableTag && AllSymbolsJson[keys[find]].Rarity == ["Common","Uncommon","Rare","Very Rare"][itemRarity]){
+        offerable.push(keys[find]);
       }
     }
-    itemRarity = GetRarity(boardState)
-    
-    let ind = Math.floor(Math.random() * AllSymbols.length)
-    let randItem = new AllSymbols[ind]
-    while(randItem.rarity != itemRarity || (hasHighlander && randItem.name == "Highlander") || offered.indexOf(ind) > -1){
-      ind = Math.floor(Math.random() * AllSymbols.length)
-      randItem = new AllSymbols[ind]
+    let ind = Math.floor(Math.random() * offerable.length)
+    let randItem = AllSymbolsJson[offerable[ind]]
+    while((hasHighlander && randItem.name == "Highlander")){
+      ind = Math.floor(Math.random() * offerable.length)
+      randItem = new AllSymbolsJson[ind]
     }
-    offered.push(ind);
-    GameState.ShopItems[i] = new randItem.constructor()
+    GameState.ShopItems.push(MakeSymbol(offerable[ind]));
   }
   
   ShowShop();
@@ -233,9 +191,8 @@ function BuyItem(index){
   }
   GameState.canBuy = false;
   GameState.canSkip = false;
-  GameState.PlayerSymbols.push(new GameState.ShopItems[index].constructor());
-  ShowItems();
-  ShowSymbols();
+
+  AddSymbol(GameState.ShopItems[index].name)
   document.getElementById("shop").style.display = "none";
 }
 
@@ -277,28 +234,24 @@ function ShowItems(){
     symbolsDiv.innerHTML += `<img style="width: 50px;height: 50px;" src="${GameState.PlayerItems[i].src}"></img>`
   }
 }
-function ShowSymbols(symbolsToShow = []){
+function ShowSymbols(){
   symbolsDiv.innerHTML = "<h2>Symbols:</h2>"
   //Get symbols that were spun
   let symbolHolds = [];
-  for (let i=0; i<symbolsToShow.length; i++){
+  for (let i=0; i<GameState.Board.length; i++){
     symbolHolds.push({
-      "payout":GameState.PlayerSymbols[symbolsToShow[i]].payout,
-      "description":GameState.PlayerSymbols[symbolsToShow[i]].description,
-      "src":GameState.PlayerSymbols[symbolsToShow[i]].src,
-      "lastPayout":GameState.PlayerSymbols[symbolsToShow[i]].lastPayout
+      "payout":GameState.Board[i].payout,
+      "description":GameState.Board[i].description,
+      "src":GameState.Board[i].src,
+      "lastPayout":GameState.Board[i].lastPayout
     })
   }
 
+  /*
   //Get symbols that were not spun but that are in the deck, potentially with stacking
   let shownNames = [];
   let stackedSymbols = [];
-  for (let i=0; i<GameState.PlayerSymbols.length; i++){
-    if (symbolsToShow.indexOf(i) > -1){
-      //We've added SymbolsToShow above
-      continue;
-    }
-
+  for (let i=0; i<GameState.Board.length; i++){
     if(shownNames.indexOf(GameState.PlayerSymbols[i].name) > -1 && GameState.PlayerSymbols[i].canStack){
       //If the symbol is already being shown from having been spun, or if it is already listed in shownNames and can stack into that
       stackedSymbols[shownNames.indexOf(GameState.PlayerSymbols[i].name)].stack++;
@@ -342,6 +295,7 @@ function ShowSymbols(symbolsToShow = []){
           tooltips[i].style.left = x;
       }
   };
+  */
 }
 
 function CreateEffect(to, from, effect){
