@@ -39,6 +39,9 @@ Symbols store their own payouts by default, and only move that value to the spac
 Lexer Parser for symbol and item effects:
     Symbols and Items will be saved in a json with effects listed as query strings.
 
+    ALL SYMBOL EFFECTS MUST INCLUDE A GIVES/GETS AND A TO/FROM CLAUSE!!!!!!!
+    IF THE EFFECT IS INTERNAL, JUST ADD "TO/FROM ID" AS LONG AS THERE IS SOMETHING THERE
+
     [Precedence] [Target Qualifiers] <GIVES/GETS> [Effects] <TO/FROM> [External Qualifiers]
     Precedence: 
         - An int 0-100, give or take, that orders effects to be taken on a spin. Includes permanents, and effects from symbols and items

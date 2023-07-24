@@ -257,7 +257,7 @@
 		"Tags": [
 			"basegame"
 		],
-		"Description": "Destroys adjacent 'Milk. Gives 9 'Coin for each 'Milk destroyed.",
+		"Description": "Destroys adjacent /Milk . Gives 9 /Coin for each /Milk destroyed.",
 		"Effects": [
 			"15 Cat GETS PAY 9 FROM ADJ Milk",
 			"16 Cat GIVES DESTROY TO ADJ Milk"
@@ -376,7 +376,7 @@
 		"Tags": [
 			"basegame"
 		],
-		"Description": "Adds 2 /Coconut_Half /Flower when destroyed.",
+		"Description": "Adds 2 /Coconut_Half when destroyed.",
 		"Effects": [
 			"ON DESTROY ADD Coconut_Half ADD Coconut_Half"
 		],
@@ -410,9 +410,9 @@
 		"Tags": [
 			"basegame"
 		],
-		"Description": "Has a 15% chance of adding /Milk.",
+		"Description": "Has a 15% chance of adding /Milk ",
 		"Effects": [
-			"15 RANDOM 0.15 ADD Milk"
+			"15 ID GETS ADD Milk FROM RANDOM 0.15"
 		],
 		"Rarity": "Rare"
 	},
@@ -470,9 +470,9 @@
 		"Tags": [
 			"basegame"
 		],
-		"Description": "Gives 1 more for each other .",
+		"Description": "Gives 1 more for each other /Diamond ",
 		"Effects": [
-			"10 ID GETS Pay 1 FROM DIAMOND !ID"
+			"10 ID GIVES PAY 1 TO Diamond !ID"
 		],
 		"Rarity": "Very Rare"
 	},
@@ -1726,11 +1726,11 @@
 		],
 		"Description": "Adjacent 'Empty give 1 'Coin more. Destroys itself if adjacent to 0 'Empty. Gives 8 'Coin when destroyed.",
 		"Effects": [
-			"10 Void_Fruit GETS NoEmpties",
+			"10 ID GETS NoEmpties FROM ID",
 			"15 Void_Fruit GIVES PAY 1 TO ADJ Empty",
 			"20 Void_Fruit GETS !NoEmpties FROM ADJ Empty",
-			"30 NoEmpties GETS DESTROY",
-			"50 DESTROY GETS PAY 8",
+			"30 ID NoEmpties GETS DESTROY FROM ID",
+			"50 ID DESTROY GETS PAY 8 FROM ID",
 			"ON DESTROY ADD Coin"
 		],
 		"Rarity": "Uncommon"

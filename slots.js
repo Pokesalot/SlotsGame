@@ -377,7 +377,6 @@ function getThreshold(name){
 function test(){
   console.log("Error found")
   alert("Testing started. If you didn't mean to do this, you've encountered a bug! Congratulations!")
-  GameState.PlayerSymbols.push(new Tester);
   GameState.hasTester = true;
 }
 

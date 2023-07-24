@@ -38,7 +38,7 @@ function GetStartingBoard(Difficulty){
     if(Difficulty <= 5){
         //No duds
         return [
-            MakeSymbol("Void Fruit"),MakeSymbol("Coin"),MakeSymbol("Empty"),MakeSymbol("Empty"),
+            MakeSymbol("Cow"),MakeSymbol("Coin"),MakeSymbol("Empty"),MakeSymbol("Empty"),
             MakeSymbol("Empty"),MakeSymbol("Empty"),MakeSymbol("Cherry"),MakeSymbol("Empty"),
             MakeSymbol("Empty"),MakeSymbol("Pearl"),MakeSymbol("Empty"),MakeSymbol("Empty"),
             MakeSymbol("Empty"),MakeSymbol("Empty"),MakeSymbol("Flower"),MakeSymbol("Empty"),
@@ -54,22 +54,28 @@ class newSymbol{
         this.imageRotation = 0;
         this.payout = payout;
         this.rarity = rarity;
-        this.description = description;
-        if (description != ""){
-            this.description = "----------<br />" + this.description
-        }
-        while(this.description.indexOf("/") != -1){
-            let halves = this.description.split("/");
-            let seconds = halves[1].split(" ");
+        let reps = 4;
+        let desc = description;
+        while(desc.indexOf(" /") != -1 && reps > 0){
+            let slash = desc.indexOf(" /");
+            let nextSpace = desc.indexOf(" ",slash+1);
+            let searchText = desc.substr(slash+2,nextSpace-slash-2);
             let keys = Object.keys(AllSymbolsJson);
-            let imageText = "";
+            let imageText = desc.substr(0,slash+1);
+            let fin = desc.substring(nextSpace);
             for(let get=0; get<keys.length; get++){
-                if(AllSymbolsJson[keys[get]].Name == seconds[0].replace("_"," ") || AllSymbolsJson[keys[get]].Tags.indexOf(seconds[0]) != -1){
+                if(AllSymbolsJson[keys[get]].Name == searchText.replace("_"," ") || AllSymbolsJson[keys[get]].Tags.indexOf(searchText) != -1){
                     imageText += `<img class="inline-image" alt="${AllSymbolsJson[keys[get]].Name}" style src="images/${AllSymbolsJson[keys[get]].Name.toLowerCase().replace(" ","_")}.png"></img>`;
                 }
             }
-            this.description = [halves[0],imageText,seconds[1]].join("");
+            desc = imageText + fin;
+            reps--;
         }
+        if (desc != ""){
+            desc = "----------<br />" + desc;
+        }
+        this.description = desc;
+
         this.effects = effects;
         this.tags = tags;
 
@@ -126,7 +132,7 @@ function GetSymbolEffects(){
     for(let i=0;i<20;i++){
         //Construct this symbol's effects
         for(let j=0;j<GameState.Board[i].effects.length;j++){
-            let check = GameState.Board[i].effects[j].replace("ID",GameState.Board[i].id);
+            let check = GameState.Board[i].effects[j].replaceAll("ID",GameState.Board[i].id);
             if(GameState.SpinEffects.indexOf(check) == -1 && check.split(" ")[0] != "ON"){
                 GameState.SpinEffects.push(check)
             }
@@ -152,9 +158,10 @@ function ResolveEffects(){
             let not = false;
             if(words[wordSub][0] == "!"){
                 not = true;
-                words[wordSub].splice(0,1);
+                words[wordSub] = words[wordSub].slice(1);
             }
             for(let check=list.length -1; check>-1;check--){
+                //ADJ is not handled here, since it cannot be determined in this general sense
                 let toss = true;
                 //Handle a string search for id, name, or a tag
                 if(list[check] == 0){list.splice(check,1);continue;}
@@ -162,10 +169,14 @@ function ResolveEffects(){
                 if(toss && list[check].name == words[wordSub]){toss = false;}
                 if(toss && list[check].tags.indexOf(words[wordSub]) != -1){toss = false;}
                 if(toss && list[check].status.indexOf(words[wordSub]) != -1){toss = false;}
-                //Handle the THRESHOLD tag
-                if(toss && words[wordSub] == "RANDOM" && Math.random() < parseFloat(words[wordSub+1])){toss=false;wordSub++;}
+                
+                if(toss && words[wordSub] == "RANDOM"){
+                    let roll = Math.random();
+                    console.log(`Checking random ${parseFloat(words[wordSub+1])}, rolled ${roll}`);
+                    if(roll < parseFloat(words[wordSub+1])){toss=false;}
+                    wordSub++;
+                }
                 if(toss && words[wordSub] == "THRESHOLD" && list[check].state >= getThreshold(list[check].name)){toss=false;}
-                //ADJ is not handled here, since it cannot be determined in this general sense
                 if(toss && words[wordSub] == "TOTAL"){
                     let totalCount = 0; let totalCheck = [...GameState.Board,...GameState.PlayerItems]
                     for(let countsub=0;countsub<totalCheck.length;countsub++){
@@ -180,7 +191,6 @@ function ResolveEffects(){
                     }
                     wordSub += 2;
                 }
-
 
                 if((toss && !not) || (!toss && not)){
                     list.splice(check,1);
@@ -227,7 +237,6 @@ function ResolveEffects(){
     //This allows symbols to change the game after a spin is "over"
 
     let restartAt100 = false;
-    console.log(GameState.SpinEffects)
     for(let i=0;i<GameState.SpinEffects.length;i++){
 
         /*
@@ -269,16 +278,14 @@ function ResolveEffects(){
             filter = words.slice(words.indexOf("FROM")+1);
             if(filter.indexOf("ADJ") != -1){
                 checkADJ = true;
-                filter = filter.splice(filter.indexOf("ADJ"),1);
+                filter.splice(filter.indexOf("ADJ"),1);
             }
             filter = filter.join(" ");
             senders = trimList(senders,filter);
 
             words = curEffect.split(" ");
             words.splice(0,words.indexOf("GETS")+1);
-            if(words.indexOf("FROM")){
-                words.splice(words.indexOf("FROM"));
-            }
+            words.splice(words.indexOf("FROM"));
             effectWords = words;
         }
         //Senders and receivers are set at this point
@@ -322,6 +329,9 @@ function ResolveEffects(){
                                     receivers[rec].state += parseInt(effectWords[word+1])
                                 }
                                 word++
+                                break;
+                            case "ADD":
+                                //Add logic for symbol adding
                                 break;
                             default:
                                 paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect ${i} STATUS ${effectWords[word]}`
