@@ -7,7 +7,7 @@ function StartGame(){
   resetButton.style.visibility = "hidden";
   resetButton.disabled = true;
 }
-
+let testing = false;
 //Rents. Can expand for more difficulties **TODO**
 const RentPayChecks = [25,50,100,150,225,300,350,425,575,625,675,777,1000]
 const RentSpinsChecks = [5,5,6,6,7,7,8,8,9,9,10,10,10]
@@ -38,10 +38,8 @@ const shopParas = [
 function spin() {
   if(GameState.hasTester){console.log("\n","---------------------------------------------------------------------------");}
   // Disable spin button during spin
-  if(!GameState.canSpin){
-    return 0;
-  }
-  GameState.canSpin = false;
+  
+  document.getElementById("spin-button").disabled = true;
   GameState.canBuy = true;
   GameState.canSkip = true;
   //Charge the player a coin to spin the wheel
@@ -92,22 +90,16 @@ function spin() {
     GameState.PlayerCoins += GameState.PlayerItems[i].GetPayout();
   }
 
-  //ShowSymbols();
-  //ShowItems();
-
   
   moneyShow.innerText = `Coins: ${GameState.PlayerCoins}`;
   rentShow.innerText = `Rent Due: ${RentPayChecks[GameState.RentsPaid]}`
   spinsShow.innerText = `Spins to get it: ${GameState.Spins}`
   setTimeout(() => {
     FillShop();
+    document.getElementById("spin-button").disabled = false;
   }, 600); 
-
-  
-
+  if(testing){console.log(GameState.SpinActions)}
   if(!CheckForRent()){return;}
-  
-  GameState.canSpin = true;
 }
 
 function DrawBoard(){
@@ -125,7 +117,7 @@ function ShowShop(){
   for (let i=0; i<3; i++){
     let temp = MakeSymbol(GameState.ShopItems[i].name)
     shopImages[i].src = temp.src;
-    shopHeaders[i].innerHTML = `Buy ${temp.name}`;
+    shopHeaders[i].innerHTML = `<h2 style="color:#${["B7B7B7","86BFDF","CCCC33","D0A5E8"][["Common","Uncommon","Rare","Very Rare"].indexOf(temp.rarity)]}">${temp.name}</h2>`;
     shopParas[i].innerHTML = `<p>Pays ${temp.payout} <br /> ${temp.description}</p>`;
   }
   if(GameState.canBuy){
@@ -153,10 +145,11 @@ function FillShop(boardState){
       hasHighlander = true
     }
   }
+  let offered = [];
   for (let i=0; i<3; i++){
     itemRarity = GetRarity()
     let keys = Object.keys(AllSymbolsJson)
-    let offerable = [];
+    let offerable = []; 
     for(let find=0;find<keys.length;find++){
       let foundAcceptableTag = false
       for(let tag=0;tag<GameState.AllowedTags.length;tag++){
@@ -164,16 +157,20 @@ function FillShop(boardState){
           foundAcceptableTag = true;
         }
       }
-      if(foundAcceptableTag && AllSymbolsJson[keys[find]].Rarity == ["Common","Uncommon","Rare","Very Rare"][itemRarity]){
+      if(foundAcceptableTag 
+        && AllSymbolsJson[keys[find]].Rarity == ["Common","Uncommon","Rare","Very Rare"][itemRarity]
+        && offered.indexOf(AllSymbolsJson[keys[find]].Name) == -1){
         offerable.push(keys[find]);
       }
     }
     let ind = Math.floor(Math.random() * offerable.length)
-    let randItem = AllSymbolsJson[offerable[ind]]
-    while((hasHighlander && randItem.name == "Highlander")){
+    let randItem = AllSymbolsJson[offerable[ind]];
+    while((hasHighlander && randItem.Name == "Highlander") || offered.indexOf(randItem.Name) != -1 ){
+      console.log("Had an oopsie")
       ind = Math.floor(Math.random() * offerable.length)
-      randItem = new AllSymbolsJson[ind]
+      randItem = AllSymbolsJson[offerable[ind]]
     }
+    offered.push(randItem.Name)
     GameState.ShopItems.push(MakeSymbol(offerable[ind]));
   }
   
@@ -182,7 +179,20 @@ function FillShop(boardState){
 
 /////////////////////////////////////////////                 TODO
 function GetRarity(boardState){
-  return [0,0,0,0,0,1,1,1,2,2,3][Math.floor(Math.random()*11)];
+  let roll = Math.random();
+  rarity = -1;
+  while(roll > 0){
+    rarity++;
+    roll -= [
+      [1  ,  0,  0,0],
+      [.9 , .1,  0,0],
+      [.79, .2,.01,0],
+      [.74,.25,.01,0],
+      [.69,.29,.015,.005],
+      [.68,.3,.015,.005]
+    ][Math.min(5,GameState.RentsPaid)][rarity]
+  }
+  return rarity;
 }
 
 function BuyItem(index){
@@ -227,83 +237,6 @@ function CheckForRent(){
   }
   //If we don't pay rent this spin, or if we already did
   return true;
-}
-function ShowItems(){
-  itemsDiv.innerHTML = "<h2>Items:</h2>"
-  for(let i=0; i<GameState.PlayerItems.length; i++){
-    symbolsDiv.innerHTML += `<img style="width: 50px;height: 50px;" src="${GameState.PlayerItems[i].src}"></img>`
-  }
-}
-function ShowSymbols(){
-  symbolsDiv.innerHTML = "<h2>Symbols:</h2>"
-  //Get symbols that were spun
-  let symbolHolds = [];
-  for (let i=0; i<GameState.Board.length; i++){
-    symbolHolds.push({
-      "payout":GameState.Board[i].payout,
-      "description":GameState.Board[i].description,
-      "src":GameState.Board[i].src,
-      "lastPayout":GameState.Board[i].lastPayout
-    })
-  }
-
-  /*
-  //Get symbols that were not spun but that are in the deck, potentially with stacking
-  let shownNames = [];
-  let stackedSymbols = [];
-  for (let i=0; i<GameState.Board.length; i++){
-    if(shownNames.indexOf(GameState.PlayerSymbols[i].name) > -1 && GameState.PlayerSymbols[i].canStack){
-      //If the symbol is already being shown from having been spun, or if it is already listed in shownNames and can stack into that
-      stackedSymbols[shownNames.indexOf(GameState.PlayerSymbols[i].name)].stack++;
-      continue;
-    }else{
-      stackedSymbols.push({
-        "payout":GameState.PlayerSymbols[i].payout,
-        "description":GameState.PlayerSymbols[i].description,
-        "src":GameState.PlayerSymbols[i].src,
-        "stack":1
-      })
-      shownNames.push(GameState.PlayerSymbols[i].name);
-    }
-  }
-
-
-  symbolHolds.sort((a,b) => b.lastPayout - a.lastPayout);
-  for(let i=0; i<symbolHolds.length; i++){
-    symbolsDiv.innerHTML += `
-      <div class="tooltip">
-        <span>${symbolHolds[i].payout} ${image("coin")} <br />${symbolHolds[i].description}</span>
-        <img style="width: 50px;height: 50px;" src="${symbolHolds[i].src}"></img>
-        <p style="display:inline">${symbolHolds[i].lastPayout}</p>
-      </div>`
-  }
-  symbolsDiv.innerHTML += "<br />";
-  for (let i=0; i<stackedSymbols.length; i++){
-    symbolsDiv.innerHTML += `
-      <div class="tooltip">
-        <span>${stackedSymbols[i].payout} ${image("coin")} <br />${stackedSymbols[i].description}</span>
-        <img style="width: 50px;height: 50px;" src="${stackedSymbols[i].src}"></img>
-        <p style="display:inline">${stackedSymbols[i].stack}</p>
-      </div>`
-  }
-  var tooltips = document.querySelectorAll('.tooltip span');
-  window.onmousemove = function (e) {
-      var x = (e.clientX + 25) + 'px',
-          y = (e.clientY - 25) + 'px';
-      for (var i = 0; i < tooltips.length; i++) {
-          tooltips[i].style.top = y;
-          tooltips[i].style.left = x;
-      }
-  };
-  */
-}
-
-function CreateEffect(to, from, effect){
-  return {
-    "to": to,
-    "from": from,
-    "effect": effect
-  }
 }
 
 function GetAdjacentIndices(index){
@@ -354,24 +287,20 @@ function getNextPoint(index, direction){
     [false,false,false,false,   false,0,1,2,   false,4,5,6,   false,8,9,10,   false,12,13,14],//Up left
   ][direction][index];
 }
-function getThreshold(name){
-  let thresholds = {
-    "Crow":4,
-    "Golem":5,
-    "Frozen Fossil": 20,
-    "Magpie":4,
-    "Matryoshka Doll":3,
-    "Matryoshka Doll 2":5,
-    "Matryoshka Doll 3":7,
-    "Matryoshka Doll 4":9,
-    "Owl":3,
-    "Present":10,
-    "Robin Hood":4,
-    "Sloth":2,
-    "Snail":4,
-    "Turtle":3
-  };
-  return thresholds[name];
+function getThreshold(symbol){
+  //Symbols are tagged by default as Threshold[num]. Always takes the lowest tag.
+  let check=0;
+  while(symbol.tags.indexOf(`THRESHOLD${check}`) == -1 && symbol.status.indexOf(`THRESHOLD${check}`) == -1){
+    check++;
+  }
+  return check;
+}
+
+function testsym(name){
+  for(let i=0;i<4;i++){
+    AddSymbol(name)
+  }
+  testing = true;
 }
 
 function test(){

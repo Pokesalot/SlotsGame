@@ -3,7 +3,7 @@ function GetClearProgress(){
   return {
     AllowedTags : ["basegame"],
     PlayerSymbols : [],
-    PermanentSpinEffects : [],
+    PermanentSpinEffects : ["100 REMOVE", "100 DESTROY", "100 STATE0", "101 CHECKRESTART"],
     SpinEffects : [], //All effects for all symbols and items, taken or not
     SpinActions : [], //Effects that actually triggered, including origin and target where applicable
     PlayerItems : [],
@@ -29,6 +29,7 @@ async function fetchData() {
     AllSymbolsJson = data;
 
     GameState = GetClearProgress();
+    DrawBoard();
     StartGame();
 }
 //Run this on page load. Resetting the game once all symbols and items have been loaded will be faster, and handled in another place.
@@ -38,7 +39,7 @@ function GetStartingBoard(Difficulty){
     if(Difficulty <= 5){
         //No duds
         return [
-            MakeSymbol("Cow"),MakeSymbol("Coin"),MakeSymbol("Empty"),MakeSymbol("Empty"),
+            MakeSymbol("Empty"),MakeSymbol("Coin"),MakeSymbol("Empty"),MakeSymbol("Empty"),
             MakeSymbol("Empty"),MakeSymbol("Empty"),MakeSymbol("Cherry"),MakeSymbol("Empty"),
             MakeSymbol("Empty"),MakeSymbol("Pearl"),MakeSymbol("Empty"),MakeSymbol("Empty"),
             MakeSymbol("Empty"),MakeSymbol("Empty"),MakeSymbol("Flower"),MakeSymbol("Empty"),
@@ -102,14 +103,16 @@ class newSymbol{
         this.tempMulti = 1;
     }
     Transform(SymbolName){//Make sure to store the old symbol's payout before transforming!
-        newStats = AllSymbolsJson[SymbolName];
-        this.name = newStats.name;
-        this.src = `images/${newStats.name.toLowerCase().replaceAll(" ","_")}.png`
-        this.payout = newStats.payout
-        this.rarity = newStats.rarity
-        this.description = newStats.description
-        this.effects = newStats.effects
-        this.tags = newStats.tags
+        this.GetPayout();
+        console.log(`Transforming from ${this.name} to ${SymbolName}`)
+        let newStats = AllSymbolsJson[SymbolName];
+        this.name = newStats.Name;
+        this.src = `images/${newStats.Name.toLowerCase().replaceAll(" ","_")}.png`
+        this.payout = newStats.Payout
+        this.rarity = newStats.Rarity
+        this.description = newStats.Description
+        this.effects = newStats.Effects
+        this.tags = newStats.Tags
         
         //After a transformation, the board reruns all checks
         this.state = 0;
@@ -120,6 +123,7 @@ class newSymbol{
     }
     GetPayout(){
         let payout = Math.floor((parseInt(this.payout) + parseInt(this.tempPayout)) * parseFloat(this.tempMulti));
+        GameState.SpinActions.push(`${this.name}(${this.id})=>Payout ${payout}`)
         this.totalPayout += payout;
         this.lastPayout = payout;
         return payout
@@ -150,7 +154,6 @@ function ResolveEffects(){
     function trimList(list,checkString){
         words = checkString.split(" ")
         wordSub = 0;
-        console.log(`Trimming ${list} by checkstring ${checkString}`)
         while(wordSub < words.length){
             //While we're looking for a verb, let's trim down the subject.
             words[wordSub] = words[wordSub].replace("_"," ");
@@ -160,6 +163,7 @@ function ResolveEffects(){
                 not = true;
                 words[wordSub] = words[wordSub].slice(1);
             }
+            let advance = 1;
             for(let check=list.length -1; check>-1;check--){
                 //ADJ is not handled here, since it cannot be determined in this general sense
                 let toss = true;
@@ -172,11 +176,10 @@ function ResolveEffects(){
                 
                 if(toss && words[wordSub] == "RANDOM"){
                     let roll = Math.random();
-                    console.log(`Checking random ${parseFloat(words[wordSub+1])}, rolled ${roll}`);
                     if(roll < parseFloat(words[wordSub+1])){toss=false;}
-                    wordSub++; //TODO remove this
+                    advance = 2;
                 }
-                if(toss && words[wordSub] == "THRESHOLD" && list[check].state >= getThreshold(list[check].name)){toss=false;}
+                if(toss && words[wordSub] == "THRESHOLD" && list[check].state >= getThreshold(list[check])){toss=false;}
                 if(toss && words[wordSub] == "TOTAL"){
                     let totalCount = 0; let totalCheck = [...GameState.Board,...GameState.PlayerItems]
                     for(let countsub=0;countsub<totalCheck.length;countsub++){
@@ -189,45 +192,36 @@ function ResolveEffects(){
                     if(totalCount >= parseInt(words[wordSub+2])){
                         toss=false;
                     }
-                    wordSub += 2;
+                    advance = 3
                 }
 
                 if((toss && !not) || (!toss && not)){
                     list.splice(check,1);
                 }
             }
-            wordSub++;
+            wordSub += advance;
         }
-        console.log(`List is now ${list}`)
         return list;
 
     }
     function getAdjacency(sym1, sym2){
-        let inds = []; let adj1 = []; let adj2 = [];
+        let inds = [GameState.Board.indexOf(sym1),GameState.Board.indexOf(sym2)]; let adj1 = []; let adj2 = [];
         for(i=0;i<sym1.status.length;i++){
-            if(sym1.status[i].indexOf("Ind") == 0){
-                inds.push(parseInt(sym1.status[i].split("Ind")[1]))
-            }
             if(sym1.status[i].indexOf("Adj") == 0){
                 adj1.push(parseInt(sym1.status[i].split("Adj")[1]));
             }
         }
         for(i=0;i<sym2.status.length;i++){
-            if(sym2.status[i].indexOf("Ind") == 0){
-                inds.push(parseInt(sym2.status[i].split("Ind")[1]))
-            }
             if(sym2.status[i].indexOf("Adj") == 0){
                 adj2.push(parseInt(sym2.status[i].split("Adj")[1]));
             }
         }
-        if(GetAdjacentIndices(inds[0]).indexOf(inds[1]) != -1){
+        if(GetAdjacentIndices(inds[0]).indexOf(inds[1]) != -1
+            || adj1.indexOf(inds[1]) != -1 || adj2.indexOf(inds[0]) != -1){
             return true;
+        }else{
+            return false;
         }
-        if(adj1.indexOf(inds[1]) != -1 || adj2.indexOf(inds[0]) != -1){
-            return true;
-        }
-        return false;
-        
     }
     //This function will step through and evaluate all effects in order for Gamestate.SpinEffects
     //Actions that do trigger will be noted in the GameState.SpinActions 
@@ -239,17 +233,45 @@ function ResolveEffects(){
 
     let restartAt100 = false;
     for(let i=0;i<GameState.SpinEffects.length;i++){
-
-        /*
-            "10 Void_Fruit GETS NoEmpties",
-			"15 Void_Fruit GIVES PAY 1 TO ADJ Empty",
-			"20 Void_Fruit GETS !NoEmpties FROM ADJ Empty",
-			"30 NoEmpties GETS DESTROY",
-			"50 DESTROY GETS PAY 8",
-			"ON DESTROY ADD Coin"
-        */ // let i = 1;
-        
         let curEffect = GameState.SpinEffects[i];
+        if(curEffect == "100 REMOVE"){
+            for(let checkSym=0; checkSym<GameState.Board.length; checkSym++){
+                if(GameState.Board[checkSym].status.indexOf("REMOVE") != -1){
+                    GameState.Board[checkSym].GetPayout();
+                    GameState.Board[checkSym] = MakeSymbol("Empty");
+                    restartAt100 = true;
+                }
+            }
+            continue;
+        }
+        if(curEffect == "100 DESTROY"){
+            for(let checkSym=0; checkSym<GameState.Board.length; checkSym++){
+                if(GameState.Board[checkSym].status.indexOf("DESTROY") != -1){
+                    GameState.Board[checkSym].GetPayout();
+                    GameState.Destroyed.push(GameState.Board[checkSym].name)
+                    GameState.Board[checkSym] = MakeSymbol("Empty");
+                    restartAt100 = true;
+                }
+            }
+            continue;
+        }
+        if(curEffect == "100 STATE0"){
+            for(let checkSym=0; checkSym<GameState.Board.length; checkSym++){
+                if(GameState.Board[checkSym].status.indexOf("STATE0") != -1){
+                    GameState.Board[checkSym].state=0;
+                }
+            }
+            continue;
+        }
+        if(curEffect == "101 CHECKRESTART" && restartAt100){
+            console.log("From the top")
+            restartAt100 = false;
+            GetSymbolEffects();
+            GetItemEffects();
+            i = -1;
+            continue;
+        }
+
         let senders = getCheckList(); let receivers = getCheckList();
         let checkADJ = false;
         let effectWords = [];
@@ -290,7 +312,6 @@ function ResolveEffects(){
             effectWords = words;
         }
         //Senders and receivers are set at this point
-        console.log(`Effect:${curEffect}\nSenders:${senders}\nReceivers:${receivers}`)
         for(send=0; send<senders.length; send++){
             for(rec=0; rec<receivers.length; rec++){
                 if(!checkADJ || (checkADJ && getAdjacency(senders[send],receivers[rec]))){
@@ -301,42 +322,55 @@ function ResolveEffects(){
                     for(word=0; word<effectWords.length; word++){
                         switch(effectWords[word]){
                             case "PAY":
-                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect ${i} PAY ${effectWords[word+1]}`
+                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect PAY ${effectWords[word+1]}`;
                                 if(GameState.SpinActions.indexOf(paperTrail) == -1){
                                     GameState.SpinActions.push(paperTrail);
-                                    receivers[rec].tempPayout += parseInt(effectWords[word+1])
+                                    receivers[rec].tempPayout += parseInt(effectWords[word+1]);
                                 }
                                 word++
                                 break;
                             case "PAYOUT":
-                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect ${i} PAYOUT ${effectWords[word+1]}`
+                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect PAYOUT ${effectWords[word+1]}`;
                                 if(GameState.SpinActions.indexOf(paperTrail) == -1){
                                     GameState.SpinActions.push(paperTrail);
-                                    receivers[rec].payout += parseInt(effectWords[word+1])
+                                    receivers[rec].payout += parseInt(effectWords[word+1]);
                                 }
-                                word++
+                                word++;
                                 break;
                             case "MULTI":
-                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect ${i} MULTI ${effectWords[word+1]}`
+                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect MULTI ${effectWords[word+1]}`;
                                 if(GameState.SpinActions.indexOf(paperTrail) == -1){
                                     GameState.SpinActions.push(paperTrail);
-                                    receivers[rec].tempMulti *= parseFloat(effectWords[word+1])
+                                    receivers[rec].tempMulti *= parseFloat(effectWords[word+1]);
                                 }
                                 word++
                                 break;
                             case "STATE":
-                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect ${i} STATE ${effectWords[word+1]}`
+                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect STATE ${effectWords[word+1]}`;
                                 if(GameState.SpinActions.indexOf(paperTrail) == -1){
                                     GameState.SpinActions.push(paperTrail);
-                                    receivers[rec].state += parseInt(effectWords[word+1])
+                                    receivers[rec].state += parseInt(effectWords[word+1]);
                                 }
-                                word++
+                                word++;
                                 break;
                             case "ADD":
-                                //Add logic for symbol adding
+                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect ADD ${effectWords[word+1]}`;
+                                GameState.SpinActions.push(paperTrail);
+                                AddSymbol(effectWords[word+1]);
+                                restartAt100 = true;
+                                word++;
+                                break;
+                            case "TRANSFORM":
+                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect TRANSFORM ${effectWords[word+1]}`;
+                                if(GameState.SpinActions.indexOf(paperTrail) == -1){
+                                    GameState.SpinActions.push(paperTrail);
+                                    senders[send].Transform(effectWords[word+1]);
+                                    restartAt100 = true;
+                                }
+                                word++;
                                 break;
                             default:
-                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect ${i} STATUS ${effectWords[word]}`
+                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect STATUS ${effectWords[word]}`
                                 if(GameState.SpinActions.indexOf(paperTrail) == -1){
                                     GameState.SpinActions.push(paperTrail);
                                     if(effectWords[word][0] == "!"){
@@ -360,22 +394,24 @@ function ResolveEffects(){
             }
         }
         
-    }
+    }//End of effects being checked, getting here means the board is in a final resting state
+    DrawBoard();
 }
 
 function AddSymbol(SymbolName){
+    console.log(`Adding a ${SymbolName}`)
     //Checks for an Empty and removes it from the pool if one is found, random board empties taking precedent.
     //Can also add code to check for items that have effects trigger on symbols being added
-    let empties = [];
+    let empties = []; let newSym = MakeSymbol(SymbolName.replaceAll("_"," "));
     for(let i=0; i<GameState.Board.length; i++){
         if(GameState.Board[i].name == "Empty"){
             empties.push(i)
         }
     }
     if(empties.length > 0){
-        GameState.Board[empties[Math.floor(Math.random() * empties.length)]] = MakeSymbol(SymbolName)
+        GameState.Board[empties[Math.floor(Math.random() * empties.length)]] = newSym
     }else{
-        GameState.PlayerSymbols.push(MakeSymbol(SymbolName))
+        GameState.PlayerSymbols.push(newSym)
     }
     DrawBoard();
 }
@@ -383,10 +419,7 @@ function DestroySymbol(Symbol){
     AddSymbol("Empty");
     //Check for items that trigger on symbols being removed, and run any effects of a symbol that has "ON DESTROY"
 }
-function RemoveSymbol(Symbol){
-    AddSymbol("Empty");
-    //Check for items that trigger on symbols being removed, and run any effects of a symbol that has "ON REMOVE"
-}
+
 
 function MakeSymbol(SymbolName){
     let ns = AllSymbolsJson[SymbolName]

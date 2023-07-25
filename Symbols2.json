@@ -15,11 +15,14 @@
 		"Payout": "1",
 		"Name": "Anchor",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Gives 4 more /coin when in a corner.",
+		"Description": "Gives 4 more /Coin when in a corner.",
 		"Effects": [
-			""
+			"15 ID Ind0 GETS PAY 4 FROM ID",
+			"15 ID Ind3 GETS PAY 4 FROM ID",
+			"15 ID Ind16 GETS PAY 4 FROM ID",
+			"15 ID Ind19 GETS PAY 4 FROM ID"
 		],
 		"Rarity": "Common"
 	},
@@ -27,23 +30,22 @@
 		"Payout": "3",
 		"Name": "Apple",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Rare"
 	},
 	"Banana Peel": {
 		"Payout": "1",
 		"Name": "Banana Peel",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Destroys adjacent . Destroys itself afterwards.",
+		"Description": "Destroys adjacent /Thief . Destroys itself afterwards.",
 		"Effects": [
-			""
+			"35 ID GIVES DESTROY TO ADJ Thief",
+			"36 ID GETS DESTROY FROM ADJ Thief"
 		],
 		"Rarity": "Common"
 	},
@@ -51,11 +53,11 @@
 		"Payout": "1",
 		"Name": "Banana",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adds  when destroyed.",
+		"Description": "Adds /Banana_Peel when destroyed.",
 		"Effects": [
-			""
+			"85 ID DESTROY GIVES ADD Banana_Peel TO ID"
 		],
 		"Rarity": "Common"
 	},
@@ -63,11 +65,12 @@
 		"Payout": "1",
 		"Name": "Bar of Soap",
 		"Tags": [
-			""
+			"basegame", "THRESHOLD3"
 		],
-		"Description": "Adds  each spin. Destroys itself after giving  3 times.",
+		"Description": "Adds /Bubble each spin. Destroys itself after giving /Coin 3 times.",
 		"Effects": [
-			""
+			"15 ID GETS ADD Bubble STATE 1 FROM ID",
+			"20 ID GETS DESTROY FROM ID THRESHOLD"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -87,11 +90,12 @@
 		"Payout": "2",
 		"Name": "Bear",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Destroys adjacent . Gives 40 for each  destroyed.",
+		"Description": "Destroys adjacent /Honey . Gives 40 for each /Honey destroyed.",
 		"Effects": [
-			""
+			"20 ID GIVES DESTROY TO ADJ Honey",
+			"21 ID GETS PAY 40 FROM ADJ Honey"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -111,11 +115,12 @@
 		"Payout": "1",
 		"Name": "Bee",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adjacent   and  give 2x more . Gives 1 more for each adjacent   or .",
+		"Description": "Adjacent /beelike give 2x more . Gives 1 more for each adjacent /beelike .",
 		"Effects": [
-			""
+			"23 ID GIVES MULTI 2 TO ADJ beelike",
+			"24 ID GETS PAY 1 FROM ADJ beelike"
 		],
 		"Rarity": "Common"
 	},
@@ -123,11 +128,11 @@
 		"Payout": "3",
 		"Name": "Beehive",
 		"Tags": [
-			""
+			"basegame", "beelike"
 		],
-		"Description": "Has a 10% chance of adding .",
+		"Description": "Has a 10% chance of adding /Honey .",
 		"Effects": [
-			""
+			"20 ID GETS ADD Honey FROM ID RANDOM 0.1"
 		],
 		"Rarity": "Rare"
 	},
@@ -135,12 +140,10 @@
 		"Payout": "1",
 		"Name": "Beer",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Common"
 	},
 	"Big Ore": {
@@ -159,11 +162,11 @@
 		"Payout": "2",
 		"Name": "Big Urn",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adds 2 when destroyed.",
+		"Description": "Adds 2 /Spirit when destroyed.",
 		"Effects": [
-			""
+			"25 ID GETS ADD Spirit Add Spirit FROM ID DESTROY"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -171,11 +174,13 @@
 		"Payout": "0",
 		"Name": "Billionaire",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adjacent  and  give 2x more . Gives 39 when destroyed.",
+		"Description": "Adjacent /Cheese and /Wine give 2x more /Coin . Gives 39 when destroyed.",
 		"Effects": [
-			""
+			"24 ID GIVES MULTI 2 TO ADJ Cheese",
+			"24 ID GIVES MULTI 2 TO ADJ Wine",
+			"25 ID GETS PAY 39 FROM ID DESTROY"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -183,11 +188,12 @@
 		"Payout": "1",
 		"Name": "Bounty Hunter",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Destroys adjacent . Gives 20 for each  destroyed.",
+		"Description": "Destroys adjacent /Thief . Gives 20 /Coin for each /Thief destroyed.",
 		"Effects": [
-			""
+			"25 ID GIVES DESTROY TO ADJ Thief",
+			"26 ID GETS PAY 20 FROM ADJ Thief"
 		],
 		"Rarity": "Common"
 	},
@@ -207,11 +213,12 @@
 		"Payout": "2",
 		"Name": "Bubble",
 		"Tags": [
-			""
+			"basegame","THRESHOLD3"
 		],
-		"Description": "Destroys itself after giving  3 times.",
+		"Description": "Destroys itself after giving /Coin 3 times.",
 		"Effects": [
-			""
+			"15 ID GIVES STATE 1 TO ID",
+			"16 ID GETS DESTROY FROM ID THRESHOLD"
 		],
 		"Rarity": "Common"
 	},
@@ -219,11 +226,12 @@
 		"Payout": "0",
 		"Name": "Buffing Capsule",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Destroys itself. Adjacent symbols give 2x more .",
+		"Description": "Destroys itself. Adjacent symbols give 2x more /Coin .",
 		"Effects": [
-			""
+			"1 ID GETS DESTROY FROM ID",
+			"12 ID GIVES MULTI 2 TO ADJ"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -231,12 +239,10 @@
 		"Payout": "1",
 		"Name": "Candy",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Common"
 	},
 	"Card Shark": {
@@ -268,12 +274,10 @@
 		"Payout": "1",
 		"Name": "Cheese",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Common"
 	},
 	"Chef": {
@@ -314,11 +318,12 @@
 		"Payout": "1",
 		"Name": "Chick",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Has a 10% chance to grow into .",
+		"Description": "Has a 10% chance to grow into /Chicken .",
 		"Effects": [
-			""
+			"24 ID Chick !TriedToGrow GETS TRANSFORM Chicken FROM ID Chick RANDOM 0.10",
+			"25 ID GETS TriedToGrow FROM ID Chick"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -326,11 +331,12 @@
 		"Payout": "2",
 		"Name": "Chicken",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Has a 5% chance of adding . Has a 1% chance of adding .",
+		"Description": "Has a 5% chance of adding /Egg . Has a 1% chance of adding /Golden_Egg .",
 		"Effects": [
-			""
+			"24 ID GETS ADD Egg FROM ID RANDOM 0.05",
+			"24 ID GETS ADD Golden_Egg FROM ID RANDOM 0.01"
 		],
 		"Rarity": "Rare"
 	},
@@ -338,11 +344,13 @@
 		"Payout": "1",
 		"Name": "Clubs",
 		"Tags": [
-			""
+			"basegame","suit"
 		],
-		"Description": "Adjacent  and  give 1 more. Gives 1 more if there are at least 3    or .",
+		"Description": "Adjacent /Clubs and /Spades give 1 more. Gives 1 more if there are at least 3 /suit .",
 		"Effects": [
-			""
+			"20 ID GIVES PAY 1 TO ADJ Clubs",
+			"20 ID GIVES PAY 1 TO ADJ Spades",
+			"20 ID GETS PAY 1 FROM ID TOTAL suit 3"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -350,11 +358,12 @@
 		"Payout": "0",
 		"Name": "Coal",
 		"Tags": [
-			""
+			"basegame","THRESHOLD20"
 		],
 		"Description": "Transforms into  after 20 spins.",
 		"Effects": [
-			""
+			"20 ID GETS STATE 1 FROM ID",
+			"24 ID GETS TRANSFORM Diamond FROM ID THRESHOLD"
 		],
 		"Rarity": "Common"
 	},
@@ -362,12 +371,10 @@
 		"Payout": "2",
 		"Name": "Coconut Half",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Uncommon"
 	},
 	"Coconut": {
@@ -412,7 +419,7 @@
 		],
 		"Description": "Has a 15% chance of adding /Milk ",
 		"Effects": [
-			"15 ID GETS ADD Milk FROM RANDOM 0.15"
+			"15 ID GETS ADD Milk FROM ID RANDOM 0.15"
 		],
 		"Rarity": "Rare"
 	},
@@ -420,11 +427,14 @@
 		"Payout": "1",
 		"Name": "Crab",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Gives 3 more for each other  in the same row.",
+		"Description": "Gives 3 more for each other /Crab in the same row.",
 		"Effects": [
-			""
+			"20 ID Row0 GETS PAY 3 FROM Crab Row0 !ID",
+			"20 ID Row1 GETS PAY 3 FROM Crab Row1 !ID",
+			"20 ID Row2 GETS PAY 3 FROM Crab Row2 !ID",
+			"20 ID Row3 GETS PAY 3 FROM Crab Row3 !ID"
 		],
 		"Rarity": "Common"
 	},
@@ -432,11 +442,12 @@
 		"Payout": "2",
 		"Name": "Crow",
 		"Tags": [
-			""
+			"basegame","THRESHOLD4"
 		],
 		"Description": "Gives -3 every 4 spins.",
 		"Effects": [
-			""
+			"20 ID GETS STATE 1 FROM ID",
+			"24 ID GETS PAY -3 FROM ID THRESHOLD"
 		],
 		"Rarity": "Common"
 	},
@@ -444,11 +455,12 @@
 		"Payout": "0",
 		"Name": "Cultist",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Gives 1 more for each other . Gives 1 more if there are at least 3.",
+		"Description": "Gives 1 more for each other /Cultist . Gives 1 more if there are at least 3 /Cultist .",
 		"Effects": [
-			""
+			"20 ID GETS PAY 1 FROM Cultist !ID",
+			"20 ID GETS PAY 1 FROM ID TOTAL Cultist 3"
 		],
 		"Rarity": "Common"
 	},
@@ -480,11 +492,13 @@
 		"Payout": "1",
 		"Name": "Diamonds",
 		"Tags": [
-			""
+			"basegame","suit"
 		],
-		"Description": "Adjacent  and  give 1 more. Gives 1 more if there are at least 3    or .",
+		"Description": "Adjacent /Diamonds and /Hearts give 1 more. Gives 1 more if there are at least 3 /suit .",
 		"Effects": [
-			""
+			"20 ID GIVES PAY 1 TO ADJ Hearts",
+			"20 ID GIVES PAY 1 TO ADJ Diamonds",
+			"20 ID GETS PAY 1 FROM ID TOTAL suit 3"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -516,11 +530,12 @@
 		"Payout": "2",
 		"Name": "Dove",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "If an adjacent symbol would be destroyed, instead it isn't, and this symbol permanently gives 1 more.",
 		"Effects": [
-			""
+			"99 ID GETS PAYOUT 1 FROM ADJ DESTROY",
+			"99 ID GIVES !DESTROY TO ADJ"
 		],
 		"Rarity": "Rare"
 	},
@@ -528,11 +543,12 @@
 		"Payout": "0",
 		"Name": "Dud",
 		"Tags": [
-			""
+			"basegame","THRESHOLD33"
 		],
 		"Description": "Destroys itself after 33 spins. Cannot be removed.",
 		"Effects": [
-			""
+			"10 ID GETS STATE 1 FROM ID",
+			"12 ID GETS STATE FROM ID THRESHOLD"
 		],
 		"Rarity": "Special"
 	},
@@ -552,11 +568,12 @@
 		"Payout": "1",
 		"Name": "Egg",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Has a 10% chance to transform into .",
+		"Description": "Has a 10% chance to transform into /Chick .",
 		"Effects": [
-			""
+			"15 ID !TriedToHatch GETS TRANSFORM Chick FROM ID Egg RANDOM 0.1",
+			"17 ID GETS TriedToHatch FROM ID Egg"
 		],
 		"Rarity": "Common"
 	},
@@ -576,11 +593,11 @@
 		"Payout": "3",
 		"Name": "Emerald",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Gives 1 more if there are at least 2.",
+		"Description": "Gives 1 more if there are at least 2 /Emerald .",
 		"Effects": [
-			""
+			"15 ID GETS PAY 1 FROM ID TOTAL Emerald 2"
 		],
 		"Rarity": "Rare"
 	},
@@ -634,7 +651,7 @@
 		"Payout": "1",
 		"Name": "Flower",
 		"Tags": [
-			"basegame"
+			"basegame", "beelike"
 		],
 		"Description": "",
 		"Effects": [],
@@ -704,23 +721,22 @@
 		"Payout": "4",
 		"Name": "Golden Egg",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Rare"
 	},
 	"Goldfish": {
 		"Payout": "1",
 		"Name": "Goldfish",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Destroys adjacent . Gives 15 for each  destroyed.",
+		"Description": "Destroys adjacent /Bubble . Gives 15 for each /Bubble destroyed.",
 		"Effects": [
-			""
+			"10 Goldfish GIVES DESTROY TO ADJ Bubble",
+			"11 Goldfish GETS PAY 15 FROM ADJ Bubble"
 		],
 		"Rarity": "Common"
 	},
@@ -728,11 +744,13 @@
 		"Payout": "0",
 		"Name": "Golem",
 		"Tags": [
-			""
+			"basegame","THRESHOLD5"
 		],
-		"Description": "Destroys itself after 5 spins. Adds 5 when destroyed.",
+		"Description": "Destroys itself after 5 spins. Adds 5 /Ore when destroyed.",
 		"Effects": [
-			""
+			"24 ID GETS STATE 1 FROM ID",
+			"25 ID GETS DESTROY FROM ID THRESHOLD",
+			"98 ID DESTROY GIVES ADD Ore ADD Ore ADD Ore ADD Ore ADD Ore TO ID"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -742,9 +760,9 @@
 		"Tags": [
 			""
 		],
-		"Description": "Has a 1% chance of adding .",
+		"Description": "Has a 1% chance of adding /Golden_Egg .",
 		"Effects": [
-			""
+			"24 ID GIVES ADD Golden_Egg TO ID RANDOM 0.01"
 		],
 		"Rarity": "Common"
 	},
@@ -752,11 +770,13 @@
 		"Payout": "1",
 		"Name": "Hearts",
 		"Tags": [
-			""
+			"basegame","suit"
 		],
-		"Description": "Adjacent  and  give 1 more. Gives 1 more if there are at least 3    or .",
+		"Description": "Adjacent /Diamonds and /Hearts give 1 more. Gives 1 more if there are at least 3 /suit .",
 		"Effects": [
-			""
+			"20 ID GIVES PAY 1 TO ADJ Hearts",
+			"20 ID GIVES PAY 1 TO ADJ Diamonds",
+			"20 ID GETS PAY 1 FROM ID TOTAL suit 3"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -860,7 +880,7 @@
 		"Payout": "3",
 		"Name": "Honey",
 		"Tags": [
-			""
+			"", "beelike"
 		],
 		"Description": "",
 		"Effects": [
@@ -1112,12 +1132,10 @@
 		"Payout": "1",
 		"Name": "Milk",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Common"
 	},
 	"Mine": {
@@ -1232,12 +1250,10 @@
 		"Payout": "2",
 		"Name": "Orange",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Uncommon"
 	},
 	"Ore": {
@@ -1256,11 +1272,12 @@
 		"Payout": "1",
 		"Name": "Owl",
 		"Tags": [
-			""
+			"basegame", "THRESHOLD3"
 		],
-		"Description": "Gives 1 every 3 spins.",
+		"Description": "Gives 1 /Coin every 3 spins.",
 		"Effects": [
-			""
+			"40 ID GETS STATE 1 FROM ID",
+			"45 ID GETS PAY 1 STATE0 FROM ID THRESHOLD"
 		],
 		"Rarity": "Common"
 	},
@@ -1268,11 +1285,12 @@
 		"Payout": "1",
 		"Name": "Oyster",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Has a 20% chance of adding . Adds  when removed.",
+		"Description": "Has a 20% chance of adding /Pearl . Adds /Pearl when removed.",
 		"Effects": [
-			""
+			"20 ID GETS ADD Pearl FROM ID RANDOM 0.2",
+			"85 ID REMOVE GETS ADD Pearl FROM ID"
 		],
 		"Rarity": "Common"
 	},
@@ -1542,11 +1560,13 @@
 		"Payout": "1",
 		"Name": "Spades",
 		"Tags": [
-			""
+			"basegame","suit"
 		],
-		"Description": "Adjacent  and  give 1 more. Gives 1 more if there are at least 3    or .",
+		"Description": "Adjacent /Clubs and /Spades give 1 more. Gives 1 more if there are at least 3 /suit .",
 		"Effects": [
-			""
+			"20 ID GIVES PAY 1 TO ADJ Clubs",
+			"20 ID GIVES PAY 1 TO ADJ Spades",
+			"20 ID GETS PAY 1 FROM ID TOTAL suit 3"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -1730,8 +1750,7 @@
 			"15 Void_Fruit GIVES PAY 1 TO ADJ Empty",
 			"20 Void_Fruit GETS !NoEmpties FROM ADJ Empty",
 			"30 ID NoEmpties GETS DESTROY FROM ID",
-			"50 ID DESTROY GETS PAY 8 FROM ID",
-			"ON DESTROY ADD Coin"
+			"50 ID DESTROY GETS PAY 8 FROM ID"
 		],
 		"Rarity": "Uncommon"
 	},

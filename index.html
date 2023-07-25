@@ -60,7 +60,7 @@
       </div>
       <br>
       <button class="spin-button" id="spin-button" onclick="try{spin()}catch(error){console.log(error);test();spin()}">Spin</button>
-      <button class="spin-button" id="restart-button" onclick="GameState = GetClearProgress();StartGame();" style="visibility: hidden;" disabled="true">Restart Game 😢</button>
+      <button class="spin-button" id="restart-button" onclick="GameState = GetClearProgress();DrawBoard();StartGame();" style="visibility: hidden;" disabled="true">Restart Game 😢</button>
 
       <div id="shop" class="overlay">
         <div class="overlay-content">

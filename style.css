@@ -78,18 +78,12 @@ button.spin-button {
   width: auto;
 }
 
-
-
-
-
 .inline-image {
   display: inline-block;
   vertical-align: middle;
   height: 1.75em; 
   width: 1.75em;
 }
-
-
 
 .panel {
   display: inline-block;
