@@ -150,7 +150,7 @@ function ResolveEffects(){
     function trimList(list,checkString){
         words = checkString.split(" ")
         wordSub = 0;
-
+        console.log(`Trimming ${list} by checkstring ${checkString}`)
         while(wordSub < words.length){
             //While we're looking for a verb, let's trim down the subject.
             words[wordSub] = words[wordSub].replace("_"," ");
@@ -174,7 +174,7 @@ function ResolveEffects(){
                     let roll = Math.random();
                     console.log(`Checking random ${parseFloat(words[wordSub+1])}, rolled ${roll}`);
                     if(roll < parseFloat(words[wordSub+1])){toss=false;}
-                    wordSub++;
+                    wordSub++; //TODO remove this
                 }
                 if(toss && words[wordSub] == "THRESHOLD" && list[check].state >= getThreshold(list[check].name)){toss=false;}
                 if(toss && words[wordSub] == "TOTAL"){
@@ -198,6 +198,7 @@ function ResolveEffects(){
             }
             wordSub++;
         }
+        console.log(`List is now ${list}`)
         return list;
 
     }
@@ -289,6 +290,7 @@ function ResolveEffects(){
             effectWords = words;
         }
         //Senders and receivers are set at this point
+        console.log(`Effect:${curEffect}\nSenders:${senders}\nReceivers:${receivers}`)
         for(send=0; send<senders.length; send++){
             for(rec=0; rec<receivers.length; rec++){
                 if(!checkADJ || (checkADJ && getAdjacency(senders[send],receivers[rec]))){
