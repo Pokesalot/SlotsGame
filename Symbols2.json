@@ -1718,11 +1718,11 @@
 		"Payout": "1",
 		"Name": "Urn",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adds  when destroyed.",
+		"Description": "Adds /Spirit when destroyed.",
 		"Effects": [
-			""
+			"94 ID GETS ADD Spirit FROM ID DESTROY"
 		],
 		"Rarity": "Common"
 	},
@@ -1830,12 +1830,10 @@
 		"Payout": "2",
 		"Name": "Wolf",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Uncommon"
 	}
 }
