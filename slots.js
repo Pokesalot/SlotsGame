@@ -80,15 +80,6 @@ function spin() {
   ResolveEffects();
   //This is the bulk of a spin, after that it's mainly rendering symbols and receiving coins
   DrawBoard();
-  
-
-  // Get payouts
-  for (let i = 0; i<GameState.Board.length; i++){//i is the location on the board, for positional math
-    GameState.PlayerCoins += GameState.Board[i].GetPayout();
-  }
-  for (let i = 0; i<GameState.PlayerItems; i++){
-    GameState.PlayerCoins += GameState.PlayerItems[i].GetPayout();
-  }
 
   
   moneyShow.innerText = `Coins: ${GameState.PlayerCoins}`;

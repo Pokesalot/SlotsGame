@@ -360,22 +360,12 @@
 		"Tags": [
 			"basegame","THRESHOLD20"
 		],
-		"Description": "Transforms into  after 20 spins.",
+		"Description": "Transforms into /Diamond after 20 spins.",
 		"Effects": [
 			"20 ID GETS STATE 1 FROM ID",
 			"24 ID GETS TRANSFORM Diamond FROM ID THRESHOLD"
 		],
 		"Rarity": "Common"
-	},
-	"Coconut Half": {
-		"Payout": "2",
-		"Name": "Coconut Half",
-		"Tags": [
-			"basegame"
-		],
-		"Description": "",
-		"Effects": [],
-		"Rarity": "Uncommon"
 	},
 	"Coconut": {
 		"Payout": "1",
@@ -387,6 +377,16 @@
 		"Effects": [
 			"ON DESTROY ADD Coconut_Half ADD Coconut_Half"
 		],
+		"Rarity": "Uncommon"
+	},
+	"Coconut Half": {
+		"Payout": "2",
+		"Name": "Coconut Half",
+		"Tags": [
+			"basegame"
+		],
+		"Description": "",
+		"Effects": [],
 		"Rarity": "Uncommon"
 	},
 	"Coin": {
@@ -880,12 +880,10 @@
 		"Payout": "3",
 		"Name": "Honey",
 		"Tags": [
-			"", "beelike"
+			"basegame", "beelike"
 		],
 		"Description": "",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Rare"
 	},
 	"Hooligan": {
@@ -940,11 +938,11 @@
 		"Payout": "3",
 		"Name": "Joker",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adjacent    and  give 2x more .",
+		"Description": "Adjacent /suit give 2x more /Coin .",
 		"Effects": [
-			""
+			"14 ID GIVES MULTI 2 TO ADJ suit"
 		],
 		"Rarity": "Rare"
 	},
@@ -964,11 +962,12 @@
 		"Payout": "1",
 		"Name": "King Midas",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adds  each spin. Adjacent  give 3x more .",
+		"Description": "Adds /Coin each spin. Adjacent /Coin give 3x more /Coin .",
 		"Effects": [
-			""
+			"45 ID GIVES MULTI 3 TO ADJ Coin",
+			"115 ID GIVES ADD Coin TO ID"
 		],
 		"Rarity": "Rare"
 	},
@@ -1024,11 +1023,12 @@
 		"Payout": "-1",
 		"Name": "Magpie",
 		"Tags": [
-			""
+			"basegame","THRESHOLD4"
 		],
-		"Description": "Gives 9 every 4 spins.",
+		"Description": "Gives 9 /Coin every 4 spins.",
 		"Effects": [
-			""
+			"12 ID GETS STATE 1 FROM ID",
+			"15 ID GETS PAY 9 STATE0 FROM ID THRESHOLD"
 		],
 		"Rarity": "Common"
 	},
@@ -1044,15 +1044,16 @@
 		],
 		"Rarity": "Rare"
 	},
-	"Matryoshka Doll": {
+	"Matryoshka Doll 1": {
 		"Payout": "0",
-		"Name": "Matryoshka Doll",
+		"Name": "Matryoshka Doll 1",
 		"Tags": [
-			""
+			"basegame","THRESHOLD3"
 		],
-		"Description": "Destroys itself after 3 spins. Adds  when destroyed.",
+		"Description": "Destroys itself after 3 spins. Adds /Matryoshka_Doll_2 when destroyed.",
 		"Effects": [
-			""
+			"15 ID GETS STATE 1 FROM ID",
+			"18 ID GETS DESTROY ADD Matryoshka_Doll_2 FROM ID THRESHOLD"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -1060,11 +1061,12 @@
 		"Payout": "1",
 		"Name": "Matryoshka Doll 2",
 		"Tags": [
-			""
+			"basegame","THRESHOLD5"
 		],
-		"Description": "Destroys itself after 5 spins. Adds  when destroyed.",
+		"Description": "Destroys itself after 5 spins. Adds /Matryoshka_Doll_3 when destroyed.",
 		"Effects": [
-			""
+			"15 ID GETS STATE 1 FROM ID",
+			"18 ID GETS DESTROY ADD Matryoshka_Doll_3 FROM ID THRESHOLD"
 		],
 		"Rarity": "Special"
 	},
@@ -1072,11 +1074,12 @@
 		"Payout": "2",
 		"Name": "Matryoshka Doll 3",
 		"Tags": [
-			""
+			"basegame","THRESHOLD7"
 		],
-		"Description": "Destroys itself after 7 spins. Adds  when destroyed.",
+		"Description": "Destroys itself after 7 spins. Adds /Matryoshka_Doll_4 when destroyed.",
 		"Effects": [
-			""
+			"15 ID GETS STATE 1 FROM ID",
+			"18 ID GETS DESTROY ADD Matryoshka_Doll_4 FROM ID THRESHOLD"
 		],
 		"Rarity": "Special"
 	},
@@ -1084,11 +1087,12 @@
 		"Payout": "3",
 		"Name": "Matryoshka Doll 4",
 		"Tags": [
-			""
+			"basegame","THRESHOLD9"
 		],
-		"Description": "Destroys itself after 9 spins. Adds  when destroyed.",
+		"Description": "Destroys itself after 9 spins. Adds /Matryoshka_Doll_5 when destroyed.",
 		"Effects": [
-			""
+			"15 ID GETS STATE 1 FROM ID",
+			"18 ID GETS DESTROY ADD Matryoshka_Doll_5 FROM ID THRESHOLD"
 		],
 		"Rarity": "Special"
 	},
@@ -1096,12 +1100,10 @@
 		"Payout": "4",
 		"Name": "Matryoshka Doll 5",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Special"
 	},
 	"Mega Chest": {
@@ -1169,9 +1171,7 @@
 			""
 		],
 		"Description": "",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Special"
 	},
 	"Monkey": {
@@ -1298,11 +1298,11 @@
 		"Payout": "2",
 		"Name": "Peach",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adds  when destroyed.",
+		"Description": "Adds /Seed when destroyed.",
 		"Effects": [
-			""
+			"95 ID GETS ADD Seed FROM ID DESTROY"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -1356,11 +1356,13 @@
 		"Payout": "0",
 		"Name": "Present",
 		"Tags": [
-			""
+			"basegame","THRESHOLD12"
 		],
 		"Description": "Destroys itself after 12 spins. Gives 10 when destroyed.",
 		"Effects": [
-			""
+			"10 ID GIVES STATE 1 TO ID",
+			"50 ID GIVES DESTROY TO ID THRESHOLD",
+			"94 ID GETS PAY 10 FROM ID DESTROY"
 		],
 		"Rarity": "Common"
 	},
@@ -1376,6 +1378,19 @@
 		],
 		"Rarity": "Uncommon"
 	},
+	"Rabbit": {
+		"Payout": "1",
+		"Name": "Rabbit",
+		"Tags": [
+			"basegame"
+		],
+		"Description": "Permanently gives 2 more after giving  10 times.",
+		"Effects": [
+			"10 ID GETS STATE 1 FROM ID",
+			"20 ID GETS PAY 2 FROM ID THRESHOLD"
+		],
+		"Rarity": "Uncommon"
+	},
 	"Rabbit Fluff": {
 		"Payout": "2",
 		"Name": "Rabbit Fluff",
@@ -1383,18 +1398,6 @@
 			""
 		],
 		"Description": "You are 1.2x more likely to find Uncommon, Rare, and Very Rare symbols.",
-		"Effects": [
-			""
-		],
-		"Rarity": "Uncommon"
-	},
-	"Rabbit": {
-		"Payout": "1",
-		"Name": "Rabbit",
-		"Tags": [
-			""
-		],
-		"Description": "Permanently gives 2 more after giving  10 times.",
 		"Effects": [
 			""
 		],
@@ -1464,11 +1467,11 @@
 		"Payout": "1",
 		"Name": "Safe",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Gives 30 when destroyed.",
+		"Description": "Gives 30 /Coin when destroyed.",
 		"Effects": [
-			""
+			"95 ID GETS PAY 30 FROM ID DESTROY"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -1476,11 +1479,11 @@
 		"Payout": "2",
 		"Name": "Sand Dollar",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Gives 10 when removed.",
+		"Description": "Gives 10 /Coin when removed.",
 		"Effects": [
-			""
+			"90 ID GETS PAY 10 FROM ID REMOVE"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -1488,12 +1491,10 @@
 		"Payout": "2",
 		"Name": "Sapphire",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Uncommon"
 	},
 	"Seed": {
@@ -1512,12 +1513,10 @@
 		"Payout": "1",
 		"Name": "Shiny Pebble",
 		"Tags": [
-			""
+			"basegame","raritylike"
 		],
 		"Description": "You are 1.1x more likely to find Uncommon, Rare, and Very Rare symbols.",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Common"
 	},
 	"Silver Arrow": {
@@ -1536,11 +1535,12 @@
 		"Payout": "0",
 		"Name": "Sloth",
 		"Tags": [
-			""
+			"basegame","THRESHOLD2"
 		],
 		"Description": "Gives 4 every 2 spins.",
 		"Effects": [
-			""
+			"10 ID GETS STATE 1 FROM ID",
+			"20 ID GETS PAY 2 FROM ID THRESHOLD"
 		],
 		"Rarity": "Uncommon"
 	},

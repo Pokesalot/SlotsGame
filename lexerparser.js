@@ -270,6 +270,14 @@ function ResolveEffects(){
             GetItemEffects();
             i = -1;
             continue;
+        }else if(curEffect == "101 CHECKRESTART"){
+            // Get payouts at precedence 101. More effects may trigger, but they will not pay out. 
+            for (let i = 0; i<GameState.Board.length; i++){//i is the location on the board, for positional math
+                GameState.PlayerCoins += GameState.Board[i].GetPayout();
+            }
+            for (let i = 0; i<GameState.PlayerItems; i++){
+                GameState.PlayerCoins += GameState.PlayerItems[i].GetPayout();
+            }
         }
 
         let senders = getCheckList(); let receivers = getCheckList();
