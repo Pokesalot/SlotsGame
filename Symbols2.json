@@ -36,6 +36,18 @@
 		"Effects": [],
 		"Rarity": "Rare"
 	},
+	"Banana": {
+		"Payout": "1",
+		"Name": "Banana",
+		"Tags": [
+			"basegame","monkeylike"
+		],
+		"Description": "Adds /Banana_Peel when destroyed.",
+		"Effects": [
+			"101 ID DESTROY !gave GIVES gave ADD Banana_Peel TO ID"
+		],
+		"Rarity": "Common"
+	},
 	"Banana Peel": {
 		"Payout": "1",
 		"Name": "Banana Peel",
@@ -46,18 +58,6 @@
 		"Effects": [
 			"35 ID GIVES DESTROY TO ADJ Thief",
 			"36 ID GETS DESTROY FROM ADJ Thief"
-		],
-		"Rarity": "Common"
-	},
-	"Banana": {
-		"Payout": "1",
-		"Name": "Banana",
-		"Tags": [
-			"basegame"
-		],
-		"Description": "Adds /Banana_Peel when destroyed.",
-		"Effects": [
-			"85 ID DESTROY GIVES ADD Banana_Peel TO ID"
 		],
 		"Rarity": "Common"
 	},
@@ -117,7 +117,7 @@
 		"Tags": [
 			"basegame"
 		],
-		"Description": "Adjacent /beelike give 2x more . Gives 1 more for each adjacent /beelike .",
+		"Description": "Adjacent /beelike give 2x more /Coin . Gives 1 /Coin more for each adjacent /beelike .",
 		"Effects": [
 			"23 ID GIVES MULTI 2 TO ADJ beelike",
 			"24 ID GETS PAY 1 FROM ADJ beelike"
@@ -166,7 +166,7 @@
 		],
 		"Description": "Adds 2 /Spirit when destroyed.",
 		"Effects": [
-			"25 ID GETS ADD Spirit Add Spirit FROM ID DESTROY"
+			"101 ID DESTROY !gave GETS gave ADD Spirit Add Spirit FROM ID"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -371,11 +371,11 @@
 		"Payout": "1",
 		"Name": "Coconut",
 		"Tags": [
-			"basegame"
+			"basegame","monkeylike"
 		],
 		"Description": "Adds 2 /Coconut_Half when destroyed.",
 		"Effects": [
-			"ON DESTROY ADD Coconut_Half ADD Coconut_Half"
+			"101 ID DESTROY !gave GIVES gave ADD Coconut_Half ADD Coconut_Half TO ID"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -383,7 +383,7 @@
 		"Payout": "2",
 		"Name": "Coconut Half",
 		"Tags": [
-			"basegame"
+			"basegame","monkeylike"
 		],
 		"Description": "",
 		"Effects": [],
@@ -444,7 +444,7 @@
 		"Tags": [
 			"basegame","THRESHOLD4"
 		],
-		"Description": "Gives -3 every 4 spins.",
+		"Description": "Gives -3 /Coin every 4 spins.",
 		"Effects": [
 			"20 ID GETS STATE 1 FROM ID",
 			"24 ID GETS PAY -3 FROM ID THRESHOLD"
@@ -457,7 +457,7 @@
 		"Tags": [
 			"basegame"
 		],
-		"Description": "Gives 1 more for each other /Cultist . Gives 1 more if there are at least 3 /Cultist .",
+		"Description": "Gives 1 /Coin more for each other /Cultist . Gives 1 /Coin more if there are at least 3 /Cultist .",
 		"Effects": [
 			"20 ID GETS PAY 1 FROM Cultist !ID",
 			"20 ID GETS PAY 1 FROM ID TOTAL Cultist 3"
@@ -750,7 +750,7 @@
 		"Effects": [
 			"24 ID GETS STATE 1 FROM ID",
 			"25 ID GETS DESTROY FROM ID THRESHOLD",
-			"98 ID DESTROY GIVES ADD Ore ADD Ore ADD Ore ADD Ore ADD Ore TO ID"
+			"101 ID DESTROY !gave GIVES gave ADD Ore ADD Ore ADD Ore ADD Ore ADD Ore TO ID"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -868,12 +868,10 @@
 		"Payout": "6",
 		"Name": "Highlander",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "There can be only 1.",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Very Rare"
 	},
 	"Honey": {
@@ -987,11 +985,11 @@
 		"Payout": "1",
 		"Name": "Lockbox",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Gives 15 when destroyed.",
+		"Description": "Gives 15 /Coin when destroyed.",
 		"Effects": [
-			""
+			"85 ID DESTROY GIVES PAY 15 TO ID"
 		],
 		"Rarity": "Common"
 	},
@@ -1036,12 +1034,10 @@
 		"Payout": "3",
 		"Name": "Martini",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Rare"
 	},
 	"Matryoshka Doll 1": {
@@ -1178,11 +1174,14 @@
 		"Payout": "1",
 		"Name": "Monkey",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Destroys adjacent   and . Gives  equal to 6x the value of symbols destroyed this way.",
+		"Description": "Destroys adjacent /monkeylike . Gives /Coin equal to 6x the value of symbols destroyed this way.",
 		"Effects": [
-			""
+			"15 ID GIVES DESTROY TO ADJ monkeylike",
+			"16 ID GETS PAY 6 FROM ADJ Coconut",
+			"16 ID GETS PAY 6 FROM ADJ Banana",
+			"16 ID GETS PAY 12 FROM ADJ Coconut_Half"
 		],
 		"Rarity": "Common"
 	},
@@ -1226,11 +1225,11 @@
 		"Payout": "2",
 		"Name": "Ninja",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Gives 1 less for each other .",
+		"Description": "Gives 1 less for each other /Ninja .",
 		"Effects": [
-			""
+			"50 ID GETS PAY -1 FROM Ninja !ID"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -1344,11 +1343,11 @@
 		"Payout": "1",
 		"Name": "Pinata",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adds 7 when destroyed.",
+		"Description": "Adds 7 /Candy when destroyed.",
 		"Effects": [
-			""
+			"95 ID DESTROY !gave GIVES ADD Candy ADD Candy ADD Candy ADD Candy ADD Candy ADD Candy ADD Candy gave TO ID"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -1362,7 +1361,7 @@
 		"Effects": [
 			"10 ID GIVES STATE 1 TO ID",
 			"50 ID GIVES DESTROY TO ID THRESHOLD",
-			"94 ID GETS PAY 10 FROM ID DESTROY"
+			"101 ID DESTROY !gave GETS gave PAY 10 FROM ID"
 		],
 		"Rarity": "Common"
 	},
@@ -1386,7 +1385,7 @@
 		],
 		"Description": "Permanently gives 2 more after giving  10 times.",
 		"Effects": [
-			"10 ID GETS STATE 1 FROM ID",
+			"10 ID !THRESHOLD GETS STATE 1 FROM ID",
 			"20 ID GETS PAY 2 FROM ID THRESHOLD"
 		],
 		"Rarity": "Uncommon"
@@ -1455,11 +1454,11 @@
 		"Payout": "3",
 		"Name": "Ruby",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "Gives 1 more if there are at least 2.",
 		"Effects": [
-			""
+			"25 ID GIVES PAY 1 TO ID TOTAL Ruby 2"
 		],
 		"Rarity": "Rare"
 	},
@@ -1471,7 +1470,7 @@
 		],
 		"Description": "Gives 30 /Coin when destroyed.",
 		"Effects": [
-			"95 ID GETS PAY 30 FROM ID DESTROY"
+			"101 ID DESTROY !gave GETS gave PAY 30 FROM ID"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -1483,7 +1482,7 @@
 		],
 		"Description": "Gives 10 /Coin when removed.",
 		"Effects": [
-			"90 ID GETS PAY 10 FROM ID REMOVE"
+			"101 ID REMOVE !gave GETS gave PAY 10 FROM ID"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -1548,11 +1547,12 @@
 		"Payout": "0",
 		"Name": "Snail",
 		"Tags": [
-			""
+			"basegame","THRESHOLD4"
 		],
 		"Description": "Gives 5 every 4 spins.",
 		"Effects": [
-			""
+			"10 ID GETS STATE 1 FROM ID",
+			"20 ID GETS PAY 5 FROM ID THRESHOLD"
 		],
 		"Rarity": "Common"
 	},

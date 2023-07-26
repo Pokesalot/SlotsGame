@@ -47,7 +47,12 @@ function spin() {
 
   //Load all symbols from the board into the symbol collection
   while(GameState.Board.length > 0){ 
-      GameState.PlayerSymbols.push(GameState.Board.pop());
+      let hold = GameState.Board.pop();
+      if(hold.name == "Empty"){
+        GameState.PlayerSymbols.push(MakeSymbol("Empty"))
+      }else{
+        GameState.PlayerSymbols.push(hold);
+      }   
   }
 
   //Fill the board randomly with symbols just added to the pool. This should mitigate not having enough symbols to shuffle in.
@@ -73,6 +78,7 @@ function spin() {
 
 
   //Get effects from symbols on the board and items in hand, then resolve them.
+  GameState.TempSymbols = [];
   GameState.SpinEffects = GameState.PermanentSpinEffects;
   GameState.SpinActions = [];
   GetSymbolEffects();

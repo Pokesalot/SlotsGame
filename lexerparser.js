@@ -3,7 +3,8 @@ function GetClearProgress(){
   return {
     AllowedTags : ["basegame"],
     PlayerSymbols : [],
-    PermanentSpinEffects : ["100 REMOVE", "100 DESTROY", "100 STATE0", "101 CHECKRESTART"],
+    PermanentSpinEffects : ["100 REMOVE", "100 DESTROY", "100 STATE0", "102 CHECKRESTART"],
+    TempSymbols : [],
     SpinEffects : [], //All effects for all symbols and items, taken or not
     SpinActions : [], //Effects that actually triggered, including origin and target where applicable
     PlayerItems : [],
@@ -104,7 +105,6 @@ class newSymbol{
     }
     Transform(SymbolName){//Make sure to store the old symbol's payout before transforming!
         this.GetPayout();
-        console.log(`Transforming from ${this.name} to ${SymbolName}`)
         let newStats = AllSymbolsJson[SymbolName];
         this.name = newStats.Name;
         this.src = `images/${newStats.Name.toLowerCase().replaceAll(" ","_")}.png`
@@ -116,7 +116,7 @@ class newSymbol{
         
         //After a transformation, the board reruns all checks
         this.state = 0;
-        this.status = [];
+        this.status.push("TRANSFORMED");
         this.adjacencies = [];
         this.tempPayout = 0;
         this.tempMulti = 1;
@@ -150,7 +150,7 @@ function GetItemEffects(){
 }
 
 function ResolveEffects(){
-    function getCheckList(){return [...GameState.Board,...GameState.PlayerItems]}
+    function getCheckList(){return [...GameState.Board,...GameState.PlayerItems,...GameState.TempSymbols]}
     function trimList(list,checkString){
         words = checkString.split(" ")
         wordSub = 0;
@@ -206,6 +206,7 @@ function ResolveEffects(){
     }
     function getAdjacency(sym1, sym2){
         let inds = [GameState.Board.indexOf(sym1),GameState.Board.indexOf(sym2)]; let adj1 = []; let adj2 = [];
+        if(inds.indexOf(-1) != -1){return false};//one or both symbols is not on the board, therefore adjacent to nothing
         for(i=0;i<sym1.status.length;i++){
             if(sym1.status[i].indexOf("Adj") == 0){
                 adj1.push(parseInt(sym1.status[i].split("Adj")[1]));
@@ -238,7 +239,9 @@ function ResolveEffects(){
             for(let checkSym=0; checkSym<GameState.Board.length; checkSym++){
                 if(GameState.Board[checkSym].status.indexOf("REMOVE") != -1){
                     GameState.Board[checkSym].GetPayout();
-                    GameState.Board[checkSym] = MakeSymbol("Empty");
+                    GameState.Destroyed.push(GameState.Board[checkSym].name);
+                    GameState.TempSymbols.push(GameState.Board[checkSym]);
+                    GameState.Board[checkSym].Transform("Empty");
                     restartAt100 = true;
                 }
             }
@@ -248,7 +251,8 @@ function ResolveEffects(){
             for(let checkSym=0; checkSym<GameState.Board.length; checkSym++){
                 if(GameState.Board[checkSym].status.indexOf("DESTROY") != -1){
                     GameState.Board[checkSym].GetPayout();
-                    GameState.Destroyed.push(GameState.Board[checkSym].name)
+                    GameState.Destroyed.push(GameState.Board[checkSym].name);
+                    GameState.TempSymbols.push(GameState.Board[checkSym]);
                     GameState.Board[checkSym] = MakeSymbol("Empty");
                     restartAt100 = true;
                 }
@@ -263,14 +267,13 @@ function ResolveEffects(){
             }
             continue;
         }
-        if(curEffect == "101 CHECKRESTART" && restartAt100){
-            console.log("From the top")
+        if(curEffect == "102 CHECKRESTART" && restartAt100){
             restartAt100 = false;
             GetSymbolEffects();
             GetItemEffects();
             i = -1;
             continue;
-        }else if(curEffect == "101 CHECKRESTART"){
+        }else if(curEffect == "102 CHECKRESTART"){
             // Get payouts at precedence 101. More effects may trigger, but they will not pay out. 
             for (let i = 0; i<GameState.Board.length; i++){//i is the location on the board, for positional math
                 GameState.PlayerCoins += GameState.Board[i].GetPayout();
@@ -407,7 +410,6 @@ function ResolveEffects(){
 }
 
 function AddSymbol(SymbolName){
-    console.log(`Adding a ${SymbolName}`)
     //Checks for an Empty and removes it from the pool if one is found, random board empties taking precedent.
     //Can also add code to check for items that have effects trigger on symbols being added
     let empties = []; let newSym = MakeSymbol(SymbolName.replaceAll("_"," "));
@@ -417,49 +419,19 @@ function AddSymbol(SymbolName){
         }
     }
     if(empties.length > 0){
-        GameState.Board[empties[Math.floor(Math.random() * empties.length)]] = newSym
+        //TODO add tags for location checks, it may come in handy
+        let newLoc = empties[Math.floor(Math.random() * empties.length)];
+        GameState.Board[newLoc] = newSym
+        GameState.Board[newLoc].status.push(`Col${Math.floor(newLoc / 4)}`);
+        GameState.Board[newLoc].status.push(`Row${newLoc%4}`);
+        GameState.Board[newLoc].status.push(`Ind${newLoc}`);
     }else{
         GameState.PlayerSymbols.push(newSym)
     }
     DrawBoard();
 }
-function DestroySymbol(Symbol){
-    AddSymbol("Empty");
-    //Check for items that trigger on symbols being removed, and run any effects of a symbol that has "ON DESTROY"
-}
-
 
 function MakeSymbol(SymbolName){
     let ns = AllSymbolsJson[SymbolName]
     return new newSymbol(ns["Name"],ns["Payout"],ns["Rarity"],ns["Description"],ns["Effects"],ns["Tags"])
 }
-
-function SearchSymbols(Search){
-    let searchLevel = 0;
-    switch(Search[0]){//Substring
-        case "'":
-            //By name
-            return AllSymbolsJson[Search.substring(1)]
-        case "q":
-            //Searches permanent and temporary statuses
-            searchLevel++;
-        case "#":
-            //May search only permanents, or may search both if searchlevel is 1 already.
-            let finds = [];
-            let keys = Object.keys(AllSymbolsJson)
-            for(let i = 0; i<(keys.length-1);i++){
-                if(searchLevel == 1){
-                    if(AllSymbolsJson[keys[i]].status.indexOf(Search.substring(1)) ||  AllSymbolsJson[keys[i]].tags.indexOf(Search.substring(1))){
-                        finds.push(AllSymbolsJson[keys[i]])
-                    }
-                }
-                else{//Search level is 0, only permanents
-                    if(AllSymbolsJson[keys[i]].status.indexOf(Search.substring(1))){
-                        finds.push(AllSymbolsJson[keys[i]])
-                    }
-                }
-            }
-            return finds;
-    }
-}
-
