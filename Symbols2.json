@@ -758,7 +758,7 @@
 		"Payout": "1",
 		"Name": "Goose",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "Has a 1% chance of adding /Golden_Egg .",
 		"Effects": [
@@ -948,7 +948,7 @@
 		"Payout": "1",
 		"Name": "Key",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "Destroys adjacent /chest . Destroys itself afterwards.",
 		"Effects": [
@@ -974,11 +974,14 @@
 		"Payout": "1",
 		"Name": "Lightbulb",
 		"Tags": [
-			"basegame"
+			"basegame","THRESHOLD5"
 		],
 		"Description": "Adjacent /gem give 2x more /Coin . Destroys itself after making other symbols give additional /Coin 5 times.",
 		"Effects": [
-			"20 ID GIVES MULTI 2 TO ADJ gem"
+			"20 ID GIVES MULTI 2 TO ADJ gem",
+			"21 ID GETS buffed FROM ADJ gem",
+			"35 ID buffed GETS STATE 1 FROM ID",
+			"36 ID GETS DESTROY FROM ID THRESHOLD"
 		],
 		"Rarity": "Common"
 	},
@@ -1715,7 +1718,7 @@
 		"Tags": [
 			"basegame","THRESHOLD3"
 		],
-		"Description": "Gives 4 every 3 spins.",
+		"Description": "Gives 4 /Coin every 3 spins.",
 		"Effects": [
 			"10 ID GETS STATE 1 FROM ID",
 			"15 ID GETS PAY 4 FROM ID THRESHOLD"
