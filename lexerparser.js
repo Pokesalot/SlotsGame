@@ -276,7 +276,24 @@ function ResolveEffects(){
         }else if(curEffect == "102 CHECKRESTART"){
             // Get payouts at precedence 101. More effects may trigger, but they will not pay out. 
             for (let i = 0; i<GameState.Board.length; i++){//i is the location on the board, for positional math
-                GameState.PlayerCoins += GameState.Board[i].GetPayout();
+                if(GameState.Board[i].tags.indexOf("WILDCARD") == -1 && GameState.Board[i].status.indexOf("WILDCARD") == -1){
+                    GameState.PlayerCoins += GameState.Board[i].GetPayout();
+                }
+            }
+            for (let i = 0; i<GameState.Board.length; i++){//i is the location on the board, for positional math
+                if(GameState.Board[i].tags.indexOf("WILDCARD") != -1 || GameState.Board[i].status.indexOf("WILDCARD") != -1){
+                    console.log(`Found a wildcard symbol at position ${i}`)
+                    let adjs = GetAdjacentIndices(i); let maxPayout = 0;
+                    for(let adjsym = 0; adjsym<adjs.length; adjsym++){
+                        if(GameState.Board[adjs[adjsym]].tags.indexOf("WILDCARD") == -1 && GameState.Board[adjs[adjsym]].status.indexOf("WILDCARD") == -1){
+                            maxPayout = Math.max(maxPayout, GameState.Board[adjs[adjsym]].lastPayout)
+                        }
+                    }
+                    let curPayout = (parseInt(GameState.Board[i].tempPayout) + maxPayout) * GameState.Board[i].tempMulti;
+                    GameState.SpinActions.push(`${GameState.Board[i].name}(${GameState.Board[i].id})=>Payout ${curPayout}`)
+                    GameState.Board[i].totalPayout += curPayout;
+                    GameState.Board[i].lastPayout = curPayout;
+                }
             }
             for (let i = 0; i<GameState.PlayerItems; i++){
                 GameState.PlayerCoins += GameState.PlayerItems[i].GetPayout();
@@ -375,10 +392,17 @@ function ResolveEffects(){
                                 paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect TRANSFORM ${effectWords[word+1]}`;
                                 if(GameState.SpinActions.indexOf(paperTrail) == -1){
                                     GameState.SpinActions.push(paperTrail);
-                                    senders[send].Transform(effectWords[word+1]);
+                                    receivers[rec].Transform(effectWords[word+1]);
                                     restartAt100 = true;
                                 }
                                 word++;
+                                break;
+                            case "SCALE":
+                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect SCALE`;
+                                if(GameState.SpinActions.indexOf(paperTrail) == -1 && (receivers[rec].tempMulti > 1 || receivers[rec].tempPayout>0)){
+                                    GameState.SpinActions.push(paperTrail);
+                                    receivers[rec].payout++;
+                                }
                                 break;
                             default:
                                 paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect STATUS ${effectWords[word]}`

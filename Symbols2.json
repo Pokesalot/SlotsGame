@@ -3,11 +3,11 @@
 		"Payout": "1",
 		"Name": "Amethyst",
 		"Tags": [
-			""
+			"basegame", "gem"
 		],
 		"Description": "Whenever another symbol makes this symbol give additional /coin, this symbol permanently gives 1 more /coin.",
 		"Effects": [
-			""
+			"110 ID GETS SCALE FROM ID"
 		],
 		"Rarity": "Rare"
 	},
@@ -40,7 +40,7 @@
 		"Payout": "1",
 		"Name": "Banana",
 		"Tags": [
-			"basegame","monkeylike"
+			"basegame","monkeylike","funny"
 		],
 		"Description": "Adds /Banana_Peel when destroyed.",
 		"Effects": [
@@ -52,7 +52,7 @@
 		"Payout": "1",
 		"Name": "Banana Peel",
 		"Tags": [
-			"basegame"
+			"basegame","funny"
 		],
 		"Description": "Destroys adjacent /Thief . Destroys itself afterwards.",
 		"Effects": [
@@ -213,7 +213,7 @@
 		"Payout": "2",
 		"Name": "Bubble",
 		"Tags": [
-			"basegame","THRESHOLD3"
+			"basegame","THRESHOLD3","toddlerlike"
 		],
 		"Description": "Destroys itself after giving /Coin 3 times.",
 		"Effects": [
@@ -239,7 +239,7 @@
 		"Payout": "1",
 		"Name": "Candy",
 		"Tags": [
-			"basegame"
+			"basegame","toddlerlike"
 		],
 		"Description": "",
 		"Effects": [],
@@ -249,11 +249,11 @@
 		"Payout": "2",
 		"Name": "Card Shark",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adjacent    and  are .",
+		"Description": "Adjacent /suit are /Wildcard .",
 		"Effects": [
-			""
+			"20 ID GIVES WILDCARD TO ADJ suit"
 		],
 		"Rarity": "Rare"
 	},
@@ -403,11 +403,11 @@
 		"Payout": "3",
 		"Name": "Comedian",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adjacent      and  give 3x more .",
+		"Description": "Adjacent /funny give 3x more /Coin .",
 		"Effects": [
-			""
+			"15 ID GIVES MULTI 3 TO ADJ funny"
 		],
 		"Rarity": "Rare"
 	},
@@ -518,7 +518,7 @@
 		"Payout": "1",
 		"Name": "Dog",
 		"Tags": [
-			""
+			"funny"
 		],
 		"Description": "Gives 1 more if adjacent to                         or .",
 		"Effects": [
@@ -936,7 +936,7 @@
 		"Payout": "3",
 		"Name": "Joker",
 		"Tags": [
-			"basegame"
+			"basegame","funny"
 		],
 		"Description": "Adjacent /suit give 2x more /Coin .",
 		"Effects": [
@@ -950,9 +950,10 @@
 		"Tags": [
 			""
 		],
-		"Description": "Destroys adjacent    and . Destroys itself afterwards.",
+		"Description": "Destroys adjacent /chest . Destroys itself afterwards.",
 		"Effects": [
-			""
+			"15 ID GIVES DESTROY TO ADJ chest",
+			"16 ID GETS DESTROY FROM ADJ chest"
 		],
 		"Rarity": "Common"
 	},
@@ -969,15 +970,15 @@
 		],
 		"Rarity": "Rare"
 	},
-	"Light Bulb": {
+	"Lightbulb": {
 		"Payout": "1",
-		"Name": "Light Bulb",
+		"Name": "Lightbulb",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adjacent        and  give 2x more . Destroys itself after making other symbols give additional  5 times.",
+		"Description": "Adjacent /gem give 2x more /Coin . Destroys itself after making other symbols give additional /Coin 5 times.",
 		"Effects": [
-			""
+			"20 ID GIVES MULTI 2 TO ADJ gem"
 		],
 		"Rarity": "Common"
 	},
@@ -985,7 +986,7 @@
 		"Payout": "1",
 		"Name": "Lockbox",
 		"Tags": [
-			"basegame"
+			"basegame","chest"
 		],
 		"Description": "Gives 15 /Coin when destroyed.",
 		"Effects": [
@@ -1009,11 +1010,12 @@
 		"Payout": "2",
 		"Name": "Magic Key",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Destroys adjacent    and . Symbols destroyed this way give 3x more . Destroys itself afterward.",
+		"Description": "Destroys adjacent /chest . Symbols destroyed this way give 3x more /Coin . Destroys itself afterward.",
 		"Effects": [
-			""
+			"15 ID GIVES DESTROY MULTI 3 TO ADJ chest",
+			"16 ID GETS DESTROY FROM ADJ chest"
 		],
 		"Rarity": "Rare"
 	},
@@ -1034,7 +1036,7 @@
 		"Payout": "3",
 		"Name": "Martini",
 		"Tags": [
-			"basegame"
+			"basegame","drinks"
 		],
 		"Description": "",
 		"Effects": [],
@@ -1106,11 +1108,11 @@
 		"Payout": "3",
 		"Name": "Mega Chest",
 		"Tags": [
-			""
+			"basegame","chest"
 		],
-		"Description": "Gives 100 when destroyed.",
+		"Description": "Gives 100 /Coin when destroyed.",
 		"Effects": [
-			""
+			"101 ID DESTROY !gave GETS gave PAY 100 FROM ID"
 		],
 		"Rarity": "Very Rare"
 	},
@@ -1120,9 +1122,10 @@
 		"Tags": [
 			""
 		],
-		"Description": "Destroys itself and all adjacent symbols. Symbols destroyed this way give  equal to 7x their value.",
+		"Description": "Destroys itself and all adjacent symbols. Symbols destroyed this way give /Coin equal to 7x their value.",
 		"Effects": [
-			""
+			"50 ID GIVES DESTROY MULTI 7 TO ADJ",
+			"50 ID GETS DESTROY FROM ID"
 		],
 		"Rarity": "Very Rare"
 	},
@@ -1174,7 +1177,7 @@
 		"Payout": "1",
 		"Name": "Monkey",
 		"Tags": [
-			"basegame"
+			"basegame","funny"
 		],
 		"Description": "Destroys adjacent /monkeylike . Gives /Coin equal to 6x the value of symbols destroyed this way.",
 		"Effects": [
@@ -1189,11 +1192,12 @@
 		"Payout": "3",
 		"Name": "Moon",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adjacent   and  give 3x more . Adds 3 when destroyed.",
+		"Description": "Adjacent /night give 3x more . Adds 3 /Cheese when destroyed.",
 		"Effects": [
-			""
+			"15 ID GIVES MULTI 3 TO ADJ night",
+			"101 ID DESTROY !gave GETS gave ADD Cheese ADD Cheese ADD Cheese FROM ID"
 		],
 		"Rarity": "Rare"
 	},
@@ -1271,7 +1275,7 @@
 		"Payout": "1",
 		"Name": "Owl",
 		"Tags": [
-			"basegame", "THRESHOLD3"
+			"basegame", "THRESHOLD3","night"
 		],
 		"Description": "Gives 1 /Coin every 3 spins.",
 		"Effects": [
@@ -1343,7 +1347,7 @@
 		"Payout": "1",
 		"Name": "Pinata",
 		"Tags": [
-			"basegame"
+			"basegame","toddlerlike"
 		],
 		"Description": "Adds 7 /Candy when destroyed.",
 		"Effects": [
@@ -1355,7 +1359,7 @@
 		"Payout": "0",
 		"Name": "Present",
 		"Tags": [
-			"basegame","THRESHOLD12"
+			"basegame","THRESHOLD12","toddlerlike"
 		],
 		"Description": "Destroys itself after 12 spins. Gives 10 /Coin when destroyed.",
 		"Effects": [
@@ -1381,9 +1385,9 @@
 		"Payout": "1",
 		"Name": "Rabbit",
 		"Tags": [
-			"basegame"
+			"basegame","THRESHOLD10","night"
 		],
-		"Description": "Permanently gives 2 more after giving  10 times.",
+		"Description": "Permanently gives 2 more after giving /Coin 10 times.",
 		"Effects": [
 			"10 ID !THRESHOLD GETS STATE 1 FROM ID",
 			"20 ID GETS PAY 2 FROM ID THRESHOLD"
@@ -1466,7 +1470,7 @@
 		"Payout": "1",
 		"Name": "Safe",
 		"Tags": [
-			"basegame"
+			"basegame","chest"
 		],
 		"Description": "Gives 30 /Coin when destroyed.",
 		"Effects": [
@@ -1671,11 +1675,12 @@
 		"Payout": "1",
 		"Name": "Toddler",
 		"Tags": [
-			""
+			"basegame","funny"
 		],
-		"Description": "Destroys adjacent    and . Gives 6 for each    and  destroyed.",
+		"Description": "Destroys adjacent /toddlerlike . Gives 6 for each /toddlerlike destroyed.",
 		"Effects": [
-			""
+			"14 ID GIVES DESTROY TO ADJ toddlerlike",
+			"14 ID GETS PAY 6 FROM ADJ toddlerlike"
 		],
 		"Rarity": "Common"
 	},
@@ -1683,11 +1688,12 @@
 		"Payout": "3",
 		"Name": "Tomb",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Has a 6% chance of adding . Adds 4 when destroyed.",
+		"Description": "Has a 6% chance of adding /Spirit . Adds 4 /Spirit when destroyed.",
 		"Effects": [
-			""
+			"50 ID GETS ADD Spirit FROM ID RANDOM 0.06",
+			"101 ID DESTROY !gave GETS gave ADD Spirit ADD Spirit ADD Spirit ADD Spirit FROM ID"
 		],
 		"Rarity": "Rare"
 	},
@@ -1695,11 +1701,11 @@
 		"Payout": "2",
 		"Name": "Treasure Chest",
 		"Tags": [
-			""
+			"basegame","chest"
 		],
 		"Description": "Gives 50 when destroyed.",
 		"Effects": [
-			""
+			"101 ID DESTROY !gave GETS PAY 50 FROM ID"
 		],
 		"Rarity": "Rare"
 	},
@@ -1707,11 +1713,12 @@
 		"Payout": "0",
 		"Name": "Turtle",
 		"Tags": [
-			""
+			"basegame","THRESHOLD3"
 		],
 		"Description": "Gives 4 every 3 spins.",
 		"Effects": [
-			""
+			"10 ID GETS STATE 1 FROM ID",
+			"15 ID GETS PAY 4 FROM ID THRESHOLD"
 		],
 		"Rarity": "Common"
 	},
@@ -1723,7 +1730,7 @@
 		],
 		"Description": "Adds /Spirit when destroyed.",
 		"Effects": [
-			"94 ID GETS ADD Spirit FROM ID DESTROY"
+			"101 ID DESTROY !gave GETS gave ADD Spirit FROM ID"
 		],
 		"Rarity": "Common"
 	},
@@ -1779,11 +1786,11 @@
 		"Payout": "4",
 		"Name": "Watermelon",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Gives 1 more for each other .",
+		"Description": "Gives 1 more for each other /Watermelon .",
 		"Effects": [
-			""
+			"15 ID GETS PAY 1 FROM Watermelon !ID"
 		],
 		"Rarity": "Very Rare"
 	},
@@ -1791,11 +1798,12 @@
 		"Payout": "0",
 		"Name": "Wealthy Capsule",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Destroys itself. Gives 10 when destroyed.",
+		"Description": "Destroys itself. Gives 10 /Coin when destroyed.",
 		"Effects": [
-			""
+			"1 ID GETS DESTROY FROM ID",
+			"101 ID DESTROY !gave GETS gave PAY 10 FROM ID"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -1803,23 +1811,22 @@
 		"Payout": "?",
 		"Name": "Wildcard",
 		"Tags": [
-			""
+			"basegame","WILDCARD"
 		],
 		"Description": "Gives  equal to the highest value among adjacent symbols.",
-		"Effects": [
-			""
-		],
+		"Effects": [],
 		"Rarity": "Very Rare"
 	},
 	"Wine": {
 		"Payout": "2",
 		"Name": "Wine",
 		"Tags": [
-			""
+			"basegame","THRESHOLD8"
 		],
-		"Description": "Permanently gives 1 more after giving  8 times.",
+		"Description": "Permanently gives 1 /Coin more after giving /Coin 8 times.",
 		"Effects": [
-			""
+			"12 ID !THRESHOLD GETS STATE 1 FROM ID",
+			"15 ID GETS PAY 1 FROM ID THRESHOLD"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -1839,7 +1846,7 @@
 		"Payout": "2",
 		"Name": "Wolf",
 		"Tags": [
-			"basegame"
+			"basegame","night"
 		],
 		"Description": "",
 		"Effects": [],
