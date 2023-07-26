@@ -175,7 +175,7 @@ function FillShop(boardState){
 }
 
 /////////////////////////////////////////////                 TODO
-function GetRarity(boardState){
+function GetRarity(){
   let roll = Math.random();
   rarity = -1;
   while(roll > 0){
@@ -287,8 +287,11 @@ function getNextPoint(index, direction){
 function getThreshold(symbol){
   //Symbols are tagged by default as Threshold[num]. Always takes the lowest tag.
   let check=0;
-  while(symbol.tags.indexOf(`THRESHOLD${check}`) == -1 && symbol.status.indexOf(`THRESHOLD${check}`) == -1){
-    check++;
+  while(symbol.tags.indexOf(`THRESHOLD${check}`) == -1 && symbol.status.indexOf(`THRESHOLD${check}`) == -1 && check < 1000){
+    check++;//has a safety check of 1000. Shouldn't interact with proper symbols
+  }
+  if(check > 500){
+    console.log(`${symbol.name} might be messed up, threshold was set to run fiveever.`)
   }
   return check;
 }

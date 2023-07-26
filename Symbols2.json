@@ -15,7 +15,7 @@
 		"Payout": "1",
 		"Name": "Anchor",
 		"Tags": [
-			"basegame"
+			"basegame","poslike","piratelike"
 		],
 		"Description": "Gives 4 more /Coin when in a corner.",
 		"Effects": [
@@ -30,7 +30,7 @@
 		"Payout": "3",
 		"Name": "Apple",
 		"Tags": [
-			"basegame"
+			"basegame","plant","witchlike","farmerlike"
 		],
 		"Description": "",
 		"Effects": [],
@@ -40,7 +40,7 @@
 		"Payout": "1",
 		"Name": "Banana",
 		"Tags": [
-			"basegame","monkeylike","funny"
+			"basegame","monkeylike","funny","fruitlike","plant","farmerlike"
 		],
 		"Description": "Adds /Banana_Peel when destroyed.",
 		"Effects": [
@@ -90,7 +90,7 @@
 		"Payout": "2",
 		"Name": "Bear",
 		"Tags": [
-			"basegame"
+			"basegame","animal"
 		],
 		"Description": "Destroys adjacent /Honey . Gives 40 for each /Honey destroyed.",
 		"Effects": [
@@ -103,11 +103,11 @@
 		"Payout": "2",
 		"Name": "Beastmaster",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adjacent                           and  give 2x more .",
+		"Description": "Adjacent /animal give 2x more /Coin .",
 		"Effects": [
-			""
+			"20 ID GIVES MULTI 2 TO ADJ animal"
 		],
 		"Rarity": "Rare"
 	},
@@ -115,7 +115,7 @@
 		"Payout": "1",
 		"Name": "Bee",
 		"Tags": [
-			"basegame"
+			"basegame","animal"
 		],
 		"Description": "Adjacent /beelike give 2x more /Coin . Gives 1 /Coin more for each adjacent /beelike .",
 		"Effects": [
@@ -140,7 +140,7 @@
 		"Payout": "1",
 		"Name": "Beer",
 		"Tags": [
-			"basegame","drinks"
+			"basegame","drinks","piratelike"
 		],
 		"Description": "",
 		"Effects": [],
@@ -150,11 +150,11 @@
 		"Payout": "2",
 		"Name": "Big Ore",
 		"Tags": [
-			""
+			"basegame","archlike","minerlike"
 		],
-		"Description": "Adds 2        or  when destroyed.",
+		"Description": "Adds 2 /gem when destroyed.",
 		"Effects": [
-			""
+			"101 ID DESTROY !gave GETS gave ADD gem ADD gem FROM ID"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -261,7 +261,7 @@
 		"Payout": "1",
 		"Name": "Cat",
 		"Tags": [
-			"basegame"
+			"basegame","animal","witchlike"
 		],
 		"Description": "Destroys adjacent /Milk . Gives 9 /Coin for each /Milk destroyed.",
 		"Effects": [
@@ -274,7 +274,7 @@
 		"Payout": "1",
 		"Name": "Cheese",
 		"Tags": [
-			"basegame"
+			"basegame","omelettestuff","farmerlike"
 		],
 		"Description": "",
 		"Effects": [],
@@ -308,7 +308,7 @@
 		"Payout": "1",
 		"Name": "Cherry",
 		"Tags": [
-			"basegame"
+			"basegame","fruitlike","plant","farmerlike"
 		],
 		"Description": "",
 		"Effects": [],
@@ -318,7 +318,7 @@
 		"Payout": "1",
 		"Name": "Chick",
 		"Tags": [
-			"basegame"
+			"basegame","animal","farmerlike"
 		],
 		"Description": "Has a 10% chance to grow into /Chicken .",
 		"Effects": [
@@ -331,7 +331,7 @@
 		"Payout": "2",
 		"Name": "Chicken",
 		"Tags": [
-			"basegame"
+			"basegame","animal","farmerlike"
 		],
 		"Description": "Has a 5% chance of adding /Egg . Has a 1% chance of adding /Golden_Egg .",
 		"Effects": [
@@ -371,7 +371,7 @@
 		"Payout": "1",
 		"Name": "Coconut",
 		"Tags": [
-			"basegame","monkeylike"
+			"basegame","monkeylike","fruitlike","plant","farmerlike"
 		],
 		"Description": "Adds 2 /Coconut_Half when destroyed.",
 		"Effects": [
@@ -383,7 +383,7 @@
 		"Payout": "2",
 		"Name": "Coconut Half",
 		"Tags": [
-			"basegame","monkeylike"
+			"basegame","monkeylike","fruitlike"
 		],
 		"Description": "",
 		"Effects": [],
@@ -393,7 +393,7 @@
 		"Payout": "1",
 		"Name": "Coin",
 		"Tags": [
-			"basegame"
+			"basegame","piratelike"
 		],
 		"Description": "",
 		"Effects": [],
@@ -415,7 +415,7 @@
 		"Payout": "3",
 		"Name": "Cow",
 		"Tags": [
-			"basegame"
+			"basegame","animal","farmerlike"
 		],
 		"Description": "Has a 15% chance of adding /Milk ",
 		"Effects": [
@@ -427,7 +427,7 @@
 		"Payout": "1",
 		"Name": "Crab",
 		"Tags": [
-			"basegame"
+			"basegame","animal","poslike"
 		],
 		"Description": "Gives 3 more for each other /Crab in the same row.",
 		"Effects": [
@@ -442,7 +442,7 @@
 		"Payout": "2",
 		"Name": "Crow",
 		"Tags": [
-			"basegame","THRESHOLD4"
+			"basegame","THRESHOLD4","animal","witchlike"
 		],
 		"Description": "Gives -3 /Coin every 4 spins.",
 		"Effects": [
@@ -480,7 +480,7 @@
 		"Payout": "5",
 		"Name": "Diamond",
 		"Tags": [
-			"basegame"
+			"basegame","gem"
 		],
 		"Description": "Gives 1 more for each other /Diamond ",
 		"Effects": [
@@ -506,11 +506,12 @@
 		"Payout": "2",
 		"Name": "Diver",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Removes adjacent          and . Permanently gives 1 for each symbol removed.",
+		"Description": "Removes adjacent /poslike . Permanently gives 1 /Coin for each symbol removed.",
 		"Effects": [
-			""
+			"15 ID GIVES REMOVE TO ADJ poslike",
+			"95 ID GETS PAYOUT 1 FROM ADJ poslike REMOVE"
 		],
 		"Rarity": "Rare"
 	},
@@ -518,7 +519,7 @@
 		"Payout": "1",
 		"Name": "Dog",
 		"Tags": [
-			"funny"
+			"funny","animal"
 		],
 		"Description": "Gives 1 more if adjacent to                         or .",
 		"Effects": [
@@ -530,12 +531,12 @@
 		"Payout": "2",
 		"Name": "Dove",
 		"Tags": [
-			"basegame"
+			"basegame","animal"
 		],
 		"Description": "If an adjacent symbol would be destroyed, instead it isn't, and this symbol permanently gives 1 more.",
 		"Effects": [
-			"99 ID GETS PAYOUT 1 FROM ADJ DESTROY",
-			"99 ID GIVES !DESTROY TO ADJ"
+			"90 ID GETS PAYOUT 1 FROM ADJ DESTROY",
+			"90 ID GIVES !DESTROY TO ADJ"
 		],
 		"Rarity": "Rare"
 	},
@@ -568,7 +569,7 @@
 		"Payout": "1",
 		"Name": "Egg",
 		"Tags": [
-			"basegame"
+			"basegame","omelettestuff","farmerlike"
 		],
 		"Description": "Has a 10% chance to transform into /Chick .",
 		"Effects": [
@@ -581,7 +582,7 @@
 		"Payout": "4",
 		"Name": "Eldritch Creature",
 		"Tags": [
-			""
+			"animal","witchlike"
 		],
 		"Description": "Destroys         and . Gives 1 for each         and  destroyed or removed this game.",
 		"Effects": [
@@ -593,7 +594,7 @@
 		"Payout": "3",
 		"Name": "Emerald",
 		"Tags": [
-			"basegame"
+			"basegame","gem"
 		],
 		"Description": "Gives 1 more if there are at least 2 /Emerald .",
 		"Effects": [
@@ -627,11 +628,12 @@
 		"Payout": "2",
 		"Name": "Farmer",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adjacent                   and  give 2x more . Adjacent  are 50% more likely to grow.",
+		"Description": "Adjacent /farmerlike give 2x more /Coin . Adjacent /Seed are 50% more likely to grow.",
 		"Effects": [
-			""
+			"1 ID GIVES MULTI 2 TO ADJ farmerlike",
+			"1 ID GIVES farmer TO ADJ Seed"
 		],
 		"Rarity": "Rare"
 	},
@@ -651,7 +653,7 @@
 		"Payout": "1",
 		"Name": "Flower",
 		"Tags": [
-			"basegame", "beelike"
+			"basegame", "beelike", "plant","farmerlike"
 		],
 		"Description": "",
 		"Effects": [],
@@ -697,11 +699,12 @@
 		"Payout": "2",
 		"Name": "Geologist",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Destroys adjacent     and . Permanently gives 1 for each symbol destroyed.",
+		"Description": "Destroys adjacent /archlike . Permanently gives 1 /Coin for each symbol destroyed.",
 		"Effects": [
-			""
+			"15 ID GIVES DESTROY TO ADJ archlike",
+			"95 ID GETS PAYOUT 1 FROM ADJ archlike DESTROY"
 		],
 		"Rarity": "Rare"
 	},
@@ -721,7 +724,7 @@
 		"Payout": "4",
 		"Name": "Golden Egg",
 		"Tags": [
-			"basegame"
+			"basegame","omelettestuff","farmerlike"
 		],
 		"Description": "",
 		"Effects": [],
@@ -731,7 +734,7 @@
 		"Payout": "1",
 		"Name": "Goldfish",
 		"Tags": [
-			"basegame"
+			"basegame","animal","poslike"
 		],
 		"Description": "Destroys adjacent /Bubble . Gives 15 for each /Bubble destroyed.",
 		"Effects": [
@@ -758,7 +761,7 @@
 		"Payout": "1",
 		"Name": "Goose",
 		"Tags": [
-			"basegame"
+			"basegame","animal"
 		],
 		"Description": "Has a 1% chance of adding /Golden_Egg .",
 		"Effects": [
@@ -784,7 +787,7 @@
 		"Payout": "3",
 		"Name": "Hex of Destruction",
 		"Tags": [
-			""
+			"","witchlike"
 		],
 		"Description": "Has a 30% chance to Destroy an adjacent symbol.",
 		"Effects": [
@@ -796,7 +799,7 @@
 		"Payout": "3",
 		"Name": "Hex of Draining",
 		"Tags": [
-			""
+			"","witchlike"
 		],
 		"Description": "Has a 30% chance to make an adjacent symbol give 0.",
 		"Effects": [
@@ -808,7 +811,7 @@
 		"Payout": "3",
 		"Name": "Hex of Emptiness",
 		"Tags": [
-			""
+			"","witchlike"
 		],
 		"Description": "Has a 30% chance of forcing you to skip the symbols you can add after a spin.",
 		"Effects": [
@@ -820,7 +823,7 @@
 		"Payout": "3",
 		"Name": "Hex of Hoarding",
 		"Tags": [
-			""
+			"","witchlike"
 		],
 		"Description": "Has a 30% chance of forcing you to add a symbol after this spin.",
 		"Effects": [
@@ -832,7 +835,7 @@
 		"Payout": "3",
 		"Name": "Hex of Midas",
 		"Tags": [
-			""
+			"","witchlike"
 		],
 		"Description": "Has a 30% chance of adding .",
 		"Effects": [
@@ -844,7 +847,7 @@
 		"Payout": "3",
 		"Name": "Hex of Tedium",
 		"Tags": [
-			""
+			"","witchlike"
 		],
 		"Description": "You are 1.2x less likely to find Uncommon, Rare, and Very Rare symbols.",
 		"Effects": [
@@ -856,7 +859,7 @@
 		"Payout": "3",
 		"Name": "Hex of Thievery",
 		"Tags": [
-			""
+			"","witchlike"
 		],
 		"Description": "Has a 30% chance to take 6.",
 		"Effects": [
@@ -924,9 +927,9 @@
 		"Payout": "2",
 		"Name": "Jellyfish",
 		"Tags": [
-			""
+			"animal","poslike"
 		],
-		"Description": "Gives 1 when removed.",
+		"Description": "Gives 1 when removal token removed.",
 		"Effects": [
 			""
 		],
@@ -989,7 +992,7 @@
 		"Payout": "1",
 		"Name": "Lockbox",
 		"Tags": [
-			"basegame","chest"
+			"basegame","chest","piratelike"
 		],
 		"Description": "Gives 15 /Coin when destroyed.",
 		"Effects": [
@@ -1026,7 +1029,7 @@
 		"Payout": "-1",
 		"Name": "Magpie",
 		"Tags": [
-			"basegame","THRESHOLD4"
+			"basegame","THRESHOLD4","animal"
 		],
 		"Description": "Gives 9 /Coin every 4 spins.",
 		"Effects": [
@@ -1111,7 +1114,7 @@
 		"Payout": "3",
 		"Name": "Mega Chest",
 		"Tags": [
-			"basegame","chest"
+			"basegame","chest","piratelike"
 		],
 		"Description": "Gives 100 /Coin when destroyed.",
 		"Effects": [
@@ -1136,7 +1139,7 @@
 		"Payout": "1",
 		"Name": "Milk",
 		"Tags": [
-			"basegame"
+			"basegame","omelettestuff","farmerlike"
 		],
 		"Description": "",
 		"Effects": [],
@@ -1146,11 +1149,12 @@
 		"Payout": "4",
 		"Name": "Mine",
 		"Tags": [
-			""
+			"basegame","THRESHOLD4"
 		],
-		"Description": "Adds  each spin. Destroys itself after giving  4 times. Adds 1 item when destroyed.",
+		"Description": "Adds /Ore each spin. Destroys itself after giving /Coin 4 times. Adds 1 miningpick item when destroyed.",
 		"Effects": [
-			""
+			"15 ID GETS ADD Ore STATE 1 FROM ID",
+			"50 ID GETS DESTROY FROM ID THRESHOLD"
 		],
 		"Rarity": "Rare"
 	},
@@ -1158,11 +1162,12 @@
 		"Payout": "1",
 		"Name": "Miner",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Destroys adjacent  and . Gives 20 for each  and  destroyed.",
+		"Description": "Destroys adjacent /minerlike . Gives 20 /Coin for each /minerlike destroyed.",
 		"Effects": [
-			""
+			"15 ID GIVES DESTROY TO ADJ minerlike",
+			"95 ID GETS PAY 20 FROM ADJ minerlike DESTROY"
 		],
 		"Rarity": "Common"
 	},
@@ -1180,7 +1185,7 @@
 		"Payout": "1",
 		"Name": "Monkey",
 		"Tags": [
-			"basegame","funny"
+			"basegame","funny","animal"
 		],
 		"Description": "Destroys adjacent /monkeylike . Gives /Coin equal to 6x the value of symbols destroyed this way.",
 		"Effects": [
@@ -1208,11 +1213,12 @@
 		"Payout": "1",
 		"Name": "Mouse",
 		"Tags": [
-			""
+			"basegame","animal"
 		],
-		"Description": "Destroys adjacent . Gives 15 for each  destroyed.",
+		"Description": "Destroys adjacent /Cheese . Gives 15 /Coin for each /Cheese destroyed.",
 		"Effects": [
-			""
+			"15 ID GIVES DESTROY TO ADJ Cheese",
+			"16 ID GETS PAY 15 FROM ADJ Cheese"
 		],
 		"Rarity": "Common"
 	},
@@ -1220,11 +1226,12 @@
 		"Payout": "2",
 		"Name": "Mrs. Fruit",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Destroys adjacent      and . Permanently gives 1 for each symbol destroyed.",
+		"Description": "Destroys adjacent /fruitlike . Permanently gives 1 for each symbol destroyed.",
 		"Effects": [
-			""
+			"15 ID GIVES DESTROY TO ADJ fruitlike",
+			"95 ID GETS PAYOUT 1 FROM ADJ fruitlike DESTROY"
 		],
 		"Rarity": "Rare"
 	},
@@ -1244,11 +1251,12 @@
 		"Payout": "3",
 		"Name": "Omelette",
 		"Tags": [
-			""
+			"basegame","omelettestuff"
 		],
-		"Description": "Gives 2 more if adjacent to     or . This effect only applies once per spin.",
+		"Description": "Gives 2 more if adjacent to /omelettestuff . This effect only applies once per spin.",
 		"Effects": [
-			""
+			"1 ID GETS buff FROM ADJ omelettestuff",
+			"16 ID buff !paid GETS paid PAYOUT 1 FROM ID"
 		],
 		"Rarity": "Rare"
 	},
@@ -1256,7 +1264,7 @@
 		"Payout": "2",
 		"Name": "Orange",
 		"Tags": [
-			"basegame"
+			"basegame","fruitlike","plant","piratelike","farmerlike"
 		],
 		"Description": "",
 		"Effects": [],
@@ -1266,11 +1274,11 @@
 		"Payout": "1",
 		"Name": "Ore",
 		"Tags": [
-			""
+			"basegame","archlike","minerlike"
 		],
-		"Description": "Adds        or  when destroyed.",
+		"Description": "Adds /gem when destroyed.",
 		"Effects": [
-			""
+			"101 ID DESTROY !gave GETS gave ADD gem FROM ID"
 		],
 		"Rarity": "Common"
 	},
@@ -1278,7 +1286,7 @@
 		"Payout": "1",
 		"Name": "Owl",
 		"Tags": [
-			"basegame", "THRESHOLD3","night"
+			"basegame", "THRESHOLD3","night","animal","witchlike"
 		],
 		"Description": "Gives 1 /Coin every 3 spins.",
 		"Effects": [
@@ -1291,7 +1299,7 @@
 		"Payout": "1",
 		"Name": "Oyster",
 		"Tags": [
-			"basegame"
+			"basegame","animal","poslike"
 		],
 		"Description": "Has a 20% chance of adding /Pearl . Adds /Pearl when removed.",
 		"Effects": [
@@ -1304,7 +1312,7 @@
 		"Payout": "2",
 		"Name": "Peach",
 		"Tags": [
-			"basegame"
+			"basegame","fruitlike","plant","farmerlike"
 		],
 		"Description": "Adds /Seed when destroyed.",
 		"Effects": [
@@ -1316,11 +1324,11 @@
 		"Payout": "1",
 		"Name": "Pear",
 		"Tags": [
-			""
+			"basegame","plant","farmerlike"
 		],
-		"Description": "Whenever another symbol makes this symbol give additional , this symbol permanently gives 1 more.",
+		"Description": "Whenever another symbol makes this symbol give additional , this symbol permanently gives 1 /Coin more.",
 		"Effects": [
-			""
+			"95 ID GETS SCALE FROM ID"
 		],
 		"Rarity": "Rare"
 	},
@@ -1328,7 +1336,7 @@
 		"Payout": "1",
 		"Name": "Pearl",
 		"Tags": [
-			"basegame"
+			"basegame","archlike","poslike","gem"
 		],
 		"Description": "",
 		"Effects": [],
@@ -1338,11 +1346,12 @@
 		"Payout": "2",
 		"Name": "Pirate",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Destroys adjacent        and . Permanently gives 1 for each symbol destroyed.",
+		"Description": "Destroys adjacent /piratelike . Permanently gives 1 /Coin for each symbol destroyed.",
 		"Effects": [
-			""
+			"15 ID GIVES DESTROY TO ADJ piratelike",
+			"95 ID GETS PAYOUT 1 FROM ADJ piratelike DESTROY"
 		],
 		"Rarity": "Very Rare"
 	},
@@ -1376,9 +1385,9 @@
 		"Payout": "2",
 		"Name": "Pufferfish",
 		"Tags": [
-			""
+			"animal","poslike"
 		],
-		"Description": "Gives 1 when removed.",
+		"Description": "Gives 1 reroll token when removed.",
 		"Effects": [
 			""
 		],
@@ -1388,7 +1397,7 @@
 		"Payout": "1",
 		"Name": "Rabbit",
 		"Tags": [
-			"basegame","THRESHOLD10","night"
+			"basegame","THRESHOLD10","night","animal"
 		],
 		"Description": "Permanently gives 2 more after giving /Coin 10 times.",
 		"Effects": [
@@ -1413,11 +1422,12 @@
 		"Payout": "2",
 		"Name": "Rain",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adjacent  give 2x more . Adjacent  are 50% more likely to grow.",
+		"Description": "Adjacent /Flower give 2x more /Coin . Adjacent /Seed are 50% more likely to grow.",
 		"Effects": [
-			""
+			"1 ID GIVES MULTI 2 TO ADJ Flower",
+			"1 ID GIVES rain TO ADJ Seed"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -1461,7 +1471,7 @@
 		"Payout": "3",
 		"Name": "Ruby",
 		"Tags": [
-			"basegame"
+			"basegame","gem"
 		],
 		"Description": "Gives 1 more if there are at least 2.",
 		"Effects": [
@@ -1473,7 +1483,7 @@
 		"Payout": "1",
 		"Name": "Safe",
 		"Tags": [
-			"basegame","chest"
+			"basegame","chest","piratelike"
 		],
 		"Description": "Gives 30 /Coin when destroyed.",
 		"Effects": [
@@ -1485,7 +1495,7 @@
 		"Payout": "2",
 		"Name": "Sand Dollar",
 		"Tags": [
-			"basegame"
+			"basegame","animal","poslike"
 		],
 		"Description": "Gives 10 /Coin when removed.",
 		"Effects": [
@@ -1497,7 +1507,7 @@
 		"Payout": "2",
 		"Name": "Sapphire",
 		"Tags": [
-			"basegame"
+			"basegame","archlike","gem"
 		],
 		"Description": "",
 		"Effects": [],
@@ -1507,11 +1517,18 @@
 		"Payout": "1",
 		"Name": "Seed",
 		"Tags": [
-			""
+			"basegame","farmerlike"
 		],
-		"Description": "Has a 25% chance to grow into           or .",
+		"Description": "Has a 25% chance to grow into /plant .",
 		"Effects": [
-			""
+			"35 ID !rain !sun !farmer GETS TRANSFORM plant FROM ID RANDOM 0.25",
+			"35 ID rain !sun !farmer GETS TRANSFORM plant FROM ID RANDOM 0.375",
+			"35 ID !rain sun !farmer GETS TRANSFORM plant FROM ID RANDOM 0.375",
+			"35 ID !rain !sun farmer GETS TRANSFORM plant FROM ID RANDOM 0.375",
+			"35 ID rain sun !farmer GETS TRANSFORM plant FROM ID RANDOM 0.5625",
+			"35 ID !rain sun farmer GETS TRANSFORM plant FROM ID RANDOM 0.5625",
+			"35 ID rain !sun farmer GETS TRANSFORM plant FROM ID RANDOM 0.5625",
+			"35 ID rain sun farmer GETS TRANSFORM plant FROM ID RANDOM 0.84375"
 		],
 		"Rarity": "Common"
 	},
@@ -1519,7 +1536,7 @@
 		"Payout": "1",
 		"Name": "Shiny Pebble",
 		"Tags": [
-			"basegame","raritylike"
+			"basegame","raritylike","archlike","gem"
 		],
 		"Description": "You are 1.1x more likely to find Uncommon, Rare, and Very Rare symbols.",
 		"Effects": [],
@@ -1541,7 +1558,7 @@
 		"Payout": "0",
 		"Name": "Sloth",
 		"Tags": [
-			"basegame","THRESHOLD2"
+			"basegame","THRESHOLD2","animal"
 		],
 		"Description": "Gives 4 every 2 spins.",
 		"Effects": [
@@ -1554,7 +1571,7 @@
 		"Payout": "0",
 		"Name": "Snail",
 		"Tags": [
-			"basegame","THRESHOLD4"
+			"basegame","THRESHOLD4","animal","poslike"
 		],
 		"Description": "Gives 5 /Coin every 4 spins.",
 		"Effects": [
@@ -1581,7 +1598,7 @@
 		"Payout": "6",
 		"Name": "Spirit",
 		"Tags": [
-			"basegame","THRESHOLD4"
+			"basegame","THRESHOLD4","witchlike"
 		],
 		"Description": "Destroys itself after giving  4 times.",
 		"Effects": [
@@ -1594,11 +1611,11 @@
 		"Payout": "3",
 		"Name": "Strawberry",
 		"Tags": [
-			""
+			"basegame","plant","farmerlike"
 		],
-		"Description": "Gives 1 more if there are at least 2.",
+		"Description": "Gives 1 /Coin more if there are at least 2 /Strawberry .",
 		"Effects": [
-			""
+			"35 ID GETS PAY 1 FROM ID TOTAL Strawberry 2"
 		],
 		"Rarity": "Rare"
 	},
@@ -1606,11 +1623,12 @@
 		"Payout": "3",
 		"Name": "Sun",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adjacent  give 5x more . Adjacent  are 50% more likely to grow.",
+		"Description": "Adjacent /Flower give 5x more /Coin . Adjacent /Seed are 50% more likely to grow.",
 		"Effects": [
-			""
+			"1 ID GIVES MULTI 5 TO ADJ Flower",
+			"1 ID GIVES sun TO ADJ Seed"
 		],
 		"Rarity": "Rare"
 	},
@@ -1704,7 +1722,7 @@
 		"Payout": "2",
 		"Name": "Treasure Chest",
 		"Tags": [
-			"basegame","chest"
+			"basegame","chest","piratelike"
 		],
 		"Description": "Gives 50 when destroyed.",
 		"Effects": [
@@ -1716,7 +1734,7 @@
 		"Payout": "0",
 		"Name": "Turtle",
 		"Tags": [
-			"basegame","THRESHOLD3"
+			"basegame","THRESHOLD3","animal","poslike"
 		],
 		"Description": "Gives 4 /Coin every 3 spins.",
 		"Effects": [
@@ -1741,7 +1759,7 @@
 		"Payout": "0",
 		"Name": "Void Creature",
 		"Tags": [
-			"basegame"
+			"basegame","animal"
 		],
 		"Description": "Adjacent /Empty give 1 more /Coin. Destroys itself if adjacent to 0 /Empty . Gives 8 /Coin when destroyed.",
 		"Effects": [
@@ -1757,7 +1775,7 @@
 		"Payout": "0",
 		"Name": "Void Fruit",
 		"Tags": [
-			"basegame"
+			"basegame","plant","farmerlike"
 		],
 		"Description": "Adjacent /Empty give 1 /Coin more. Destroys itself if adjacent to 0 /Empty . Gives 8 /Coin when destroyed.",
 		"Effects": [
@@ -1773,7 +1791,7 @@
 		"Payout": "0",
 		"Name": "Void Stone",
 		"Tags": [
-			"basegame"
+			"basegame","gem"
 		],
 		"Description": "Adjacent /Empty give 1 /Coin more. Destroys itself if adjacent to 0 /Empty . Gives 8 /Coin when destroyed.",
 		"Effects": [
@@ -1789,9 +1807,9 @@
 		"Payout": "4",
 		"Name": "Watermelon",
 		"Tags": [
-			"basegame"
+			"basegame","plant","farmerlike"
 		],
-		"Description": "Gives 1 more for each other /Watermelon .",
+		"Description": "Gives 1 /Coin more for each other /Watermelon .",
 		"Effects": [
 			"15 ID GETS PAY 1 FROM Watermelon !ID"
 		],
@@ -1837,11 +1855,11 @@
 		"Payout": "2",
 		"Name": "Witch",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adjacent             and  give 2x more .",
+		"Description": "Adjacent /witchlike give 2x more .",
 		"Effects": [
-			""
+			"20 ID GIVES MULTI 2 TO ADJ witchlike"
 		],
 		"Rarity": "Rare"
 	},
@@ -1849,7 +1867,7 @@
 		"Payout": "2",
 		"Name": "Wolf",
 		"Tags": [
-			"basegame","night"
+			"basegame","night","animal"
 		],
 		"Description": "",
 		"Effects": [],
