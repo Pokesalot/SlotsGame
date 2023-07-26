@@ -80,7 +80,7 @@
 		"Tags": [
 			""
 		],
-		"Description": "Has a 10% chance of adding    or .",
+		"Description": "Has a 10% chance of adding /drinks .",
 		"Effects": [
 			""
 		],
@@ -140,7 +140,7 @@
 		"Payout": "1",
 		"Name": "Beer",
 		"Tags": [
-			"basegame"
+			"basegame","drinks"
 		],
 		"Description": "",
 		"Effects": [],
@@ -1357,7 +1357,7 @@
 		"Tags": [
 			"basegame","THRESHOLD12"
 		],
-		"Description": "Destroys itself after 12 spins. Gives 10 when destroyed.",
+		"Description": "Destroys itself after 12 spins. Gives 10 /Coin when destroyed.",
 		"Effects": [
 			"10 ID GIVES STATE 1 TO ID",
 			"50 ID GIVES DESTROY TO ID THRESHOLD",
@@ -1549,7 +1549,7 @@
 		"Tags": [
 			"basegame","THRESHOLD4"
 		],
-		"Description": "Gives 5 every 4 spins.",
+		"Description": "Gives 5 /Coin every 4 spins.",
 		"Effects": [
 			"10 ID GETS STATE 1 FROM ID",
 			"20 ID GETS PAY 5 FROM ID THRESHOLD"
@@ -1574,11 +1574,12 @@
 		"Payout": "6",
 		"Name": "Spirit",
 		"Tags": [
-			""
+			"basegame","THRESHOLD4"
 		],
 		"Description": "Destroys itself after giving  4 times.",
 		"Effects": [
-			""
+			"10 ID GETS STATE 1 FROM ID",
+			"25 ID GETS DESTROY FROM ID THRESHOLD"
 		],
 		"Rarity": "Rare"
 	},
@@ -1730,11 +1731,15 @@
 		"Payout": "0",
 		"Name": "Void Creature",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adjacent  give 1 more. Destroys itself if adjacent to 0. Gives 8 when destroyed.",
+		"Description": "Adjacent /Empty give 1 more /Coin. Destroys itself if adjacent to 0 /Empty . Gives 8 /Coin when destroyed.",
 		"Effects": [
-			""
+			"10 ID GETS NoEmpties FROM ID",
+			"15 Void_Fruit GIVES PAY 1 TO ADJ Empty",
+			"20 Void_Fruit GETS !NoEmpties FROM ADJ Empty",
+			"30 ID NoEmpties GETS DESTROY FROM ID",
+			"99 ID DESTROY GETS PAY 8 FROM ID"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -1742,15 +1747,15 @@
 		"Payout": "0",
 		"Name": "Void Fruit",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adjacent 'Empty give 1 'Coin more. Destroys itself if adjacent to 0 'Empty. Gives 8 'Coin when destroyed.",
+		"Description": "Adjacent /Empty give 1 /Coin more. Destroys itself if adjacent to 0 /Empty . Gives 8 /Coin when destroyed.",
 		"Effects": [
 			"10 ID GETS NoEmpties FROM ID",
 			"15 Void_Fruit GIVES PAY 1 TO ADJ Empty",
 			"20 Void_Fruit GETS !NoEmpties FROM ADJ Empty",
 			"30 ID NoEmpties GETS DESTROY FROM ID",
-			"50 ID DESTROY GETS PAY 8 FROM ID"
+			"99 ID DESTROY GETS PAY 8 FROM ID"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -1758,11 +1763,15 @@
 		"Payout": "0",
 		"Name": "Void Stone",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adjacent  give 1 more. Destroys itself if adjacent to 0. Gives 8 when destroyed.",
+		"Description": "Adjacent /Empty give 1 /Coin more. Destroys itself if adjacent to 0 /Empty . Gives 8 /Coin when destroyed.",
 		"Effects": [
-			""
+			"10 ID GETS NoEmpties FROM ID",
+			"15 Void_Fruit GIVES PAY 1 TO ADJ Empty",
+			"20 Void_Fruit GETS !NoEmpties FROM ADJ Empty",
+			"30 ID NoEmpties GETS DESTROY FROM ID",
+			"99 ID DESTROY GETS PAY 8 FROM ID"
 		],
 		"Rarity": "Uncommon"
 	},
