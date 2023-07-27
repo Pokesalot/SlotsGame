@@ -54,7 +54,7 @@ class newSymbol{
         this.name = name;
         this.src = `images/${name.toLowerCase().replaceAll(" ","_")}.png`
         this.imageRotation = 0;
-        this.payout = payout;
+        this.payout = parseInt(payout);
         this.rarity = rarity;
         let reps = 4;
         let desc = description;
@@ -385,7 +385,20 @@ function ResolveEffects(){
                             case "ADD":
                                 paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect ADD ${effectWords[word+1]}`;
                                 GameState.SpinActions.push(paperTrail);
-                                AddSymbol(effectWords[word+1]);
+
+                                let keys = Object.keys(AllSymbolsJson);
+                                if(keys.indexOf(effectWords[word+1]) != -1){
+                                    AddSymbol(effectWords[word+1]);
+                                }else{
+                                    let likes = [[],[],[],[]];
+                                    for(let check=0;check<keys.length;check++){
+                                        if(AllSymbolsJson[keys[check]].Tags.indexOf(effectWords[word+1]) != -1){
+                                            likes[["Common","Uncommon","Rare","Very Rare"].indexOf(AllSymbolsJson[keys[check]].Rarity)].push(AllSymbolsJson[keys[check]].Name)
+                                        }
+                                    }
+                                    let rare = GetRarity()
+                                    AddSymbol(likes[rare][Math.floor(Math.random() * likes[rare].length)])
+                                }
                                 restartAt100 = true;
                                 word++;
                                 break;
@@ -393,7 +406,19 @@ function ResolveEffects(){
                                 paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect TRANSFORM ${effectWords[word+1]}`;
                                 if(GameState.SpinActions.indexOf(paperTrail) == -1){
                                     GameState.SpinActions.push(paperTrail);
-                                    receivers[rec].Transform(effectWords[word+1]);
+
+                                    if(keys.indexOf(effectWords[word+1]) != -1){
+                                        receivers[rec].Transform(effectWords[word+1]);
+                                    }else{
+                                        let likes = [[],[],[],[]];
+                                        for(let check=0;check<keys.length;check++){
+                                            if(AllSymbolsJson[keys[check]].Tags.indexOf(effectWords[word+1]) != -1){
+                                                likes[["Common","Uncommon","Rare","Very Rare"].indexOf(AllSymbolsJson[keys[check]].Rarity)].push(AllSymbolsJson[keys[check]].Name)
+                                            }
+                                        }
+                                        let rare = GetRarity()
+                                        receivers[rec].Transform(likes[rare][Math.floor(Math.random() * likes[rare].length)]);
+                                    }
                                     restartAt100 = true;
                                 }
                                 word++;
