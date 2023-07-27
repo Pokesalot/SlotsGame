@@ -11,6 +11,19 @@ Add Symbols
 - finalize removal capsule (add item)
 - make three- and five-sided dice show pips when rolled
 
+tag food
+fix raritylikes
+fix hex of hoarding
+fix hex of emptiness
+add symbol tag to all symbols
+    use that tag in hex of draining, hex of destruction, midas bomb
+implement arrows
+implement lucky capsule (RARESHOP)
+implement tedium capsule (COMMONSHOP)
+implement reroll, hustling, item, and removal capsules
+implement chemical 7
+implement essence capsule
+
 Rewrite top-level functions that symbols can use. Each return booleans to limit symbol logic
 - Get Random(Symbol): 
     Does a seed grow, or a chicken lay an egg

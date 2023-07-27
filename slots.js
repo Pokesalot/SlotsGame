@@ -129,7 +129,7 @@ function ShowShop(){
 }
 
 // Slight TODO, check for certain items that will aren't allowed given a player's items
-function FillShop(boardState){
+function FillShop(){
   let hasHighlander = false;
   GameState.ShopItems = [];
   for (let symbol=0; symbol < GameState.PlayerSymbols.length; symbol++){
@@ -297,9 +297,11 @@ function getThreshold(symbol){
 }
 
 function testsym(name){
-  for(let i=0;i<4;i++){
-    AddSymbol(name)
+  GameState.Board[0] = MakeSymbol(name)
+  for(let i=1;i<20;i++){
+    GameState.Board[i] = MakeSymbol("Empty")
   }
+  DrawBoard();
   testing = true;
 }
 

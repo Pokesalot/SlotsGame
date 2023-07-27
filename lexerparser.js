@@ -194,6 +194,9 @@ function ResolveEffects(){
                     }
                     advance = 3
                 }
+                if(toss && words[wordSub] == "STATE"){
+                    if(list[check].state == parseInt(word[wordSub+1])){toss=false}
+                }
 
                 if((toss && !not) || (!toss && not)){
                     list.splice(check,1);
@@ -245,9 +248,7 @@ function ResolveEffects(){
                     restartAt100 = true;
                 }
             }
-            continue;
-        }
-        if(curEffect == "100 DESTROY"){
+        }else if(curEffect == "100 DESTROY"){
             for(let checkSym=0; checkSym<GameState.Board.length; checkSym++){
                 if(GameState.Board[checkSym].status.indexOf("DESTROY") != -1){
                     GameState.Board[checkSym].GetPayout();
@@ -257,23 +258,18 @@ function ResolveEffects(){
                     restartAt100 = true;
                 }
             }
-            continue;
-        }
-        if(curEffect == "100 STATE0"){
+        }else if(curEffect == "100 STATE0"){
             for(let checkSym=0; checkSym<GameState.Board.length; checkSym++){
                 if(GameState.Board[checkSym].status.indexOf("STATE0") != -1){
                     GameState.Board[checkSym].state=0;
                 }
             }
-            continue;
-        }
-        if(curEffect == "102 CHECKRESTART" && restartAt100){
-            if(testing){console.log(`From the top. Effects are: ${GameState.SpinActions}`);if(GameState.SpinActions.length > 200){break;}}
+        }else if(curEffect == "102 CHECKRESTART" && restartAt100){
+            if(testing){console.log("From the top");if(GameState.SpinActions.length > 200){console.log(`Something probably went wrong: ${GameState.SpinActions}`);break;}}
             restartAt100 = false;
             GetSymbolEffects();
             GetItemEffects();
             i = -1;
-            continue;
         }else if(curEffect == "102 CHECKRESTART"){
             // Get payouts at precedence 101. More effects may trigger, but they will not pay out. 
             for (let i = 0; i<GameState.Board.length; i++){//i is the location on the board, for positional math
@@ -283,7 +279,6 @@ function ResolveEffects(){
             }
             for (let i = 0; i<GameState.Board.length; i++){//i is the location on the board, for positional math
                 if(GameState.Board[i].tags.indexOf("WILDCARD") != -1 || GameState.Board[i].status.indexOf("WILDCARD") != -1){
-                    console.log(`Found a wildcard symbol at position ${i}`)
                     let adjs = GetAdjacentIndices(i); let maxPayout = 0;
                     for(let adjsym = 0; adjsym<adjs.length; adjsym++){
                         if(GameState.Board[adjs[adjsym]].tags.indexOf("WILDCARD") == -1 && GameState.Board[adjs[adjsym]].status.indexOf("WILDCARD") == -1){
@@ -299,116 +294,114 @@ function ResolveEffects(){
             for (let i = 0; i<GameState.PlayerItems; i++){
                 GameState.PlayerCoins += GameState.PlayerItems[i].GetPayout();
             }
-        }
+        }else{
+            let senders = getCheckList(); let receivers = getCheckList();
+            let checkADJ = false; let sendLimit = 20; let recLimit = 20;
+            let effectWords = [];
+            if(curEffect.indexOf("GIVES") != -1){ //Must have a "TO" clause
+                words = curEffect.split(" ").slice(1);
+                let filter = words.splice(0,words.indexOf("GIVES")).join(" ")
+                senders = trimList(senders,filter)
 
-        let senders = getCheckList(); let receivers = getCheckList();
-        let checkADJ = false;
-        let effectWords = [];
-        if(curEffect.indexOf("GIVES") != -1){ //Must have a "TO" clause
-            words = curEffect.split(" ").slice(1);
-            let filter = words.splice(0,words.indexOf("GIVES")).join(" ")
+                words = curEffect.split(" ");
+                filter = words.slice(words.indexOf("TO")+1);
+                if(filter.indexOf("ADJ") != -1){
+                    checkADJ = true;
+                    filter.splice(filter.indexOf("ADJ"),1);
+                }
+                if(filter.indexOf("LIMIT") != -1){
+                    recLimit = parseInt(filter[filter.indexOf("LIMIT")+1]);
+                    filter.splice(filter.indexOf("LIMIT"),2);
+                }
+                filter = filter.join(" ");
+                receivers = trimList(receivers,filter);
 
-            senders = trimList(senders,filter)
-            words = curEffect.split(" ");
-            filter = words.slice(words.indexOf("TO")+1);
-            if(filter.indexOf("ADJ") != -1){
-                checkADJ = true;
-                filter.splice(filter.indexOf("ADJ"),1);
+                words = curEffect.split(" ");
+                words.splice(0,words.indexOf("GIVES")+1);
+                words.splice(words.indexOf("TO"))
+                effectWords = words;
+            }else if(curEffect.indexOf("GETS") != -1){
+                words = curEffect.split(" ").slice(1);
+                let filter = words.splice(0,words.indexOf("GETS")).join(" ")
+                receivers = trimList(receivers,filter)
+                words = curEffect.split(" ");
+                filter = words.slice(words.indexOf("FROM")+1);
+                if(filter.indexOf("ADJ") != -1){
+                    checkADJ = true;
+                    filter.splice(filter.indexOf("ADJ"),1);
+                }
+                if(filter.indexOf("LIMIT") != -1){
+                    sendLimit = parseInt(filter[filter.indexOf("LIMIT")+1]);
+                    filter.splice(filter.indexOf("LIMIT"),2);
+                }
+                filter = filter.join(" ");
+                senders = trimList(senders,filter);
+
+                words = curEffect.split(" ");
+                words.splice(0,words.indexOf("GETS")+1);
+                words.splice(words.indexOf("FROM"));
+                effectWords = words;
             }
-            filter = filter.join(" ");
-            receivers = trimList(receivers,filter);
-
-            words = curEffect.split(" ");
-            words.splice(0,words.indexOf("GIVES")+1);
-            words.splice(words.indexOf("TO"))
-            effectWords = words;
-        }else if(curEffect.indexOf("GETS") != -1){
-            words = curEffect.split(" ").slice(1);
-            let filter = words.splice(0,words.indexOf("GETS")).join(" ")
-            receivers = trimList(receivers,filter)
-            words = curEffect.split(" ");
-            filter = words.slice(words.indexOf("FROM")+1);
-            if(filter.indexOf("ADJ") != -1){
-                checkADJ = true;
-                filter.splice(filter.indexOf("ADJ"),1);
-            }
-            filter = filter.join(" ");
-            senders = trimList(senders,filter);
-
-            words = curEffect.split(" ");
-            words.splice(0,words.indexOf("GETS")+1);
-            words.splice(words.indexOf("FROM"));
-            effectWords = words;
-        }
-        //Senders and receivers are set at this point
-        for(send=0; send<senders.length; send++){
-            for(rec=0; rec<receivers.length; rec++){
-                if(!checkADJ || (checkADJ && getAdjacency(senders[send],receivers[rec]))){
-                    //sender[send] and receiver[rec] are verified to interact in here.
-                    //lex how and what effects are being given
-                    //effectWords is an array of words that make up the effect
-                    let paperTrail = "";
-                    for(word=0; word<effectWords.length; word++){
-                        switch(effectWords[word]){
-                            case "PAY":
-                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect PAY ${effectWords[word+1]}`;
-                                if(GameState.SpinActions.indexOf(paperTrail) == -1){
-                                    GameState.SpinActions.push(paperTrail);
-                                    receivers[rec].tempPayout += parseInt(effectWords[word+1]);
-                                }
-                                word++
-                                break;
-                            case "PAYOUT":
-                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect PAYOUT ${effectWords[word+1]}`;
-                                if(GameState.SpinActions.indexOf(paperTrail) == -1){
-                                    GameState.SpinActions.push(paperTrail);
-                                    receivers[rec].payout += parseInt(effectWords[word+1]);
-                                }
-                                word++;
-                                break;
-                            case "MULTI":
-                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect MULTI ${effectWords[word+1]}`;
-                                if(GameState.SpinActions.indexOf(paperTrail) == -1){
-                                    GameState.SpinActions.push(paperTrail);
-                                    receivers[rec].tempMulti *= parseFloat(effectWords[word+1]);
-                                }
-                                word++
-                                break;
-                            case "STATE":
-                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect STATE ${effectWords[word+1]}`;
-                                if(GameState.SpinActions.indexOf(paperTrail) == -1){
-                                    GameState.SpinActions.push(paperTrail);
-                                    receivers[rec].state += parseInt(effectWords[word+1]);
-                                }
-                                word++;
-                                break;
-                            case "ADD":
-                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect ADD ${effectWords[word+1]}`;
-                                GameState.SpinActions.push(paperTrail);
-
-                                let keys = Object.keys(AllSymbolsJson);
-                                if(keys.indexOf(effectWords[word+1]) != -1){
-                                    AddSymbol(effectWords[word+1]);
-                                }else{
-                                    let likes = [[],[],[],[]];
-                                    for(let check=0;check<keys.length;check++){
-                                        if(AllSymbolsJson[keys[check]].Tags.indexOf(effectWords[word+1]) != -1){
-                                            likes[["Common","Uncommon","Rare","Very Rare"].indexOf(AllSymbolsJson[keys[check]].Rarity)].push(AllSymbolsJson[keys[check]].Name)
+            //Senders and receivers are set at this point
+            let thisSend = 0; let thisRec = 0;
+            for(send=0; send<senders.length; send++){
+                thisRec = 0;
+                for(rec=0; rec<receivers.length; rec++){
+                    if((!checkADJ) || (checkADJ && getAdjacency(senders[send],receivers[rec]))){
+                        thisSend++;thisRec++;
+                        if(thisSend>sendLimit || thisRec > recLimit){continue}
+                        
+                        //sender[send] and receiver[rec] are verified to interact in here.
+                        //lex how and what effects are being given
+                        //effectWords is an array of words that make up the effect
+                        let paperTrail = "";
+                        for(word=0; word<effectWords.length; word++){
+                            switch(effectWords[word]){
+                                case "PAY":
+                                    paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect PAY ${effectWords[word+1]}`;
+                                    if(GameState.SpinActions.indexOf(paperTrail) == -1){
+                                        GameState.SpinActions.push(paperTrail);
+                                        let payout = 0;
+                                        if(effectWords[word+1] == "STATE"){
+                                            payout = receivers[rec].state;
+                                        }else{
+                                            payout = parseInt(effectWords[word+1]);
                                         }
+                                        receivers[rec].tempPayout += payout;
                                     }
-                                    let rare = GetRarity()
-                                    AddSymbol(likes[rare][Math.floor(Math.random() * likes[rare].length)])
-                                }
-                                restartAt100 = true;
-                                word++;
-                                break;
-                            case "TRANSFORM":
-                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect TRANSFORM ${effectWords[word+1]}`;
-                                if(GameState.SpinActions.indexOf(paperTrail) == -1){
+                                    word++
+                                    break;
+                                case "PAYOUT":
+                                    paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect PAYOUT ${effectWords[word+1]}`;
+                                    if(GameState.SpinActions.indexOf(paperTrail) == -1){
+                                        GameState.SpinActions.push(paperTrail);
+                                        receivers[rec].payout += parseInt(effectWords[word+1]);
+                                    }
+                                    word++;
+                                    break;
+                                case "MULTI":
+                                    paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect MULTI ${effectWords[word+1]}`;
+                                    if(GameState.SpinActions.indexOf(paperTrail) == -1){
+                                        GameState.SpinActions.push(paperTrail);
+                                        receivers[rec].tempMulti *= parseFloat(effectWords[word+1]);
+                                    }
+                                    word++
+                                    break;
+                                case "STATE":
+                                    paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect STATE ${effectWords[word+1]}`;
+                                    if(GameState.SpinActions.indexOf(paperTrail) == -1){
+                                        GameState.SpinActions.push(paperTrail);
+                                        receivers[rec].state += parseInt(effectWords[word+1]);
+                                    }
+                                    word++;
+                                    break;
+                                case "ADD":
+                                    paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect ADD ${effectWords[word+1]}`;
                                     GameState.SpinActions.push(paperTrail);
 
+                                    let keys = Object.keys(AllSymbolsJson);
                                     if(keys.indexOf(effectWords[word+1]) != -1){
-                                        receivers[rec].Transform(effectWords[word+1]);
+                                        AddSymbol(effectWords[word+1]);
                                     }else{
                                         let likes = [[],[],[],[]];
                                         for(let check=0;check<keys.length;check++){
@@ -417,44 +410,77 @@ function ResolveEffects(){
                                             }
                                         }
                                         let rare = GetRarity()
-                                        receivers[rec].Transform(likes[rare][Math.floor(Math.random() * likes[rare].length)]);
+                                        AddSymbol(likes[rare][Math.floor(Math.random() * likes[rare].length)])
                                     }
                                     restartAt100 = true;
-                                }
-                                word++;
-                                break;
-                            case "SCALE":
-                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect SCALE`;
-                                if(GameState.SpinActions.indexOf(paperTrail) == -1 && (receivers[rec].tempMulti > 1 || receivers[rec].tempPayout>0)){
-                                    GameState.SpinActions.push(paperTrail);
-                                    receivers[rec].payout++;
-                                }
-                                break;
-                            default:
-                                paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect STATUS ${effectWords[word]}`
-                                if(GameState.SpinActions.indexOf(paperTrail) == -1){
-                                    GameState.SpinActions.push(paperTrail);
-                                    if(effectWords[word][0] == "!"){
-                                        //Check if the symbol has the tag without the bang. If so, remove it and add it with the bang
-                                        let removeCheck = effectWords[word].slice(1);
-                                        if(receivers[rec].status.indexOf(removeCheck) != -1){
-                                            receivers[rec].status.splice(receivers[rec].status.indexOf(removeCheck),1);
+                                    word++;
+                                    break;
+                                case "TRANSFORM":
+                                    paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect TRANSFORM ${effectWords[word+1]}`;
+                                    if(GameState.SpinActions.indexOf(paperTrail) == -1){
+                                        GameState.SpinActions.push(paperTrail);
+                                        let keys = Object.keys(AllSymbolsJson)
+                                        if(keys.indexOf(effectWords[word+1]) != -1){
+                                            receivers[rec].Transform(effectWords[word+1]);
+                                        }else{
+                                            let likes = [[],[],[],[]];
+                                            for(let check=0;check<keys.length;check++){
+                                                if(AllSymbolsJson[keys[check]].Tags.indexOf(effectWords[word+1]) != -1){
+                                                    likes[["Common","Uncommon","Rare","Very Rare"].indexOf(AllSymbolsJson[keys[check]].Rarity)].push(AllSymbolsJson[keys[check]].Name)
+                                                }
+                                            }
+                                            let rare = GetRarity()
+                                            receivers[rec].Transform(likes[rare][Math.floor(Math.random() * likes[rare].length)]);
                                         }
-                                        receivers[rec].status.push(effectWords[word]);
-                                    }else{
-                                        //Just a status, add unless it exists with ! in front of it
-                                        if(receivers[rec].status.indexOf(`!${effectWords[word]}`) == -1){
+                                        restartAt100 = true;
+                                    }
+                                    word++;
+                                    break;
+                                case "SCALE":
+                                    paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect SCALE`;
+                                    if(GameState.SpinActions.indexOf(paperTrail) == -1 && (receivers[rec].tempMulti > 1 || receivers[rec].tempPayout>0)){
+                                        GameState.SpinActions.push(paperTrail);
+                                        receivers[rec].payout++;
+                                    }
+                                    break;
+                                case "ROLL":
+                                    paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect ROLL`;
+                                    if(GameState.SpinActions.indexOf(paperTrail) == -1){
+                                        GameState.SpinActions.push(paperTrail);
+                                        let sides = 0;
+                                        for(let tag=0; tag<receivers[rec].tags.length;tag++){
+                                            if(receivers[rec].tags[tag].indexOf("SIDES") != -1){
+                                                sides = parseInt(receivers[rec].tags[tag].slice(5))
+                                            }
+                                        }
+                                        let newRoll = Math.ceil(Math.random() * sides);
+                                        receivers[rec].state = newRoll;
+                                    }
+                                    break;
+                                default:
+                                    paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect STATUS ${effectWords[word]}`
+                                    if(GameState.SpinActions.indexOf(paperTrail) == -1){
+                                        GameState.SpinActions.push(paperTrail);
+                                        if(effectWords[word][0] == "!"){
+                                            //Check if the symbol has the tag without the bang. If so, remove it and add it with the bang
+                                            let removeCheck = effectWords[word].slice(1);
+                                            if(receivers[rec].status.indexOf(removeCheck) != -1){
+                                                receivers[rec].status.splice(receivers[rec].status.indexOf(removeCheck),1);
+                                            }
                                             receivers[rec].status.push(effectWords[word]);
+                                        }else{
+                                            //Just a status, add unless it exists with ! in front of it
+                                            if(receivers[rec].status.indexOf(`!${effectWords[word]}`) == -1){
+                                                receivers[rec].status.push(effectWords[word]);
+                                            }
                                         }
                                     }
-                                }
+                            }
                         }
                     }
-                    
                 }
             }
         }
-        
     }//End of effects being checked, getting here means the board is in a final resting state
     DrawBoard();
 }
