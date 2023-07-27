@@ -177,9 +177,9 @@ function FillShop(){
 /////////////////////////////////////////////                 TODO
 function GetRarity(){
   let roll = Math.random();
-  rarity = -1;
+  rarity = 4;
   while(roll > 0){
-    rarity++;
+    rarity--;
     roll -= [
       [1  ,  0,  0,0],
       [.9 , .1,  0,0],

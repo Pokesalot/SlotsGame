@@ -238,6 +238,7 @@ function ResolveEffects(){
     let restartAt100 = false;
     for(let i=0;i<GameState.SpinEffects.length;i++){
         let curEffect = GameState.SpinEffects[i];
+        if(testing){console.log(curEffect)}
         if(curEffect == "100 REMOVE"){
             for(let checkSym=0; checkSym<GameState.Board.length; checkSym++){
                 if(GameState.Board[checkSym].status.indexOf("REMOVE") != -1){
@@ -400,6 +401,7 @@ function ResolveEffects(){
                                     GameState.SpinActions.push(paperTrail);
 
                                     let keys = Object.keys(AllSymbolsJson);
+                                    effectWords[word+1] = effectWords[word+1].replaceAll("_"," ")
                                     if(keys.indexOf(effectWords[word+1]) != -1){
                                         AddSymbol(effectWords[word+1]);
                                     }else{
@@ -488,6 +490,7 @@ function ResolveEffects(){
 function AddSymbol(SymbolName){
     //Checks for an Empty and removes it from the pool if one is found, random board empties taking precedent.
     //Can also add code to check for items that have effects trigger on symbols being added
+    if(testing){console.log(`Adding symbol: ${SymbolName}`)}
     let empties = []; let newSym = MakeSymbol(SymbolName.replaceAll("_"," "));
     for(let i=0; i<GameState.Board.length; i++){
         if(GameState.Board[i].name == "Empty"){

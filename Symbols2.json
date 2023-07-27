@@ -338,8 +338,8 @@
 		],
 		"Description": "Has a 5% chance of adding /Egg . Has a 1% chance of adding /Golden_Egg .",
 		"Effects": [
-			"24 ID !tried GETS ADD Egg FROM ID RANDOM 0.95",
-			"24 ID !tried GETS ADD Golden_Egg FROM ID RANDOM 0.91",
+			"24 ID !tried GETS ADD Egg FROM ID RANDOM 0.05",
+			"24 ID !tried GETS ADD Golden_Egg FROM ID RANDOM 0.01",
 			"25 ID GETS tried FROM ID"
 		],
 		"Rarity": "Rare"
@@ -366,8 +366,8 @@
 		],
 		"Description": "Transforms into /Diamond after 20 spins.",
 		"Effects": [
-			"20 ID GETS STATE 1 FROM ID",
-			"24 ID GETS TRANSFORM Diamond FROM ID THRESHOLD"
+			"20 ID Coal GETS STATE 1 FROM ID",
+			"24 ID Coal GETS TRANSFORM Diamond FROM ID Coal THRESHOLD"
 		],
 		"Rarity": "Common"
 	},
@@ -1554,14 +1554,14 @@
 		],
 		"Description": "Has a 25% chance to grow into /plant .",
 		"Effects": [
-			"35 ID !rain !sun !farmer GETS TRANSFORM plant FROM ID RANDOM 0.25",
-			"35 ID rain !sun !farmer GETS TRANSFORM plant FROM ID RANDOM 0.375",
-			"35 ID !rain sun !farmer GETS TRANSFORM plant FROM ID RANDOM 0.375",
-			"35 ID !rain !sun farmer GETS TRANSFORM plant FROM ID RANDOM 0.375",
-			"35 ID rain sun !farmer GETS TRANSFORM plant FROM ID RANDOM 0.5625",
-			"35 ID !rain sun farmer GETS TRANSFORM plant FROM ID RANDOM 0.5625",
-			"35 ID rain !sun farmer GETS TRANSFORM plant FROM ID RANDOM 0.5625",
-			"35 ID rain sun farmer GETS TRANSFORM plant FROM ID RANDOM 0.84375"
+			"35 ID Seed !rain !sun !farmer GETS TRANSFORM plant FROM ID RANDOM 0.25",
+			"35 ID Seed rain !sun !farmer GETS TRANSFORM plant FROM ID RANDOM 0.375",
+			"35 ID Seed !rain sun !farmer GETS TRANSFORM plant FROM ID RANDOM 0.375",
+			"35 ID Seed !rain !sun farmer GETS TRANSFORM plant FROM ID RANDOM 0.375",
+			"35 ID Seed rain sun !farmer GETS TRANSFORM plant FROM ID RANDOM 0.5625",
+			"35 ID Seed !rain sun farmer GETS TRANSFORM plant FROM ID RANDOM 0.5625",
+			"35 ID Seed rain !sun farmer GETS TRANSFORM plant FROM ID RANDOM 0.5625",
+			"35 ID Seed rain sun farmer GETS TRANSFORM plant FROM ID RANDOM 0.84375"
 		],
 		"Rarity": "Common"
 	},
