@@ -268,6 +268,7 @@ function ResolveEffects(){
             continue;
         }
         if(curEffect == "102 CHECKRESTART" && restartAt100){
+            if(testing){console.log(`From the top. Effects are: ${GameState.SpinActions}`);if(GameState.SpinActions.length > 200){break;}}
             restartAt100 = false;
             GetSymbolEffects();
             GetItemEffects();

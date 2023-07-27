@@ -69,8 +69,8 @@
 		],
 		"Description": "Adds /Bubble each spin. Destroys itself after giving /Coin 3 times.",
 		"Effects": [
-			"15 ID GETS ADD Bubble STATE 1 FROM ID",
-			"20 ID GETS DESTROY FROM ID THRESHOLD"
+			"20 ID !DESTROY !gave GETS gave STATE 1 ADD Bubble FROM ID",
+			"25 ID GETS DESTROY FROM ID THRESHOLD"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -78,11 +78,12 @@
 		"Payout": "3",
 		"Name": "Bartender",
 		"Tags": [
-			""
+			"basegame"
 		],
 		"Description": "Has a 10% chance of adding /drinks .",
 		"Effects": [
-			""
+			"15 ID !tried GETS ADD drinks FROM ID",
+			"25 ID GETS tried FROM ID"
 		],
 		"Rarity": "Rare"
 	},
@@ -132,7 +133,8 @@
 		],
 		"Description": "Has a 10% chance of adding /Honey .",
 		"Effects": [
-			"20 ID GETS ADD Honey FROM ID RANDOM 0.1"
+			"20 ID !tried GETS ADD Honey FROM ID RANDOM 0.1",
+			"25 ID GETS tried FROM ID"
 		],
 		"Rarity": "Rare"
 	},
@@ -150,11 +152,11 @@
 		"Payout": "2",
 		"Name": "Big Ore",
 		"Tags": [
-			""
+			"basegame"
 		],
-		"Description": "Adds 2        or  when destroyed.",
+		"Description": "Adds 2 /gem when destroyed.",
 		"Effects": [
-			""
+			"101 ID !gave GETS gave ADD gem ADD gem FROM ID DESTROY"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -335,8 +337,9 @@
 		],
 		"Description": "Has a 5% chance of adding /Egg . Has a 1% chance of adding /Golden_Egg .",
 		"Effects": [
-			"24 ID GETS ADD Egg FROM ID RANDOM 0.05",
-			"24 ID GETS ADD Golden_Egg FROM ID RANDOM 0.01"
+			"24 ID !tried GETS ADD Egg FROM ID RANDOM 0.95",
+			"24 ID !tried GETS ADD Golden_Egg FROM ID RANDOM 0.91",
+			"25 ID GETS tried FROM ID"
 		],
 		"Rarity": "Rare"
 	},
@@ -762,7 +765,8 @@
 		],
 		"Description": "Has a 1% chance of adding /Golden_Egg .",
 		"Effects": [
-			"24 ID GIVES ADD Golden_Egg TO ID RANDOM 0.01"
+			"24 ID !tried GIVES ADD Golden_Egg TO ID RANDOM 0.01",
+			"25 ID GETS tried FROM ID"
 		],
 		"Rarity": "Common"
 	},
@@ -1054,7 +1058,8 @@
 		"Description": "Destroys itself after 3 spins. Adds /Matryoshka_Doll_2 when destroyed.",
 		"Effects": [
 			"15 ID GETS STATE 1 FROM ID",
-			"18 ID GETS DESTROY ADD Matryoshka_Doll_2 FROM ID THRESHOLD"
+			"18 ID GETS DESTROY FROM ID THRESHOLD",
+			"101 ID !gave GETS gave ADD Matryoshka_Doll_2 FROM ID DESTROY"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -1067,7 +1072,8 @@
 		"Description": "Destroys itself after 5 spins. Adds /Matryoshka_Doll_3 when destroyed.",
 		"Effects": [
 			"15 ID GETS STATE 1 FROM ID",
-			"18 ID GETS DESTROY ADD Matryoshka_Doll_3 FROM ID THRESHOLD"
+			"18 ID GETS DESTROY FROM ID THRESHOLD",
+			"101 ID !gave GETS gave ADD Matryoshka_Doll_3 FROM ID DESTROY"
 		],
 		"Rarity": "Special"
 	},
@@ -1080,7 +1086,8 @@
 		"Description": "Destroys itself after 7 spins. Adds /Matryoshka_Doll_4 when destroyed.",
 		"Effects": [
 			"15 ID GETS STATE 1 FROM ID",
-			"18 ID GETS DESTROY ADD Matryoshka_Doll_4 FROM ID THRESHOLD"
+			"18 ID GETS DESTROY FROM ID THRESHOLD",
+			"101 ID !gave GETS gave ADD Matryoshka_Doll_4 FROM ID DESTROY"
 		],
 		"Rarity": "Special"
 	},
@@ -1093,7 +1100,8 @@
 		"Description": "Destroys itself after 9 spins. Adds /Matryoshka_Doll_5 when destroyed.",
 		"Effects": [
 			"15 ID GETS STATE 1 FROM ID",
-			"18 ID GETS DESTROY ADD Matryoshka_Doll_5 FROM ID THRESHOLD"
+			"18 ID GETS DESTROY FROM ID THRESHOLD",
+			"101 ID !gave GETS gave ADD Matryoshka_Doll_5 FROM ID DESTROY"
 		],
 		"Rarity": "Special"
 	},
@@ -1824,7 +1832,7 @@
 		"Payout": "2",
 		"Name": "Wine",
 		"Tags": [
-			"basegame","THRESHOLD8"
+			"basegame","THRESHOLD8","drinks"
 		],
 		"Description": "Permanently gives 1 /Coin more after giving /Coin 8 times.",
 		"Effects": [
