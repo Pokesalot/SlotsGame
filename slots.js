@@ -36,7 +36,6 @@ const shopParas = [
 ];
 
 function spin() {
-  if(GameState.hasTester){console.log("\n","---------------------------------------------------------------------------");}
   // Disable spin button during spin
   
   document.getElementById("spin-button").disabled = true;
@@ -320,6 +319,6 @@ function testsym(name){
 function test(){
   console.log("Error found")
   alert("Testing started. If you didn't mean to do this, you've encountered a bug! Congratulations!")
-  GameState.hasTester = true;
+  testing = true;
 }
 

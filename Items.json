@@ -1,0 +1,686 @@
+{
+    "5th Ace": {
+      "Name": "5th Ace",
+      "Rarity": "Common",
+      "Description": "and  give 1 more when adjacent to  and .  and  give 1 more when adjacent to  and .",
+      "Effects": []
+    },
+    "Adoption Papers": {
+      "Name": "Adoption Papers",
+      "Rarity": "Common",
+      "Description": "You may destroy this item and choose 3 symbols to add. The possible symbols are                           and",
+      "Effects": []
+    },
+    "Ancient Lizard Blade": {
+      "Name": "Ancient Lizard Blade",
+      "Rarity": "Very Rare",
+      "Description": "Gives 8 each spin. Gives 1 less for each symbol in your inventory with a quantity of 2 or more. Cannot give less than 0.",
+      "Effects": []
+    },
+    "Anthropology Degree": {
+      "Name": "Anthropology Degree",
+      "Rarity": "Rare",
+      "Description": "and  give 1 more.",
+      "Effects": []
+    },
+    "Barrel of Dwarves": {
+      "Name": "Barrel of Dwarves",
+      "Rarity": "Uncommon",
+      "Description": "You may destroy this item and add 7.",
+      "Effects": []
+    },
+    "Big Symbol Bomb": {
+      "Name": "Big Symbol Bomb",
+      "Rarity": "Uncommon",
+      "Description": "You may destroy this item and choose 4 symbols to add.",
+      "Effects": []
+    },
+    "Birdhouse": {
+      "Name": "Birdhouse",
+      "Rarity": "Common",
+      "Description": "and  give 1 more.",
+      "Effects": []
+    },
+    "Black Cat": {
+      "Name": "Black Cat",
+      "Rarity": "Uncommon",
+      "Description": "Gives 6 whenever you gain a multiple of 13 after a spin.  give 2x more .",
+      "Effects": []
+    },
+    "Black Pepper": {
+      "Name": "Black Pepper",
+      "Rarity": "Common",
+      "Description": "Gives 1 whenever a symbol is destroyed.",
+      "Effects": []
+    },
+    "Black Suits": {
+      "Name": "Black Suits",
+      "Rarity": "Uncommon",
+      "Description": "and  give 2x more .",
+      "Effects": []
+    },
+    "Blue Pepper": {
+      "Name": "Blue Pepper",
+      "Rarity": "Common",
+      "Description": "Gives 3 if there are at least 3.",
+      "Effects": []
+    },
+    "Booster Pack": {
+      "Name": "Booster Pack",
+      "Rarity": "Rare",
+      "Description": "You may destroy this item and choose 4 Common symbols,3 Uncommon symbols,and 1 Rare symbol to add.",
+      "Effects": []
+    },
+    "Bowling Ball": {
+      "Name": "Bowling Ball",
+      "Rarity": "Rare",
+      "Description": "Gives 3.",
+      "Effects": []
+    },
+    "Brown Pepper": {
+      "Name": "Brown Pepper",
+      "Rarity": "Common",
+      "Description": "Gives 1 whenever a symbol is added.",
+      "Effects": []
+    },
+    "Capsule Machine": {
+      "Name": "Capsule Machine",
+      "Rarity": "Rare",
+      "Description": "The effects of          and  happen 2 times.",
+      "Effects": []
+    },
+    "Cardboard Box": {
+      "Name": "Cardboard Box",
+      "Rarity": "Uncommon",
+      "Description": "Gives 1 every 10 spins.",
+      "Effects": []
+    },
+    "Checkered Flag": {
+      "Name": "Checkered Flag",
+      "Rarity": "Common",
+      "Description": "and  take 1 less spin to give .",
+      "Effects": []
+    },
+    "Chicken Coop": {
+      "Name": "Chicken Coop",
+      "Rarity": "Rare",
+      "Description": "and  give 2 more.  are 3x more likely to add symbols.  are 3x more likely to transform.",
+      "Effects": []
+    },
+    "Chili Powder": {
+      "Name": "Chili Powder",
+      "Rarity": "Rare",
+      "Description": "Gives 1 for each            and .",
+      "Effects": []
+    },
+    "Cleaning Rag": {
+      "Name": "Cleaning Rag",
+      "Rarity": "Uncommon",
+      "Description": "and  give 1 more.",
+      "Effects": []
+    },
+    "Clear Sky": {
+      "Name": "Clear Sky",
+      "Rarity": "Rare",
+      "Description": "and  affect non-adjacent symbols as well.",
+      "Effects": []
+    },
+    "Coffee": {
+      "Name": "Coffee",
+      "Rarity": "Rare",
+      "Description": "If you can't afford your rent, you may destroy this item and spin an additional time.",
+      "Effects": []
+    },
+    "Coin on a String": {
+      "Name": "Coin on a String",
+      "Rarity": "Uncommon",
+      "Description": "Gives 1. Removes all  before each spin. Gives 3 whenever  are removed.",
+      "Effects": []
+    },
+    "Comfy Pillow": {
+      "Name": "Comfy Pillow",
+      "Rarity": "Uncommon",
+      "Description": "If you have 1 spin left before your rent is due, you may skip your next spin. If you do, at least 1 of the items to add after paying rent will be Rare or better.",
+      "Effects": []
+    },
+    "Compost Heap": {
+      "Name": "Compost Heap",
+      "Rarity": "Uncommon",
+      "Description": "is added whenever 3 symbols are destroyed.  will only grow into Uncommon or better symbols.",
+      "Effects": []
+    },
+    "Conveyor Belt": {
+      "Name": "Conveyor Belt",
+      "Rarity": "Uncommon",
+      "Description": "and  are 2x more likely to add symbols.",
+      "Effects": []
+    },
+    "Copycat": {
+      "Name": "Copycat",
+      "Rarity": "Very Rare",
+      "Description": "are .",
+      "Effects": []
+    },
+    "Credit Card": {
+      "Name": "Credit Card",
+      "Rarity": "Very Rare",
+      "Description": "Every 7 spins, you have 17 more symbols to choose from after a spin.",
+      "Effects": []
+    },
+    "Cursed Katana": {
+      "Name": "Cursed Katana",
+      "Rarity": "Uncommon",
+      "Description": "give 2 more for each other .",
+      "Effects": []
+    },
+    "Cyan Pepper": {
+      "Name": "Cyan Pepper",
+      "Rarity": "Common",
+      "Description": "Gives 2 unless 3 or more symbols are the same. This effect ignores .",
+      "Effects": []
+    },
+    "Dark Humor": {
+      "Name": "Dark Humor",
+      "Rarity": "Uncommon",
+      "Description": "and  give 3x more  when adjacent to .  are Uncommon instead of Rare.",
+      "Effects": []
+    },
+    "Devil's Deal": {
+      "Name": "Devil's Deal",
+      "Rarity": "Rare",
+      "Description": "You may destroy this item and add 66 instead of paying rent.",
+      "Effects": []
+    },
+    "Dishwasher": {
+      "Name": "Dishwasher",
+      "Rarity": "Rare",
+      "Description": "Gives 1 every 12 spins.",
+      "Effects": []
+    },
+    "Dwarven Anvil": {
+      "Name": "Dwarven Anvil",
+      "Rarity": "Uncommon",
+      "Description": "give 2x more  and destroy adjacent  and .",
+      "Effects": []
+    },
+    "Egg Carton": {
+      "Name": "Egg Carton",
+      "Rarity": "Common",
+      "Description": "Puts all  in this item before each spin. Gives 1 for each  in this item, up to a maximum of 6 each spin.",
+      "Effects": []
+    },
+    "Fertilizer": {
+      "Name": "Fertilizer",
+      "Rarity": "Uncommon",
+      "Description": "will only grow into Rare or better symbols.  are 25% more likely to grow.",
+      "Effects": []
+    },
+    "Fish Tank": {
+      "Name": "Fish Tank",
+      "Rarity": "Common",
+      "Description": "Puts all  in this item before each spin. Gives 1 for each  in this item.",
+      "Effects": []
+    },
+    "Flush": {
+      "Name": "Flush",
+      "Rarity": "Uncommon",
+      "Description": "Gives 77 and is destroyed if there are at least 3. The same applies to   and .",
+      "Effects": []
+    },
+    "Four-leaf clover": {
+      "Name": "Four-leaf clover",
+      "Rarity": "Very Rare",
+      "Description": "Gives 4.",
+      "Effects": []
+    },
+    "Frozen Pizza": {
+      "Name": "Frozen Pizza",
+      "Rarity": "Very Rare",
+      "Description": "You add an extra symbol after every 2 spins.",
+      "Effects": []
+    },
+    "Fruit Basket": {
+      "Name": "Fruit Basket",
+      "Rarity": "Uncommon",
+      "Description": "and  give 1 more.",
+      "Effects": []
+    },
+    "Frying Pan": {
+      "Name": "Frying Pan",
+      "Rarity": "Common",
+      "Description": "are destroyed when adjacent to     and . Adds  whenever  are destroyed.",
+      "Effects": []
+    },
+    "Golden Carrot": {
+      "Name": "Golden Carrot",
+      "Rarity": "Very Rare",
+      "Description": "You are 5x more likely to find Uncommon, Rare, and Very Rare symbols.  give 5x more .",
+      "Effects": []
+    },
+    "Goldilocks": {
+      "Name": "Goldilocks",
+      "Rarity": "Uncommon",
+      "Description": "You may destroy this item and add 3.",
+      "Effects": []
+    },
+    "Grave Robber": {
+      "Name": "Grave Robber",
+      "Rarity": "Common",
+      "Description": "and  have a 66% chance of being destroyed.",
+      "Effects": []
+    },
+    "Gray Pepper": {
+      "Name": "Gray Pepper",
+      "Rarity": "Common",
+      "Description": "Gives 6 whenever you spend .",
+      "Effects": []
+    },
+    "Green Pepper": {
+      "Name": "Green Pepper",
+      "Rarity": "Common",
+      "Description": "Gives 3 if at least 3 symbols are the same and not .",
+      "Effects": []
+    },
+    "Guillotine": {
+      "Name": "Guillotine",
+      "Rarity": "Common",
+      "Description": "are destroyed.",
+      "Effects": []
+    },
+    "Happy Hour": {
+      "Name": "Happy Hour",
+      "Rarity": "Common",
+      "Description": "and  give 1 more.",
+      "Effects": []
+    },
+    "Holy Water": {
+      "Name": "Holy Water",
+      "Rarity": "Rare",
+      "Description": "and  have no effect and give 1 more.",
+      "Effects": []
+    },
+    "Horseshoe": {
+      "Name": "Horseshoe",
+      "Rarity": "Uncommon",
+      "Description": "Gives 2.",
+      "Effects": []
+    },
+    "Instant Ramen": {
+      "Name": "Instant Ramen",
+      "Rarity": "Rare",
+      "Description": "You add an additional item after each rent payment.",
+      "Effects": []
+    },
+    "Item Missing": {
+      "Name": "Item Missing",
+      "Rarity": "Special",
+      "Description": "",
+      "Effects": []
+    },
+    "Jack-o'-lantern": {
+      "Name": "Jack-o'-lantern",
+      "Rarity": "Common",
+      "Description": "and  give 2x more .",
+      "Effects": []
+    },
+    "Kyle the Kernite": {
+      "Name": "Kyle the Kernite",
+      "Rarity": "Common",
+      "Description": "and  give 1 more.",
+      "Effects": []
+    },
+    "Lefty the Rabbit": {
+      "Name": "Lefty the Rabbit",
+      "Rarity": "Uncommon",
+      "Description": "Adds  every 10 spins.  and  in the leftmost column give 2x more .",
+      "Effects": []
+    },
+    "Lemon": {
+      "Name": "Lemon",
+      "Rarity": "Uncommon",
+      "Description": "give 1.",
+      "Effects": []
+    },
+    "Lime Pepper": {
+      "Name": "Lime Pepper",
+      "Rarity": "Common",
+      "Description": "Gives 6 whenever you spend .",
+      "Effects": []
+    },
+    "Lint Roller": {
+      "Name": "Lint Roller",
+      "Rarity": "Uncommon",
+      "Description": "Removes all  before each spin. Gives 10 whenever  are removed.",
+      "Effects": []
+    },
+    "Lockpick": {
+      "Name": "Lockpick",
+      "Rarity": "Common",
+      "Description": "and  have a 35% chance of being destroyed.",
+      "Effects": []
+    },
+    "Looting Glove": {
+      "Name": "Looting Glove",
+      "Rarity": "Uncommon",
+      "Description": "and  give 1.5x more  when destroyed.",
+      "Effects": []
+    },
+    "Lucky Carrot": {
+      "Name": "Lucky Carrot",
+      "Rarity": "Rare",
+      "Description": "You are 3x more likely to find Uncommon, Rare, and Very Rare symbols.  give 3x more .",
+      "Effects": []
+    },
+    "Lucky Cat": {
+      "Name": "Lucky Cat",
+      "Rarity": "Common",
+      "Description": "You are 1.3x more likely to find Uncommon, Rare, and Very Rare symbols for each .",
+      "Effects": []
+    },
+    "Lucky Dice": {
+      "Name": "Lucky Dice",
+      "Rarity": "Rare",
+      "Description": "will always roll .  will always roll .",
+      "Effects": []
+    },
+    "Lucky Seven": {
+      "Name": "Lucky Seven",
+      "Rarity": "Common",
+      "Description": "If you have 3 of this item, they are destroyed and give 77 total.",
+      "Effects": []
+    },
+    "Lunchbox": {
+      "Name": "Lunchbox",
+      "Rarity": "Common",
+      "Description": "You may destroy this item and choose 3 symbols to add. The possible symbols are                     and .",
+      "Effects": []
+    },
+    "Maxwell the Bear": {
+      "Name": "Maxwell the Bear",
+      "Rarity": "Common",
+      "Description": "give 1.5x more .",
+      "Effects": []
+    },
+    "Mining Pick": {
+      "Name": "Mining Pick",
+      "Rarity": "Common",
+      "Description": "Gives 5 whenever  or  are destroyed.",
+      "Effects": []
+    },
+    "Mobius Strip": {
+      "Name": "Mobius Strip",
+      "Rarity": "Very Rare",
+      "Description": "and  have a 50% chance of being added when destroyed. This effect can only happen 7 times each spin.",
+      "Effects": []
+    },
+    "Ninja and Mouse": {
+      "Name": "Ninja and Mouse",
+      "Rarity": "Common",
+      "Description": "and  give 5x more  when adjacent to each other. This effect only applies once per spin.",
+      "Effects": []
+    },
+    "Nori the Rabbit": {
+      "Name": "Nori the Rabbit",
+      "Rarity": "Common",
+      "Description": "and  give 1 more.",
+      "Effects": []
+    },
+    "Oil Can": {
+      "Name": "Oil Can",
+      "Rarity": "Rare",
+      "Description": "You may re-spin a column of symbols once every 5 spins. Symbols in the re-spun column give 2x more .",
+      "Effects": []
+    },
+    "Oswald the Monkey": {
+      "Name": "Oswald the Monkey",
+      "Rarity": "Common",
+      "Description": "give 2x more .",
+      "Effects": []
+    },
+    "Piggy Bank": {
+      "Name": "Piggy Bank",
+      "Rarity": "Uncommon",
+      "Description": "You put 2 in this item each spin. You may destroy this item and gain 2.5x the  inside it.",
+      "Effects": []
+    },
+    "Pink Pepper": {
+      "Name": "Pink Pepper",
+      "Rarity": "Common",
+      "Description": "Gives 2 whenever you skip.",
+      "Effects": []
+    },
+    "Pizza the Cat": {
+      "Name": "Pizza the Cat",
+      "Rarity": "Common",
+      "Description": "give 1 more.",
+      "Effects": []
+    },
+    "Pool Ball": {
+      "Name": "Pool Ball",
+      "Rarity": "Common",
+      "Description": "Gives 1.",
+      "Effects": []
+    },
+    "Popsicle": {
+      "Name": "Popsicle",
+      "Rarity": "Very Rare",
+      "Description": "The conditional effects of essences must happen 2 times for them to be destroyed.",
+      "Effects": []
+    },
+    "Protractor": {
+      "Name": "Protractor",
+      "Rarity": "Rare",
+      "Description": "Every 3 spins, symbols in a corner are considered adjacent to all symbols.",
+      "Effects": []
+    },
+    "Purple Pepper": {
+      "Name": "Purple Pepper",
+      "Rarity": "Common",
+      "Description": "Gives 5 if 3 or more of the same symbol are adjacent and not .",
+      "Effects": []
+    },
+    "Quantum Symbol Bomb": {
+      "Name": "Quantum Symbol Bomb",
+      "Rarity": "Uncommon",
+      "Description": "You may destroy this item and choose 5 symbols to add that were previously seen after a spin but weren't added.",
+      "Effects": []
+    },
+    "Quigley the Wolf": {
+      "Name": "Quigley the Wolf",
+      "Rarity": "Common",
+      "Description": "give 1 more.  transform into .",
+      "Effects": []
+    },
+    "Quiver": {
+      "Name": "Quiver",
+      "Rarity": "Rare",
+      "Description": "and  point 2 directions.",
+      "Effects": []
+    },
+    "Rain Cloud": {
+      "Name": "Rain Cloud",
+      "Rarity": "Common",
+      "Description": "give 1 more and are Common instead of Uncommon.",
+      "Effects": []
+    },
+    "Recycling": {
+      "Name": "Recycling",
+      "Rarity": "Very Rare",
+      "Description": "Gives  each spin.",
+      "Effects": []
+    },
+    "Red Pepper": {
+      "Name": "Red Pepper",
+      "Rarity": "Common",
+      "Description": "Gives 5 if every symbol is different.",
+      "Effects": []
+    },
+    "Red Suits": {
+      "Name": "Red Suits",
+      "Rarity": "Uncommon",
+      "Description": "and  give 2x more .",
+      "Effects": []
+    },
+    "Reroll": {
+      "Name": "Reroll",
+      "Rarity": "Common",
+      "Description": "that roll less than  and  that roll less than  will reroll once.",
+      "Effects": []
+    },
+    "Ricky the Banana": {
+      "Name": "Ricky the Banana",
+      "Rarity": "Common",
+      "Description": "and  give 1 more.",
+      "Effects": []
+    },
+    "Ritual Candle": {
+      "Name": "Ritual Candle",
+      "Rarity": "Uncommon",
+      "Description": "and  give 1 more.",
+      "Effects": []
+    },
+    "Rusty Gear": {
+      "Name": "Rusty Gear",
+      "Rarity": "Uncommon",
+      "Description": "If 3 or more of the same symbol are adjacent and not , they give 2x more .",
+      "Effects": []
+    },
+    "Shattered Mirror": {
+      "Name": "Shattered Mirror",
+      "Rarity": "Uncommon",
+      "Description": "Gives 24 every 7 spins. You have 1 less symbol to choose from after a spin.",
+      "Effects": []
+    },
+    "Shedding Season": {
+      "Name": "Shedding Season",
+      "Rarity": "Common",
+      "Description": "have a 10% chance of adding .",
+      "Effects": []
+    },
+    "Shrine": {
+      "Name": "Shrine",
+      "Rarity": "Uncommon",
+      "Description": "and  add  when destroyed.",
+      "Effects": []
+    },
+    "Small Symbol Bomb": {
+      "Name": "Small Symbol Bomb",
+      "Rarity": "Common",
+      "Description": "You may destroy this item and choose 2 symbols to add.",
+      "Effects": []
+    },
+    "Sunglasses": {
+      "Name": "Sunglasses",
+      "Rarity": "Rare",
+      "Description": "Gives 1 each spin if you have 4 or more.",
+      "Effects": []
+    },
+    "Swapping Device": {
+      "Name": "Swapping Device",
+      "Rarity": "Rare",
+      "Description": "You may swap the positions of 2 symbols once per spin.",
+      "Effects": []
+    },
+    "Swear Jar": {
+      "Name": "Swear Jar",
+      "Rarity": "Common",
+      "Description": "You put 1 in this item each time you spin and gain 35 or less. You may destroy this item and gain 3x the  inside it.",
+      "Effects": []
+    },
+    "Tax Evasion": {
+      "Name": "Tax Evasion",
+      "Rarity": "Common",
+      "Description": "If a symbol would take , it takes 1 less.",
+      "Effects": []
+    },
+    "Telescope": {
+      "Name": "Telescope",
+      "Rarity": "Very Rare",
+      "Description": "Every 3 spins, all symbols are considered adjacent.",
+      "Effects": []
+    },
+    "The Tortoise and the Hare": {
+      "Name": "The Tortoise and the Hare",
+      "Rarity": "Common",
+      "Description": "Gives 77 and is destroyed if  is in the leftmost column and  is in the rightmost column.",
+      "Effects": []
+    },
+    "Time Machine": {
+      "Name": "Time Machine",
+      "Rarity": "Uncommon",
+      "Description": "take 5 less spins to transform.     and  take 2 less spins to be destroyed.  and  take 5 less spins to be destroyed.",
+      "Effects": []
+    },
+    "Treasure Map": {
+      "Name": "Treasure Map",
+      "Rarity": "Common",
+      "Description": "You may destroy this item after 20 spins. Adds  and  when destroyed.",
+      "Effects": []
+    },
+    "Triple Coins": {
+      "Name": "Triple Coins",
+      "Rarity": "Uncommon",
+      "Description": "give 3x more .",
+      "Effects": []
+    },
+    "Undertaker": {
+      "Name": "Undertaker",
+      "Rarity": "Rare",
+      "Description": "cannot be destroyed.",
+      "Effects": []
+    },
+    "Very Big Symbol Bomb": {
+      "Name": "Very Big Symbol Bomb",
+      "Rarity": "Rare",
+      "Description": "You may destroy this item and choose 8 symbols to add.",
+      "Effects": []
+    },
+    "Void Party": {
+      "Name": "Void Party",
+      "Rarity": "Rare",
+      "Description": "and  are Common instead of Uncommon.   and  have a 50% chance of being added when destroyed. This effect can only happen 7 times each spin.",
+      "Effects": []
+    },
+    "Void Portal": {
+      "Name": "Void Portal",
+      "Rarity": "Rare",
+      "Description": "Gives 1 for every 8 symbols destroyed this game.",
+      "Effects": []
+    },
+    "Wanted Poster": {
+      "Name": "Wanted Poster",
+      "Rarity": "Common",
+      "Description": "give 3x more .",
+      "Effects": []
+    },
+    "Watering Can": {
+      "Name": "Watering Can",
+      "Rarity": "Common",
+      "Description": "are 100% more likely to grow.  give 10 more.",
+      "Effects": []
+    },
+    "White Pepper": {
+      "Name": "White Pepper",
+      "Rarity": "Common",
+      "Description": "Gives 3 whenever you gain a multiple of 3 after a spin.",
+      "Effects": []
+    },
+    "X-ray Machine": {
+      "Name": "X-ray Machine",
+      "Rarity": "Uncommon",
+      "Description": "and  will only add Rare or better symbols.",
+      "Effects": []
+    },
+    "Yellow Pepper": {
+      "Name": "Yellow Pepper",
+      "Rarity": "Common",
+      "Description": "Gives 2 if none of the symbols are .",
+      "Effects": []
+    },
+    "Zaroff's Contract": {
+      "Name": "Zaroff's Contract",
+      "Rarity": "Uncommon",
+      "Description": "destroy adjacent                          and .  give 20 for each symbol destroyed.",
+      "Effects": []
+    }
+  }

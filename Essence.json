@@ -1,0 +1,567 @@
+{
+    "5th Ace Essence": {
+      "Name": "5th Ace Essence",
+      "Description": "Destroys itself if there are at least 4    and . When destroyed,    and  give 1 more this game.",
+      "Effects": []
+    },
+    "Adoption Papers Essence": {
+      "Name": "Adoption Papers Essence",
+      "Description": "Destroys itself after 7                           and  are added. Gives 77 when destroyed.",
+      "Effects": []
+    },
+    "Ancient Lizard Blade Essence": {
+      "Name": "Ancient Lizard Blade Essence",
+      "Description": "Gives 40 and is destroyed when you spin. Gives 8 less for each symbol in your inventory with a quantity of 2 or more. Cannot give less than 0. This effect ignores .",
+      "Effects": []
+    },
+    "Anthropology Degree Essence": {
+      "Name": "Anthropology Degree Essence",
+      "Description": "Destroys itself if there are at least 9                          and . When destroyed,                          and  give 1.5x more  this game.",
+      "Effects": []
+    },
+    "Barrel of Dwarves Essence": {
+      "Name": "Barrel of Dwarves Essence",
+      "Description": "Destroys itself after 7 are removed. Removes all  before each spin. Gives 17 whenever  are removed.",
+      "Effects": []
+    },
+    "Big Symbol Bomb Essence": {
+      "Name": "Big Symbol Bomb Essence",
+      "Description": "Destroys itself after 4 symbols are added after a spin. Gives 2 when destroyed.",
+      "Effects": []
+    },
+    "Birdhouse Essence": {
+      "Name": "Birdhouse Essence",
+      "Description": "Destroys itself if 3 or more       and  are adjacent. When destroyed,       and  give 2 more this game.",
+      "Effects": []
+    },
+    "Black Cat Essence": {
+      "Name": "Black Cat Essence",
+      "Description": "Destroys itself if there are at least 13. When destroyed,  give 13x more  this game.",
+      "Effects": []
+    },
+    "Black Pepper Essence": {
+      "Name": "Black Pepper Essence",
+      "Description": "Gives 10 whenever a symbol is destroyed. Destroys itself afterwards.",
+      "Effects": []
+    },
+    "Black Suits Essence": {
+      "Name": "Black Suits Essence",
+      "Description": "Destroys itself if there are at least 4  and . When destroyed,  and  give 1 more this game.",
+      "Effects": []
+    },
+    "Blue Pepper Essence": {
+      "Name": "Blue Pepper Essence",
+      "Description": "Gives 30 if there are at least 3. Destroys itself afterwards.",
+      "Effects": []
+    },
+    "Booster Pack Essence": {
+      "Name": "Booster Pack Essence",
+      "Description": "Destroys itself after 12 spins. When destroyed, you choose 2 Uncommon symbols and 1 Very Rare symbol to add.",
+      "Effects": []
+    },
+    "Bowling Ball Essence": {
+      "Name": "Bowling Ball Essence",
+      "Description": "Destroys itself after 20 spins. Gives 3 each spin.",
+      "Effects": []
+    },
+    "Brown Pepper Essence": {
+      "Name": "Brown Pepper Essence",
+      "Description": "Gives 10 whenever a symbol is added. Destroys itself afterwards.",
+      "Effects": []
+    },
+    "Capsule Machine Essence": {
+      "Name": "Capsule Machine Essence",
+      "Description": "Destroys itself after          or  are destroyed. The effects of          and  happen 3 times.",
+      "Effects": []
+    },
+    "Cardboard Box Essence": {
+      "Name": "Cardboard Box Essence",
+      "Description": "Destroys itself after 12 spins. Gives 3 when destroyed.",
+      "Effects": []
+    },
+    "Checkered Flag Essence": {
+      "Name": "Checkered Flag Essence",
+      "Description": "Destroys itself after      and  give  7 times.      and  take 0 spins to give additional .",
+      "Effects": []
+    },
+    "Chicken Coop Essence": {
+      "Name": "Chicken Coop Essence",
+      "Description": "Destroys itself when  transforms into  and grows into  in the same spin. When destroyed,    and  give 4 more this game.",
+      "Effects": []
+    },
+    "Chili Powder Essence": {
+      "Name": "Chili Powder Essence",
+      "Description": "Destroys itself when you pay rent. When destroyed, you choose 1            or  to add.",
+      "Effects": []
+    },
+    "Cleaning Rag Essence": {
+      "Name": "Cleaning Rag Essence",
+      "Description": "Destroys itself if there are at least 5        and . When destroyed,        and  give 2x more  this game.",
+      "Effects": []
+    },
+    "Clear Sky Essence": {
+      "Name": "Clear Sky Essence",
+      "Description": "Destroys itself if  and  are adjacent to each other. When destroyed,  and  give 2x more  and affect non-adjacent symbols as well this game.",
+      "Effects": []
+    },
+    "Coffee Essence": {
+      "Name": "Coffee Essence",
+      "Description": "Destroys itself before you would pay rent. When destroyed, you spin 2 additional times.",
+      "Effects": []
+    },
+    "Coin on a String Essence": {
+      "Name": "Coin on a String Essence",
+      "Description": "Destroys itself after 10 are removed. Removes all  before each spin. Gives 10 whenever  are removed.",
+      "Effects": []
+    },
+    "Comfy Pillow Essence": {
+      "Name": "Comfy Pillow Essence",
+      "Description": "If you have 2 spins left before your rent is due, you may destroy this item and skip your next 2 spins. If you do, at least 1 of the items to add after paying rent will be Very Rare.",
+      "Effects": []
+    },
+    "Compost Heap Essence": {
+      "Name": "Compost Heap Essence",
+      "Description": "2 are added whenever 3 symbols are destroyed in the same spin. Destroys itself afterwards.",
+      "Effects": []
+    },
+    "Conveyor Belt Essence": {
+      "Name": "Conveyor Belt Essence",
+      "Description": "Destroys itself after 5 symbols are added from         or . When destroyed,         and  are 2x more likely to add symbols this game.",
+      "Effects": []
+    },
+    "Copycat Essence": {
+      "Name": "Copycat Essence",
+      "Description": "Destroys itself if 5 or more  are adjacent. When destroyed,  are  and give 1.5x more  this game.",
+      "Effects": []
+    },
+    "Credit Card Essence": {
+      "Name": "Credit Card Essence",
+      "Description": "Destroys itself when you spin. You have 27 more symbols to choose from after a spin.",
+      "Effects": []
+    },
+    "Cursed Katana Essence": {
+      "Name": "Cursed Katana Essence",
+      "Description": "Destroys itself if there are at least 2. When destroyed,  give 3 more this game.",
+      "Effects": []
+    },
+    "Cyan Pepper Essence": {
+      "Name": "Cyan Pepper Essence",
+      "Description": "Gives 20 unless 3 or more symbols are the same. This effect ignores . Destroys itself afterwards.",
+      "Effects": []
+    },
+    "Dark Humor Essence": {
+      "Name": "Dark Humor Essence",
+      "Description": "Destroys itself if  is destroyed.  is destroyed when adjacent to . When destroyed,      and  give 2 more this game.",
+      "Effects": []
+    },
+    "Devil's Deal Essence": {
+      "Name": "Devil's Deal Essence",
+      "Description": "Destroys itself if you can't afford your rent. Gives 33 when destroyed.",
+      "Effects": []
+    },
+    "Dishwasher Essence": {
+      "Name": "Dishwasher Essence",
+      "Description": "Destroys itself after 18 spins. Gives 3 when destroyed.",
+      "Effects": []
+    },
+    "Dwarven Anvil Essence": {
+      "Name": "Dwarven Anvil Essence",
+      "Description": "Destroys itself if    or  is destroyed by . When destroyed,  give1.5x more  this game.",
+      "Effects": []
+    },
+    "Egg Carton Essence": {
+      "Name": "Egg Carton Essence",
+      "Description": "Destroys itself after 12 are removed. Removes all  before each spin. Gives 12 whenever  are removed.",
+      "Effects": []
+    },
+    "Fertilizer Essence": {
+      "Name": "Fertilizer Essence",
+      "Description": "Destroys itself before  would grow. When destroyed,  are guaranteed to grow into Very Rare symbols this spin.",
+      "Effects": []
+    },
+    "Fish Tank Essence": {
+      "Name": "Fish Tank Essence",
+      "Description": "Destroys itself after 10 are removed. Removes all  before each spin. Gives 10 whenever  are removed.",
+      "Effects": []
+    },
+    "Flush Essence": {
+      "Name": "Flush Essence",
+      "Description": "Destroys itself if there are exactly 5    and . Gives 77 when destroyed.",
+      "Effects": []
+    },
+    "Four-leaf clover Essence": {
+      "Name": "Four-leaf clover Essence",
+      "Description": "Destroys itself after 15 spins. Gives 4 each spin.",
+      "Effects": []
+    },
+    "Frozen Pizza Essence": {
+      "Name": "Frozen Pizza Essence",
+      "Description": "Destroys itself after 5 symbols are added after a spin. You add an extra symbol after every spin.",
+      "Effects": []
+    },
+    "Fruit Basket Essence": {
+      "Name": "Fruit Basket Essence",
+      "Description": "Destroys itself if there are at least 5           and . When destroyed,           and  give 2x more  this game.",
+      "Effects": []
+    },
+    "Frying Pan Essence": {
+      "Name": "Frying Pan Essence",
+      "Description": "are destroyed when adjacent to     or . Adds  and destroys itself whenever  are destroyed,  give 3x more  this game.",
+      "Effects": []
+    },
+    "Golden Carrot Essence": {
+      "Name": "Golden Carrot Essence",
+      "Description": "Destroys itself after 7 spins. When destroyed, at least 1 of the symbols to add after this spin will be Very Rare.",
+      "Effects": []
+    },
+    "Goldilocks Essence": {
+      "Name": "Goldilocks Essence",
+      "Description": "Destroys itself if there are are at least 3. When destroyed,  give 1 more this game.",
+      "Effects": []
+    },
+    "Grave Robber Essence": {
+      "Name": "Grave Robber Essence",
+      "Description": "Destroys itself if   or  is destroyed. When destroyed,   and  add 2x as many  this game.",
+      "Effects": []
+    },
+    "Gray Pepper Essence": {
+      "Name": "Gray Pepper Essence",
+      "Description": "Gives 30 whenever you spend . Destroys itself afterwards.",
+      "Effects": []
+    },
+    "Green Pepper Essence": {
+      "Name": "Green Pepper Essence",
+      "Description": "Gives 30 if at least 3 symbols are the same and not . Destroys itself afterwards.",
+      "Effects": []
+    },
+    "Guillotine Essence": {
+      "Name": "Guillotine Essence",
+      "Description": "If you have 1000000000 or more, you are destroyed.",
+      "Effects": []
+    },
+    "Happy Hour Essence": {
+      "Name": "Happy Hour Essence",
+      "Description": "Destroys itself after 3    or  are destroyed. When destroyed,    and  give 1.5x as much  this game.",
+      "Effects": []
+    },
+    "Holy Water Essence": {
+      "Name": "Holy Water Essence",
+      "Description": "Destroys itself if there are at least 6       and . When destroyed,       and  have no effect and give 2x more  this game.",
+      "Effects": []
+    },
+    "Horseshoe Essence": {
+      "Name": "Horseshoe Essence",
+      "Description": "Destroys itself after 30 spins. Gives 2 each spin.",
+      "Effects": []
+    },
+    "Instant Ramen Essence": {
+      "Name": "Instant Ramen Essence",
+      "Description": "Destroys itself when you skip an item. When destroyed, you add 2 items.",
+      "Effects": []
+    },
+    "Jack-o'-lantern Essence": {
+      "Name": "Jack-o'-lantern Essence",
+      "Description": "Destroys itself if  is destroyed by . When destroyed,  and  give 1.5x more  this game.",
+      "Effects": []
+    },
+    "Kyle the Kernite Essence": {
+      "Name": "Kyle the Kernite Essence",
+      "Description": "Destroys itself if there are at least 3   or . When destroyed,   and  give 2 more this game.",
+      "Effects": []
+    },
+    "Lefty the Rabbit Essence": {
+      "Name": "Lefty the Rabbit Essence",
+      "Description": "Destroys itself if there are at least 6  or .  or  in the leftmost column give 3x more .",
+      "Effects": []
+    },
+    "Lemon Essence": {
+      "Name": "Lemon Essence",
+      "Description": "Destroys itself if there are at least 4.  give 4 more.",
+      "Effects": []
+    },
+    "Lime Pepper Essence": {
+      "Name": "Lime Pepper Essence",
+      "Description": "Gives 30 whenever you spend . Destroys itself afterwards.",
+      "Effects": []
+    },
+    "Lint Roller Essence": {
+      "Name": "Lint Roller Essence",
+      "Description": "Destroys itself after 6 are removed. Removes all  before each spin. Gives 20 whenever  are removed.",
+      "Effects": []
+    },
+    "Lockpick Essence": {
+      "Name": "Lockpick Essence",
+      "Description": "Destroys itself after 3    or  is destroyed.    and  have a 100% chance of being destroyed.",
+      "Effects": []
+    },
+    "Looting Glove Essence": {
+      "Name": "Looting Glove Essence",
+      "Description": "Destroys itself after               or  are destroyed.               and  give 3.5x more  when destroyed.",
+      "Effects": []
+    },
+    "Lucky Carrot Essence": {
+      "Name": "Lucky Carrot Essence",
+      "Description": "Destroys itself after 15 spins. When destroyed, at least 1 of the symbols to add after this spin will be Very Rare.",
+      "Effects": []
+    },
+    "Lucky Cat Essence": {
+      "Name": "Lucky Cat Essence",
+      "Description": "Destroys itself if there are at least 3. When destroyed, you are 2.5x more likely to find Uncommon, Rare, and Very Rare symbols.",
+      "Effects": []
+    },
+    "Lucky Dice Essence": {
+      "Name": "Lucky Dice Essence",
+      "Description": "Destroys itself after  and  give  10 times.  and  give 1 more.  will always roll .  will always roll .",
+      "Effects": []
+    },
+    "Lucky Seven Essence": {
+      "Name": "Lucky Seven Essence",
+      "Description": "Destroys itself after 7 spins. When destroyed,  is Common instead of Uncommon this game.",
+      "Effects": []
+    },
+    "Lunchbox Essence": {
+      "Name": "Lunchbox Essence",
+      "Description": "Destroys itself after 7                     and  are added. Gives 33 when destroyed.",
+      "Effects": []
+    },
+    "Maxwell the Bear Essence": {
+      "Name": "Maxwell the Bear Essence",
+      "Description": "Destroys itself if  is destroyed by . When destroyed,  give 1.5x more  this game.",
+      "Effects": []
+    },
+    "Mining Pick Essence": {
+      "Name": "Mining Pick Essence",
+      "Description": "Destroys itself after 5  and  are destroyed. Gives 50 when destroyed.",
+      "Effects": []
+    },
+    "Mobius Strip Essence": {
+      "Name": "Mobius Strip Essence",
+      "Description": "Destroys itself after 7               or  are destroyed. When destroyed,               and  give 1.5x more  this game.",
+      "Effects": []
+    },
+    "Ninja and Mouse Essence": {
+      "Name": "Ninja and Mouse Essence",
+      "Description": "Destroys itself if  and  are adjacent to each other. When destroyed,  and  give 2 more this game.",
+      "Effects": []
+    },
+    "Nori the Rabbit Essence": {
+      "Name": "Nori the Rabbit Essence",
+      "Description": "Destroys itself if there are at least 4  and . When destroyed,  and  give 1.5x more  this game.",
+      "Effects": []
+    },
+    "Oil Can Essence": {
+      "Name": "Oil Can Essence",
+      "Description": "Destroys itself after 7 re-spins. You may re-spin a column of symbols once per spin. Symbols in the re-spun column give 2x more",
+      "Effects": []
+    },
+    "Oswald the Monkey Essence": {
+      "Name": "Oswald the Monkey Essence",
+      "Description": "Destroyed itself if   or  is destroyed by . When destroyed,  give 2x more  this game.",
+      "Effects": []
+    },
+    "Piggy Bank Essence": {
+      "Name": "Piggy Bank Essence",
+      "Description": "Destroys itself after 25 spins. You put 2 in the item each spin. Gives 152 when destroyed.",
+      "Effects": []
+    },
+    "Pink Pepper Essence": {
+      "Name": "Pink Pepper Essence",
+      "Description": "Gives 20 whenever you skip. Destroys itself afterwards.",
+      "Effects": []
+    },
+    "Pizza the Cat Essence": {
+      "Name": "Pizza the Cat Essence",
+      "Description": "Destroys itself if  is destroyed by . When destroyed,  give 1.5x more  this game.",
+      "Effects": []
+    },
+    "Pool Ball Essence": {
+      "Name": "Pool Ball Essence",
+      "Description": "Destroys itself after 60 spins. Gives 1 each spin.",
+      "Effects": []
+    },
+    "Popsicle Essence": {
+      "Name": "Popsicle Essence",
+      "Description": "Destroys itself whenever an essence is destroyed. The conditional effects of other essences must happen 2 times for them to be destroyed.",
+      "Effects": []
+    },
+    "Protractor Essence": {
+      "Name": "Protractor Essence",
+      "Description": "Destroys itself after 4 spins. Symbols in a corner are considered adjacent to all symbols.",
+      "Effects": []
+    },
+    "Purple Pepper Essence": {
+      "Name": "Purple Pepper Essence",
+      "Description": "Gives 50 if 3 or more of the same symbol are adjacent and not . Destroys itself afterwards.",
+      "Effects": []
+    },
+    "Quantum Symbol Bomb Essence": {
+      "Name": "Quantum Symbol Bomb Essence",
+      "Description": "Destroys itself after 3 symbols are added after a spin. Adds 1  item when destroyed.",
+      "Effects": []
+    },
+    "Quigley the Wolf Essence": {
+      "Name": "Quigley the Wolf Essence",
+      "Description": "Destroys itself if 3 or more  and  are adjacent. When destroyed,  transform into  and  give 2 more this game.",
+      "Effects": []
+    },
+    "Quiver Essence": {
+      "Name": "Quiver Essence",
+      "Description": "Destroys itself whenever   or  point to 0 symbols.   and  point 2 directions.",
+      "Effects": []
+    },
+    "Rain Cloud Essence": {
+      "Name": "Rain Cloud Essence",
+      "Description": "Destroys itself if  and  are adjacent to each other. When destroyed,  and  give 1 more this game.",
+      "Effects": []
+    },
+    "Recycling Essence": {
+      "Name": "Recycling Essence",
+      "Description": "Destroys itself when you spin. Give 5 when destroyed.",
+      "Effects": []
+    },
+    "Red Pepper Essence": {
+      "Name": "Red Pepper Essence",
+      "Description": "Gives 50 if every symbol is different. This effect ignores . Destroys itself afterwards.",
+      "Effects": []
+    },
+    "Red Suits Essence": {
+      "Name": "Red Suits Essence",
+      "Description": "Destroys itself if there are at least 4  and . When destroyed,  and  give 1 more this game.",
+      "Effects": []
+    },
+    "Reroll Essence": {
+      "Name": "Reroll Essence",
+      "Description": "Destroys itself after  and  reroll 2 times.  that roll less than  and  that roll less than  will reroll once.  will always reroll into .  will always reroll into .",
+      "Effects": []
+    },
+    "Ricky the Banana Essence": {
+      "Name": "Ricky the Banana Essence",
+      "Description": "Destroys itself if there are at least 3  and . When destroyed,  and  give 2 more this game.",
+      "Effects": []
+    },
+    "Ritual Candle Essence": {
+      "Name": "Ritual Candle Essence",
+      "Description": "Destroys itself if there are at least 6       and . When destroyed,       and  give 2x more  this game.",
+      "Effects": []
+    },
+    "Rusty Gear Essence": {
+      "Name": "Rusty Gear Essence",
+      "Description": "If 3 or more of the same symbol are adjacent and not , they permanently give 1.5x more . Destroys itself afterwards.",
+      "Effects": []
+    },
+    "Shattered Mirror Essence": {
+      "Name": "Shattered Mirror Essence",
+      "Description": "Destroys itself after 7 symbols are added after a spin. You have 1 less symbol to choose from after a spin. Gives 77 when destroyed.",
+      "Effects": []
+    },
+    "Shedding Season Essence": {
+      "Name": "Shedding Season Essence",
+      "Description": "have a 100% chance of adding 5. Destroys itself afterwards.",
+      "Effects": []
+    },
+    "Shrine Essence": {
+      "Name": "Shrine Essence",
+      "Description": "Destroys itself after 4 are destroyed.  add                                                     or  when destroyed",
+      "Effects": []
+    },
+    "Small Symbol Bomb Essence": {
+      "Name": "Small Symbol Bomb Essence",
+      "Description": "Destroys itself after 2 symbols are added after a spin. Gives 1 when destroyed.",
+      "Effects": []
+    },
+    "Sunglasses Essence": {
+      "Name": "Sunglasses Essence",
+      "Description": "Gives 5 if you have 3 or more. Destroys itself afterwards.",
+      "Effects": []
+    },
+    "Swapping Device Essence": {
+      "Name": "Swapping Device Essence",
+      "Description": "Destroys itself after 7 swaps. You may swap the positions of 2 symbols once per spin. Symbols swapped this way give 2x more .",
+      "Effects": []
+    },
+    "Swear Jar Essence": {
+      "Name": "Swear Jar Essence",
+      "Description": "Destroys itself if you spin and gain 25 or less. Gives 50 when destroyed.",
+      "Effects": []
+    },
+    "Tax Evasion Essence": {
+      "Name": "Tax Evasion Essence",
+      "Description": "If a symbol would take , it takes 25 less. Destroys itself afterwards.",
+      "Effects": []
+    },
+    "Telescope Essence": {
+      "Name": "Telescope Essence",
+      "Description": "Destroys itself after 3 spins. All symbols are considered adjacent.",
+      "Effects": []
+    },
+    "The Tortoise and the Hare Essence": {
+      "Name": "The Tortoise and the Hare Essence",
+      "Description": "Destroys itself if  and  are adjacent to each other. When destroyed,  and  give 2 more this game.",
+      "Effects": []
+    },
+    "Time Machine Essence": {
+      "Name": "Time Machine Essence",
+      "Description": "Destroys itself after 2        and  are destroyed or transform.        and  take 0 spins to be destroyed or transform.",
+      "Effects": []
+    },
+    "Treasure Map Essence": {
+      "Name": "Treasure Map Essence",
+      "Description": "Destroys itself after 33 spins. Adds  and  when destroyed.",
+      "Effects": []
+    },
+    "Triple Coins Essence": {
+      "Name": "Triple Coins Essence",
+      "Description": "Destroys itself if there are at least 3 . When destroyed,  give 2 more this game.",
+      "Effects": []
+    },
+    "Undertaker Essence": {
+      "Name": "Undertaker Essence",
+      "Description": "Destroys itself if there are at least 4. When destroyed,  give 2 more this game.",
+      "Effects": []
+    },
+    "Very Big Symbol Bomb Essence": {
+      "Name": "Very Big Symbol Bomb Essence",
+      "Description": "Destroys itself after 8 symbols are added after a spin. Gives 4 when destroyed.",
+      "Effects": []
+    },
+    "Void Party Essence": {
+      "Name": "Void Party Essence",
+      "Description": "Destroys itself after 5   or  are destroyed. When destroyed,   and  give 1.5x more  this game.",
+      "Effects": []
+    },
+    "Void Portal Essence": {
+      "Name": "Void Portal Essence",
+      "Description": "Destroys itself if a symbol is destroyed. Gives 1 for each symbol destroyed this game when destroyed.",
+      "Effects": []
+    },
+    "Wanted Poster Essence": {
+      "Name": "Wanted Poster Essence",
+      "Description": "Destroys itself if  is destroyed by . When destroyed,  give 2.5x more  this game.",
+      "Effects": []
+    },
+    "Watering Can Essence": {
+      "Name": "Watering Can Essence",
+      "Description": "Destroys itself whenever  grow.  give 20 more.",
+      "Effects": []
+    },
+    "White Pepper Essence": {
+      "Name": "White Pepper Essence",
+      "Description": "Gives 30 you gain a multiple of 3 after a spin. Destroys itself afterwards.",
+      "Effects": []
+    },
+    "X-ray Machine Essence": {
+      "Name": "X-ray Machine Essence",
+      "Description": "Destroys itself before  or  would be destroyed. When destroyed,  or  are guaranteed to add Very Rare symbols this spin.",
+      "Effects": []
+    },
+    "Yellow Pepper Essence": {
+      "Name": "Yellow Pepper Essence",
+      "Description": "Gives 20 if none of the symbols are . Destroys itself afterwards.",
+      "Effects": []
+    },
+    "Zaroff's Contract Essence": {
+      "Name": "Zaroff's Contract Essence",
+      "Description": "Destroys itself if                          or  are destroyed by  or . Gives 50 when destroyed.",
+      "Effects": []
+    }
+  }

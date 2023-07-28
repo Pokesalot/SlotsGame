@@ -9,6 +9,9 @@ function GetClearProgress(){
     SpinActions : [], //Effects that actually triggered, including origin and target where applicable
     PlayerItems : [],
     PlayerCoins : 1,
+    RerollTokens : 0,
+    RemovalTokens : 0,
+    EssenceTokens : 0,
     Board : GetStartingBoard(1),
     Spins : 0,
     RentsPaid : 0,

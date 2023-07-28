@@ -50,7 +50,6 @@ Happy Hour	Common	   and  give 1 more.
 Holy Water	Rare	      and  have no effect and give 1 more.
 Horseshoe	Uncommon	Gives 2.
 Instant Ramen	Rare	You add an additional item after each rent payment.
-Item Missing	Special	
 Jack-o'-lantern	Common	 and  give 2x more .
 Kyle the Kernite	Common	  and  give 1 more.
 Lefty the Rabbit	Uncommon	Adds  every 10 spins.  and  in the leftmost column give 2x more .
