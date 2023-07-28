@@ -43,7 +43,7 @@ function spin() {
   GameState.canBuy = true;
   GameState.canSkip = true;
   //Charge the player a coin to spin the wheel
-  GameState.PlayerCoins -= GameState.CostToSpin; GameState.Spins--;
+  GameState.PlayerCoins -= GameState.CostToSpin; GameState.Spins++;
 
   //Load all symbols from the board into the symbol collection
   while(GameState.Board.length > 0){ 
@@ -90,13 +90,13 @@ function spin() {
   
   moneyShow.innerText = `Coins: ${GameState.PlayerCoins}`;
   rentShow.innerText = `Rent Due: ${RentPayChecks[GameState.RentsPaid]}`
-  spinsShow.innerText = `Spins to get it: ${GameState.Spins}`
+  spinsShow.innerText = `Spins to get it: ${RentSpinsChecks[GameState.RentsPaid]-GameState.Spins}`
+  if(!CheckForRent()){return;}
   setTimeout(() => {
     FillShop();
     document.getElementById("spin-button").disabled = false;
   }, 600); 
   if(testing){console.log(GameState.SpinActions)}
-  if(!CheckForRent()){return;}
 }
 
 function DrawBoard(){
@@ -144,7 +144,19 @@ function FillShop(){
   }
   let offered = [];
   for (let i=0; i<3; i++){
-    itemRarity = GetRarity()
+    let itemRarity = GetRarity()
+    if(GameState.Spins == 0){
+      //Special rules for shop filling!
+      if(GameState.RentsPaid <= 5){
+        itemRarity = Math.max(1,itemRarity);
+      }else if(GameState.RentsPaid <= 8){
+        if(i <= 0){itemRarity = Math.max(2,itemRarity);}
+      }else if(GameState.RentsPaid <= 9){
+        if(i <= 1){itemRarity = Math.max(2,itemRarity);}
+      }else if(GameState.RentsPaid >= 10){
+        if(i <= 2){itemRarity = Math.max(2,itemRarity);}
+      }
+    }
     let keys = Object.keys(AllSymbolsJson)
     let offerable = []; 
     for(let find=0;find<keys.length;find++){
@@ -204,7 +216,7 @@ function BuyItem(index){
 }
 
 function CheckForRent(){
-  if(GameState.Spins == 0){
+  if(GameState.Spins == RentSpinsChecks[GameState.RentsPaid]){
     //Time to pay that rent!
     if(GameState.PlayerCoins >= RentPayChecks[GameState.RentsPaid]){
       GameState.PlayerCoins -= RentPayChecks[GameState.RentsPaid]
@@ -215,10 +227,10 @@ function CheckForRent(){
       }
 
       GameState.RentsPaid++;
-      GameState.Spins = RentSpinsChecks[GameState.RentsPaid];
+      GameState.Spins = 0;
       moneyShow.innerText = `Coins: ${GameState.PlayerCoins}`;
       rentShow.innerText = `Rent Due: ${RentPayChecks[GameState.RentsPaid]}`
-      spinsShow.innerText = `Spins to get it: ${GameState.Spins}`
+      spinsShow.innerText = `Spins to get it: ${RentSpinsChecks[GameState.RentsPaid] - GameState.Spins}`
       setTimeout(function() {
         //alert(`Congratulations, you've paid your rent! Next rent is ${RentPayChecks[GameState.RentsPaid]}, due in ${RentSpinsChecks[GameState.RentsPaid]} spins.`);
       }, 300);

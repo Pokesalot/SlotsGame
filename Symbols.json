@@ -691,9 +691,9 @@
 		],
 		"Description": "Gives ? when destroyed. \"?\" increases by 2 each spin. Destroys itself when /Three-Sided_Die or /Five-Sided_Die rolls a 1.",
 		"Effects": [
-			"1 ID GETS STATE 2",
-			"90 ID GETS DESTROY FROM die STATE 1",
-			"101 ID GETS PAY STATE FROM ID DESTROY"
+			"1 ID GETS STATE 2 FROM ID",
+			"80 ID GETS DESTROY FROM dice STATE 1",
+			"91 ID GETS PAY STATE FROM ID DESTROY"
 		],
 		"Rarity": "Common"
 	},

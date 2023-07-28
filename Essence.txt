@@ -1,0 +1,113 @@
+ 5th Ace Essence	Essence	Destroys itself if there are at least 4    and . When destroyed,    and  give  1 more this game.
+ Adoption Papers Essence	Essence	Destroys itself after 7                           and  are added. Gives  77 when destroyed.
+ Ancient Lizard Blade Essence	Essence	Gives  40 and is destroyed when you spin. Gives  8 less for each symbol in your inventory with a quantity of 2 or more. Cannot give less than  0. This effect ignores .
+ Anthropology Degree Essence	Essence	Destroys itself if there are at least 9                          and . When destroyed,                          and  give 1.5x more  this game.
+ Barrel of Dwarves Essence	Essence	Destroys itself after 7  are removed. Removes all  before each spin. Gives  17 whenever  are removed.
+ Big Symbol Bomb Essence	Essence	Destroys itself after 4 symbols are added after a spin. Gives  2 when destroyed.
+ Birdhouse Essence	Essence	Destroys itself if 3 or more       and  are adjacent. When destroyed,       and  give  2 more this game.
+ Black Cat Essence	Essence	Destroys itself if there are at least 13 . When destroyed,  give 13x more  this game.
+ Black Pepper Essence	Essence	Gives  10 whenever a symbol is destroyed. Destroys itself afterwards.
+ Black Suits Essence	Essence	Destroys itself if there are at least 4  and . When destroyed,  and  give  1 more this game.
+ Blue Pepper Essence	Essence	Gives  30 if there are at least 3 . Destroys itself afterwards.
+ Booster Pack Essence	Essence	Destroys itself after 12 spins. When destroyed, you choose 2 Uncommon symbols and 1 Very Rare symbol to add.
+ Bowling Ball Essence	Essence	Destroys itself after 20 spins. Gives  3 each spin.
+ Brown Pepper Essence	Essence	Gives  10 whenever a symbol is added. Destroys itself afterwards.
+ Capsule Machine Essence	Essence	Destroys itself after          or  are destroyed. The effects of          and  happen 3 times.
+ Cardboard Box Essence	Essence	Destroys itself after 12 spins. Gives  3 when destroyed.
+ Checkered Flag Essence	Essence	Destroys itself after      and  give  7 times.      and  take 0 spins to give additional .
+ Chicken Coop Essence	Essence	Destroys itself when  transforms into  and grows into  in the same spin. When destroyed,    and  give  4 more this game.
+ Chili Powder Essence	Essence	Destroys itself when you pay rent. When destroyed, you choose 1            or  to add.
+ Cleaning Rag Essence	Essence	Destroys itself if there are at least 5        and . When destroyed,        and  give 2x more  this game.
+ Clear Sky Essence	Essence	Destroys itself if  and  are adjacent to each other. When destroyed,  and  give 2x more  and affect non-adjacent symbols as well this game.
+ Coffee Essence	Essence	Destroys itself before you would pay rent. When destroyed, you spin 2 additional times.
+ Coin on a String Essence	Essence	Destroys itself after 10  are removed. Removes all  before each spin. Gives  10 whenever  are removed.
+ Comfy Pillow Essence	Essence	If you have 2 spins left before your rent is due, you may destroy this item and skip your next 2 spins. If you do, at least 1 of the items to add after paying rent will be Very Rare.
+ Compost Heap Essence	Essence	2  are added whenever 3 symbols are destroyed in the same spin. Destroys itself afterwards.
+ Conveyor Belt Essence	Essence	Destroys itself after 5 symbols are added from         or . When destroyed,         and  are 2x more likely to add symbols this game.
+ Copycat Essence	Essence	Destroys itself if 5 or more  are adjacent. When destroyed,  are  and give 1.5x more  this game.
+ Credit Card Essence	Essence	Destroys itself when you spin. You have 27 more symbols to choose from after a spin.
+ Cursed Katana Essence	Essence	Destroys itself if there are at least 2 . When destroyed,  give  3 more this game.
+ Cyan Pepper Essence	Essence	Gives  20 unless 3 or more symbols are the same. This effect ignores . Destroys itself afterwards.
+ Dark Humor Essence	Essence	Destroys itself if  is destroyed.  is destroyed when adjacent to . When destroyed,      and  give  2 more this game.
+ Devil's Deal Essence	Essence	Destroys itself if you can't afford your rent. Gives  33 when destroyed.
+ Dishwasher Essence	Essence	Destroys itself after 18 spins. Gives  3 when destroyed.
+ Dwarven Anvil Essence	Essence	Destroys itself if    or  is destroyed by . When destroyed,  give1.5x more  this game.
+ Egg Carton Essence	Essence	Destroys itself after 12  are removed. Removes all  before each spin. Gives  12 whenever  are removed.
+ Fertilizer Essence	Essence	Destroys itself before  would grow. When destroyed,  are guaranteed to grow into Very Rare symbols this spin.
+ Fish Tank Essence	Essence	Destroys itself after 10  are removed. Removes all  before each spin. Gives  10 whenever  are removed.
+ Flush Essence	Essence	Destroys itself if there are exactly 5    and . Gives  77 when destroyed.
+ Four-leaf clover Essence	Essence	Destroys itself after 15 spins. Gives  4 each spin.
+ Frozen Pizza Essence	Essence	Destroys itself after 5 symbols are added after a spin. You add an extra symbol after every spin.
+ Fruit Basket Essence	Essence	Destroys itself if there are at least 5           and . When destroyed,           and  give 2x more  this game.
+ Frying Pan Essence	Essence	 are destroyed when adjacent to     or . Adds  and destroys itself whenever  are destroyed,  give 3x more  this game.
+ Golden Carrot Essence	Essence	Destroys itself after 7 spins. When destroyed, at least 1 of the symbols to add after this spin will be Very Rare.
+ Goldilocks Essence	Essence	Destroys itself if there are are at least 3 . When destroyed,  give  1 more this game.
+ Grave Robber Essence	Essence	Destroys itself if   or  is destroyed. When destroyed,   and  add 2x as many  this game.
+ Gray Pepper Essence	Essence	Gives  30 whenever you spend . Destroys itself afterwards.
+ Green Pepper Essence	Essence	Gives  30 if at least 3 symbols are the same and not . Destroys itself afterwards.
+ Guillotine Essence	Essence	If you have  1000000000 or more, you are destroyed.
+ Happy Hour Essence	Essence	Destroys itself after 3    or  are destroyed. When destroyed,    and  give 1.5x as much  this game.
+ Holy Water Essence	Essence	Destroys itself if there are at least 6       and . When destroyed,       and  have no effect and give 2x more  this game.
+ Horseshoe Essence	Essence	Destroys itself after 30 spins. Gives  2 each spin.
+ Instant Ramen Essence	Essence	Destroys itself when you skip an item. When destroyed, you add 2 items.
+ Jack-o'-lantern Essence	Essence	Destroys itself if  is destroyed by . When destroyed,  and  give 1.5x more  this game.
+ Kyle the Kernite Essence	Essence	Destroys itself if there are at least 3   or . When destroyed,   and  give  2 more this game.
+ Lefty the Rabbit Essence	Essence	Destroys itself if there are at least 6  or .  or  in the leftmost column give 3x more .
+ Lemon Essence	Essence	Destroys itself if there are at least 4 .  give  4 more.
+ Lime Pepper Essence	Essence	Gives  30 whenever you spend . Destroys itself afterwards.
+ Lint Roller Essence	Essence	Destroys itself after 6  are removed. Removes all  before each spin. Gives  20 whenever  are removed.
+ Lockpick Essence	Essence	Destroys itself after 3    or  is destroyed.    and  have a 100% chance of being destroyed.
+ Looting Glove Essence	Essence	Destroys itself after               or  are destroyed.               and  give 3.5x more  when destroyed.
+ Lucky Carrot Essence	Essence	Destroys itself after 15 spins. When destroyed, at least 1 of the symbols to add after this spin will be Very Rare.
+ Lucky Cat Essence	Essence	Destroys itself if there are at least 3 . When destroyed, you are 2.5x more likely to find Uncommon, Rare, and Very Rare symbols.
+ Lucky Dice Essence	Essence	Destroys itself after  and  give  10 times.  and  give  1 more.  will always roll .  will always roll .
+ Lucky Seven Essence	Essence	Destroys itself after 7 spins. When destroyed,  is Common instead of Uncommon this game.
+ Lunchbox Essence	Essence	Destroys itself after 7                     and  are added. Gives  33 when destroyed.
+ Maxwell the Bear Essence	Essence	Destroys itself if  is destroyed by . When destroyed,  give 1.5x more  this game.
+ Mining Pick Essence	Essence	Destroys itself after 5  and  are destroyed. Gives  50 when destroyed.
+ Mobius Strip Essence	Essence	Destroys itself after 7               or  are destroyed. When destroyed,               and  give 1.5x more  this game.
+ Ninja and Mouse Essence	Essence	Destroys itself if  and  are adjacent to each other. When destroyed,  and  give  2 more this game.
+ Nori the Rabbit Essence	Essence	Destroys itself if there are at least 4  and . When destroyed,  and  give 1.5x more  this game.
+ Oil Can Essence	Essence	Destroys itself after 7 re-spins. You may re-spin a column of symbols once per spin. Symbols in the re-spun column give 2x more 
+ Oswald the Monkey Essence	Essence	Destroyed itself if   or  is destroyed by . When destroyed,  give 2x more  this game.
+ Piggy Bank Essence	Essence	Destroys itself after 25 spins. You put  2 in the item each spin. Gives  152 when destroyed.
+ Pink Pepper Essence	Essence	Gives  20 whenever you skip. Destroys itself afterwards.
+ Pizza the Cat Essence	Essence	Destroys itself if  is destroyed by . When destroyed,  give 1.5x more  this game.
+ Pool Ball Essence	Essence	Destroys itself after 60 spins. Gives  1 each spin.
+ Popsicle Essence	Essence	Destroys itself whenever an essence is destroyed. The conditional effects of other essences must happen 2 times for them to be destroyed.
+ Protractor Essence	Essence	Destroys itself after 4 spins. Symbols in a corner are considered adjacent to all symbols.
+ Purple Pepper Essence	Essence	Gives  50 if 3 or more of the same symbol are adjacent and not . Destroys itself afterwards.
+ Quantum Symbol Bomb Essence	Essence	Destroys itself after 3 symbols are added after a spin. Adds 1  item when destroyed.
+ Quigley the Wolf Essence	Essence	Destroys itself if 3 or more  and  are adjacent. When destroyed,  transform into  and  give  2 more this game.
+ Quiver Essence	Essence	Destroys itself whenever   or  point to 0 symbols.   and  point 2 directions.
+ Rain Cloud Essence	Essence	Destroys itself if  and  are adjacent to each other. When destroyed,  and  give  1 more this game.
+ Recycling Essence	Essence	Destroys itself when you spin. Give  5 when destroyed.
+ Red Pepper Essence	Essence	Gives  50 if every symbol is different. This effect ignores . Destroys itself afterwards.
+ Red Suits Essence	Essence	Destroys itself if there are at least 4  and . When destroyed,  and  give  1 more this game.
+ Reroll Essence	Essence	Destroys itself after  and  reroll 2 times.  that roll less than  and  that roll less than  will reroll once.  will always reroll into .  will always reroll into .
+ Ricky the Banana Essence	Essence	Destroys itself if there are at least 3  and . When destroyed,  and  give  2 more this game.
+ Ritual Candle Essence	Essence	Destroys itself if there are at least 6       and . When destroyed,       and  give 2x more  this game.
+ Rusty Gear Essence	Essence	If 3 or more of the same symbol are adjacent and not , they permanently give 1.5x more . Destroys itself afterwards.
+ Shattered Mirror Essence	Essence	Destroys itself after 7 symbols are added after a spin. You have 1 less symbol to choose from after a spin. Gives  77 when destroyed.
+ Shedding Season Essence	Essence	 have a 100% chance of adding 5 . Destroys itself afterwards.
+ Shrine Essence	Essence	Destroys itself after 4  are destroyed.  add                                                     or  when destroyed
+ Small Symbol Bomb Essence	Essence	Destroys itself after 2 symbols are added after a spin. Gives  1 when destroyed.
+ Sunglasses Essence	Essence	Gives  5 if you have  3 or more. Destroys itself afterwards.
+ Swapping Device Essence	Essence	Destroys itself after 7 swaps. You may swap the positions of 2 symbols once per spin. Symbols swapped this way give 2x more .
+ Swear Jar Essence	Essence	Destroys itself if you spin and gain  25 or less. Gives  50 when destroyed.
+ Tax Evasion Essence	Essence	If a symbol would take , it takes  25 less. Destroys itself afterwards.
+ Telescope Essence	Essence	Destroys itself after 3 spins. All symbols are considered adjacent.
+ The Tortoise and the Hare Essence	Essence	Destroys itself if  and  are adjacent to each other. When destroyed,  and  give  2 more this game.
+ Time Machine Essence	Essence	Destroys itself after 2        and  are destroyed or transform.        and  take 0 spins to be destroyed or transform.
+ Treasure Map Essence	Essence	Destroys itself after 33 spins. Adds  and  when destroyed.
+ Triple Coins Essence	Essence	Destroys itself if there are at least 3 . When destroyed,  give  2 more this game.
+ Undertaker Essence	Essence	Destroys itself if there are at least 4 . When destroyed,  give  2 more this game.
+ Very Big Symbol Bomb Essence	Essence	Destroys itself after 8 symbols are added after a spin. Gives  4 when destroyed.
+ Void Party Essence	Essence	Destroys itself after 5   or  are destroyed. When destroyed,   and  give 1.5x more  this game.
+ Void Portal Essence	Essence	Destroys itself if a symbol is destroyed. Gives  1 for each symbol destroyed this game when destroyed.
+ Wanted Poster Essence	Essence	Destroys itself if  is destroyed by . When destroyed,  give 2.5x more  this game.
+ Watering Can Essence	Essence	Destroys itself whenever  grow.  give  20 more.
+ White Pepper Essence	Essence	Gives  30 you gain a multiple of  3 after a spin. Destroys itself afterwards.
+ X-ray Machine Essence	Essence	Destroys itself before  or  would be destroyed. When destroyed,  or  are guaranteed to add Very Rare symbols this spin.
+ Yellow Pepper Essence	Essence	Gives  20 if none of the symbols are . Destroys itself afterwards.
+ Zaroff's Contract Essence	Essence	Destroys itself if                          or  are destroyed by  or . Gives  50 when destroyed.

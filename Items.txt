@@ -1,0 +1,114 @@
+5th Ace	Common	 and  give 1 more when adjacent to  and .  and  give 1 more when adjacent to  and .
+Adoption Papers	Common	You may destroy this item and choose 3 symbols to add. The possible symbols are                           and 
+Ancient Lizard Blade	Very Rare	Gives 8 each spin. Gives 1 less for each symbol in your inventory with a quantity of 2 or more. Cannot give less than 0.
+Anthropology Degree	Rare	                         and  give 1 more.
+Barrel of Dwarves	Uncommon	You may destroy this item and add 7.
+Big Symbol Bomb	Uncommon	You may destroy this item and choose 4 symbols to add.
+Birdhouse	Common	      and  give 1 more.
+Black Cat	Uncommon	Gives 6 whenever you gain a multiple of 13 after a spin.  give 2x more .
+Black Pepper	Common	Gives 1 whenever a symbol is destroyed.
+Black Suits	Uncommon	 and  give 2x more .
+Blue Pepper	Common	Gives 3 if there are at least 3.
+Booster Pack	Rare	You may destroy this item and choose 4 Common symbols, 3 Uncommon symbols, and 1 Rare symbol to add.
+Bowling Ball	Rare	Gives 3.
+Brown Pepper	Common	Gives 1 whenever a symbol is added.
+Capsule Machine	Rare	The effects of          and  happen 2 times.
+Cardboard Box	Uncommon	Gives 1 every 10 spins.
+Checkered Flag	Common	     and  take 1 less spin to give .
+Chicken Coop	Rare	   and  give 2 more.  are 3x more likely to add symbols.  are 3x more likely to transform.
+Chili Powder	Rare	Gives 1 for each            and .
+Cleaning Rag	Uncommon	       and  give 1 more.
+Clear Sky	Rare	 and  affect non-adjacent symbols as well.
+Coffee	Rare	If you can't afford your rent, you may destroy this item and spin an additional time.
+Coin on a String	Uncommon	Gives 1. Removes all  before each spin. Gives 3 whenever  are removed.
+Comfy Pillow	Uncommon	If you have 1 spin left before your rent is due, you may skip your next spin. If you do, at least 1 of the items to add after paying rent will be Rare or better.
+Compost Heap	Uncommon	 is added whenever 3 symbols are destroyed.  will only grow into Uncommon or better symbols.
+Conveyor Belt	Uncommon	        and  are 2x more likely to add symbols.
+Copycat	Very Rare	 are .
+Credit Card	Very Rare	Every 7 spins, you have 17 more symbols to choose from after a spin.
+Cursed Katana	Uncommon	 give 2 more for each other .
+Cyan Pepper	Common	Gives 2 unless 3 or more symbols are the same. This effect ignores .
+Dark Humor	Uncommon	      and  give 3x more  when adjacent to .  are Uncommon instead of Rare.
+Devil's Deal	Rare	You may destroy this item and add 66 instead of paying rent.
+Dishwasher	Rare	Gives 1 every 12 spins.
+Dwarven Anvil	Uncommon	 give 2x more  and destroy adjacent  and .
+Egg Carton	Common	Puts all  in this item before each spin. Gives 1 for each  in this item, up to a maximum of 6 each spin.
+Fertilizer	Uncommon	 will only grow into Rare or better symbols.  are 25% more likely to grow.
+Fish Tank	Common	Puts all  in this item before each spin. Gives 1 for each  in this item.
+Flush	Uncommon	Gives 77 and is destroyed if there are at least 3. The same applies to   and .
+Four-leaf clover	Very Rare	Gives 4.
+Frozen Pizza	Very Rare	You add an extra symbol after every 2 spins.
+Fruit Basket	Uncommon	          and  give 1 more.
+Frying Pan	Common	 are destroyed when adjacent to     and . Adds  whenever  are destroyed.
+Golden Carrot	Very Rare	You are 5x more likely to find Uncommon, Rare, and Very Rare symbols.  give 5x more .
+Goldilocks	Uncommon	You may destroy this item and add 3.
+Grave Robber	Common	  and  have a 66% chance of being destroyed.
+Gray Pepper	Common	Gives 6 whenever you spend .
+Green Pepper	Common	Gives 3 if at least 3 symbols are the same and not .
+Guillotine	Common	 are destroyed.
+Happy Hour	Common	   and  give 1 more.
+Holy Water	Rare	      and  have no effect and give 1 more.
+Horseshoe	Uncommon	Gives 2.
+Instant Ramen	Rare	You add an additional item after each rent payment.
+Item Missing	Special	
+Jack-o'-lantern	Common	 and  give 2x more .
+Kyle the Kernite	Common	  and  give 1 more.
+Lefty the Rabbit	Uncommon	Adds  every 10 spins.  and  in the leftmost column give 2x more .
+Lemon	Uncommon	 give 1.
+Lime Pepper	Common	Gives 6 whenever you spend .
+Lint Roller	Uncommon	Removes all  before each spin. Gives 10 whenever  are removed.
+Lockpick	Common	   and  have a 35% chance of being destroyed.
+Looting Glove	Uncommon	              and  give 1.5x more  when destroyed.
+Lucky Carrot	Rare	You are 3x more likely to find Uncommon, Rare, and Very Rare symbols.  give 3x more .
+Lucky Cat	Common	You are 1.3x more likely to find Uncommon, Rare, and Very Rare symbols for each .
+Lucky Dice	Rare	 will always roll .  will always roll .
+Lucky Seven	Common	If you have 3 of this item, they are destroyed and give 77 total.
+Lunchbox	Common	You may destroy this item and choose 3 symbols to add. The possible symbols are                     and .
+Maxwell the Bear	Common	 give 1.5x more .
+Mining Pick	Common	Gives 5 whenever  or  are destroyed.
+Mobius Strip	Very Rare	              and  have a 50% chance of being added when destroyed. This effect can only happen 7 times each spin.
+Ninja and Mouse	Common	 and  give 5x more  when adjacent to each other. This effect only applies once per spin.
+Nori the Rabbit	Common	 and  give 1 more.
+Oil Can	Rare	You may re-spin a column of symbols once every 5 spins. Symbols in the re-spun column give 2x more .
+Oswald the Monkey	Common	 give 2x more .
+Piggy Bank	Uncommon	You put 2 in this item each spin. You may destroy this item and gain 2.5x the  inside it.
+Pink Pepper	Common	Gives 2 whenever you skip.
+Pizza the Cat	Common	 give 1 more.
+Pool Ball	Common	Gives 1.
+Popsicle	Very Rare	The conditional effects of essences must happen 2 times for them to be destroyed.
+Protractor	Rare	Every 3 spins, symbols in a corner are considered adjacent to all symbols.
+Purple Pepper	Common	Gives 5 if 3 or more of the same symbol are adjacent and not .
+Quantum Symbol Bomb	Uncommon	You may destroy this item and choose 5 symbols to add that were previously seen after a spin but weren't added.
+Quigley the Wolf	Common	 give 1 more.  transform into .
+Quiver	Rare	  and  point 2 directions.
+Rain Cloud	Common	 give 1 more and are Common instead of Uncommon.
+Recycling	Very Rare	Gives  each spin.
+Red Pepper	Common	Gives 5 if every symbol is different.
+Red Suits	Uncommon	 and  give 2x more .
+Reroll	Common	 that roll less than  and  that roll less than  will reroll once.
+Ricky the Banana	Common	 and  give 1 more.
+Ritual Candle	Uncommon	      and  give 1 more.
+Rusty Gear	Uncommon	If 3 or more of the same symbol are adjacent and not , they give 2x more .
+Shattered Mirror	Uncommon	Gives 24 every 7 spins. You have 1 less symbol to choose from after a spin.
+Shedding Season	Common	 have a 10% chance of adding .
+Shrine	Uncommon	                                                    and  add  when destroyed.
+Small Symbol Bomb	Common	You may destroy this item and choose 2 symbols to add.
+Sunglasses	Rare	Gives 1 each spin if you have 4 or more.
+Swapping Device	Rare	You may swap the positions of 2 symbols once per spin.
+Swear Jar	Common	You put 1 in this item each time you spin and gain 35 or less. You may destroy this item and gain 3x the  inside it.
+Tax Evasion	Common	If a symbol would take , it takes 1 less.
+Telescope	Very Rare	Every 3 spins, all symbols are considered adjacent.
+The Tortoise and the Hare	Common	Gives 77 and is destroyed if  is in the leftmost column and  is in the rightmost column.
+Time Machine	Uncommon	 take 5 less spins to transform.     and  take 2 less spins to be destroyed.  and  take 5 less spins to be destroyed.
+Treasure Map	Common	You may destroy this item after 20 spins. Adds  and  when destroyed.
+Triple Coins	Uncommon	 give 3x more .
+Undertaker	Rare	 cannot be destroyed.
+Very Big Symbol Bomb	Rare	You may destroy this item and choose 8 symbols to add.
+Void Party	Rare	  and  are Common instead of Uncommon.   and  have a 50% chance of being added when destroyed. This effect can only happen 7 times each spin.
+Void Portal	Rare	Gives 1 for every 8 symbols destroyed this game.
+Wanted Poster	Common	 give 3x more .
+Watering Can	Common	 are 100% more likely to grow.  give 10 more.
+White Pepper	Common	Gives 3 whenever you gain a multiple of 3 after a spin.
+X-ray Machine	Uncommon	 and  will only add Rare or better symbols.
+Yellow Pepper	Common	Gives 2 if none of the symbols are .
+Zaroff's Contract	Uncommon	 destroy adjacent                          and .  give 20 for each symbol destroyed.

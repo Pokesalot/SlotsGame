@@ -10,7 +10,7 @@ function GetClearProgress(){
     PlayerItems : [],
     PlayerCoins : 1,
     Board : GetStartingBoard(1),
-    Spins : RentSpinsChecks[0],
+    Spins : 0,
     RentsPaid : 0,
     CostToSpin : 1,
     RarityMulti: 1,
@@ -25,7 +25,7 @@ function GetClearProgress(){
 }
 
 async function fetchData() {
-    let response = await fetch("./Symbols2.json");
+    let response = await fetch("./Symbols.json");
     let data = await response.json();
     AllSymbolsJson = data;
 
@@ -195,7 +195,9 @@ function ResolveEffects(){
                     advance = 3
                 }
                 if(toss && words[wordSub] == "STATE"){
-                    if(list[check].state == parseInt(word[wordSub+1])){toss=false}
+                    console.log(list[check].state == parseInt(words[wordSub+1]))
+                    if(list[check].state == parseInt(words[wordSub+1])){toss=false}
+                    advance = 2;
                 }
 
                 if((toss && !not) || (!toss && not)){
@@ -364,6 +366,7 @@ function ResolveEffects(){
                                         GameState.SpinActions.push(paperTrail);
                                         let payout = 0;
                                         if(effectWords[word+1] == "STATE"){
+                                            console.log(receivers[rec])
                                             payout = receivers[rec].state;
                                         }else{
                                             payout = parseInt(effectWords[word+1]);
