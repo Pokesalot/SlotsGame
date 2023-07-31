@@ -4,6 +4,24 @@ function GetClearProgress(){
     AllowedTags : ["basegame"],
     PlayerSymbols : [],
     PermanentSpinEffects : ["100 REMOVE", "100 DESTROY", "100 STATE0", "102 CHECKRESTART"],
+    Game : {
+		name: "GAME",
+        id : "GAME",
+	    tags: [
+			"THRESHOLD20"
+		],
+        status : [],
+		description: "Holds effects for the duration of the game.",
+		effects : [
+            "111 ID GETS STATE 1 FROM fossillike DESTROY",
+        ],
+        state : 0,
+		payout: 0,
+        tempPayout : 0,
+        tempMulti : 0,
+        adjacencies : [],
+		rarity : "Special"
+	},
     TempSymbols : [],
     SpinEffects : [], //All effects for all symbols and items, taken or not
     SpinActions : [], //Effects that actually triggered, including origin and target where applicable
@@ -147,13 +165,21 @@ function GetSymbolEffects(){
         //Sort the list of effects by their precedence
         GameState.SpinEffects.sort((a,b) => a.split(" ")[0] - b.split(" ")[0] )
     }
+    for(let j=0;j<GameState.Game.effects.length;j++){
+        let check = GameState.Game.effects[j].replaceAll("ID",GameState.Game.id);
+        if(GameState.SpinEffects.indexOf(check) == -1 && check.split(" ")[0] != "ON"){
+            GameState.SpinEffects.push(check)
+        }
+    }
+    //Sort the list of effects by their precedence
+    GameState.SpinEffects.sort((a,b) => a.split(" ")[0] - b.split(" ")[0] )
 }
 function GetItemEffects(){
     //Standin, will be added when symbols actually exist
 }
 
 function ResolveEffects(){
-    function getCheckList(){return [...GameState.Board,...GameState.PlayerItems,...GameState.TempSymbols]}
+    function getCheckList(){return [...GameState.Board,...GameState.PlayerItems,...GameState.TempSymbols,GameState.Game]}
     function trimList(list,checkString){
         words = checkString.split(" ")
         wordSub = 0;
@@ -302,7 +328,7 @@ function ResolveEffects(){
             }
         }else{
             let senders = getCheckList(); let receivers = getCheckList();
-            let checkADJ = false; let sendLimit = 20; let recLimit = 20;
+            let checkADJ = false; let sendLimit = 20; let recLimit = 20; let shuffleLists = false;
             let effectWords = [];
             if(curEffect.indexOf("GIVES") != -1){ //Must have a "TO" clause
                 words = curEffect.split(" ").slice(1);
@@ -316,6 +342,7 @@ function ResolveEffects(){
                     filter.splice(filter.indexOf("ADJ"),1);
                 }
                 if(filter.indexOf("LIMIT") != -1){
+                    shuffleLists = true;
                     recLimit = parseInt(filter[filter.indexOf("LIMIT")+1]);
                     filter.splice(filter.indexOf("LIMIT"),2);
                 }
@@ -337,6 +364,7 @@ function ResolveEffects(){
                     filter.splice(filter.indexOf("ADJ"),1);
                 }
                 if(filter.indexOf("LIMIT") != -1){
+                    shuffleLists = true;
                     sendLimit = parseInt(filter[filter.indexOf("LIMIT")+1]);
                     filter.splice(filter.indexOf("LIMIT"),2);
                 }
@@ -350,6 +378,10 @@ function ResolveEffects(){
             }
             //Senders and receivers are set at this point
             let thisSend = 0; let thisRec = 0;
+            if(shuffleLists){
+                for(let shuf=0; shuf<100; shuf++){let place = Math.floor(Math.random() * senders.length); senders.push(senders[place]); senders.splice(place,1)}
+                for(let shuf=0; shuf<100; shuf++){let place = Math.floor(Math.random() * receivers.length); receivers.push(receivers[place]); receivers.splice(place,1)}
+            }
             for(send=0; send<senders.length; send++){
                 thisRec = 0;
                 for(rec=0; rec<receivers.length; rec++){
@@ -369,8 +401,8 @@ function ResolveEffects(){
                                         GameState.SpinActions.push(paperTrail);
                                         let payout = 0;
                                         if(effectWords[word+1] == "STATE"){
-                                            console.log(receivers[rec])
-                                            payout = receivers[rec].state;
+                                            console.log(senders[send])
+                                            payout = senders[send].state;
                                         }else{
                                             payout = parseInt(effectWords[word+1]);
                                         }
@@ -398,7 +430,14 @@ function ResolveEffects(){
                                     paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect STATE ${effectWords[word+1]}`;
                                     if(GameState.SpinActions.indexOf(paperTrail) == -1){
                                         GameState.SpinActions.push(paperTrail);
-                                        receivers[rec].state += parseInt(effectWords[word+1]);
+                                        let payout = 0;
+                                        if(effectWords[word+1] == "STATE"){
+                                            console.log(senders[send])
+                                            payout = senders[send].state;
+                                        }else{
+                                            payout = parseInt(effectWords[word+1]);
+                                        }
+                                        receivers[rec].state += payout;
                                     }
                                     word++;
                                     break;

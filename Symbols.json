@@ -591,11 +591,12 @@
 		"Payout": "4",
 		"Name": "Eldritch Creature",
 		"Tags": [
-			"animal","witchlike"
+			"basegame","animal","witchlike"
 		],
-		"Description": "Destroys         and . Gives 1 for each         and  destroyed or removed this game.",
+		"Description": "Destroys /fossillike . Gives 1 for each /fossillike destroyed or removed this game.",
 		"Effects": [
-			""
+			"10 ID GIVES DESTROY TO ADJ fossillike",
+			"15 ID GETS PAY STATE FROM GAME"
 		],
 		"Rarity": "Very Rare"
 	},
@@ -677,9 +678,14 @@
 		],
 		"Description": "Destroys itself after 20 spins. The amount of spins needed is reduced by 5 for each /fossillike destroyed or removed this game. Adds /Eldritch_Creature when destroyed.",
 		"Effects": [
+			"1 ID GETS THRESHOLD15 FROM GAME STATE 1",
+			"1 ID GETS THRESHOLD10 FROM GAME STATE 2",
+			"1 ID GETS THRESHOLD5 FROM GAME STATE 3",
+			"1 ID GETS THRESHOLD0 FROM GAME STATE 4",
 			"5 ID GETS STATE 1 FROM ID",
 			"10 ID GETS DESTROY FROM ID THRESHOLD",
-			"101 ID GETS ADD Eldritch_Creature FROM ID DESTROY"
+			"101 ID GETS ADD Eldritch_Creature FROM ID DESTROY",
+			"110 ID GETS STATE 5 FROM fossillike DESTROY"
 		],
 		"Rarity": "Rare"
 	},
@@ -808,7 +814,7 @@
 		"Description": "Has a 30% chance to Destroy an adjacent symbol.",
 		"Effects": [
 			"15 ID !tried GETS givedestroy FROM ID RANDOM 0.3",
-			"20 ID givedestroy !tried GIVES DESTROY TO basegame ADJ LIMIT 1",
+			"20 ID givedestroy !tried GIVES DESTROY TO !ID ADJ LIMIT 1",
 			"25 ID GETS tried FROM ID"
 		],
 		"Rarity": "Uncommon"
@@ -821,8 +827,8 @@
 		],
 		"Description": "Has a 30% chance to make an adjacent symbol give 0.",
 		"Effects": [
-			"15 ID !tried GETS givenopay FROM ID RANDOM 0.9",
-			"20 ID givenopay !tried GIVES MULTI 0 TO basegame ADJ LIMIT 1",
+			"15 ID !tried GETS givenopay FROM ID RANDOM 0.3",
+			"20 ID givenopay !tried GIVES MULTI 0 TO !ID ADJ LIMIT 1",
 			"25 ID GETS tried FROM ID"
 		],
 		"Rarity": "Uncommon"
@@ -1160,7 +1166,7 @@
 		],
 		"Description": "Destroys itself and all adjacent symbols. Symbols destroyed this way give /Coin equal to 7x their value.",
 		"Effects": [
-			"5 ID !DESTROY GIVES DESTROY TO basegame ADJ",
+			"5 ID !DESTROY GIVES DESTROY TO !ID ADJ",
 			"6 ID GETS DESTROY FROM ID !DESTROY",
 			"95 ID GIVES MULTI 7 TO ADJ basegame DESTROY"
 		],
