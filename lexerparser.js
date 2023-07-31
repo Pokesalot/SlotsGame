@@ -8,7 +8,7 @@ function GetClearProgress(){
 		name: "GAME",
         id : "GAME",
 	    tags: [
-			"THRESHOLD20"
+			"THRESHOLD5"
 		],
         status : [],
 		description: "Holds effects for the duration of the game.",
