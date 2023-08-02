@@ -87,8 +87,8 @@ class newSymbol{
             let imageText = desc.substr(0,slash+1);
             let fin = desc.substring(nextSpace);
             for(let get=0; get<keys.length; get++){
-                if(AllSymbolsJson[keys[get]].Name == searchText.replace("_"," ") || AllSymbolsJson[keys[get]].Tags.indexOf(searchText) != -1){
-                    imageText += `<img class="inline-image" alt="${AllSymbolsJson[keys[get]].Name}" style src="images/${AllSymbolsJson[keys[get]].Name.toLowerCase().replace(" ","_")}.png"></img>`;
+                if(AllSymbolsJson[keys[get]].Name == searchText.replaceAll("_"," ") || AllSymbolsJson[keys[get]].Tags.indexOf(searchText) != -1){
+                    imageText += `<img class="inline-image" alt="${AllSymbolsJson[keys[get]].Name}" style src="images/${AllSymbolsJson[keys[get]].Name.toLowerCase().replaceAll(" ","_")}.png"></img>`;
                 }
             }
             desc = imageText + fin;
@@ -399,6 +399,7 @@ function ResolveEffects(){
                 words.splice(words.indexOf("FROM"));
                 effectWords = words;
             }
+            if(testing){console.log(`Senders: ${senders.length}, receivers: ${receivers.length}`)}
             //Senders and receivers are set at this point
             let thisSend = 0; let thisRec = 0;
             if(shuffleLists){
@@ -408,7 +409,6 @@ function ResolveEffects(){
             for(send=0; send<senders.length; send++){
                 thisRec = 0;
                 for(rec=0; rec<receivers.length; rec++){
-                    console.log(`adj: ${checkADJ}, point: ${checkPoint}, getpoint: ${getPoint(senders[send], receivers[rec])}`)
                     if((!checkADJ && !checkPoint) || (checkADJ && getAdjacency(senders[send],receivers[rec])) || (checkPoint && getPoint(senders[send], receivers[rec]))){
                         thisSend++;thisRec++;
                         if(thisSend>sendLimit || thisRec > recLimit){continue}

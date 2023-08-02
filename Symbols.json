@@ -221,7 +221,7 @@
 		],
 		"Description": "Destroys itself after giving /Coin 3 times.",
 		"Effects": [
-			"15 ID GIVES STATE 1 TO ID",
+			"15 ID GIVES STATE 1 TO ID !DESTROY",
 			"16 ID GETS DESTROY FROM ID THRESHOLD"
 		],
 		"Rarity": "Common"
@@ -1403,7 +1403,7 @@
 		],
 		"Description": "Adds 7 /Candy when destroyed.",
 		"Effects": [
-			"95 ID DESTROY !gave GIVES ADD Candy ADD Candy ADD Candy ADD Candy ADD Candy ADD Candy ADD Candy gave TO ID"
+			"101 ID GETS ADD Candy ADD Candy ADD Candy ADD Candy ADD Candy ADD Candy ADD Candy gave FROM ID DESTROY !gave"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -1749,8 +1749,8 @@
 		],
 		"Description": "Destroys adjacent /toddlerlike . Gives 6 for each /toddlerlike destroyed.",
 		"Effects": [
-			"14 ID GIVES DESTROY TO ADJ toddlerlike",
-			"14 ID GETS PAY 6 FROM ADJ toddlerlike"
+			"14 ID GETS PAY 6 FROM ADJ toddlerlike !DESTROY",
+			"15 ID GIVES DESTROY TO ADJ toddlerlike !DESTROY"
 		],
 		"Rarity": "Common"
 	},
