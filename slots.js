@@ -105,7 +105,7 @@ function DrawBoard(){
     const symbolIndex = i % 4;
     const image = document.getElementById(`symbol-${reel}-${symbolIndex}`);
     image.src = GameState.Board[i].src;
-    image.style.transform = `rotate(${GameState.Board[i].imageRotation})`;
+    image.style = `transform:rotate(${GameState.Board[i].imageRotation}deg)`;
   }
 }
 

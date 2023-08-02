@@ -5,7 +5,7 @@
 		"Tags": [
 			"basegame", "gem"
 		],
-		"Description": "Whenever another symbol makes this symbol give additional /coin, this symbol permanently gives 1 more /coin.",
+		"Description": "Whenever another symbol makes this symbol give additional /Coin, this symbol permanently gives 1 more /Coin.",
 		"Effects": [
 			"110 ID GETS SCALE FROM ID"
 		],
@@ -78,7 +78,7 @@
 		"Payout": "3",
 		"Name": "Bartender",
 		"Tags": [
-			"basegame","human"
+			"basegame","human","doglikes"
 		],
 		"Description": "Has a 10% chance of adding /drinks .",
 		"Effects": [
@@ -104,7 +104,7 @@
 		"Payout": "2",
 		"Name": "Beastmaster",
 		"Tags": [
-			"basegame","human"
+			"basegame","human","doglikes"
 		],
 		"Description": "Adjacent /animal give 2x more /Coin .",
 		"Effects": [
@@ -190,7 +190,7 @@
 		"Payout": "1",
 		"Name": "Bounty Hunter",
 		"Tags": [
-			"basegame","human"
+			"basegame","human","doglikes"
 		],
 		"Description": "Destroys adjacent /Thief . Gives 20 /Coin for each /Thief destroyed.",
 		"Effects": [
@@ -203,11 +203,13 @@
 		"Payout": "0",
 		"Name": "Bronze Arrow",
 		"Tags": [
-			"","robinlikes"
+			"basegame","robinlikes"
 		],
-		"Description": "Points a random direction. Symbols that are pointed to give 2x more . Destroys  that are pointed to.",
+		"Description": "Points a random direction. Symbols that are pointed to give 2x more . Destroys /Target that are pointed to.",
 		"Effects": [
-			""
+			"3 ID GETS SPIN FROM ID",
+			"5 ID GIVES MULTI 2 TO basegame POINT",
+			"7 ID GIVES DESTROY TO Target POINT"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -251,7 +253,7 @@
 		"Payout": "2",
 		"Name": "Card Shark",
 		"Tags": [
-			"basegame","human"
+			"basegame","human","doglikes"
 		],
 		"Description": "Adjacent /suit are /Wildcard .",
 		"Effects": [
@@ -286,7 +288,7 @@
 		"Payout": "2",
 		"Name": "Chef",
 		"Tags": [
-			"basegame","human"
+			"basegame","human","doglikes"
 		],
 		"Description": "Adjacent /food give 2x more /Coin .",
 		"Effects": [
@@ -407,7 +409,7 @@
 		"Payout": "3",
 		"Name": "Comedian",
 		"Tags": [
-			"basegame","human"
+			"basegame","human","doglikes"
 		],
 		"Description": "Adjacent /funny give 3x more /Coin .",
 		"Effects": [
@@ -459,7 +461,7 @@
 		"Payout": "0",
 		"Name": "Cultist",
 		"Tags": [
-			"basegame","human","fossillike"
+			"basegame","human","fossillike","doglikes"
 		],
 		"Description": "Gives 1 /Coin more for each other /Cultist . Gives 1 /Coin more if there are at least 3 /Cultist .",
 		"Effects": [
@@ -472,7 +474,7 @@
 		"Payout": "2",
 		"Name": "Dame",
 		"Tags": [
-			"basegame","human"
+			"basegame","human","doglikes"
 		],
 		"Description": "Adjacent /gem give 2x more /Coin . Destroys adjacent /Martini . Gives 40 /Coin for each /Martini destroyed.",
 		"Effects": [
@@ -512,7 +514,7 @@
 		"Payout": "2",
 		"Name": "Diver",
 		"Tags": [
-			"basegame","human"
+			"basegame","human","doglikes"
 		],
 		"Description": "Removes adjacent /poslike . Permanently gives 1 /Coin for each symbol removed.",
 		"Effects": [
@@ -525,11 +527,11 @@
 		"Payout": "1",
 		"Name": "Dog",
 		"Tags": [
-			"funny","animal"
+			"basegame","funny","animal"
 		],
-		"Description": "Gives 1 more if adjacent to /gem .",
+		"Description": "Gives 1 /Coin more if adjacent to /doglikes .",
 		"Effects": [
-			"24 ID GETS PAY 1 FROM ADJ LIMIT 1"
+			"24 ID GETS PAY 1 FROM ADJ doglikes LIMIT 1"
 		],
 		"Rarity": "Common"
 	},
@@ -563,7 +565,7 @@
 		"Payout": "1",
 		"Name": "Dwarf",
 		"Tags": [
-			"basegame","human"
+			"basegame","human","doglikes"
 		],
 		"Description": "Destroys adjacent /dwarflike . Gives /Coin equal to 10x the value of symbols destroyed this way.",
 		"Effects": [
@@ -638,7 +640,7 @@
 		"Payout": "2",
 		"Name": "Farmer",
 		"Tags": [
-			"basegame","human"
+			"basegame","human","doglikes"
 		],
 		"Description": "Adjacent /farmerlike give 2x more /Coin . Adjacent /Seed are 50% more likely to grow.",
 		"Effects": [
@@ -694,7 +696,7 @@
 		"Payout": "1",
 		"Name": "Gambler",
 		"Tags": [
-			"basegame","human"
+			"basegame","human","doglikes"
 		],
 		"Description": "Gives ? when destroyed. \"?\" increases by 2 each spin. Destroys itself when /Three-Sided_Die or /Five-Sided_Die rolls a 1.",
 		"Effects": [
@@ -708,7 +710,7 @@
 		"Payout": "1",
 		"Name": "General Zaroff",
 		"Tags": [
-			"basegame","human"
+			"basegame","human","doglikes"
 		],
 		"Description": "Destroys adjacent /human . Gives 20 /Coin for each symbol destroyed.",
 		"Effects": [
@@ -721,7 +723,7 @@
 		"Payout": "2",
 		"Name": "Geologist",
 		"Tags": [
-			"basegame","human"
+			"basegame","human","doglikes"
 		],
 		"Description": "Destroys adjacent /archlike . Permanently gives 1 /Coin for each symbol destroyed.",
 		"Effects": [
@@ -734,11 +736,13 @@
 		"Payout": "0",
 		"Name": "Golden Arrow",
 		"Tags": [
-			"","robinlikes"
+			"basegame","robinlikes"
 		],
 		"Description": "Points a random direction. Symbols that are pointed to give 4x more . Destroys  that are pointed to.",
 		"Effects": [
-			""
+			"3 ID GETS SPIN FROM ID",
+			"5 ID GIVES MULTI 2 TO basegame POINT",
+			"7 ID GIVES DESTROY TO Target POINT"
 		],
 		"Rarity": "Very Rare"
 	},
@@ -922,7 +926,7 @@
 		"Payout": "2",
 		"Name": "Hooligan",
 		"Tags": [
-			"basegame","human"
+			"basegame","human","doglikes"
 		],
 		"Description": "Destroys adjacent /spiritbox . Gives 6 /Coin for each /spiritbox destroyed.",
 		"Effects": [
@@ -935,7 +939,7 @@
 		"Payout": "-7",
 		"Name": "Hustling Capsule",
 		"Tags": [
-			""
+			"TODO"
 		],
 		"Description": "Destroys itself. Adds 1 pool ball item when destroyed.",
 		"Effects": [
@@ -947,7 +951,7 @@
 		"Payout": "0",
 		"Name": "Item Capsule",
 		"Tags": [
-			""
+			"TODO"
 		],
 		"Description": "Destroys itself. Adds 1 Common item when destroyed.",
 		"Effects": [
@@ -959,9 +963,9 @@
 		"Payout": "2",
 		"Name": "Jellyfish",
 		"Tags": [
-			"animal","poslike"
+			"basegame","animal","poslike","TODO"
 		],
-		"Description": "Gives 1 when removal token removed.",
+		"Description": "Gives 1 removal token when removed.(Not implemented yet) ",
 		"Effects": [
 			""
 		],
@@ -971,7 +975,7 @@
 		"Payout": "3",
 		"Name": "Joker",
 		"Tags": [
-			"basegame","funny","human"
+			"basegame","funny","human","doglikes"
 		],
 		"Description": "Adjacent /suit give 2x more /Coin .",
 		"Effects": [
@@ -996,7 +1000,7 @@
 		"Payout": "1",
 		"Name": "King Midas",
 		"Tags": [
-			"basegame","human"
+			"basegame","human","doglikes"
 		],
 		"Description": "Adds /Coin each spin. Adjacent /Coin give 3x more /Coin .",
 		"Effects": [
@@ -1187,7 +1191,7 @@
 		"Payout": "4",
 		"Name": "Mine",
 		"Tags": [
-			"basegame","THRESHOLD4"
+			"basegame","THRESHOLD4","doglikes"
 		],
 		"Description": "Adds /Ore each spin. Destroys itself after giving /Coin 4 times. Adds 1 miningpick item when destroyed.",
 		"Effects": [
@@ -1200,7 +1204,7 @@
 		"Payout": "1",
 		"Name": "Miner",
 		"Tags": [
-			"basegame","human"
+			"basegame","human","doglikes"
 		],
 		"Description": "Destroys adjacent /minerlike . Gives 20 /Coin for each /minerlike destroyed.",
 		"Effects": [
@@ -1262,7 +1266,7 @@
 		"Payout": "2",
 		"Name": "Mrs. Fruit",
 		"Tags": [
-			"basegame","human"
+			"basegame","human","doglikes"
 		],
 		"Description": "Destroys adjacent /fruitlike . Permanently gives 1 for each symbol destroyed.",
 		"Effects": [
@@ -1275,7 +1279,7 @@
 		"Payout": "2",
 		"Name": "Ninja",
 		"Tags": [
-			"basegame","human"
+			"basegame","human","doglikes"
 		],
 		"Description": "Gives 1 less for each other /Ninja .",
 		"Effects": [
@@ -1382,7 +1386,7 @@
 		"Payout": "2",
 		"Name": "Pirate",
 		"Tags": [
-			"basegame","human"
+			"basegame","human","doglikes"
 		],
 		"Description": "Destroys adjacent /piratelike . Permanently gives 1 /Coin for each symbol destroyed.",
 		"Effects": [
@@ -1421,9 +1425,9 @@
 		"Payout": "2",
 		"Name": "Pufferfish",
 		"Tags": [
-			"animal","poslike"
+			"basegame","TODO","animal","poslike"
 		],
-		"Description": "Gives 1 reroll token when removed.",
+		"Description": "Gives 1 reroll token when removed. (not implemented yet)",
 		"Effects": [
 			""
 		],
@@ -1495,7 +1499,7 @@
 		"Payout": "-4",
 		"Name": "Robin Hood",
 		"Tags": [
-			"basegame","human","THRESHOLD4"
+			"basegame","human","THRESHOLD4","doglikes"
 		],
 		"Description": "Gives 25 every 4 spins. Adjacent /robinlikes give 3 /Coin more. Destroys adjacent /robinhates . Gives 15 /Coin for each /robinhates destroyed.",
 		"Effects": [
@@ -1586,11 +1590,13 @@
 		"Payout": "0",
 		"Name": "Silver Arrow",
 		"Tags": [
-			"","robinlikes"
+			"basegame","robinlikes"
 		],
 		"Description": "Points a random direction. Symbols that are pointed to give 3x more . Destroys  that are pointed to.",
 		"Effects": [
-			""
+			"3 ID GETS SPIN FROM ID",
+			"5 ID GIVES MULTI 2 TO basegame POINT",
+			"7 ID GIVES DESTROY TO Target POINT"
 		],
 		"Rarity": "Rare"
 	},
@@ -1701,7 +1707,7 @@
 		"Payout": "-1",
 		"Name": "Thief",
 		"Tags": [
-			"basegame","human"
+			"basegame","human","doglikes"
 		],
 		"Description": "Gives ? when destroyed. \" ? \" increases by 4 each spin.",
 		"Effects": [
@@ -1727,9 +1733,9 @@
 		"Payout": "0",
 		"Name": "Time Capsule",
 		"Tags": [
-			""
+			"TODO"
 		],
-		"Description": "Destroys itself. Adds 1 symbol that was destroyed this game when destroyed. Cannot add .",
+		"Description": "Destroys itself. Adds 1 symbol that was destroyed this game when destroyed. Cannot add /Time_Capsule .",
 		"Effects": [
 			""
 		],
@@ -1739,7 +1745,7 @@
 		"Payout": "1",
 		"Name": "Toddler",
 		"Tags": [
-			"basegame","funny","human"
+			"basegame","funny","human","doglikes"
 		],
 		"Description": "Destroys adjacent /toddlerlike . Gives 6 for each /toddlerlike destroyed.",
 		"Effects": [
@@ -1898,7 +1904,7 @@
 		"Payout": "2",
 		"Name": "Witch",
 		"Tags": [
-			"basegame","human","fossillike"
+			"basegame","human","fossillike","doglikes"
 		],
 		"Description": "Adjacent /witchlike give 2x more .",
 		"Effects": [

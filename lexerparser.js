@@ -258,6 +258,21 @@ function ResolveEffects(){
             return false;
         }
     }
+    function getPoint(sym1,sym2){
+        //The check is if sym1 points at sym2
+        let checkInd = GameState.Board.indexOf(sym1);
+        let nextPoint = getNextPoint(checkInd,sym1.imageRotation/45);
+        while(nextPoint != false && nextPoint != GameState.Board.indexOf(sym2)){
+            checkInd = nextPoint;
+            nextPoint = getNextPoint(checkInd,sym1.imageRotation/45);
+        }
+        if(nextPoint != false && nextPoint == GameState.Board.indexOf(sym2)){
+            console.log(`Index ${GameState.Board.indexOf(sym1)} points to index ${GameState.Board.indexOf(sym2)} with point direction ${sym1.imageRotation/45}`)
+            return true;
+        }else{
+            return false;
+        }
+    }
     //This function will step through and evaluate all effects in order for Gamestate.SpinEffects
     //Actions that do trigger will be noted in the GameState.SpinActions 
 
@@ -328,7 +343,7 @@ function ResolveEffects(){
             }
         }else{
             let senders = getCheckList(); let receivers = getCheckList();
-            let checkADJ = false; let sendLimit = 20; let recLimit = 20; let shuffleLists = false;
+            let checkADJ = false; let sendLimit = 20; let recLimit = 20; let shuffleLists = false; let checkPoint = false;
             let effectWords = [];
             if(curEffect.indexOf("GIVES") != -1){ //Must have a "TO" clause
                 words = curEffect.split(" ").slice(1);
@@ -345,6 +360,10 @@ function ResolveEffects(){
                     shuffleLists = true;
                     recLimit = parseInt(filter[filter.indexOf("LIMIT")+1]);
                     filter.splice(filter.indexOf("LIMIT"),2);
+                }
+                if(filter.indexOf("POINT") != -1){
+                    checkPoint = true;
+                    filter.splice(filter.indexOf("POINT"),1);
                 }
                 filter = filter.join(" ");
                 receivers = trimList(receivers,filter);
@@ -368,6 +387,10 @@ function ResolveEffects(){
                     sendLimit = parseInt(filter[filter.indexOf("LIMIT")+1]);
                     filter.splice(filter.indexOf("LIMIT"),2);
                 }
+                if(filter.indexOf("POINT") != -1){
+                    checkPoint = true;
+                    filter.splice(filter.indexOf("POINT"),1);
+                }
                 filter = filter.join(" ");
                 senders = trimList(senders,filter);
 
@@ -385,7 +408,8 @@ function ResolveEffects(){
             for(send=0; send<senders.length; send++){
                 thisRec = 0;
                 for(rec=0; rec<receivers.length; rec++){
-                    if((!checkADJ) || (checkADJ && getAdjacency(senders[send],receivers[rec]))){
+                    console.log(`adj: ${checkADJ}, point: ${checkPoint}, getpoint: ${getPoint(senders[send], receivers[rec])}`)
+                    if((!checkADJ && !checkPoint) || (checkADJ && getAdjacency(senders[send],receivers[rec])) || (checkPoint && getPoint(senders[send], receivers[rec]))){
                         thisSend++;thisRec++;
                         if(thisSend>sendLimit || thisRec > recLimit){continue}
                         
@@ -502,6 +526,15 @@ function ResolveEffects(){
                                         }
                                         let newRoll = Math.ceil(Math.random() * sides);
                                         receivers[rec].state = newRoll;
+                                    }
+                                    break;
+                                case "SPIN":
+                                    paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect SPIN`;
+                                    if(GameState.SpinActions.indexOf(paperTrail) == -1){
+                                        GameState.SpinActions.push(paperTrail);
+                                        
+                                        receivers[rec].imageRotation = Math.floor(Math.random() * 8) * 45
+                                        console.log(receivers[rec].imageRotation)
                                     }
                                     break;
                                 default:
