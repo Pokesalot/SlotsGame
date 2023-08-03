@@ -1,4 +1,4 @@
-let GameState = {};
+let GameState = {}; let AllSymbolsJson = {}; let AllItemsJson = {}; let AllEssenceJson = {};
 function GetClearProgress(){
   return {
     AllowedTags : ["basegame"],

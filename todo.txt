@@ -11,6 +11,8 @@ Add Symbols
 - finalize removal capsule (add item)
 - make three- and five-sided dice show pips when rolled
 
+add symbol, then item on rent payment
+
 fix raritylikes
 fix hex of hoarding
 fix hex of emptiness

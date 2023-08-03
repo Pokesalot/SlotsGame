@@ -1,5 +1,5 @@
 function StartGame(){
-  moneyShow.innerText = `Coins: ${GameState.PlayerCoins}`
+  moneyShow.innerHTML = `Coins: ${GameState.PlayerCoins}`;
   rentShow.innerText = `Rent Due: ${RentPayChecks[GameState.RentsPaid]}`
   spinsShow.innerText = `Spins to get it: ${GameState.Spins}`
   spinButton.style.visibility = "visible";
@@ -87,7 +87,7 @@ function spin() {
   DrawBoard();
 
   
-  moneyShow.innerText = `Coins: ${GameState.PlayerCoins}`;
+  moneyShow.innerHTML = `Coins: ${GameState.PlayerCoins}`;
   rentShow.innerText = `Rent Due: ${RentPayChecks[GameState.RentsPaid]}`
   spinsShow.innerText = `Spins to get it: ${RentSpinsChecks[GameState.RentsPaid]-GameState.Spins}`
   if(!CheckForRent()){return;}

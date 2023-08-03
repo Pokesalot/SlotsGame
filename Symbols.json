@@ -5,7 +5,7 @@
 		"Tags": [
 			"basegame", "gem"
 		],
-		"Description": "Whenever another symbol makes this symbol give additional /Coin, this symbol permanently gives 1 more /Coin.",
+		"Description": "Whenever another symbol makes this symbol give additional /Coin , this symbol permanently gives 1 more /Coin .",
 		"Effects": [
 			"110 ID GETS SCALE FROM ID"
 		],
