@@ -146,11 +146,16 @@
   "Checkered Flag": {
     "Name": "Checkered Flag",
     "Rarity": "Common",
-    "Description": "and  take 1 less spin to give .",
+    "Description": " /slow take 1 less spin to give /Coin .",
     "Effects": [
-      ""
+      "10 ID GIVES THRESHOLD3 TO Robin_Hood",
+      "10 ID GIVES THRESHOLD3 TO Magpie",
+      "10 ID GIVES THRESHOLD1 TO Sloth",
+      "10 ID GIVES THRESHOLD3 TO Snail",
+      "10 ID GIVES THRESHOLD2 TO Turtle",
+      "10 ID GIVES THRESHOLD2 TO Owl"
     ],
-    "Tags": []
+    "Tags": ["basegame"]
   },
   "Chicken Coop": {
     "Name": "Chicken Coop",
@@ -173,11 +178,11 @@
   "Cleaning Rag": {
     "Name": "Cleaning Rag",
     "Rarity": "Uncommon",
-    "Description": "and  give 1 more.",
+    "Description": " /gem give 1 /Coin more.",
     "Effects": [
-      ""
+      "15 ID GIVES PAY 1 TO gem"
     ],
-    "Tags": []
+    "Tags": ["basegame"]
   },
   "Clear Sky": {
     "Name": "Clear Sky",
@@ -236,11 +241,11 @@
   "Copycat": {
     "Name": "Copycat",
     "Rarity": "Very Rare",
-    "Description": "are .",
+    "Description": " /Cat are /Wildcard .",
     "Effects": [
-      ""
+      "15 ID GIVES WILDCARD TO Cat"
     ],
-    "Tags": []
+    "Tags": ["basegame"]
   },
   "Credit Card": {
     "Name": "Credit Card",
@@ -254,11 +259,12 @@
   "Cursed Katana": {
     "Name": "Cursed Katana",
     "Rarity": "Uncommon",
-    "Description": "give 2 more for each other .",
+    "Description": " /Ninja give 2 /Coin more for each other /Ninja .",
     "Effects": [
-      ""
+      "15 Ninja GETS PAY 2 FROM Ninja",
+      "16 Ninja GETS Pay -2 FROM ID"
     ],
-    "Tags": []
+    "Tags": ["basegame"]
   },
   "Cyan Pepper": {
     "Name": "Cyan Pepper",
@@ -344,11 +350,11 @@
   "Four-leaf clover": {
     "Name": "Four-leaf clover",
     "Rarity": "Very Rare",
-    "Description": "Gives 4.",
+    "Description": "Gives 4 /Coin .",
     "Effects": [
-      ""
+      "15 ID GIVES PAY 4 TO ID"
     ],
-    "Tags": []
+    "Tags": ["basegame"]
   },
   "Frozen Pizza": {
     "Name": "Frozen Pizza",
@@ -371,11 +377,14 @@
   "Frying Pan": {
     "Name": "Frying Pan",
     "Rarity": "Common",
-    "Description": "are destroyed when adjacent to     and . Adds  whenever  are destroyed.",
+    "Description": " /Egg are destroyed when adjacent to /omelettestuff . Adds /Omelette whenever /Egg are destroyed.",
     "Effects": [
-      ""
+      "50 Egg GETS DESTROY FROM ADJ omelettestuff",
+      "101 ID GIVES ADD Omelette becameomelette TO EGG DESTROY !becameomelette"
     ],
-    "Tags": []
+    "Tags": [
+      "basegame"
+    ]
   },
   "Golden Carrot": {
     "Name": "Golden Carrot",
@@ -425,16 +434,18 @@
   "Guillotine": {
     "Name": "Guillotine",
     "Rarity": "Common",
-    "Description": "are destroyed.",
+    "Description": " /Billionaire are destroyed.",
     "Effects": [
-      ""
+      "15 ID GIVES DESTROY TO Billionaire"
     ],
-    "Tags": []
+    "Tags": [
+      "basegame"
+    ]
   },
   "Happy Hour": {
     "Name": "Happy Hour",
     "Rarity": "Common",
-    "Description": "and  give 1 more.",
+    "Description": " /drinks give 1 more /Coin .",
     "Effects": [
       ""
     ],
@@ -452,11 +463,11 @@
   "Horseshoe": {
     "Name": "Horseshoe",
     "Rarity": "Uncommon",
-    "Description": "Gives 2.",
+    "Description": "Gives 2 /Coin .",
     "Effects": [
-      ""
+      "20 ID GETS PAY 2 FROM ID"
     ],
-    "Tags": []
+    "Tags": ["basegame"]
   },
   "Instant Ramen": {
     "Name": "Instant Ramen",
@@ -479,11 +490,11 @@
   "Jack-o'-lantern": {
     "Name": "Jack-o'-lantern",
     "Rarity": "Common",
-    "Description": "and  give 2x more .",
+    "Description": " /halloween give 2x more /Coin .",
     "Effects": [
-      ""
+      "30 ID GIVES MULTI 2 TO halloween"
     ],
-    "Tags": []
+    "Tags": ["basegame"]
   },
   "Kyle the Kernite": {
     "Name": "Kyle the Kernite",
@@ -506,11 +517,11 @@
   "Lemon": {
     "Name": "Lemon",
     "Rarity": "Uncommon",
-    "Description": "give 1.",
+    "Description": " /Empty give 1 /Coin .",
     "Effects": [
-      ""
+      "15 ID GIVES PAY 1 TO Empty"
     ],
-    "Tags": []
+    "Tags": ["basegame"]
   },
   "Lime Pepper": {
     "Name": "Lime Pepper",
@@ -596,18 +607,19 @@
   "Maxwell the Bear": {
     "Name": "Maxwell the Bear",
     "Rarity": "Common",
-    "Description": "give 1.5x more .",
+    "Description": " /Bear give 1.5x more /Coin .",
     "Effects": [
-      ""
+      "15 ID GIVES MULTI 1.5 TO Bear"
     ],
-    "Tags": []
+    "Tags": ["basegame"]
   },
   "Mining Pick": {
     "Name": "Mining Pick",
     "Rarity": "Common",
-    "Description": "Gives 5 whenever  or  are destroyed.",
+    "Description": "Gives 5 whenever /Ore or /Big_Ore are destroyed.",
     "Effects": [
-      ""
+      "101 ID GETS PAY 5 FROM Ore DESTROY",
+      "101 ID GETS PAY 5 FROM Big_Ore DESTROY"
     ],
     "Tags": []
   },
@@ -650,11 +662,11 @@
   "Oswald the Monkey": {
     "Name": "Oswald the Monkey",
     "Rarity": "Common",
-    "Description": "give 2x more .",
+    "Description": " /Monkey give 2x more /Coin .",
     "Effects": [
-      ""
+      "15 ID GIVES MULTI 2 TO Monkey"
     ],
-    "Tags": []
+    "Tags": ["basegame"]
   },
   "Piggy Bank": {
     "Name": "Piggy Bank",
@@ -677,20 +689,20 @@
   "Pizza the Cat": {
     "Name": "Pizza the Cat",
     "Rarity": "Common",
-    "Description": "give 1 more.",
+    "Description": " /Cat give 1 /Coin more.",
     "Effects": [
-      ""
+      "10 ID GIVES PAY 1 TO Cat"
     ],
-    "Tags": []
+    "Tags": ["basegame"]
   },
   "Pool Ball": {
     "Name": "Pool Ball",
     "Rarity": "Common",
-    "Description": "Gives 1.",
+    "Description": "Gives 1 /Coin.",
     "Effects": [
-      ""
+      "10 ID GIVES PAY 1 TO ID"
     ],
-    "Tags": []
+    "Tags": ["basegame"]
   },
   "Popsicle": {
     "Name": "Popsicle",
@@ -731,11 +743,12 @@
   "Quigley the Wolf": {
     "Name": "Quigley the Wolf",
     "Rarity": "Common",
-    "Description": "give 1 more.  transform into .",
+    "Description": " /Wolf give 1 /Coin more. /Dog transform into /Wolf .",
     "Effects": [
-      ""
+      "15 ID GIVES TRANSFORM Wolf TO Dog",
+      "20 ID GIVES PAY 1 TO Wolf"
     ],
-    "Tags": []
+    "Tags": ["basegame"]
   },
   "Quiver": {
     "Name": "Quiver",
@@ -794,20 +807,21 @@
   "Ricky the Banana": {
     "Name": "Ricky the Banana",
     "Rarity": "Common",
-    "Description": "and  give 1 more.",
+    "Description": " /Banana and /Banana_Peel give 1 /Coin more.",
     "Effects": [
-      ""
+      "15 ID GIVES PAY 1 TO Banana",
+      "15 ID GIVES PAY 1 TO Banana_Peel"
     ],
-    "Tags": []
+    "Tags": ["basegame"]
   },
   "Ritual Candle": {
     "Name": "Ritual Candle",
     "Rarity": "Uncommon",
-    "Description": "and  give 1 more.",
+    "Description": " /hex give 1 more /Coin .",
     "Effects": [
-      ""
+      "30 ID GIVES PAY 1 TO hex"
     ],
-    "Tags": []
+    "Tags": ["basegame"]
   },
   "Rusty Gear": {
     "Name": "Rusty Gear",
@@ -929,11 +943,11 @@
   "Triple Coins": {
     "Name": "Triple Coins",
     "Rarity": "Uncommon",
-    "Description": "give 3x more .",
+    "Description": " /Coin give 3x more /Coin .",
     "Effects": [
-      ""
+      "15 ID GIVES MULTI 3 TO Coin"
     ],
-    "Tags": []
+    "Tags": ["basegame"]
   },
   "Undertaker": {
     "Name": "Undertaker",
@@ -1010,11 +1024,12 @@
   "Yellow Pepper": {
     "Name": "Yellow Pepper",
     "Rarity": "Common",
-    "Description": "Gives 2 if none of the symbols are .",
+    "Description": "Gives 2 /Coin if none of the symbols are /Empty .",
     "Effects": [
-      ""
+      "10 ID GETS nopay FROM Empty",
+      "14 ID GETS PAY 2 FROM ID !nopay"
     ],
-    "Tags": []
+    "Tags": ["basegame"]
   },
   "Zaroff's Contract": {
     "Name": "Zaroff's Contract",

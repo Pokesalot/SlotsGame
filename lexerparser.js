@@ -38,6 +38,7 @@ function GetClearProgress(){
     ForcedRarities: [],
     ShopItems : [],
     Destroyed : [],
+    shops : [],
     canBuy: false,
     canSpin: true,
     canSkip: false,
@@ -50,12 +51,17 @@ async function fetchData() {
     let data = await response.json();
     AllSymbolsJson = data;
 
+    response = await fetch("./Items.json");
+    data = await response.json();
+    AllItemsJson = data;
+
     GameState = GetClearProgress();
     DrawBoard();
     StartGame();
 }
 //Run this on page load. Resetting the game once all symbols and items have been loaded will be faster, and handled in another place.
 fetchData();
+
 
 function GetStartingBoard(Difficulty){
     if(Difficulty <= 5){
@@ -83,12 +89,18 @@ class newSymbol{
             let slash = desc.indexOf(" /");
             let nextSpace = desc.indexOf(" ",slash+1);
             let searchText = desc.substr(slash+2,nextSpace-slash-2);
-            let keys = Object.keys(AllSymbolsJson);
+            let symkeys = Object.keys(AllSymbolsJson);
+            let itmKeys = Object.keys(AllItemsJson);
             let imageText = desc.substr(0,slash+1);
             let fin = desc.substring(nextSpace);
-            for(let get=0; get<keys.length; get++){
-                if(AllSymbolsJson[keys[get]].Name == searchText.replaceAll("_"," ") || AllSymbolsJson[keys[get]].Tags.indexOf(searchText) != -1){
-                    imageText += `<img class="inline-image" alt="${AllSymbolsJson[keys[get]].Name}" style src="images/${AllSymbolsJson[keys[get]].Name.toLowerCase().replaceAll(" ","_")}.png"></img>`;
+            for(let get=0; get<symkeys.length; get++){
+                if(AllSymbolsJson[symkeys[get]].Name == searchText.replaceAll("_"," ") || AllSymbolsJson[symkeys[get]].Tags.indexOf(searchText) != -1){
+                    imageText += `<img class="inline-image" alt="${AllSymbolsJson[symkeys[get]].Name}" style src="images/${AllSymbolsJson[symkeys[get]].Name.toLowerCase().replaceAll(" ","_")}.png"></img>`;
+                }
+            }
+            for(let get=0; get<itmKeys.length; get++){
+                if(AllItemsJson[itmKeys[get]].Name == searchText.replaceAll("_"," ") || AllItemsJson[itmKeys[get]].Tags.indexOf(searchText) != -1){
+                    imageText += `<img class="inline-image" alt="${AllItemsJson[itmKeys[get]].Name}" style src="images/${AllItemsJson[itmKeys[get]].Name.toLowerCase().replaceAll(" ","_")}.png"></img>`;
                 }
             }
             desc = imageText + fin;
@@ -175,7 +187,15 @@ function GetSymbolEffects(){
     GameState.SpinEffects.sort((a,b) => a.split(" ")[0] - b.split(" ")[0] )
 }
 function GetItemEffects(){
-    //Standin, will be added when symbols actually exist
+    for(let i=0; i<GameState.PlayerItems.length; i++){
+        for(let j=0;j<GameState.PlayerItems[i].effects.length;j++){
+            let check = GameState.PlayerItems[i].effects[j].replaceAll("ID",GameState.PlayerItems[i].id);
+            if(GameState.SpinEffects.indexOf(check) == -1 && check.split(" ")[0] != "ON"){
+                GameState.SpinEffects.push(check)
+            }
+        }
+    }
+    GameState.SpinEffects.sort((a,b) => a.split(" ")[0] - b.split(" ")[0] )
 }
 
 function ResolveEffects(){
@@ -338,7 +358,7 @@ function ResolveEffects(){
                     GameState.Board[i].lastPayout = curPayout;
                 }
             }
-            for (let i = 0; i<GameState.PlayerItems; i++){
+            for (let i = 0; i<GameState.PlayerItems.length; i++){
                 GameState.PlayerCoins += GameState.PlayerItems[i].GetPayout();
             }
         }else{
@@ -468,11 +488,14 @@ function ResolveEffects(){
                                 case "ADD":
                                     paperTrail = `${senders[send].name}(${senders[send].id})=>${receivers[rec].name}(${receivers[rec].id}): Effect ADD ${effectWords[word+1]}`;
                                     GameState.SpinActions.push(paperTrail);
-
-                                    let keys = Object.keys(AllSymbolsJson);
                                     effectWords[word+1] = effectWords[word+1].replaceAll("_"," ")
-                                    if(keys.indexOf(effectWords[word+1]) != -1){
+                                    
+                                    let symkeys = Object.keys(AllSymbolsJson);
+                                    let itmkeys = Object.keys(AllItemsJson);
+                                    if(symkeys.indexOf(effectWords[word+1]) != -1){
                                         AddSymbol(effectWords[word+1]);
+                                    }else if(itmkeys.indexOf(effectWords[word+1] != -1)){
+                                        AddItem(effectWords[word+1]);
                                     }else{
                                         let likes = [[],[],[],[]];
                                         for(let check=0;check<keys.length;check++){
@@ -588,7 +611,17 @@ function AddSymbol(SymbolName){
     DrawBoard();
 }
 
+function AddItem(ItemName){
+    let newItem = MakeItem(ItemName.replaceAll("_"," "));
+    GameState.PlayerItems.push(newItem);
+}
+
 function MakeSymbol(SymbolName){
     let ns = AllSymbolsJson[SymbolName]
     return new newSymbol(ns["Name"],ns["Payout"],ns["Rarity"],ns["Description"],ns["Effects"],ns["Tags"])
+}
+
+function MakeItem(ItemName){
+    let ns = AllItemsJson[ItemName]
+    return new newSymbol(ns["Name"],0,ns["Rarity"],ns["Description"],ns["Effects"],ns["Tags"])
 }

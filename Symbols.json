@@ -82,7 +82,7 @@
 		],
 		"Description": "Has a 10% chance of adding /drinks .",
 		"Effects": [
-			"15 ID !tried GETS ADD drinks FROM ID",
+			"15 ID !tried GETS ADD drinks FROM ID RANDOM 0.1",
 			"25 ID GETS tried FROM ID"
 		],
 		"Rarity": "Rare"
@@ -243,7 +243,7 @@
 		"Payout": "1",
 		"Name": "Candy",
 		"Tags": [
-			"basegame","toddlerlike","food"
+			"basegame","toddlerlike","food","halloween"
 		],
 		"Description": "",
 		"Effects": [],
@@ -300,7 +300,7 @@
 		"Payout": "0",
 		"Name": "Chemical Seven",
 		"Tags": [
-			"basegame","food"
+			"basegame","food","drinks"
 		],
 		"Description": "Destroys itself. Gives 7 /Coin and adds 1 lucky seven item when destroyed.",
 		"Effects": [
@@ -425,7 +425,8 @@
 		],
 		"Description": "Has a 15% chance of adding /Milk ",
 		"Effects": [
-			"15 ID GETS ADD Milk FROM ID RANDOM 0.15"
+			"15 ID !tried GETS ADD Milk FROM ID RANDOM 0.15",
+			"20 ID GETS tried FROM ID"
 		],
 		"Rarity": "Rare"
 	},
@@ -687,8 +688,7 @@
 			"1 ID GETS DESTROY FROM GAME THRESHOLD",
 			"5 ID GETS STATE 1 FROM ID",
 			"10 ID GETS DESTROY FROM ID THRESHOLD",
-			"101 ID GETS ADD Eldritch_Creature FROM ID DESTROY",
-			"110 ID GETS STATE 5 FROM fossillike DESTROY"
+			"101 ID !gave GETS ADD Eldritch_Creature gave FROM ID DESTROY"
 		],
 		"Rarity": "Rare"
 	},
@@ -814,7 +814,7 @@
 		"Payout": "3",
 		"Name": "Hex of Destruction",
 		"Tags": [
-			"basegame","witchlike","fossillike"
+			"basegame","witchlike","fossillike","hex"
 		],
 		"Description": "Has a 30% chance to Destroy an adjacent symbol.",
 		"Effects": [
@@ -828,7 +828,7 @@
 		"Payout": "3",
 		"Name": "Hex of Draining",
 		"Tags": [
-			"basegame","witchlike","fossillike"
+			"basegame","witchlike","fossillike","hex"
 		],
 		"Description": "Has a 30% chance to make an adjacent symbol give 0.",
 		"Effects": [
@@ -842,11 +842,11 @@
 		"Payout": "3",
 		"Name": "Hex of Emptiness",
 		"Tags": [
-			"basegame","witchlike","fossillike"
+			"basegame","witchlike","fossillike","hex"
 		],
 		"Description": "Has a 30% chance of forcing you to skip the symbols you can add after a spin.",
 		"Effects": [
-			"15 ID !tried GETS MUSTSKIP FROM ID RANDOM 0.3",
+			"15 ID !tried GIVES MUSTSKIP TO GAME RANDOM 0.3",
 			"20 ID GETS tried FROM ID"
 		],
 		"Rarity": "Uncommon"
@@ -855,11 +855,11 @@
 		"Payout": "3",
 		"Name": "Hex of Hoarding",
 		"Tags": [
-			"basegame","witchlike","fossillike"
+			"basegame","witchlike","fossillike","hex"
 		],
 		"Description": "Has a 30% chance of forcing you to add a symbol after this spin.",
 		"Effects": [
-			"15 ID !tried GETS NOSKIP FROM ID RANDOM 0.3",
+			"15 ID !tried GIVES NOSKIP TO GAME RANDOM 0.3",
 			"20 ID GETS tried FROM ID"
 		],
 		"Rarity": "Uncommon"
@@ -868,7 +868,7 @@
 		"Payout": "3",
 		"Name": "Hex of Midas",
 		"Tags": [
-			"basegame","witchlike","fossillike"
+			"basegame","witchlike","fossillike","hex"
 		],
 		"Description": "Has a 30% chance of adding /Coin .",
 		"Effects": [
@@ -881,7 +881,7 @@
 		"Payout": "3",
 		"Name": "Hex of Tedium",
 		"Tags": [
-			"basegame","witchlike","fossillike","raritylike"
+			"basegame","witchlike","fossillike","raritylike","hex"
 		],
 		"Description": "You are 1.2x less likely to find Uncommon, Rare, and Very Rare symbols.",
 		"Effects": [
@@ -893,7 +893,7 @@
 		"Payout": "3",
 		"Name": "Hex of Thievery",
 		"Tags": [
-			"basegame","witchlike","fossillike"
+			"basegame","witchlike","fossillike","hex"
 		],
 		"Description": "Has a 30% chance to take 6.",
 		"Effects": [
@@ -939,11 +939,12 @@
 		"Payout": "-7",
 		"Name": "Hustling Capsule",
 		"Tags": [
-			"TODO"
+			"basegame"
 		],
-		"Description": "Destroys itself. Adds 1 pool ball item when destroyed.",
+		"Description": "Destroys itself. Adds 1 /Pool_Ball item when destroyed.",
 		"Effects": [
-			""
+			"10 ID GIVES DESTROY TO ID",
+			"101 ID DESTROY !gave GETS gave ADD Pool_Ball TO ID"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -1045,7 +1046,7 @@
 		"Description": "Destroys itself. At least 1 of the symbols to add after this spin will be Rare or better.",
 		"Effects": [
 			"1 ID GETS DESTROY FROM ID",
-			"101 ID GETS RARESHOP FROM ID DESTROY"
+			"101 ID DESTROY GIVES RARESHOP TO GAME"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -1066,7 +1067,7 @@
 		"Payout": "-1",
 		"Name": "Magpie",
 		"Tags": [
-			"basegame","THRESHOLD4","animal"
+			"basegame","THRESHOLD4","animal","slow"
 		],
 		"Description": "Gives 9 /Coin every 4 spins.",
 		"Effects": [
@@ -1193,10 +1194,11 @@
 		"Tags": [
 			"basegame","THRESHOLD4","doglikes"
 		],
-		"Description": "Adds /Ore each spin. Destroys itself after giving /Coin 4 times. Adds 1 miningpick item when destroyed.",
+		"Description": "Adds /Ore each spin. Destroys itself after giving /Coin 4 times. Adds 1 /Mining_Pick item when destroyed.",
 		"Effects": [
-			"15 ID GETS ADD Ore STATE 1 FROM ID",
-			"50 ID GETS DESTROY FROM ID THRESHOLD"
+			"15 ID !add GETS ADD Ore STATE 1 add FROM ID",
+			"50 ID GETS DESTROY FROM ID THRESHOLD",
+			"101 ID DESTROY !item GIVES ADD Mining_Pick item TO ID"
 		],
 		"Rarity": "Rare"
 	},
@@ -1326,7 +1328,7 @@
 		"Payout": "1",
 		"Name": "Owl",
 		"Tags": [
-			"basegame", "THRESHOLD3","night","animal","witchlike"
+			"basegame", "THRESHOLD3","night","animal","witchlike","slow"
 		],
 		"Description": "Gives 1 /Coin every 3 spins.",
 		"Effects": [
@@ -1343,8 +1345,9 @@
 		],
 		"Description": "Has a 20% chance of adding /Pearl . Adds /Pearl when removed.",
 		"Effects": [
-			"20 ID GETS ADD Pearl FROM ID RANDOM 0.2",
-			"85 ID REMOVE GETS ADD Pearl FROM ID"
+			"10 ID !tried GETS ADD Pearl FROM ID RANDOM 0.2",
+			"15 ID GETS tried FROM ID",
+			"101 ID REMOVE !add GETS ADD Pearl add FROM ID"
 		],
 		"Rarity": "Common"
 	},
@@ -1356,7 +1359,7 @@
 		],
 		"Description": "Adds /Seed when destroyed.",
 		"Effects": [
-			"95 ID GETS ADD Seed FROM ID DESTROY"
+			"95 ID !add GETS ADD Seed add FROM ID DESTROY"
 		],
 		"Rarity": "Uncommon"
 	},
@@ -1499,7 +1502,7 @@
 		"Payout": "-4",
 		"Name": "Robin Hood",
 		"Tags": [
-			"basegame","human","THRESHOLD4","doglikes"
+			"basegame","human","THRESHOLD4","doglikes","slow"
 		],
 		"Description": "Gives 25 every 4 spins. Adjacent /robinlikes give 3 /Coin more. Destroys adjacent /robinhates . Gives 15 /Coin for each /robinhates destroyed.",
 		"Effects": [
@@ -1604,7 +1607,7 @@
 		"Payout": "0",
 		"Name": "Sloth",
 		"Tags": [
-			"basegame","THRESHOLD2","animal"
+			"basegame","THRESHOLD2","animal","slow"
 		],
 		"Description": "Gives 4 every 2 spins.",
 		"Effects": [
@@ -1617,7 +1620,7 @@
 		"Payout": "0",
 		"Name": "Snail",
 		"Tags": [
-			"basegame","THRESHOLD4","animal","poslike"
+			"basegame","THRESHOLD4","animal","poslike","slow"
 		],
 		"Description": "Gives 5 /Coin every 4 spins.",
 		"Effects": [
@@ -1745,7 +1748,7 @@
 		"Payout": "1",
 		"Name": "Toddler",
 		"Tags": [
-			"basegame","funny","human","doglikes"
+			"basegame","funny","human","doglikes","halloween"
 		],
 		"Description": "Destroys adjacent /toddlerlike . Gives 6 for each /toddlerlike destroyed.",
 		"Effects": [
@@ -1783,7 +1786,7 @@
 		"Payout": "0",
 		"Name": "Turtle",
 		"Tags": [
-			"basegame","THRESHOLD3","animal","poslike"
+			"basegame","THRESHOLD3","animal","poslike","slow"
 		],
 		"Description": "Gives 4 /Coin every 3 spins.",
 		"Effects": [

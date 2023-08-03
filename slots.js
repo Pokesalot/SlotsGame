@@ -92,9 +92,18 @@ function spin() {
   spinsShow.innerText = `Spins to get it: ${RentSpinsChecks[GameState.RentsPaid]-GameState.Spins}`
   if(!CheckForRent()){return;}
   setTimeout(() => {
-    FillShop();
-    document.getElementById("spin-button").disabled = false;
-  }, 600); 
+    SymbolShop();
+  }, 600);
+
+  if(GameState.Spins == 0){
+    GameState.shops.push("Item");
+    while(GameState.EssenceTokens > 0){
+      GameState.EssenceTokens--;
+      GameState.shops.push("Essence")
+    }
+  }
+
+  document.getElementById("spin-button").disabled = false;
   if(testing){console.log(GameState.SpinActions)}
 }
 
@@ -111,24 +120,26 @@ function DrawBoard(){
 
 function ShowShop(){
   for (let i=0; i<3; i++){
-    let temp = MakeSymbol(GameState.ShopItems[i].name)
+    let temp = GameState.ShopItems[i]
     shopImages[i].src = temp.src;
     shopHeaders[i].innerHTML = `<h2 style="color:#${["B7B7B7","86BFDF","CCCC33","D0A5E8"][["Common","Uncommon","Rare","Very Rare"].indexOf(temp.rarity)]}">${temp.name}</h2>`;
     shopParas[i].innerHTML = `<p>Pays ${temp.payout} <br /> ${temp.description}</p>`;
   }
-  if(GameState.canBuy){
+  if(GameState.canBuy || testing){
     document.getElementById("shop").style.display = "block";
     if(GameState.canSkip){
       document.getElementById("skipShop").style.display = "block";
     }else{
       document.getElementById("skipShop").style.display = "none";
     }
+  }else{
+    console.log("I can't show the shop right now")
   }
   
 }
 
 // Slight TODO, check for certain items that will aren't allowed given a player's items
-function FillShop(){
+function SymbolShop(){
   let hasHighlander = false;
   GameState.ShopItems = [];
   for (let symbol=0; symbol < GameState.PlayerSymbols.length; symbol++){
@@ -185,6 +196,40 @@ function FillShop(){
   ShowShop();
 }
 
+function ItemShop(){
+  GameState.ShopItems = [];
+  let offered = [];
+  for (let i=0; i<3; i++){
+    let itemRarity = GetRarity()
+    let keys = Object.keys(AllItemsJson)
+    let offerable = []; 
+    for(let find=0;find<keys.length;find++){
+      let foundAcceptableTag = false
+      for(let tag=0;tag<GameState.AllowedTags.length;tag++){
+        if(AllItemsJson[keys[find]].Tags.indexOf(GameState.AllowedTags[tag]) != -1){
+          foundAcceptableTag = true;
+        }
+      }
+      if(foundAcceptableTag 
+        && AllItemsJson[keys[find]].Rarity == ["Common","Uncommon","Rare","Very Rare"][itemRarity]
+        && offered.indexOf(AllItemsJson[keys[find]].Name) == -1){
+        offerable.push(keys[find]);
+      }
+    }
+    let ind = Math.floor(Math.random() * offerable.length)
+    let randItem = AllItemsJson[offerable[ind]];
+    while(offered.indexOf(randItem.Name) != -1 ){
+      console.log("Had an oopsie")
+      ind = Math.floor(Math.random() * offerable.length)
+      randItem = AllItemsJson[offerable[ind]]
+    }
+    offered.push(randItem.Name)
+    GameState.ShopItems.push(MakeItem(offerable[ind]));
+  }
+  
+  ShowShop();
+}
+
 /////////////////////////////////////////////                 TODO
 function GetRarity(){
   let roll = Math.random();
@@ -204,14 +249,43 @@ function GetRarity(){
 }
 
 function BuyItem(index){
-  if(!(GameState.canBuy)){
+  if(!(GameState.canBuy) && !testing){
     return 0;
   }
   GameState.canBuy = false;
   GameState.canSkip = false;
 
-  AddSymbol(GameState.ShopItems[index].name)
+  let symkeys = Object.keys(AllSymbolsJson);
+  let itmkeys = Object.keys(AllItemsJson);
+  let esskeys = Object.keys(AllEssenceJson);
+  if(symkeys.indexOf(GameState.ShopItems[index].name.replaceAll("_"," ")) != -1){
+    AddSymbol(GameState.ShopItems[index].name);
+  }else if(itmkeys.indexOf(GameState.ShopItems[index].name.replaceAll("_"," ")) != -1){
+    AddItem(GameState.ShopItems[index].name);
+  }
   document.getElementById("shop").style.display = "none";
+  GetNextShop();
+}
+
+function SkipShop(){
+  document.getElementById(`shop`).style.display = `none`;
+  GetNextShop();
+}
+
+function GetNextShop(){
+  let next = GameState.shops.pop();
+  switch(next){
+    case "Item":
+      GameState.canBuy = true;
+      GameState.canSkip = true;
+      ItemShop();
+      break;
+    case "Essence":
+      GameState.canBuy = true;
+      GameState.canSkip = true;
+      EssenceShop();
+      break;
+  }
 }
 
 function CheckForRent(){
@@ -246,6 +320,8 @@ function CheckForRent(){
   //If we don't pay rent this spin, or if we already did
   return true;
 }
+
+
 
 function GetAdjacentIndices(index){
   //It's like a switch but I don't care that much :P
