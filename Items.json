@@ -698,7 +698,7 @@
   "Pool Ball": {
     "Name": "Pool Ball",
     "Rarity": "Common",
-    "Description": "Gives 1 /Coin.",
+    "Description": "Gives 1 /Coin .",
     "Effects": [
       "10 ID GIVES PAY 1 TO ID"
     ],

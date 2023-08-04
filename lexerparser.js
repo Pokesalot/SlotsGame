@@ -286,7 +286,7 @@ function ResolveEffects(){
             checkInd = nextPoint;
             nextPoint = getNextPoint(checkInd,sym1.imageRotation/45);
         }
-        if(nextPoint != false && nextPoint == GameState.Board.indexOf(sym2)){
+        if(nextPoint !== false && nextPoint == GameState.Board.indexOf(sym2)){
             console.log(`Index ${GameState.Board.indexOf(sym1)} points to index ${GameState.Board.indexOf(sym2)} with point direction ${sym1.imageRotation/45}`)
             return true;
         }else{
