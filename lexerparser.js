@@ -311,7 +311,7 @@ function ResolveEffects(){
                     GameState.Board[checkSym].GetPayout();
                     GameState.Destroyed.push(GameState.Board[checkSym].name);
                     GameState.TempSymbols.push(GameState.Board[checkSym]);
-                    GameState.Board[checkSym].Transform("Empty");
+                    GameState.Board[checkSym] = MakeSymbol("Empty");
                     restartAt100 = true;
                 }
             }
