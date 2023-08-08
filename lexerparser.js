@@ -494,13 +494,13 @@ function ResolveEffects(){
                                     let itmkeys = Object.keys(AllItemsJson);
                                     if(symkeys.indexOf(effectWords[word+1]) != -1){
                                         AddSymbol(effectWords[word+1]);
-                                    }else if(itmkeys.indexOf(effectWords[word+1] != -1)){
+                                    }else if(itmkeys.indexOf(effectWords[word+1]) != -1){
                                         AddItem(effectWords[word+1]);
                                     }else{
                                         let likes = [[],[],[],[]];
-                                        for(let check=0;check<keys.length;check++){
-                                            if(AllSymbolsJson[keys[check]].Tags.indexOf(effectWords[word+1]) != -1){
-                                                likes[["Common","Uncommon","Rare","Very Rare"].indexOf(AllSymbolsJson[keys[check]].Rarity)].push(AllSymbolsJson[keys[check]].Name)
+                                        for(let check=0;check<symkeys.length;check++){
+                                            if(AllSymbolsJson[symkeys[check]].Tags.indexOf(effectWords[word+1]) != -1){
+                                                likes[["Common","Uncommon","Rare","Very Rare"].indexOf(AllSymbolsJson[symkeys[check]].Rarity)].push(AllSymbolsJson[symkeys[check]].Name)
                                             }
                                         }
                                         let rare = GetRarity()
