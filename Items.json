@@ -499,11 +499,11 @@
   "Kyle the Kernite": {
     "Name": "Kyle the Kernite",
     "Rarity": "Common",
-    "Description": "and  give 1 more.",
+    "Description": " /kylelike give 1 more.",
     "Effects": [
-      ""
+      "15 ID GIVES PAY 1 TO kylelike"
     ],
-    "Tags": []
+    "Tags": ["basegame"]
   },
   "Lefty the Rabbit": {
     "Name": "Lefty the Rabbit",

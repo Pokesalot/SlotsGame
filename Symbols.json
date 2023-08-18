@@ -152,7 +152,7 @@
 		"Payout": "2",
 		"Name": "Big Ore",
 		"Tags": [
-			"basegame","archlike","minerlike"
+			"basegame","archlike","minerlike","kylelike"
 		],
 		"Description": "Adds 2 /gem when destroyed.",
 		"Effects": [
@@ -1316,7 +1316,7 @@
 		"Payout": "1",
 		"Name": "Ore",
 		"Tags": [
-			"basegame","archlike","minerlike"
+			"basegame","archlike","minerlike","kylelike"
 		],
 		"Description": "Adds /gem when destroyed.",
 		"Effects": [
@@ -1583,7 +1583,7 @@
 		"Payout": "1",
 		"Name": "Shiny Pebble",
 		"Tags": [
-			"basegame","raritylike","archlike","gem"
+			"basegame","raritylike","archlike","gem","kylelike"
 		],
 		"Description": "You are 1.1x more likely to find Uncommon, Rare, and Very Rare symbols.",
 		"Effects": [],
