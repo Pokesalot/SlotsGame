@@ -43,15 +43,17 @@ function spin() {
   GameState.canSkip = true;
   //Charge the player a coin to spin the wheel
   GameState.PlayerCoins -= GameState.CostToSpin; GameState.Spins++;
+  let SaveEmpties = false;
+  if(GameState.PlayerSymbols.length == 0){
+    SaveEmpties = true;
+  }
 
   //Load all symbols from the board into the symbol collection
   while(GameState.Board.length > 0){ 
       let hold = GameState.Board.pop();
-      if(hold.name == "Empty"){
-        GameState.PlayerSymbols.push(MakeSymbol("Empty"))
-      }else{
-        GameState.PlayerSymbols.push(hold);
-      }   
+      if(hold.name != "Empty" || SaveEmpties){
+        GameState.PlayerSymbols.push(hold)
+      }
   }
 
   //Fill the board randomly with symbols just added to the pool. This should mitigate not having enough symbols to shuffle in.
